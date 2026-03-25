@@ -1,0 +1,12 @@
+<header class="site-header">
+  <div class="container">
+    <a href="{{ '/' | relative_url }}" class="site-logo">
+      <img src="{{ '/assets/img/3po_logo_main.png' | relative_url }}" alt="3PO" class="logo-img">
+      <span class="logo-tagline">Crafting Your Tomorrow</span>
+    </a>
+    <nav class="site-nav">
+      <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>CHRONOS</a>
+      <a href="https://github.com/3PO-3D" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>

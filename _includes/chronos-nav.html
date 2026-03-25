@@ -1,0 +1,10 @@
+<nav class="chronos-nav">
+  <div class="container">
+    <a href="{{ '/chronos/' | relative_url }}"{% if page.url == '/chronos/' or page.url == '/chronos/index.html' %} class="active"{% endif %}>Overview</a>
+    <a href="{{ '/chronos/features/' | relative_url }}"{% if page.url contains '/chronos/features' %} class="active"{% endif %}>Features</a>
+    <a href="{{ '/chronos/workflow/' | relative_url }}"{% if page.url contains '/chronos/workflow' %} class="active"{% endif %}>How It Works</a>
+    <a href="{{ '/chronos/branching/' | relative_url }}"{% if page.url contains '/chronos/branching' %} class="active"{% endif %}>Branching</a>
+    <a href="{{ '/chronos/roadmap/' | relative_url }}"{% if page.url contains '/chronos/roadmap' %} class="active"{% endif %}>Roadmap</a>
+    <a href="{{ '/chronos/get-it/' | relative_url }}"{% if page.url contains '/chronos/get-it' %} class="active"{% endif %}>Get It</a>
+  </div>
+</nav>

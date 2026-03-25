@@ -1,0 +1,47 @@
+title: "3PO"
+tagline: "Crafting Your Tomorrow"
+description: "Tools for 3D artists and creative pipelines."
+url: "https://3po-3d.github.io"
+baseurl: ""
+author: "3PO"
+github_username: "3PO-3D"
+
+# No gem theme — fully custom layouts
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Page defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page
+  - scope:
+      path: "index.md"
+    values:
+      layout: home
+  - scope:
+      path: "chronos/index.md"
+    values:
+      layout: chronos-home
+  - scope:
+      path: "chronos"
+      type: pages
+    values:
+      layout: chronos
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - .vscode
+  - .dist
+  - README.md
+  - "*.sh"
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+permalink: pretty
