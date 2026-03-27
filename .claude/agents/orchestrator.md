@@ -39,7 +39,13 @@ Execute these steps in order before saying anything else:
    Path: `D:\Dropbox\[3PO]_CodeVault\Projects\CHRONOS\02_ROADMAP\roadmap.md`
    → Check strategic roadmap for launched features not yet on site
 
-6. Produce the audit report in this format:
+6. Check vault sync state
+   → Read `_sync_state` from the publish stepmap
+   → For each file in `_sync_state.vault_files`, check the file's current modification time
+   → If any file's mtime is newer than the stored timestamp → flag as "VAULT DRIFT"
+   → This detects when vault source files have been edited since the last site deploy
+
+7. Produce the audit report in this format:
 
 ```
 ═══════════════════════════════════════════════════
@@ -47,6 +53,11 @@ ORCHESTRATOR — SITE AUDIT REPORT
 Active publish step: [id] — [title]
 CHRONOS_Project state: [active step] — [feature state]
 ═══════════════════════════════════════════════════
+
+VAULT DRIFT (auto-detected)
+───────────────────────────
+[List any vault files modified since last sync]
+[If none: "No vault drift detected."]
 
 CONTENT DRIFT
 ─────────────
@@ -99,13 +110,14 @@ When auditing, verify the site uses these correctly:
 
 | Term | Correct Meaning | Common Error |
 |---|---|---|
-| **Generation** | Named variation state holding Variable values | Confused with Branch |
-| **Branch** | Organizational container grouping Variables | Confused with Generation |
-| **Variable** | Individual tracked parameter (per-Generation values) | Called "parameter" or "property" |
 | **Context** | Top-level scope = C4D Take | Not explained at all |
-| **BLUEPRINT** | Auto-created immutable default per Context | Called "base" or "default" |
-| **LINKED_PARENT** | Dynamic inheritance — live, sparse, parent changes flow | Called just "parent" |
-| **BAKED_PARENT** | Isolated snapshot — frozen, sealed, lineage firewall | Called "copy" or "duplicate" |
+| **Blueprint** | Auto-created immutable root Generation per Context — source of truth | Called "base" or "default" |
+| **Registry** | Where Variables are registered and organised globally | Not mentioned |
+| **Variable** | Registered in Registry, overridden per-Generation | Called "parameter" or "property" |
+| **Generation** | Named variation state — overrides registered Variables | Confused with Branch |
+| **Branch** | Subtree of Generations, rooted at Blueprint or Baked parent | Confused with variable group |
+| **Link** | LINKED_PARENT — live inheritance, sparse, parent changes flow | Called "dynamic" or just "parent" |
+| **Bake** | BAKED_PARENT — frozen snapshot, sealed, lineage firewall | Called "copy", "duplicate", or "isolated" |
 
 ---
 

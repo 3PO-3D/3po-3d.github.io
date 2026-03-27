@@ -14,7 +14,9 @@
       "Bash(mkdir *)",
       "Bash(curl *)",
       "Bash(bundle exec:*)",
-      "Bash(cmd //c \"bundle exec jekyll build\")"
+      "Bash(cmd //c \"bundle exec jekyll build\")",
+      "Bash(gh run:*)",
+      "WebFetch(domain:3po-3d.github.io)"
     ],
     "additionalDirectories": [
       "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Site\\.claude",
@@ -22,7 +24,8 @@
       "d:\\Dropbox\\[3PO]_CodeVault\\HELPERS",
       "d:\\Dropbox\\[3PO]_CodeVault\\Projects\\CHRONOS\\01_PROJECT",
       "d:\\Dropbox\\[3PO]_CodeVault\\Projects\\CHRONOS\\02_ROADMAP",
-      "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Project\\.claude"
+      "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Project\\.claude",
+      "d:\\Dropbox\\[3PO]_CodeVault\\Projects\\CHRONOS\\10_PLANS\\implementation_plans"
     ]
   }
 }

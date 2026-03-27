@@ -57,6 +57,19 @@ SUMMARY
   Orphaned: N pages
 ```
 
+## Post-Deploy Sync Update
+
+After a successful deploy (commit pushed, GitHub Pages build green), update `_sync_state` in `publish_stepmap.json`:
+
+1. Get the current git HEAD hash → write to `_sync_state.last_deploy_commit`
+2. Get the current timestamp → write to `_sync_state.last_sync_at`
+3. For each file in `_sync_state.vault_files`:
+   - Stat the file to get its current modification time
+   - Write the ISO timestamp to `_sync_state.vault_files[path]`
+4. Save the updated `publish_stepmap.json`
+
+This ensures the next session's orchestrator boot will accurately detect which vault files changed since the last deploy.
+
 ## Notes
 - Obsidian wikilinks in vault will not match Jekyll markdown links on site — this is expected, not drift
 - Callout blocks (`> [!info]`) in vault vs HTML on site — expected conversion, not drift
