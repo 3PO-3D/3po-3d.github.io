@@ -10,8 +10,25 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="icon" type="image/png" href="{{ '/assets/img/3po_icon.png' | relative_url }}">
+  <script>
+    (function() {
+      var t = localStorage.getItem('theme') || 'gold-burgundy';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 <body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var sel = document.getElementById('theme-switcher');
+      if (!sel) return;
+      sel.value = localStorage.getItem('theme') || 'gold-burgundy';
+      sel.addEventListener('change', function() {
+        document.documentElement.setAttribute('data-theme', this.value);
+        localStorage.setItem('theme', this.value);
+      });
+    });
+  </script>
   {% include header.html %}
   {{ content }}
   {% include footer.html %}

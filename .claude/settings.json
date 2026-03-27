@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//d/0._3D_Dev/1._PROJECTS/4._PLUGINS/**)",
+      "Read(//d/0._3D_Dev/1._PROJECTS/**)",
+      "Read(//d/0._3D_Dev/**)",
+      "Read(//d/Dropbox/**)",
+      "Write(//d/Dropbox/[3PO]_CodeVault/Projects/CHRONOS/09_PUBLISH/**)",
+      "Edit(//d/Dropbox/[3PO]_CodeVault/HELPERS/CLAUDE.md)",
+      "Bash(bundle exec jekyll build)",
+      "Bash(bundle exec jekyll serve)",
+      "Bash(git *)",
+      "Bash(ls *)",
+      "Bash(mkdir *)",
+      "Bash(curl *)",
+      "Bash(bundle exec:*)",
+      "Bash(cmd //c \"bundle exec jekyll build\")"
+    ],
+    "additionalDirectories": [
+      "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Site\\.claude",
+      "d:\\Dropbox\\[3PO]_CodeVault\\Projects\\CHRONOS\\09_PUBLISH",
+      "d:\\Dropbox\\[3PO]_CodeVault\\HELPERS",
+      "d:\\Dropbox\\[3PO]_CodeVault\\Projects\\CHRONOS\\01_PROJECT",
+      "d:\\Dropbox\\[3PO]_CodeVault\\Projects\\CHRONOS\\02_ROADMAP",
+      "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Project\\.claude"
+    ]
+  }
+}

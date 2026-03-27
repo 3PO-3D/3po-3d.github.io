@@ -25,35 +25,33 @@ Before CHRONOS, managing scene variations in Cinema 4D meant one of two things: 
 
 Go to **Plugins → CHRONOS → Open Dashboard**. The panel docks inside Cinema 4D like any other panel. Pin it to the right side, drop it on a second monitor — wherever you work best.
 
-The dashboard opens in its empty state, waiting to connect to your scene. Click **Activate**. CHRONOS connects to your active `.c4d` file and creates your first Generation — `Default` — automatically. Everything from here is live.
+The dashboard opens in its empty state, waiting to connect to your scene. Click **Activate**. C.H.R.O.N.O.S. connects to your active `.c4d` file, creates a Context from your active Take, and auto-generates the **Blueprint** — the immutable root that anchors everything. From here, you're live.
 
-> **Benefit:** No project setup files. No configuration wizards. CHRONOS is live in 10 seconds.
+> **Benefit:** No project setup files. No configuration wizards. C.H.R.O.N.O.S. is live in 10 seconds.
 
 ---
 
-## Step 2 — Define Branches and Variables
+## Step 2 — Register Variables
 
-A **Branch** is how you tell CHRONOS what to track — a named group that maps to a system in your scene: a light rig, a material set, a camera.
-
-Create a Branch called `Key_Light`. Inside it, add **Variables** — the specific parameters you want CHRONOS to remember per Generation:
+Open the **Registry** panel. This is where you tell C.H.R.O.N.O.S. what to track. Register the **Variables** — the specific parameters you want to manage across Generations:
 
 - `Intensity` — Float
 - `Colour` — Colour
 - `Enabled` — Boolean
 
-Add more Branches as you need them — one per light, one per material group, one per camera setting.
+Organise Variables into named groups (`Key_Light`, `Materials`, `Camera`) to keep the Registry tidy. Variables are registered globally — every Generation in the Context can see and override them.
 
-> **Benefit:** You only track what matters. CHRONOS doesn't auto-capture your whole scene — you tell it exactly what to manage. Fast, lightweight, and in your control.
+> **Benefit:** You only track what matters. C.H.R.O.N.O.S. doesn't auto-capture your whole scene — you register exactly the parameters you want to manage. Fast, lightweight, and in your control.
 
 ---
 
 ## Step 3 — Create Generations
 
-A **Generation** is a named variation context. Create as many as you need — each one holds its own independent set of Variable values.
+A **Generation** is a named variation state. Create one from the Blueprint — choose **Link** to inherit live, or **Bake** to capture a frozen snapshot.
 
-Create a second Generation: `Turntable_White`. Set the values for `Hero_Lighting` — warm key light, high intensity, rich colour. The viewport reflects the state live.
+Create a Generation called `Hero_Lighting`. Override the Variables you want different from the Blueprint — set a warm key light, high intensity, rich colour. Everything you don't override stays inherited from the parent. The viewport reflects the active Generation live.
 
-> **Benefit:** Each Generation is self-contained. Values are stored, not applied destructively. You can always return to any state, instantly.
+> **Benefit:** Each Generation only stores what you've changed. Values are stored, not applied destructively. You can always return to any state, instantly.
 
 ---
 
@@ -61,9 +59,11 @@ Create a second Generation: `Turntable_White`. Set the values for `Hero_Lighting
 
 Click `Turntable_White` in the dashboard. CHRONOS applies all values to the scene in one clean pass. No undo, no manual reset — just a different state, immediately.
 
-Need a variation of a variation? Use **Inheritance** — a child Generation starts with its parent's values and only overrides what's different.
+Need a variation of a variation? Choose a parent Generation and click **Link**. The new child starts empty — it inherits live from the parent and only stores what you override.
 
-Override a single value in the child — swap the key light colour from gold to blue. Everything else still follows the parent. Change a value on the parent: every child that hasn't explicitly overridden it updates automatically.
+Override a single value in the child — swap the key light colour from gold to blue. Everything else still follows the parent. Change a value on the parent: every Linked child that hasn't explicitly overridden it updates automatically.
+
+Need to lock a state? Click **Bake** instead. The child captures the parent's full resolved state and freezes it. From that point, nothing upstream can change it — a sealed deliverable.
 
 > **Benefit:** Manage 12 colour variants from a single parent. Change the base lighting once — everything downstream updates. What used to take an hour takes one click.
 
@@ -81,10 +81,14 @@ The critical point — your Cinema 4D scene stays **completely clean**. No dupli
 
 | Concept | What It Is |
 |---|---|
-| **Generation** | A named variation context — one possible state of your scene |
-| **Branch** | A named grouping of Variables, typically one per scene system |
-| **Variable** | A single tracked parameter with a name, type, and per-Generation value |
-| **Inheritance** | A Generation can inherit from a parent, overriding only what it needs |
+| **Context** | The active Take in Cinema 4D — C.H.R.O.N.O.S. reads from and writes to the active Context |
+| **Blueprint** | The immutable root Generation, auto-created per Context — the source of truth everything traces back to |
+| **Registry** | The panel where you register and organise the Variables that C.H.R.O.N.O.S. tracks |
+| **Variable** | A single tracked parameter with a name and type — registered globally, overridden per-Generation |
+| **Generation** | A named variation state — overrides only the Variables you change, inherits the rest |
+| **Branch** | A subtree of Generations — rooted at a Blueprint or a Baked parent |
+| **Link** | A child Generation that inherits live from its parent — parent changes flow downstream automatically |
+| **Bake** | A child Generation that captures its parent's resolved state and freezes it permanently |
 
 ---
 

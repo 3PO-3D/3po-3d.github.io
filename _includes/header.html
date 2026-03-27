@@ -5,8 +5,15 @@
       <span class="logo-tagline">Crafting Your Tomorrow</span>
     </a>
     <nav class="site-nav">
-      <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>CHRONOS</a>
+      <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>C.H.R.O.N.O.S.</a>
       <a href="https://github.com/3PO-3D" target="_blank" rel="noopener">GitHub ↗</a>
+      <select class="theme-switcher" id="theme-switcher" aria-label="Select theme">
+        <option value="gold-burgundy">Gold + Burgundy</option>
+        <option value="muted-gold">Muted Gold</option>
+        <option value="oxidized-terminal">Oxidized Terminal</option>
+        <option value="deep-space">Deep Space</option>
+        <option value="burnt-film">Burnt Film</option>
+      </select>
     </nav>
   </div>
 </header>

@@ -19,8 +19,8 @@ CHRONOS is built to grow. V1 ships the core variation system. Every release afte
     <p>Everything you need to manage scene variations inside Cinema 4D.</p>
     <ul>
       <li>Named Generations — create, switch, delete, rename</li>
-      <li>Dynamic Inheritance — live parent–child value chains</li>
-      <li>Isolated Snapshots — sealed, frozen deliverables</li>
+      <li>Link — live parent–child inheritance</li>
+      <li>Bake — sealed, frozen deliverables</li>
       <li>Branch and Variable system — track exactly what you choose</li>
       <li>Custom topology — flat, chain, or any tree shape</li>
       <li>Non-destructive write layer — zero scene corruption risk</li>

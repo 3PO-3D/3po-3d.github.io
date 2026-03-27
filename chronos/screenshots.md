@@ -1,6 +1,6 @@
 ---
-layout: default
 title: "C.H.R.O.N.O.S. — See It In Action"
+description: "Screenshots and demos of C.H.R.O.N.O.S. running inside Cinema 4D."
 ---
 
 # See It In Action
@@ -11,7 +11,7 @@ title: "C.H.R.O.N.O.S. — See It In Action"
 
 ## Dashboard Overview
 
-> *Screenshot: CHRONOS dashboard docked in Cinema 4D, showing a scene with 3 Branches and 4 Generations*
+> *Screenshot: C.H.R.O.N.O.S. dashboard docked in Cinema 4D, showing a scene with 3 Branches and 4 Generations*
 
 ---
 
@@ -23,14 +23,21 @@ title: "C.H.R.O.N.O.S. — See It In Action"
 
 ## Inheritance in Action
 
-> *Screenshot: tree view showing a parent Generation with 3 child Generations, one variable overridden in a child*
+> *Screenshot: tree view showing a parent Generation with 3 Linked children, one Variable overridden locally*
 
 ---
 
-## Demo Video
+## Link vs. Bake
 
-> *"Soft vs. Hard Branching" — 2 minute demo video showing linked vs baked generations*
+> *2-minute demo: creating a Linked Generation (live inheritance from parent), then creating a Baked Generation (frozen snapshot). Show what happens when the parent changes — Linked children update, Baked stays sealed.*
 
 ---
 
-[Get CHRONOS](get-it) | [Back to CHRONOS](./)
+## The Registry
+
+> *Screenshot: the Registry panel showing the full C.H.R.O.N.O.S. tree — Branches, Variables, and their types*
+
+---
+
+[Get C.H.R.O.N.O.S. →]({{ '/chronos/get-it/' | relative_url }})
+&nbsp;&nbsp;[Back to C.H.R.O.N.O.S. →]({{ '/chronos/' | relative_url }})
