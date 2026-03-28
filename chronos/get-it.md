@@ -86,6 +86,34 @@ A pre-configured starter `.c4d` file is included in the download — a simple th
 
 ---
 
+## First Steps — Workflow in 4 Steps
+
+### Step 1 — Activate
+
+Open the dashboard from **Plugins → CHRONOS → Open Dashboard**. Click **Activate**. CHRONOS connects to your active `.c4d` file, reads the active Take as the Main Context, and auto-generates the Blueprint. You are live.
+
+---
+
+### Step 2 — Register Variables
+
+Open the Registry panel. Create a Branch — name it after the scene system you want to track (`Key_Light`, `Materials`, `Camera`). Add Variables to it: give each one a name and a type. Variables are registered globally — every Generation you create can see and override them.
+
+---
+
+### Step 3 — Create Generations
+
+Create a Generation from the Blueprint. Choose **Link** to inherit live from the Blueprint, or **Bake** to capture a frozen snapshot. Give it a name at creation. Set the values you want different — override only what changes. Everything else is inherited automatically.
+
+---
+
+### Step 4 — Switch and Iterate
+
+Click any Generation in the dashboard. CHRONOS resolves the full value chain and applies it to the scene in one clean pass. Change a value on a parent Generation — every Linked child that hasn’t overridden it reflects the change automatically.
+
+<a href="{{ '/chronos/workflow/' | relative_url }}" class="btn btn-outline">Full How It Works →</a>
+
+---
+
 ## Support
 
 Questions or issues? Use the Gumroad product page messaging — response within 24 hours on business days.

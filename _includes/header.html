@@ -1,18 +1,25 @@
 <header class="site-header">
   <div class="container">
     <a href="{{ '/' | relative_url }}" class="site-logo">
-      <img src="{{ '/assets/img/3po_logo_main.png' | relative_url }}" alt="3PO" class="logo-img">
+      {% if page.url contains '/chronos/' %}
+        <img src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}" alt="3PO" class="logo-img">
+        <img src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_SVG.svg' | relative_url }}" alt="3PO" class="logo-img--white">
+      {% else %}
+        <img src="{{ '/assets/img/V0_3PO_LOGO-HEAD_TRANS.svg' | relative_url }}" alt="3PO" class="logo-img">
+        <img src="{{ '/assets/img/V0_3PO_LOGO-HEAD_TRANS_SVG.svg' | relative_url }}" alt="3PO" class="logo-img--white">
+      {% endif %}
       <span class="logo-tagline">Crafting Your Tomorrow</span>
     </a>
+    {% if page.url contains '/chronos/' %}
+      <img src="{{ '/assets/img/SVG_CHRONOS_gold.svg' | relative_url }}" alt="CHRONOS" class="chronos-text-logo">
+    {% endif %}
     <nav class="site-nav">
       <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>C.H.R.O.N.O.S.</a>
       <a href="https://github.com/3PO-3D" target="_blank" rel="noopener">GitHub ↗</a>
       <select class="theme-switcher" id="theme-switcher" aria-label="Select theme">
         <option value="gold-burgundy">Gold + Burgundy</option>
-        <option value="muted-gold">Muted Gold</option>
         <option value="oxidized-terminal">Oxidized Terminal</option>
         <option value="deep-space">Deep Space</option>
-        <option value="burnt-film">Burnt Film</option>
       </select>
     </nav>
   </div>

@@ -24,20 +24,7 @@ $bw:         1.5px;
   --badge-green: #2D7A4A;
 }
 
-// ─── Theme: Muted Gold + Burgundy ────────────────────────────
-[data-theme="muted-gold"] {
-  --bg: #F0EAE0;
-  --bg-rgb: 240, 234, 224;
-  --surface: #FAF7F0;
-  --text: #663333;
-  --text-rgb: 102, 51, 51;
-  --muted: #8C6B52;
-  --accent: #C49A2A;
-  --accent-rgb: 196, 154, 42;
-  --accent-alt: #B08820;
-  --accent-dark: #A87A18;
-  --badge-green: #2D7A4A;
-}
+// ─── Theme: Muted Gold + Burgundy — REMOVED ─────────────────
 
 // ─── Theme: Oxidized Terminal (dark) ─────────────────────────
 [data-theme="oxidized-terminal"] {
@@ -62,27 +49,14 @@ $bw:         1.5px;
   --text: #E8DDD0;
   --text-rgb: 232, 221, 208;
   --muted: #A08070;
-  --accent: #40E0C0;
-  --accent-rgb: 64, 224, 192;
-  --accent-alt: #DDAA33;
-  --accent-dark: #30B898;
+  --accent: #DDAA33;
+  --accent-rgb: 221, 170, 51;
+  --accent-alt: #40E0C0;
+  --accent-dark: #C49A2A;
   --badge-green: #4ADE80;
 }
 
-// ─── Theme: Burnt Film (dark) ────────────────────────────────
-[data-theme="burnt-film"] {
-  --bg: #140E0E;
-  --bg-rgb: 20, 14, 14;
-  --surface: #221818;
-  --text: #E0D4C8;
-  --text-rgb: 224, 212, 200;
-  --muted: #9A7A6A;
-  --accent: #40E0C0;
-  --accent-rgb: 64, 224, 192;
-  --accent-alt: #DDAA33;
-  --accent-dark: #30B898;
-  --badge-green: #4ADE80;
-}
+// ─── Theme: Burnt Film — REMOVED ────────────────────────────
 
 // ─── Reset ───────────────────────────────────────────────────
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -214,6 +188,27 @@ img {
   display: block;
   border-radius: $radius;
   margin: 1.5rem 0;
+}
+
+// ─── Logo variants ──────────────────────────────────────────
+// .logo-img is the default (transparent/cream face — for light themes)
+// .logo-img--white is swapped in on dark themes via JS (see header.html)
+// .chronos-text-logo is the CHRONOS wordmark SVG shown in header on /chronos/ routes
+.logo-img--white { display: none; }
+
+[data-theme="oxidized-terminal"],
+[data-theme="deep-space"] {
+  .logo-img         { display: none; }
+  .logo-img--white  { display: block; }
+}
+
+.chronos-text-logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  margin-left: 1.25rem;
+  opacity: 0.9;
+  flex-shrink: 0;
 }
 
 // ─── Header ─────────────────────────────────────────────────
@@ -567,7 +562,7 @@ img {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 3rem;
-  align-items: end;
+  align-items: start;
   margin-top: 2.5rem;
 
   .hero-cta {
