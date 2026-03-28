@@ -7,7 +7,7 @@ description: "Every topology CHRONOS supports — Flat Star, Linear Chain, Custo
 
 Every variation system in CHRONOS is a tree. This page shows every shape that tree can take — with diagrams — and explains when to use each one.
 
----
+<hr class="sep-accent">
 
 ## The Two Inheritance Modes
 
@@ -41,7 +41,8 @@ From that point it is sealed. No parent change can reach it. The inheritance cha
 ![Baked Generation — sealed at creation]({{ '/assets/screenshots/ss_04_baked_generation.png' | relative_url }})
 *BAKE checked, LINK unchecked — every Variable holds an explicit baked-in value. The lineage firewall is active.*
 
----
+<hr class="sep-major">
+<hr class="sep-accent">
 
 ## The Four Topologies
 
@@ -249,7 +250,7 @@ Cinema 4D's architecture means CHRONOS V1 has one root Context — the Main Take
 
 This is the current workaround for the V1 single-root limitation. V3 introduces native multi-root Context support.
 
----
+<hr class="sep-major">
 
 ## What Happens on a Generation Switch
 
@@ -261,7 +262,7 @@ When you click a different Generation in the dashboard, CHRONOS:
 
 The result: an instant, clean state switch. No undo required. The history of every Variable is preserved.
 
----
+<hr class="sep-thin">
 
 ## Forward Rollback
 

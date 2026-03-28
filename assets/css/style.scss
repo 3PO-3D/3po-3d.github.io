@@ -934,3 +934,186 @@ img {
     margin: 0;
   }
 }
+
+// ─── Screenshots ─────────────────────────────────────────────
+// Constrains all inline screenshots to a readable, non-pixelated size.
+// .screenshot-tray wraps the image in a surface panel (optional, recommended).
+.screenshot-tray {
+  background: var(--surface);
+  border: $bw solid rgba(var(--text-rgb), 0.2);
+  border-radius: $radius;
+  padding: 1.25rem;
+  margin: 2rem 0;
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 680px;
+    width: 100%;
+    height: auto;
+    border-radius: $radius;
+    border: $bw solid rgba(var(--text-rgb), 0.1);
+  }
+
+  figcaption {
+    font-family: $font-mono;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 0.85rem;
+    line-height: 1.55;
+  }
+}
+
+// Bare screenshot (no tray) — still constrained + framed
+.page-content img[src*="screenshots"],
+.screenshot {
+  display: block;
+  max-width: 680px;
+  width: 100%;
+  height: auto;
+  margin: 1.75rem auto;
+  border: $bw solid rgba(var(--text-rgb), 0.15);
+  border-radius: $radius;
+  background: var(--surface);
+}
+
+// Screenshot caption — italic em directly after screenshot img
+.page-content img[src*="screenshots"] + em,
+.screenshot + em {
+  display: block;
+  font-style: normal;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-align: center;
+  margin-top: -1rem;
+  margin-bottom: 1.75rem;
+  line-height: 1.55;
+}
+
+// ─── Separator Vocabulary ─────────────────────────────────────
+//
+// Five semantic separator types. Use instead of raw <hr>.
+//
+// TYPE 1 — .sep-thin     : Quiet rhythm. Between sub-sections within same topic.
+// TYPE 2 — .sep-major    : Chapter break. Between major named sections.
+// TYPE 3 — .sep-accent   : Accent marker. Opens a key concept or feature block.
+// TYPE 4 — .sep-ghost    : Breathing room only. Dense lists, between minor items.
+// TYPE 5 — .sep-labeled  : Named group header. Roadmap phases, category callouts.
+
+// Override default <hr> to match type 1 base behaviour
+hr {
+  border: none;
+  border-top: $bw solid rgba(var(--text-rgb), 0.15);
+  margin: 2.5rem 0;
+}
+
+.sep-thin {
+  border: none;
+  border-top: $bw solid rgba(var(--text-rgb), 0.15);
+  margin: 2.5rem 0;
+}
+
+.sep-major {
+  border: none;
+  border-top: $bw solid var(--text);
+  margin: 3.5rem 0;
+}
+
+.sep-accent {
+  border: none;
+  height: 3px;
+  margin: 2.75rem 0 2rem;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    flex: 1;
+    height: $bw;
+    background: rgba(var(--text-rgb), 0.1);
+  }
+}
+
+.sep-ghost {
+  border: none;
+  height: 1px;
+  background: rgba(var(--text-rgb), 0.06);
+  margin: 1.5rem 0;
+}
+
+.sep-labeled {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 3rem 0 2.5rem;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: $bw;
+    background: rgba(var(--text-rgb), 0.15);
+  }
+
+  .sep-label-text {
+    font-family: $font-mono;
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+}
+
+// ─── About RBL (maker section on 3PO home) ────────────────────
+// Continuation of .about-strip — lighter border, smaller vertical padding,
+// slightly smaller lead text. Feels like an addendum, not a new chapter.
+.about-rbl {
+  padding: 3.5rem 0 5rem;
+  border-top: $bw solid rgba(var(--text-rgb), 0.08);
+
+  p.lead {
+    font-size: 1rem;
+    max-width: 560px;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+
+  .section-label {
+    margin-bottom: 1.25rem;
+  }
+}
+
+// ─── Responsive adjustments ───────────────────────────────────
+@media (max-width: 768px) {
+  .screenshot-tray {
+    padding: 0.75rem;
+    img { max-width: 100%; }
+  }
+
+  .sep-accent {
+    margin: 2rem 0 1.5rem;
+  }
+
+  .about-rbl {
+    padding: 2.5rem 0 3.5rem;
+  }
+}

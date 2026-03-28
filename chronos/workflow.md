@@ -5,6 +5,7 @@ description: "The CHRONOS model explained from the ground up — Generations, Va
 
 # How It Works
 
+<hr class="sep-accent">
 <h2 class="section-heading">The Model</h2>
 
 Before you open the dashboard, it helps to understand what CHRONOS is actually managing. These concepts build on each other — read them in order.
@@ -63,8 +64,8 @@ When you switch Takes in Cinema 4D, CHRONOS switches with it — reading from an
 
 Each Context has its own full Branch and Generation tree. The V1 constraint is two levels of Context depth (Main + one level of children). This dissolves in V3.
 
----
-
+<hr class="sep-major">
+<hr class="sep-accent">
 <h2 class="section-heading">The Dashboard</h2>
 
 ![CHRONOS Blueprint — immutable root Generation]({{ '/assets/screenshots/ss_05_blueprint.png' | relative_url }})
@@ -93,8 +94,8 @@ Everything in the dashboard reflects the active Take. Switch Takes in Cinema 4D 
 ![Baked Generation — all values sealed at creation]({{ '/assets/screenshots/ss_04_baked_generation.png' | relative_url }})
 *A Baked Generation — BAKE checked, LINK unchecked. Every Variable holds an explicit baked-in value. No parent change can reach this Generation.*
 
----
-
+<hr class="sep-major">
+<hr class="sep-accent">
 <h2 class="section-heading">The Registry</h2>
 
 The **Registry** is a separate panel where you define what CHRONOS tracks. This is where you create Branches and add Variables to them.
@@ -105,8 +106,8 @@ Supported Variable types: Number (integer or float), Colour, Vector, Boolean, St
 
 The Registry is intentional by design. CHRONOS does not auto-capture your scene. You register exactly the parameters you want to manage — no more. This keeps the system fast, predictable, and under your control regardless of scene complexity.
 
----
-
+<hr class="sep-major">
+<hr class="sep-accent">
 <h2 class="section-heading">The Workflow in 4 Steps</h2>
 
 ---
@@ -141,7 +142,7 @@ Click any Generation in the dashboard. CHRONOS resolves the full value chain —
 
 Change a value on a parent Generation. Every Linked child that hasn't overridden that Variable reflects the change automatically. Baked Generations are unaffected — they are sealed.
 
----
+<hr class="sep-major">
 
 ## Key Concepts
 

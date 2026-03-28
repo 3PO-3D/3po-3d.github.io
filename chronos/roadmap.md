@@ -7,7 +7,7 @@ description: "V1 feature status and the full planned arc — from import/export 
 
 CHRONOS is built to grow. V1 ships the core variation system. Every release after it expands the reach of that system — into new workflows, new platforms, and new scales.
 
----
+<hr class="sep-accent">
 
 ## V1 — Core Plugin
 <span class="badge live">Live</span>
@@ -28,7 +28,7 @@ Everything you need to manage scene variations inside Cinema 4D.
 | CHRONOS Dashboard — dockable C4D panel | ✅ |
 | macOS and Windows support | ✅ |
 
----
+<div class="sep-labeled"><span class="sep-label-text">V1.1 and beyond — planned releases</span></div>
 
 <div class="roadmap-list">
 
@@ -112,12 +112,12 @@ Everything you need to manage scene variations inside Cinema 4D.
 
 </div>
 
----
+<hr class="sep-major">
 
 > CHRONOS is built on one idea: **your scene should never be held hostage by a variation workflow.**
 > No duplicate files. No manual state management. No destructive changes. Always non-destructive. Always expanding.
 
----
+<hr class="sep-thin">
 
 [How It Works →]({{ '/chronos/workflow/' | relative_url }})
 &nbsp;&nbsp;[Get CHRONOS →]({{ '/chronos/get-it/' | relative_url }})
