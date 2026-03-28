@@ -39,7 +39,7 @@ Variables are organised into **Branches** in the Registry panel.
 
 A **Branch** is a named grouping of Variables mapped to one system in your scene — a light rig, a material set, a camera configuration, a set of object properties. You create Branches in the Registry panel to keep your tracked parameters organised.
 
-Every Variable added through the Registry is added to the root of its Branch. One Context can hold as many Branches as your scene has systems worth tracking. Branches are independent of each other.
+Every Variable added through the Registry is added to the root of its Branch and to the Blueprint simultaneously — it becomes part of the global Variable contract. One Context can hold as many Branches as your scene has systems worth tracking. Branches are independent of each other.
 
 ---
 
@@ -84,7 +84,7 @@ Everything in the dashboard reflects the active Take. Switch Takes in Cinema 4D 
 
 The **Registry** is a separate panel where you define what CHRONOS tracks. This is where you create Branches and add Variables to them.
 
-To add a Variable: open the Registry, select or create a Branch, add a Variable and give it a name and type. That Variable is immediately available in every Generation of the active Context. Every Variable added is placed at the root of its Branch.
+To add a Variable: open the Registry, select or create a Branch, add a Variable and give it a name and type. Every Variable is added to the root of its Branch and to the Blueprint simultaneously — Variable addition is global. That Variable is immediately available in every Generation of every Context. This is by design: Variables are a global contract across the entire project, not local to a single Generation or Context.
 
 Supported Variable types: Number (integer or float), Colour, Vector, Boolean, String, Object reference.
 
