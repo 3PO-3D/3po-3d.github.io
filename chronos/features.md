@@ -7,9 +7,9 @@ description: "Everything C.H.R.O.N.O.S. V1 ships with — Generations, Branches,
 
 ## Generations — Named Scene States
 
-A **Generation** is a named variation state. It can override any Variable you've registered in the Registry — and only stores the values you've actually changed. Everything else is inherited from its parent.
+A **Generation** is a named variation state. It holds its own independent values for every Variable you've registered — and only stores the values you've actually changed from its parent. Everything else is inherited live. The exception is a Baked Generation, which stores the full resolved state at creation time and freezes it permanently.
 
-Create as many as your project needs. Name them for what they represent: `Hero_Lighting`, `Ecom_White`, `Dark_Mood`, `Client_v3`. Switch between them instantly inside Cinema 4D. Switching never overwrites anything. You can always go back.
+Create as many as your project needs. Name them for what they represent: `Hero_Lighting`, `Ecom_White`, `Dark_Mood`, `Client_v3`. Switch between them instantly. Switching never overwrites anything. You can always go back.
 
 > **Why it matters:** The days of `scene_hero_FINAL_v4.c4d` sitting next to `scene_turntable_v2_USE_THIS.c4d` are over. Every version lives in one file — named, switchable, and permanent.
 
@@ -17,9 +17,9 @@ Create as many as your project needs. Name them for what they represent: `Hero_L
 
 ## The Registry — Track What You Choose
 
-The **Registry** is where you define what C.H.R.O.N.O.S. tracks. Open the Registry panel and register the **Variables** you want to manage — the individual parameters your Generations will override.
+The **Registry** is where you define what C.H.R.O.N.O.S. tracks. Register the **Variables** you want to manage — the individual parameters your Generations will override.
 
-Each Variable has a name and a type. You can organise Variables into named groups (e.g., `Key_Light`, `Materials`, `Camera`) to keep things tidy. Variables are registered globally — they exist across all Generations. Each Generation then decides which of those Variables to override.
+Each Variable has a name and a type. You can organise Variables into named groups to keep things tidy. Variables are registered globally — they exist across all Generations. Each Generation then decides which of those Variables to override.
 
 **Supported Variable types:**
 
@@ -34,13 +34,13 @@ Each Variable has a name and a type. You can organise Variables into named group
 
 ---
 
-## Branches — Bundles of Generations
+## Branches — Scene Systems, Organised
 
-A **Branch** is a subtree of Generations inside your Context. Every Branch has a root — either the **Blueprint** (the immutable default created automatically per Context) or a **Baked parent** (a frozen snapshot).
+A **Branch** is a named grouping of Variables mapped to one system in your scene — a light rig, a material set, a camera configuration, a set of object properties. It is how you organise what CHRONOS tracks.
 
-Branches let you organise your Generation tree. A single Context can contain multiple Branches, each rooted at a different point in the tree. Think of them as separate lineages — each with its own inheritance chain.
+Inside a Branch, you register the Variables that belong to that system. Branches are independent of each other. One Context can hold as many Branches as your scene has systems worth tracking.
 
-> **Why it matters:** Branches give you structure. One Branch for your client revisions, another for colour exploration, another for locked deliverables — all in the same Context, all independent.
+> **Why it matters:** Branches keep your Registry readable. Instead of a flat list of 40 variables, you have `Key_Light`, `Materials`, `Camera` — each a named grouping that maps to something real in your scene.
 
 ---
 
@@ -50,7 +50,7 @@ A **Context** maps directly to a **Take** in Cinema 4D. When you switch Takes, C
 
 Each Context is a top-level scope. It automatically creates a **Blueprint** — an immutable root Generation that serves as the source of truth. All your Branches, Generations, and registered Variables live inside a Context.
 
-> **Why it matters:** C.H.R.O.N.O.S. doesn't replace Cinema 4D's Take system — it builds on top of it. Your existing Take workflow stays intact.
+C.H.R.O.N.O.S. doesn't replace Cinema 4D's Take system — it builds on top of it. Your existing Take workflow stays intact.
 
 ---
 
@@ -82,11 +82,11 @@ CHRONOS does not prescribe how you build your Generation tree. The shape is enti
 
 | Topology | Description | When to Use |
 |---|---|---|
-| **Flat Star** | All Generations inherit directly from the base | Simple projects, independent variations |
+| **Flat Star** | All Generations inherit directly from the Blueprint | Simple projects, independent variations |
 | **Linear Chain** | Each Generation inherits from the previous | Iterative workflows, client revision rounds |
 | **Custom Tree** | Mix freely — branch wherever you need | Complex projects with multiple variant families |
 
-> **Why it matters:** The system adapts to the project, not the other way around.
+The system adapts to the project, not the other way around.
 
 ---
 
@@ -96,13 +96,11 @@ CHRONOS never modifies your scene objects directly during a Generation switch. A
 
 Your undo history stays clean. Your objects stay exactly as you placed them. CHRONOS is the only thing that changes — and it always changes intentionally.
 
-> **Why it matters:** A tool that can't be trusted not to corrupt your scene isn't a tool — it's a liability. CHRONOS is infrastructure. It stays out of your way until you need it.
-
 ---
 
-## Single File — Everything Included
+## Per-Project Storage
 
-Every Generation, every Branch, every Variable value — stored alongside your `.c4d` file. One project. One file. Nothing scattered across folders. Move the `.c4d` file — the CHRONOS data moves with it.
+CHRONOS stores all Generation data in its own data folder, separate from your `.c4d` file. Data is loaded automatically when you open the matching project. Nothing is embedded in the scene file itself — the two stay independent.
 
 ---
 
@@ -113,14 +111,14 @@ Every Generation, every Branch, every Variable value — stored alongside your `
 | Generation create, switch, delete, rename | ✅ Live |
 | Link — live parent–child inheritance | ✅ Live |
 | Bake — sealed, frozen deliverables | ✅ Live |
-| Variable types: Number, Colour, Vector, Bool, String | ✅ Live |
+| Variable types: Number, Colour, Vector, Bool, String, Object reference | ✅ Live |
 | Registry — variable registration and grouping | ✅ Live |
 | Custom topology — flat, chain, or tree | ✅ Live |
 | CHRONOS Dashboard — dockable C4D panel | ✅ Live |
 | Non-destructive write layer | ✅ Live |
 | macOS and Windows support | ✅ Live |
 | Import / Export presets | 🔵 V1.1 |
-| Standalone desktop dashboard | 🔵 V3 |
+| Standalone Flutter dashboard | 🔵 V3 |
 | Omniverse / USD Bridge | 🔵 V3 |
 
 ---
