@@ -9,18 +9,20 @@ description: "One scene file. Every lighting setup, material state, and configur
     <p class="hero-product-label">A 3PO Project &mdash; Cinema 4D Plugin</p>
     <h1>One scene.<br>Every variation.<br>Nothing lost.</h1>
     <p class="lead">C.H.R.O.N.O.S. lets you manage multiple versions of your scene — lighting setups, material states, object configurations, camera angles — as named, switchable Generations, all inside a single .c4d file. No duplicates. No manual tracking. No destructive changes.</p>
-    <div class="acronym-block">
-      <p class="acronym-line"><span class="acronym-char">C</span>ontextual</p>
-      <p class="acronym-line"><span class="acronym-char">H</span>ierarchy for</p>
-      <p class="acronym-line"><span class="acronym-char">R</span>endering</p>
-      <p class="acronym-line"><span class="acronym-char">O</span>verrides,</p>
-      <p class="acronym-line"><span class="acronym-char">N</span>on-destructive</p>
-      <p class="acronym-line"><span class="acronym-char">O</span>perations &amp;</p>
-      <p class="acronym-line"><span class="acronym-char">S</span>cene-management</p>
-    </div>
-    <div class="hero-cta">
-      <a href="{{ '/chronos/get-it/' | relative_url }}" class="btn btn-accent">Get C.H.R.O.N.O.S.</a>
-      <a href="{{ '/chronos/workflow/' | relative_url }}" class="btn btn-outline">See How It Works</a>
+    <div class="hero-bottom">
+      <div class="acronym-block">
+        <p class="acronym-line"><span class="acronym-char">C</span>ontextual</p>
+        <p class="acronym-line"><span class="acronym-char">H</span>ierarchy for</p>
+        <p class="acronym-line"><span class="acronym-char">R</span>endering</p>
+        <p class="acronym-line"><span class="acronym-char">O</span>verrides,</p>
+        <p class="acronym-line"><span class="acronym-char">N</span>on-destructive</p>
+        <p class="acronym-line"><span class="acronym-char">O</span>perations &amp;</p>
+        <p class="acronym-line"><span class="acronym-char">S</span>cene-management</p>
+      </div>
+      <div class="hero-cta">
+        <a href="{{ '/chronos/get-it/' | relative_url }}" class="btn btn-accent">Get C.H.R.O.N.O.S.</a>
+        <a href="{{ '/chronos/workflow/' | relative_url }}" class="btn btn-outline">See How It Works</a>
+      </div>
     </div>
   </div>
 </section>
@@ -28,9 +30,9 @@ description: "One scene file. Every lighting setup, material state, and configur
 <div class="container">
   <div class="page-content">
 
-## What Sets It Apart
+<h2 class="section-heading">One root. Infinite variations.</h2>
 
-Every variation system in CHRONOS grows from a single immutable root — the Blueprint. From there, you build a tree of Generations. Some stay alive to their parent, inheriting changes automatically. Some are sealed the moment they're created, frozen forever. The shape of that tree is yours to decide.
+Start from a Blueprint — the immutable source of truth. Branch out into Generations that inherit live from their parent, or freeze them into sealed deliverables. The topology is yours to decide.
 
 <div class="feature-grid">
   <div class="feature-card">
@@ -53,16 +55,11 @@ Every variation system in CHRONOS grows from a single immutable root — the Blu
     <h3>Flat or Deep</h3>
     <p>All Generations from one root — a star. Each inheriting from the last — a chain. Both at once, for different parts of the scene — a tree.</p>
   </div>
-  <div class="feature-card">
-    <div class="feature-icon">◈</div>
-    <h3>Built Into C4D</h3>
-    <p>A dockable panel inside Cinema 4D. No external apps, no browser tabs, no round-tripping. Your scene and your variation system in the same place, at the same time.</p>
-  </div>
 </div>
 
----
+<hr class="section-rule">
 
-## The Core System
+<h2 class="section-heading">The Core Concepts</h2>
 
 <div class="glossary-stack">
   <div class="glossary-card"><span class="glossary-term">CONTEXT</span><span class="glossary-def">The active Cinema 4D Take — CHRONOS reads from and writes to whichever Take is open.</span></div>
@@ -74,11 +71,9 @@ Every variation system in CHRONOS grows from a single immutable root — the Blu
   <div class="glossary-card"><span class="glossary-term">BAKE</span><span class="glossary-def">A Generation frozen at creation — permanently sealed from its parent lineage.</span></div>
 </div>
 
-Everything is stored alongside your `.c4d` file. One project, one file, complete history.
+<hr class="section-rule">
 
----
-
-<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 2.5rem;">
+<div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0;">
   <a href="{{ '/chronos/features/' | relative_url }}" class="btn btn-primary">All Features →</a>
   <a href="{{ '/chronos/workflow/' | relative_url }}" class="btn btn-outline">How It Works →</a>
   <a href="{{ '/chronos/branching/' | relative_url }}" class="btn btn-outline">Branching & Inheritance →</a>
