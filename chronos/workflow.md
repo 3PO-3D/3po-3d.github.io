@@ -30,17 +30,19 @@ There is also a third special type:
 
 <h3 class="section-subheading">Variable</h3>
 
-A **Variable** is a single tracked parameter — a number, colour, vector, boolean, string, or object reference. Variables are registered globally across a Context. Every Generation in that Context can see every Variable and choose to override it or inherit it from the parent.
+A **Variable** is a single tracked parameter — a number, colour, vector, boolean, string, or object reference.
 
-Variables are organised into **Branches** in the Registry panel.
+When you create a Variable via the Registry, it is registered **globally** — regardless of which Generation you are currently on. Two things happen simultaneously: the Variable is added to the global registry (making it visible to every Generation in every Context), and a copy is written to the **branch root** — the nearest Blueprint or Baked Generation in the current lineage. The result is that every Generation in the Context can see and override it from that point forward.
+
+Variables are organised into groups in the Registry panel. You cannot add a Variable to a Branch — you add it to the registry, and CHRONOS places it on the branch root automatically.
 
 ---
 
 <h3 class="section-subheading">Branch</h3>
 
-A **Branch** is a named grouping of Variables mapped to one system in your scene — a light rig, a material set, a camera configuration, a set of object properties. You create Branches in the Registry panel to keep your tracked parameters organised.
+A **Branch** is a semantic grouping of Generations that continuously inherit from one another — a lineage. It begins at a branch root (a Blueprint or a Baked Generation) and extends through every Linked child below it. The branch root is the point where inheritance starts; every Generation above it in the tree is part of that branch's lineage.
 
-Every Variable added through the Registry is added to the root of its Branch and to the Blueprint simultaneously — it becomes part of the global Variable contract. One Context can hold as many Branches as your scene has systems worth tracking. Branches are independent of each other.
+Branches are not scene-system containers. They are not defined by what they track — they are defined by their shape: a root and all the Generations that trace back to it. One Context can contain multiple branches if it has multiple Baked roots.
 
 ---
 
@@ -153,7 +155,7 @@ Change a value on a parent Generation. Every Linked child that hasn't overridden
 | **Baked Generation** | Full snapshot — sealed at creation, immune to parent changes |
 | **Blueprint** | Immutable root Generation per Context — auto-created, never editable at runtime |
 | **Variable** | A single tracked parameter with a name and type |
-| **Branch** | A named grouping of Variables mapped to a scene system |
+| **Branch** | A lineage — a branch root and all Generations that continuously inherit from it |
 | **Context** | The active Cinema 4D Take — CHRONOS reads and writes to the active Context |
 | **Active Position** | The currently selected Generation in a Context — what child Contexts inherit from |
 
