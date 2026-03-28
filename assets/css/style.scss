@@ -507,6 +507,12 @@ img {
     white-space: nowrap;
     flex-shrink: 0;
     min-width: 7.5rem;
+    text-decoration: none;
+    &[href]:hover {
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-underline-offset: 3px;
+    }
   }
 
   .glossary-def {
@@ -551,15 +557,47 @@ img {
     font-size: 1.15rem;
     max-width: 620px;
     color: var(--muted);
-    margin-bottom: 2.5rem;
+    margin-bottom: 0;
     line-height: 1.7;
   }
+}
+
+// ─── Hero Bottom (acronym + CTA side by side) ─────────────
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: end;
+  margin-top: 2.5rem;
 
   .hero-cta {
     display: flex;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 0.65rem;
+    align-items: flex-start;
+
+    .btn { white-space: nowrap; }
   }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+    .hero-cta { flex-direction: row; flex-wrap: wrap; }
+  }
+}
+
+// ─── Section Rule + Heading (HTML, not Markdown) ────────────
+.section-rule {
+  border: none;
+  border-top: $bw solid rgba(var(--text-rgb), 0.15);
+  margin: 3rem 0 2.5rem;
+}
+
+.section-heading {
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
 }
 
 // ─── Acronym Block ──────────────────────────────────────────
@@ -658,6 +696,11 @@ img {
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+  &.feature-grid--2col {
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: 600px) { grid-template-columns: 1fr; }
+  }
   gap: $bw;
   border: $bw solid var(--text);
   margin: 2rem 0;

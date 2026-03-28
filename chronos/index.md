@@ -34,7 +34,12 @@ description: "One scene file. Every lighting setup, material state, and configur
 
 Start from a Blueprint — the immutable source of truth. Branch out into Generations that inherit live from their parent, or freeze them into sealed deliverables. The topology is yours to decide.
 
-<div class="feature-grid">
+<div class="feature-grid feature-grid--2col">
+  <div class="feature-card">
+    <div class="feature-icon">⬡</div>
+    <h3>Flat or Deep</h3>
+    <p>All Generations from one root — a star. Each inheriting from the last — a chain. Both at once, for different parts of the scene — a tree.</p>
+  </div>
   <div class="feature-card">
     <div class="feature-icon">◆</div>
     <h3>Blueprint</h3>
@@ -50,11 +55,6 @@ Start from a Blueprint — the immutable source of truth. Branch out into Genera
     <h3>Bake</h3>
     <p>A Generation that captures a fully resolved state and freezes it. Nothing the parent does can change it. A lineage firewall for approved deliverables and client handoffs.</p>
   </div>
-  <div class="feature-card">
-    <div class="feature-icon">⬡</div>
-    <h3>Flat or Deep</h3>
-    <p>All Generations from one root — a star. Each inheriting from the last — a chain. Both at once, for different parts of the scene — a tree.</p>
-  </div>
 </div>
 
 <hr class="section-rule">
@@ -62,13 +62,13 @@ Start from a Blueprint — the immutable source of truth. Branch out into Genera
 <h2 class="section-heading">The Core Concepts</h2>
 
 <div class="glossary-stack">
-  <div class="glossary-card"><span class="glossary-term">CONTEXT</span><span class="glossary-def">The active Cinema 4D Take — CHRONOS reads from and writes to whichever Take is open.</span></div>
-  <div class="glossary-card"><span class="glossary-term">BLUEPRINT</span><span class="glossary-def">The immutable root Generation per Context — the source of truth every other Generation traces back to.</span></div>
-  <div class="glossary-card"><span class="glossary-term">GENERATION</span><span class="glossary-def">A named variation state — each one can override any registered Variable independently.</span></div>
-  <div class="glossary-card"><span class="glossary-term">VARIABLE</span><span class="glossary-def">A single tracked parameter: a number, colour, vector, boolean, or object reference.</span></div>
-  <div class="glossary-card"><span class="glossary-term">BRANCH</span><span class="glossary-def">A subtree of Generations — rooted at a Blueprint or a Baked parent.</span></div>
-  <div class="glossary-card"><span class="glossary-term">LINK</span><span class="glossary-def">A Generation with live inheritance — parent changes flow through automatically.</span></div>
-  <div class="glossary-card"><span class="glossary-term">BAKE</span><span class="glossary-def">A Generation frozen at creation — permanently sealed from its parent lineage.</span></div>
+  <div class="glossary-card"><a class="glossary-term" href="{{ '/chronos/features/#contexts--one-take-one-scope' | relative_url }}">CONTEXT</a><span class="glossary-def">The active Cinema 4D Take — CHRONOS reads from and writes to whichever Take is open.</span></div>
+  <div class="glossary-card"><a class="glossary-term" href="{{ '/chronos/features/#generations--named-scene-states' | relative_url }}">BLUEPRINT</a><span class="glossary-def">The immutable root Generation per Context — the source of truth every other Generation traces back to.</span></div>
+  <div class="glossary-card"><a class="glossary-term" href="{{ '/chronos/features/#generations--named-scene-states' | relative_url }}">GENERATION</a><span class="glossary-def">A named variation state — each one can override any registered Variable independently.</span></div>
+  <div class="glossary-card"><a class="glossary-term" href="{{ '/chronos/features/#the-registry--track-what-you-choose' | relative_url }}">VARIABLE</a><span class="glossary-def">A single tracked parameter: a number, colour, vector, boolean, or object reference.</span></div>
+  <div class="glossary-card"><a class="glossary-term" href="{{ '/chronos/features/#branches--scene-systems-organised' | relative_url }}">BRANCH</a><span class="glossary-def">A subtree of Generations — rooted at a Blueprint or a Baked parent.</span></div>
+  <div class="glossary-card"><a class="glossary-term" href="{{ '/chronos/features/#link--live-parentchild-inheritance' | relative_url }}">LINK</a><span class="glossary-def">A Generation with live inheritance — parent changes flow through automatically.</span></div>
+  <div class="glossary-card"><a class="glossary-term" href="{{ '/chronos/features/#bake--frozen-deliverables' | relative_url }}">BAKE</a><span class="glossary-def">A Generation frozen at creation — permanently sealed from its parent lineage.</span></div>
 </div>
 
 <hr class="section-rule">
