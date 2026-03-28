@@ -1,0 +1,152 @@
+3PO PROJECT - COLOR GRADIENT PRESETS
+Total Presets: 24
+Format: [ID] Name | Redshift Interpolation | Static Logo Hex | Gradient Hex Codes (Slow -> Fast)
+
+================================================================================
+SEGMENT 1: THE ADRENALINE SPIKE (High Energy Start)
+================================================================================
+
+[01] Miami Mutants
+INTERPOLATION: Smooth
+STATIC LOGO:   #1A0B2E
+GRADIENT:      #240046, #3C096C, #7B2CBF, #C77DFF, #00FFFF, #FFFFFF
+
+[02] Final Form
+INTERPOLATION: Smooth
+STATIC LOGO:   #2D0036
+GRADIENT:      #210B2C, #590D82, #B721FF, #FF2E63, #08D9D6, #FFFFFF
+
+================================================================================
+SEGMENT 2: THE ATMOSPHERIC TUNNEL (Moody & Soothing)
+================================================================================
+
+[03] The Loop’s Glow
+INTERPOLATION: Linear
+STATIC LOGO:   #2C3E50
+GRADIENT:      #1B2631, #34495E, #5D6D7E, #D68910, #F1C40F, #FFFFE0
+
+[04] Sepia Tech
+INTERPOLATION: Linear
+STATIC LOGO:   #3E2723
+GRADIENT:      #211510, #5D4037, #8F5A3C, #D9C3A9, #F5EFE6, #FFFFFF
+
+[05] Dusk Machines
+INTERPOLATION: Linear
+STATIC LOGO:   #2C2438
+GRADIENT:      #191020, #4A3050, #7A4F6E, #C06C84, #F67280, #F8B195
+
+================================================================================
+SEGMENT 3: THE GLITCH (Disruption)
+================================================================================
+
+[06] Toxic Avenger
+INTERPOLATION: Smooth
+STATIC LOGO:   #1A1A1A
+GRADIENT:      #190821, #420039, #9D0208, #D00000, #39FF14, #F1FFC4
+
+[07] Oil Slick
+INTERPOLATION: Smooth
+STATIC LOGO:   #1C1C1C
+GRADIENT:      #000000, #4B0082, #2E8B57, #DAA520, #FF69B4, #E6E6FA
+
+================================================================================
+SEGMENT 4: THE TECHNICAL CLIMB (Data & Sci-Fi)
+================================================================================
+
+[08] Halftone Blueprint
+INTERPOLATION: Step (Constant)
+STATIC LOGO:   #1B4F72
+GRADIENT:      #154360, #2980B9, #5DADE2, #85C1E9, #F5F5DC, #FFFFFF
+
+[09] Cyber-Pearl
+INTERPOLATION: Smooth
+STATIC LOGO:   #FFFFFF
+GRADIENT:      #708090, #AEC6CF, #FFB7C5, #FDFD96, #77DD77, #E0FFFF
+
+[10] Thermal Vision
+INTERPOLATION: Step (Constant)
+STATIC LOGO:   #000000
+GRADIENT:      #000033, #0000FF, #800080, #FF0000, #FFFF00, #FFFFFF
+
+================================================================================
+SEGMENT 5: THE RETRO MIX (Nostalgic)
+================================================================================
+
+[11] Rusty Hologram
+INTERPOLATION: Linear
+STATIC LOGO:   #6E2C00
+GRADIENT:      #4A2318, #8B4513, #CD853F, #F4A460, #40E0D0, #E0FFFF
+
+[12] Oxidized Comic
+INTERPOLATION: Linear
+STATIC LOGO:   #4E342E
+GRADIENT:      #3E2723, #8B4513, #B87C4C, #45B39D, #76D7C4, #E8F8F5
+
+[13] Future Chrome
+INTERPOLATION: Smooth
+STATIC LOGO:   #708090
+GRADIENT:      #2C3E50, #7F8C8D, #BDC3C7, #87CEEB, #DA70D6, #FFFFFF
+
+================================================================================
+SEGMENT 6: THE CHAOS RUN (Speed & Fire)
+================================================================================
+
+[14] CMY Crush
+INTERPOLATION: Linear
+STATIC LOGO:   #231F20
+GRADIENT:      #005f73, #00AEEF, #9B4F96, #EC008C, #FFF200, #FFFFFF
+
+[15] Arcade Explosion
+INTERPOLATION: Smooth
+STATIC LOGO:   #4A0404
+GRADIENT:      #330000, #800000, #FF0000, #FF4500, #FFD700, #FFFFE0
+
+[16] Electric Grape
+INTERPOLATION: Smooth
+STATIC LOGO:   #000080
+GRADIENT:      #191970, #483D8B, #8A2BE2, #9400D3, #FF00FF, #FF69B4
+
+================================================================================
+SEGMENT 7: THE DEEP FREEZE (Isolation)
+================================================================================
+
+[17] Sub-Arctic Signal
+INTERPOLATION: Linear
+STATIC LOGO:   #8EA6B4
+GRADIENT:      #0B151C, #1F3A4D, #4A6B8A, #A9CCE3, #E74C3C, #FFFFFF
+
+[18] Deep Space Holo
+INTERPOLATION: Smooth
+STATIC LOGO:   #000000
+GRADIENT:      #000022, #000080, #120A8F, #4169E1, #00FFFF, #7FFFD4
+
+================================================================================
+SEGMENT 8: THE GRAND FINALE (9-Color Extravaganza)
+================================================================================
+
+[19] Concrete & Warning (The Reset)
+INTERPOLATION: Step (Constant)
+STATIC LOGO:   #333333
+GRADIENT:      #1A1A1A, #4D4D4D, #808080, #B3B3B3, #FF8C00, #FFD700
+
+[20] Acid Rain (The Buildup)
+INTERPOLATION: Smooth
+STATIC LOGO:   #2F4F4F
+GRADIENT:      #1B2631, #343a40, #4F6D7A, #9ACD32, #C0EB6A, #FFFFF0
+
+[21] The Turbo-Laser (9 Colors)
+INTERPOLATION: Smooth
+STATIC LOGO:   #000000
+GRADIENT:      #020024, #090979, #00d4ff, #00ff87, #ccff00, #ffbf00, #ff5e00, #ff0000, #ffffff
+
+[22] Miami Overdrive (9 Colors)
+INTERPOLATION: Smooth
+STATIC LOGO:   #2E003E
+GRADIENT:      #240046, #3c096c, #5a189a, #7b2cbf, #9d4edd, #c77dff, #ff006e, #ffbe0b, #3a86ff
+
+[23] Mutagenic Slime (9 Colors)
+INTERPOLATION: Smooth
+STATIC LOGO:   #1A1A1A
+GRADIENT:      #0d0221, #220033, #4d004d, #7209b7, #b5179e, #f72585, #4cc9f0, #4361ee, #72efdd
+
+[24] Holofoil
