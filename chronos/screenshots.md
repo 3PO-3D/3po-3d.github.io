@@ -1,43 +1,48 @@
 ---
 title: "C.H.R.O.N.O.S. — See It In Action"
-description: "Screenshots and demos of C.H.R.O.N.O.S. running inside Cinema 4D."
+description: "Screenshots of C.H.R.O.N.O.S. running inside Cinema 4D."
 ---
 
 # See It In Action
 
-> *Screenshots and demo video will be added at launch.*
+---
+
+## Dashboard and Registry
+
+![CHRONOS Dashboard and Registry]({{ '/assets/screenshots/ss_01_dashboard_overview.png' | relative_url }})
+*Dashboard (left) with a Linked Generation active — Lighting branch showing Fill Light, Global Illumination, and Key Light groups with their Variables. Registry (right) with the full Variable tree, types, and active states.*
 
 ---
 
-## Dashboard Overview
+## Generation List
 
-> *Screenshot: C.H.R.O.N.O.S. dashboard docked in Cinema 4D, showing a scene with 3 Branches and 4 Generations*
-
----
-
-## Generation Switching
-
-> *GIF or short video: clicking between Hero_Lighting, Turntable_White, Dark_Mood, with lights updating in real time*
+![Generation picker]({{ '/assets/screenshots/ss_02_generation_list.png' | relative_url }})
+*The Generation picker open — BLUEPRINT at the root, Linked, Baked, and Fork Point Generations listed. The active Generation shows a checkmark.*
 
 ---
 
-## Inheritance in Action
+## Linked vs Baked
 
-> *Screenshot: tree view showing a parent Generation with 3 Linked children, one Variable overridden locally*
+![Linked Generation]({{ '/assets/screenshots/ss_03_linked_generation.png' | relative_url }})
+*Linked Generation — LINK checked, orange labels show local overrides, plain labels inherit from parent.*
 
----
-
-## Link vs. Bake
-
-> *2-minute demo: creating a Linked Generation (live inheritance from parent), then creating a Baked Generation (frozen snapshot). Show what happens when the parent changes — Linked children update, Baked stays sealed.*
+![Baked Generation]({{ '/assets/screenshots/ss_04_baked_generation.png' | relative_url }})
+*Baked Generation — BAKE checked, every Variable is explicitly sealed. No parent change can reach it.*
 
 ---
 
-## The Registry
+## Blueprint
 
-> *Screenshot: the Registry panel showing the full C.H.R.O.N.O.S. tree — Branches, Variables, and their types*
+![Blueprint]({{ '/assets/screenshots/ss_05_blueprint.png' | relative_url }})
+*The Blueprint — immutable root Generation. BLUEPRINT shown in the picker and Parent dropdown. All Variables carry default values.*
+
+---
+
+## Generation Tree
+
+*The visual generation tree will be available in V3 with the standalone Flutter dashboard — it will show the full parent-child hierarchy as an interactive node graph.*
 
 ---
 
 [Get C.H.R.O.N.O.S. →]({{ '/chronos/get-it/' | relative_url }})
-&nbsp;&nbsp;[Back to C.H.R.O.N.O.S. →]({{ '/chronos/' | relative_url }})
+&nbsp;&nbsp;[How It Works →]({{ '/chronos/workflow/' | relative_url }})

@@ -25,6 +25,9 @@ Override a Variable locally — that value is stored in the child, masking the p
 
 > Use for: variant families, colour rounds, any set of Generations that share a foundation and differ in specific ways.
 
+![Linked Generation with local overrides]({{ '/assets/screenshots/ss_03_linked_generation.png' | relative_url }})
+*LINK checked, Parent set — orange Variable names are local overrides, plain names inherit live from the parent.*
+
 ---
 
 ### Bake — Frozen Snapshot
@@ -34,6 +37,9 @@ A Baked Generation captures the fully resolved state of its parent at creation �
 From that point it is sealed. No parent change can reach it. The inheritance chain stops here — a **lineage firewall**.
 
 > Use for: client-approved shots, locked deliverables, archive states, or any point where "this must never change." Also used to create independent sub-branches within a Context.
+
+![Baked Generation — sealed at creation]({{ '/assets/screenshots/ss_04_baked_generation.png' | relative_url }})
+*BAKE checked, LINK unchecked — every Variable holds an explicit baked-in value. The lineage firewall is active.*
 
 ---
 

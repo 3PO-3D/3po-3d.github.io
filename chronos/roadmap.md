@@ -16,7 +16,8 @@ Everything you need to manage scene variations inside Cinema 4D.
 
 | Feature | Status |
 |---|---|
-| Generation create, switch, delete, rename | ✅ |
+| Generation create, switch, delete | ✅ |
+| Generation rename | 🔵 V1.1 |
 | Link — live parent–child inheritance | ✅ |
 | Bake — sealed, frozen deliverables | ✅ |
 | Blueprint — immutable root per Context | ✅ |

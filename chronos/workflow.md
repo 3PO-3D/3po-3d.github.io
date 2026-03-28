@@ -67,6 +67,12 @@ Each Context has its own full Branch and Generation tree. The V1 constraint is t
 
 <h2 class="section-heading">The Dashboard</h2>
 
+![CHRONOS Blueprint — immutable root Generation]({{ '/assets/screenshots/ss_05_blueprint.png' | relative_url }})
+*The Blueprint selected — the immutable root Generation, auto-created per Context. Every Variable holds its default value. LINK/BAKE controls are inactive — the Blueprint cannot be reparented or sealed.*
+
+![CHRONOS Dashboard and Registry panels]({{ '/assets/screenshots/ss_01_dashboard_overview.png' | relative_url }})
+*Dashboard (left) alongside the Registry (right) — Lighting branch expanded with Fill Light, Global Illumination and Key Light groups.*
+
 The **CHRONOS Dashboard** is a dockable panel inside Cinema 4D. Open it from **Plugins → CHRONOS → Open Dashboard**. Pin it to a second monitor, dock it to the side — it lives wherever you work best.
 
 The dashboard is the control surface for everything above. It shows:
@@ -74,9 +80,18 @@ The dashboard is the control surface for everything above. It shows:
 - The active Context and its current active Generation
 - The full Generation tree — Blueprint at the root, all Linked and Baked children below it
 - The active Generation's Variable values, with overrides highlighted
-- Controls to create, rename, delete, Link, and Bake Generations
+- Controls to create, delete, Link, and Bake Generations
+
+![Generation picker showing all Generations in the active Context]({{ '/assets/screenshots/ss_02_generation_list.png' | relative_url }})
+*The Generation picker — BLUEPRINT at the root, followed by Linked, Baked, and Fork Point Generations. The active Generation is marked with a checkmark. Orange labels indicate locally overridden Variables.*
 
 Everything in the dashboard reflects the active Take. Switch Takes in Cinema 4D — the dashboard updates immediately.
+
+![Linked Generation — locally overridden Variables highlighted in orange]({{ '/assets/screenshots/ss_03_linked_generation.png' | relative_url }})
+*A Linked Generation in a Child Context — LINK checked, Parent set. Orange Variable names indicate local overrides; plain names are inherited live from the parent.*
+
+![Baked Generation — all values sealed at creation]({{ '/assets/screenshots/ss_04_baked_generation.png' | relative_url }})
+*A Baked Generation — BAKE checked, LINK unchecked. Every Variable holds an explicit baked-in value. No parent change can reach this Generation.*
 
 ---
 
@@ -114,7 +129,7 @@ Add as many Branches and Variables as your project needs. They are registered gl
 
 Create a Generation from the Blueprint. Choose **Link** to inherit live from the Blueprint, or **Bake** to capture a frozen snapshot of the current state.
 
-Name it for what it represents: `Hero_Lighting`, `Ecom_White`, `Dark_Mood`, `Client_v3`. Set the values you want different — override only what changes. Everything else is inherited. The scene updates live as you adjust values.
+Give it a name at creation — names are set once and cannot be changed in V1. Set the values you want different — override only what changes. Everything else is inherited. The scene updates live as you adjust values.
 
 Create as many Generations as you need. Add child Generations to existing ones — Link to stay live, Bake to seal.
 
