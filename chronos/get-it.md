@@ -93,4 +93,4 @@ Questions or issues? Use the Gumroad product page messaging — response within 
 ---
 
 [How It Works →]({{ '/chronos/workflow/' | relative_url }})
-&nbsp;&nbsp;[All Features →]({{ '/chronos/features/' | relative_url }})
+&nbsp;&nbsp;[Roadmap →]({{ '/chronos/roadmap/' | relative_url }})

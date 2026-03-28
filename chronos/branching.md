@@ -1,153 +1,247 @@
 ---
 title: "CHRONOS — Branching and Inheritance"
-description: "How Generations, Link and Bake inheritance work — and how to choose the right topology for your project."
+description: "Every topology CHRONOS supports — Flat Star, Linear Chain, Custom Tree, and Multiple Main Branches. With node graphs."
 ---
 
 # Branching and Inheritance
 
-The feature that defines C.H.R.O.N.O.S. is also the one that takes the most explaining. This page is a full breakdown — how the system thinks about Generations, what Link and Bake mean in practice, and how to choose the right tree structure for your project.
+Every variation system in CHRONOS is a tree. This page shows every shape that tree can take — with diagrams — and explains when to use each one.
 
 ---
 
-## Every Project Has a Root
+## The Two Inheritance Modes
 
-When C.H.R.O.N.O.S. activates on a scene, it creates a Context from the active Take and auto-generates the **Blueprint** — the immutable root Generation. This is the source of truth that all Generations trace back to. You never edit the Blueprint directly. It exists to anchor everything else.
-
-Every Generation you create is a child of something. At minimum, it's a child of the Blueprint. A subtree of Generations rooted at a Blueprint (or a Baked parent) is called a **Branch**.
-
-```
-Base (Blueprint)
-├── Hero_Lighting
-├── Turntable_White
-└── Dark_Mood
-```
-
----
-
-## Two Inheritance Modes
-
-When you create a new Generation, you choose how it relates to its parent.
+Every Generation in CHRONOS has a parent and a mode. The mode determines how the child relates to that parent.
 
 ---
 
 ### Link — Live Inheritance
 
-Click **Link** when creating a child Generation. The child starts empty — nothing is copied. Instead, at the moment any value is read, C.H.R.O.N.O.S. walks up the parent chain and borrows the inherited value.
+A Linked Generation starts empty. Nothing is copied at creation. When a Variable's value is read, CHRONOS walks up the parent chain and borrows the value from the nearest ancestor that has it.
 
-```
-Base
-│   Intensity = 800
-│   Colour = #FFF5E0
-│
-└── Hero_Lighting        ← Linked child
-        Intensity = ?    ← reads from Base: 800
-        Colour = ?       ← reads from Base: #FFF5E0
-```
+Override a Variable locally — that value is stored in the child, masking the parent. Leave it untouched — the child always reflects whatever the parent holds. Change the parent's value: every Linked child that hasn't locally overridden it updates automatically.
 
-Override one value locally in Hero_Lighting:
+**The rule:** A Linked Generation only stores what it explicitly overrides. One edit to a parent can propagate to an entire downstream tree.
 
-```
-Base
-│   Intensity = 800
-│   Colour = #FFF5E0
-│
-└── Hero_Lighting
-        Intensity = 1200     ← local override, stored here
-        Colour = ?           ← still reads from Base: #FFF5E0
-```
-
-Change the Base's Colour — Hero_Lighting reflects it automatically, because it has no local override for that value.
-
-**The rule:** A Linked child only stores what it explicitly overrides. Everything else is always live from the parent. This makes the system fast and lightweight — even with dozens of Generations.
-
-> **When to use:** Variant families. Colour rounds. Any set of Generations that share a common foundation and differ in specific ways. One parent edit propagates to every child that hasn't overridden it.
+> Use for: variant families, colour rounds, any set of Generations that share a foundation and differ in specific ways.
 
 ---
 
 ### Bake — Frozen Snapshot
 
-Click **Bake** when creating a child Generation. The new Generation captures the fully resolved state of its parent at creation — every value, traced through the entire chain — and writes it in permanently.
+A Baked Generation captures the fully resolved state of its parent at creation — every Variable value, traced through the entire parent chain from the selected parent up to the nearest Blueprint or Baked root. All those resolved values are written into the new Generation permanently.
 
-```
-Base
-│   Intensity = 800
-│   Colour = #FFF5E0
-│
-└── Client_Approved_v2   ← Baked snapshot
-        Intensity = 800      ← captured at creation
-        Colour = #FFF5E0     ← captured at creation
-```
+From that point it is sealed. No parent change can reach it. The inheritance chain stops here — a **lineage firewall**.
 
-After creation, the Base changes. `Client_Approved_v2` does not.
-
-```
-Base
-│   Intensity = 1200     ← changed
-│   Colour = #FF8844     ← changed
-│
-└── Client_Approved_v2
-        Intensity = 800      ← sealed — unchanged
-        Colour = #FFF5E0     ← sealed — unchanged
-```
-
-A Baked Generation is a **lineage firewall**. The inheritance chain stops there — no parent change can cross the seal.
-
-> **When to use:** Client-approved shots, locked deliverables, archive states — any point where "this must never change."
+> Use for: client-approved shots, locked deliverables, archive states, or any point where "this must never change." Also used to create independent sub-branches within a Context.
 
 ---
 
-## Choosing a Topology
-
-CHRONOS does not prescribe how you build your Generation tree. You decide the shape.
+## The Four Topologies
 
 ---
 
-### Flat Star
+### 1 — Flat Star
 
-All Generations inherit directly from the Base. No children of children.
+All Generations link directly from the Blueprint. No children of children. Every Generation is a sibling.
 
-```
-Base
-├── Hero_Lighting
-├── Turntable_White
-├── Dark_Mood
-└── Ecom_Flat
-```
+<div class="diagram topology-diagram">
+<svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .n-bp { fill: var(--text); stroke: var(--text); }
+    .n-lk { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
+    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
+  </style>
+  <!-- Blueprint -->
+  <circle cx="260" cy="40" r="26" class="n-bp"/>
+  <text x="260" y="44" class="lbl-i" font-weight="700">Blueprint</text>
+  <!-- Edges -->
+  <line x1="260" y1="66" x2="60"  y2="148" class="e-lk"/>
+  <line x1="260" y1="66" x2="160" y2="148" class="e-lk"/>
+  <line x1="260" y1="66" x2="260" y2="148" class="e-lk"/>
+  <line x1="260" y1="66" x2="360" y2="148" class="e-lk"/>
+  <line x1="260" y1="66" x2="460" y2="148" class="e-lk"/>
+  <!-- Child nodes -->
+  <rect x="10"  y="148" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="60"  y="168" class="lbl">Hero_Lighting</text>
+  <rect x="110" y="148" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="160" y="168" class="lbl">Turntable_White</text>
+  <rect x="210" y="148" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="260" y="168" class="lbl">Dark_Mood</text>
+  <rect x="310" y="148" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="360" y="168" class="lbl">Ecom_Flat</text>
+  <rect x="410" y="148" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="460" y="168" class="lbl">Client_v1</text>
+  <!-- Caption -->
+  <text x="260" y="195" class="cap">All Generations inherit directly from Blueprint — simple, independent, parallel</text>
+</svg>
+</div>
 
-Simple. Predictable. A change to the Base flows to all simultaneously. Use this when your Generations are independent and you want global changes to propagate everywhere.
+**When to use:** Simple projects with independent variations. A change to the Blueprint propagates to all children simultaneously. Good default starting point.
 
 ---
 
-### Linear Chain
+### 2 — Linear Chain
 
-Each Generation inherits from the previous one — a revision history.
+Each Generation inherits from the previous one. A revision history — each round builds on the last.
 
-```
-Base
-└── Client_Round_1
-    └── Client_Round_2
-        └── Client_Round_3_APPROVED
-```
+<div class="diagram topology-diagram">
+<svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .n-bp { fill: var(--text); stroke: var(--text); }
+    .n-lk { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
+    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
+  </style>
+  <!-- Nodes -->
+  <circle cx="40"  cy="50" r="24" class="n-bp"/>
+  <text x="40"  y="54" class="lbl-i" font-weight="700">BP</text>
+  <rect x="85"  y="35" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="135" y="55" class="lbl">Round_1</text>
+  <rect x="205" y="35" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="255" y="55" class="lbl">Round_2</text>
+  <rect x="325" y="35" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="375" y="55" class="lbl">Round_3</text>
+  <rect x="445" y="35" width="65" height="30" rx="2" class="n-lk"/>
+  <text x="477" y="55" class="lbl">Final</text>
+  <!-- Edges -->
+  <line x1="64"  y1="50" x2="85"  y2="50" class="e-lk"/>
+  <line x1="185" y1="50" x2="205" y2="50" class="e-lk"/>
+  <line x1="305" y1="50" x2="325" y2="50" class="e-lk"/>
+  <line x1="425" y1="50" x2="445" y2="50" class="e-lk"/>
+  <!-- Caption -->
+  <text x="260" y="100" class="cap">Each Generation inherits from the previous — iterative refinement, full revision history preserved</text>
+</svg>
+</div>
 
-Use this for iterative refinement — each round builds on the last, and the progression is preserved.
+**When to use:** Client revision rounds, iterative workflows where each pass builds on the last. You always know what changed between rounds.
 
 ---
 
-### Custom Tree
+### 3 — Custom Tree
 
-Mix both patterns freely. Build the shape your project actually needs.
+Mix Link and Bake freely. A parent drives multiple live children; some children become sealed deliverables at a fork point.
 
-```
-Base (Blueprint)
-├── Product_Line_Base
-│   ├── Colour_Red         ← Linked
-│   ├── Colour_Blue        ← Linked
-│   └── Colour_Gold        ← Linked
-│       └── Gold_Approved  ← Baked (sealed)
-└── Turntable_White        ← Linked
-```
+<div class="diagram topology-diagram">
+<svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .n-bp  { fill: var(--text); stroke: var(--text); }
+    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
+    .n-bk  { fill: var(--surface); stroke: var(--accent); stroke-width: 2.5; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
+    .e-bk  { stroke: var(--accent); stroke-width: 2; fill: none; }
+    .seal  { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3,3; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
+    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
+  </style>
+  <!-- Blueprint -->
+  <circle cx="280" cy="36" r="26" class="n-bp"/>
+  <text x="280" y="40" class="lbl-i" font-weight="700">Blueprint</text>
+  <!-- Level 1 -->
+  <line x1="280" y1="62" x2="130" y2="118" class="e-lk"/>
+  <line x1="280" y1="62" x2="430" y2="118" class="e-lk"/>
+  <rect x="60"  y="118" width="140" height="30" rx="2" class="n-lk"/>
+  <text x="130" y="138" class="lbl">Product_Line_Base</text>
+  <text x="130" y="108" class="tag">Linked</text>
+  <rect x="360" y="118" width="140" height="30" rx="2" class="n-lk"/>
+  <text x="430" y="138" class="lbl">Turntable_White</text>
+  <text x="430" y="108" class="tag">Linked</text>
+  <!-- Level 2 from Product_Line_Base -->
+  <line x1="130" y1="148" x2="60"  y2="208" class="e-lk"/>
+  <line x1="130" y1="148" x2="160" y2="208" class="e-lk"/>
+  <line x1="130" y1="148" x2="260" y2="208" class="e-lk"/>
+  <rect x="10"  y="208" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="60"  y="228" class="lbl">Colour_Red</text>
+  <text x="60"  y="198" class="tag">Linked</text>
+  <rect x="110" y="208" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="160" y="228" class="lbl">Colour_Blue</text>
+  <text x="160" y="198" class="tag">Linked</text>
+  <rect x="210" y="208" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="260" y="228" class="lbl">Colour_Gold</text>
+  <text x="260" y="198" class="tag">Linked</text>
+  <!-- Bake from Colour_Gold -->
+  <line x1="260" y1="238" x2="260" y2="272" class="e-bk"/>
+  <rect x="210" y="272" width="100" height="32" rx="2" class="n-bk"/>
+  <rect x="206" y="268" width="108" height="40" rx="4" class="seal"/>
+  <text x="260" y="293" class="lbl" font-weight="600">Gold_Approved</text>
+  <text x="260" y="264" class="lbl-a">Baked — sealed</text>
+  <!-- Fork point label -->
+  <text x="310" y="258" class="tag" font-style="italic">← fork point</text>
+  <!-- Caption -->
+  <text x="280" y="316" class="cap">Live children from a shared parent — one seals into a deliverable at the fork point</text>
+</svg>
+</div>
 
-`Product_Line_Base` drives the three colour variants. Update the shared lighting once — all three reflect it. `Gold_Approved` is Baked — it captured the final approved state and will not change. The point where `Colour_Gold` branches into `Gold_Approved` is a **fork point** — where live work splits from a sealed deliverable.
+**Reading this diagram:** `Product_Line_Base` drives three live colour variants — update its shared lighting once and all three reflect it. At the fork point, `Colour_Gold` produces `Gold_Approved` via Bake — that deliverable is sealed. The live `Colour_Gold` continues to evolve; `Gold_Approved` does not.
+
+**When to use:** Complex projects with multiple variant families. Mix freely — no topology is wrong.
+
+---
+
+### 4 — Multiple Main Branches (Baked Root Workaround)
+
+Cinema 4D's architecture means CHRONOS V1 has one root Context — the Main Take. But you can create multiple independent variation systems within that Context by using a Baked Generation as a secondary branch root.
+
+<div class="diagram topology-diagram">
+<svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .n-bp  { fill: var(--text); stroke: var(--text); }
+    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
+    .n-bk  { fill: var(--surface); stroke: var(--accent); stroke-width: 2.5; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
+    .e-bk  { stroke: var(--accent); stroke-width: 2; fill: none; }
+    .seal  { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3,3; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
+    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
+  </style>
+  <!-- Blueprint -->
+  <circle cx="280" cy="36" r="26" class="n-bp"/>
+  <text x="280" y="40" class="lbl-i" font-weight="700">Blueprint</text>
+  <!-- Branch A (left) — linked chain -->
+  <line x1="280" y1="62" x2="120" y2="108" class="e-lk"/>
+  <rect x="50" y="108" width="140" height="30" rx="2" class="n-lk"/>
+  <text x="120" y="128" class="lbl">Main_Branch_A</text>
+  <text x="120" y="98" class="tag">Linked</text>
+  <line x1="120" y1="138" x2="70"  y2="188" class="e-lk"/>
+  <line x1="120" y1="138" x2="170" y2="188" class="e-lk"/>
+  <rect x="20"  y="188" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="70"  y="208" class="lbl">A_Variant_1</text>
+  <rect x="120" y="188" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="170" y="208" class="lbl">A_Variant_2</text>
+  <!-- Baked secondary root (right) -->
+  <line x1="280" y1="62" x2="420" y2="108" class="e-bk"/>
+  <rect x="350" y="108" width="140" height="32" rx="2" class="n-bk"/>
+  <rect x="346" y="104" width="148" height="40" rx="4" class="seal"/>
+  <text x="420" y="129" class="lbl" font-weight="600">Branch_B_Root</text>
+  <text x="420" y="98" class="lbl-a">Baked — branch root</text>
+  <!-- Branch B children -->
+  <line x1="420" y1="144" x2="370" y2="188" class="e-lk"/>
+  <line x1="420" y1="144" x2="470" y2="188" class="e-lk"/>
+  <rect x="320" y="188" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="370" y="208" class="lbl">B_Variant_1</text>
+  <rect x="420" y="188" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="470" y="208" class="lbl">B_Variant_2</text>
+  <!-- Labels -->
+  <text x="100" y="250" class="tag">Main branch — inherits from Blueprint</text>
+  <text x="430" y="250" class="tag">Independent branch — sealed from Main</text>
+  <text x="280" y="270" class="cap">A Baked Generation as a secondary root creates a fully independent sub-tree within the same Context</text>
+</svg>
+</div>
+
+**How this works:** `Branch_B_Root` is created by Baking from the Blueprint at a specific moment — it captures the full state and is sealed. From that root, you can build an entire tree of Linked Generations that inherit from `Branch_B_Root` but are completely isolated from Main Branch A. Changes to Main Branch A cannot reach Branch B.
+
+This is the current workaround for the V1 single-root limitation. V3 introduces native multi-root Context support.
 
 ---
 
@@ -155,103 +249,25 @@ Base (Blueprint)
 
 When you click a different Generation in the dashboard, CHRONOS:
 
-1. Walks the active Generation's parent chain to resolve every Variable's current value
-2. Applies all resolved values to the scene in a single controlled pass
-3. Nothing is written to scene objects until resolution is complete — no partial states, no flickering
+1. Walks the active Generation's parent chain — collecting the resolved value for every Variable at each level
+2. Stops at the nearest Baked Generation or Blueprint (the lineage firewall)
+3. Applies all resolved values to the scene in one controlled pass — no partial states, no flickering
 
-The result is an instant, clean state switch. No undo required. Click a different Generation and you're there.
+The result: an instant, clean state switch. No undo required. The history of every Variable is preserved.
 
 ---
 
-## Reverting an Override
+## Forward Rollback
 
-If you've overridden a Variable in a Linked child and want to go back to the inherited value, C.H.R.O.N.O.S. does not delete your override. Instead, it performs a **Forward Rollback**:
+If you've overridden a Variable in a Linked child and want to return it to the inherited value, CHRONOS does not delete the override. It performs a **Forward Rollback**:
 
 1. Resolves the current inherited value from the parent chain
-2. Writes that value explicitly into the child Generation as a new entry
-3. Your history is preserved — nothing is erased
+2. Writes that resolved value explicitly into the child as a new historical entry
+3. History always grows forward — nothing is erased
 
-This means "revert" is just another write. History always grows forward, never backwards. You can always trace back to see what the value was, what it was changed to, and when.
-
-> **Why it matters:** Destructive rollback creates gaps in your audit trail. Forward Rollback means you can always reconstruct the full history of any value in any Generation.
+"Revert" is just another write. You can always reconstruct the full history of any Variable in any Generation.
 
 ---
 
-## The Inheritance Tree — Visual Reference
-
-<div class="diagram" style="text-align: center; padding: 2.5rem;">
-<svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" style="max-width: 560px; width: 100%;">
-  <style>
-    .node-linked { fill: var(--surface, #FAFAF5); stroke: var(--text, #713A23); stroke-width: 1.5; }
-    .node-baked { fill: var(--surface, #FAFAF5); stroke: var(--accent, #DDAA33); stroke-width: 2.5; }
-    .node-base { fill: var(--text, #713A23); stroke: var(--text, #713A23); stroke-width: 1.5; }
-    .edge-linked { stroke: var(--text, #713A23); stroke-width: 1.5; stroke-dasharray: 6,4; fill: none; }
-    .edge-baked { stroke: var(--accent, #DDAA33); stroke-width: 2; fill: none; }
-    .label { font-family: 'Space Grotesk', sans-serif; font-size: 13px; fill: var(--text, #713A23); }
-    .label-base { font-family: 'Space Grotesk', sans-serif; font-size: 13px; fill: var(--bg, #F0EAE0); }
-    .label-sm { font-family: 'IBM Plex Mono', monospace; font-size: 10px; fill: var(--muted, #8C5C3E); }
-    .label-bake { font-family: 'IBM Plex Mono', monospace; font-size: 10px; fill: var(--accent, #DDAA33); }
-    .seal { fill: none; stroke: var(--accent, #DDAA33); stroke-width: 1; stroke-dasharray: 3,3; }
-  </style>
-
-  <!-- Edges -->
-  <path class="edge-linked" d="M300,60 L150,150"/>
-  <path class="edge-linked" d="M300,60 L450,150"/>
-  <path class="edge-linked" d="M150,170 L80,260"/>
-  <path class="edge-linked" d="M150,170 L220,260"/>
-  <path class="edge-baked" d="M220,280 L220,360"/>
-
-  <!-- Base node -->
-  <circle cx="300" cy="45" r="28" class="node-base"/>
-  <text x="300" y="50" text-anchor="middle" class="label-base" font-weight="700">Base</text>
-  <text x="300" y="10" text-anchor="middle" class="label-sm">Blueprint (immutable)</text>
-
-  <!-- Product_Line_Base -->
-  <rect x="75" y="135" width="150" height="36" rx="2" class="node-linked"/>
-  <text x="150" y="158" text-anchor="middle" class="label">Product_Line_Base</text>
-  <text x="150" y="125" text-anchor="middle" class="label-sm">Linked</text>
-
-  <!-- Turntable_White -->
-  <rect x="375" y="135" width="150" height="36" rx="2" class="node-linked"/>
-  <text x="450" y="158" text-anchor="middle" class="label">Turntable_White</text>
-  <text x="450" y="125" text-anchor="middle" class="label-sm">Linked</text>
-
-  <!-- Colour_Red -->
-  <rect x="10" y="245" width="130" height="36" rx="2" class="node-linked"/>
-  <text x="75" y="268" text-anchor="middle" class="label">Colour_Red</text>
-  <text x="75" y="235" text-anchor="middle" class="label-sm">Linked</text>
-
-  <!-- Colour_Gold -->
-  <rect x="155" y="245" width="130" height="36" rx="2" class="node-linked"/>
-  <text x="220" y="268" text-anchor="middle" class="label">Colour_Gold</text>
-  <text x="220" y="235" text-anchor="middle" class="label-sm">Linked</text>
-
-  <!-- Gold_Approved (Baked) -->
-  <rect x="152" y="345" width="136" height="40" rx="2" class="node-baked"/>
-  <rect x="148" y="341" width="144" height="48" rx="4" class="seal"/>
-  <text x="220" y="370" text-anchor="middle" class="label" font-weight="700">Gold_Approved</text>
-  <text x="220" y="335" text-anchor="middle" class="label-bake">Baked (sealed)</text>
-
-  <!-- Legend -->
-  <line x1="380" y1="280" x2="420" y2="280" class="edge-linked"/>
-  <text x="425" y="284" class="label-sm">Link (live inheritance)</text>
-  <line x1="380" y1="300" x2="420" y2="300" class="edge-baked"/>
-  <text x="425" y="304" class="label-sm">Bake (frozen snapshot)</text>
-  <rect x="380" y="315" width="14" height="14" rx="2" class="seal"/>
-  <text x="400" y="326" class="label-sm">Lineage firewall</text>
-  <text x="385" y="350" class="label-sm" font-style="italic">Fork point: where</text>
-  <text x="385" y="362" class="label-sm" font-style="italic">live work splits from</text>
-  <text x="385" y="374" class="label-sm" font-style="italic">a sealed deliverable</text>
-</svg>
-</div>
-
-**Reading the diagram:**
-- **Dashed lines** = Link (live inheritance). Values flow from parent to child. Parent changes propagate.
-- **Solid gold lines** = Bake. Values were captured at creation. The line is a one-time transfer.
-- **Double border** = Lineage firewall. Nothing from above can change this Generation.
-- **Fork point** = Where `Colour_Gold` (live) branches into `Gold_Approved` (sealed). This is the boundary between active work and locked output.
-
----
-
-[Back to Features →]({{ '/chronos/features/' | relative_url }})
-&nbsp;&nbsp;[See the step-by-step workflow →]({{ '/chronos/workflow/' | relative_url }})
+[How It Works →]({{ '/chronos/workflow/' | relative_url }})
+&nbsp;&nbsp;[Get CHRONOS →]({{ '/chronos/get-it/' | relative_url }})
