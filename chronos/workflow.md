@@ -12,7 +12,7 @@ Before you open the dashboard, it helps to understand what CHRONOS is actually m
 
 ---
 
-<h3 class="section-subheading">Generation</h3>
+<h3 id="generation" class="section-subheading">Generation</h3>
 
 A **Generation** is the core unit in CHRONOS. It is a named state — a snapshot of a specific set of values at a specific moment. Think of it as a named preset that knows about every parameter you've told CHRONOS to track.
 
@@ -28,7 +28,7 @@ There is also a third special type:
 
 ---
 
-<h3 class="section-subheading">Variable</h3>
+<h3 id="variable" class="section-subheading">Variable</h3>
 
 A **Variable** is a single tracked parameter — a number, colour, vector, boolean, string, or object reference.
 
@@ -38,7 +38,7 @@ Variables are organised into groups in the Registry panel. You cannot add a Vari
 
 ---
 
-<h3 class="section-subheading">Branch</h3>
+<h3 id="branch" class="section-subheading">Branch</h3>
 
 A **Branch** is a semantic grouping of Generations that continuously inherit from one another — a lineage. It begins at a branch root (a Blueprint or a Baked Generation) and extends through every Linked child below it. The branch root is the point where inheritance starts; every Generation above it in the tree is part of that branch's lineage.
 
@@ -46,7 +46,7 @@ Branches are not scene-system containers. They are not defined by what they trac
 
 ---
 
-<h3 class="section-subheading">Blueprint (revisited)</h3>
+<h3 id="blueprint-revisited" class="section-subheading">Blueprint (revisited)</h3>
 
 Every Context has one Blueprint — the immutable root that every Generation in that Context traces back to. It is not a Generation you create; it is created automatically when the Context is initialised. Every Branch tree in a Context is anchored to the Blueprint.
 
@@ -54,7 +54,7 @@ A Baked Generation can also serve as a branch root — creating a completely ind
 
 ---
 
-<h3 class="section-subheading">Context</h3>
+<h3 id="context" class="section-subheading">Context</h3>
 
 A **Context** in CHRONOS maps directly to a **Take** in Cinema 4D. The Main Context corresponds to the Main Take — this is the root of the entire tree. Every other Context is a child of the Main Context, just as every Take in C4D can be a child of the Main Take.
 

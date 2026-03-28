@@ -9,7 +9,7 @@ description: "Download CHRONOS for Cinema 4D. Requirements, installation, and li
   <p class="download-label">Download</p>
   <h2>CHRONOS V1</h2>
   <p>Cinema 4D 2024+ &nbsp;·&nbsp; macOS &amp; Windows &nbsp;·&nbsp; 30-day free trial included</p>
-  <a href="#" class="btn btn-accent">Download on Gumroad →</a>
+  <a href="https://3po3d.gumroad.com/l/chronos" class="btn btn-accent" target="_blank" rel="noopener">Download on Gumroad →</a>
 </div>
 
 ---
