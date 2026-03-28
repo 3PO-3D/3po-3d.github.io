@@ -481,6 +481,41 @@ img {
   }
 }
 
+// ─── Glossary Stack ─────────────────────────────────────────
+.glossary-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 1.75rem 0;
+}
+
+.glossary-card {
+  background: var(--surface);
+  border-radius: 10px;
+  padding: 0.55rem 1.1rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.9rem;
+  line-height: 1.5;
+
+  .glossary-term {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 7.5rem;
+  }
+
+  .glossary-def {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+}
+
 // ─── About Strip ────────────────────────────────────────────
 .about-strip {
   padding: 5rem 0;

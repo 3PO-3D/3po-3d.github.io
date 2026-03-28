@@ -30,23 +30,28 @@ description: "One scene file. Every lighting setup, material state, and configur
 
 ## What Sets It Apart
 
-Most variation tools force you to choose between "everything linked" or "everything copied." CHRONOS gives you both — on a per-Generation basis, in the same project.
+Every variation system in CHRONOS grows from a single immutable root — the Blueprint. From there, you build a tree of Generations. Some stay alive to their parent, inheriting changes automatically. Some are sealed the moment they're created, frozen forever. The shape of that tree is yours to decide.
 
 <div class="feature-grid">
   <div class="feature-card">
+    <div class="feature-icon">◆</div>
+    <h3>Blueprint</h3>
+    <p>The immutable starting point, auto-created for every scene context. Every Generation traces its lineage back here. It never changes — that's the point.</p>
+  </div>
+  <div class="feature-card">
     <div class="feature-icon">⟳</div>
     <h3>Link</h3>
-    <p>A Generation lives inside its parent's value stream. Change the parent — every child that hasn't overridden that value updates automatically. One edit. Infinite downstream reach.</p>
+    <p>A Generation that lives inside its parent's value stream. Change the parent — every child that hasn't overridden that value updates automatically. One edit. Infinite downstream reach.</p>
   </div>
   <div class="feature-card">
     <div class="feature-icon">◼</div>
     <h3>Bake</h3>
-    <p>A Generation captures a fully resolved state and freezes it. Nothing the parent does can change it. A lineage firewall for approved deliverables and client handoffs.</p>
+    <p>A Generation that captures a fully resolved state and freezes it. Nothing the parent does can change it. A lineage firewall for approved deliverables and client handoffs.</p>
   </div>
   <div class="feature-card">
     <div class="feature-icon">⬡</div>
-    <h3>Any Topology</h3>
-    <p>Flat star, linear chain, or a custom tree. CHRONOS doesn't prescribe the shape of your variation system — you decide what makes sense for the project.</p>
+    <h3>Flat or Deep</h3>
+    <p>All Generations from one root — a star. Each inheriting from the last — a chain. Both at once, for different parts of the scene — a tree.</p>
   </div>
   <div class="feature-card">
     <div class="feature-icon">◈</div>
@@ -59,16 +64,15 @@ Most variation tools force you to choose between "everything linked" or "everyth
 
 ## The Core System
 
-| | |
-|---|---|
-| **Context** | The active Take in Cinema 4D — C.H.R.O.N.O.S. reads from and writes to the active context |
-| **Registry** | Where you register the Variables you want to track — the global list of parameters C.H.R.O.N.O.S. manages |
-| **Variables** | Individual tracked parameters (numbers, colours, vectors, booleans, strings, object references) registered in the Registry |
-| **Branches** | Subtrees of Generations — a Branch root is either a Blueprint (immutable default) or a Baked parent (frozen snapshot) |
-| **Generations** | Named variation states — each Generation can override any registered Variable |
-| **Blueprint** | The immutable root Generation auto-created per Context — the source of truth all Generations trace back to |
-| **Link** | A Generation that inherits live from its parent — changes flow downstream automatically |
-| **Bake** | A Generation that captures its parent's resolved state and freezes it permanently — a sealed deliverable |
+<div class="glossary-stack">
+  <div class="glossary-card"><span class="glossary-term">CONTEXT</span><span class="glossary-def">The active Cinema 4D Take — CHRONOS reads from and writes to whichever Take is open.</span></div>
+  <div class="glossary-card"><span class="glossary-term">BLUEPRINT</span><span class="glossary-def">The immutable root Generation per Context — the source of truth every other Generation traces back to.</span></div>
+  <div class="glossary-card"><span class="glossary-term">GENERATION</span><span class="glossary-def">A named variation state — each one can override any registered Variable independently.</span></div>
+  <div class="glossary-card"><span class="glossary-term">VARIABLE</span><span class="glossary-def">A single tracked parameter: a number, colour, vector, boolean, or object reference.</span></div>
+  <div class="glossary-card"><span class="glossary-term">BRANCH</span><span class="glossary-def">A subtree of Generations — rooted at a Blueprint or a Baked parent.</span></div>
+  <div class="glossary-card"><span class="glossary-term">LINK</span><span class="glossary-def">A Generation with live inheritance — parent changes flow through automatically.</span></div>
+  <div class="glossary-card"><span class="glossary-term">BAKE</span><span class="glossary-def">A Generation frozen at creation — permanently sealed from its parent lineage.</span></div>
+</div>
 
 Everything is stored alongside your `.c4d` file. One project, one file, complete history.
 
