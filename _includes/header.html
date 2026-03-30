@@ -1,5 +1,6 @@
 <header class="site-header">
   <div class="header-container">
+
     <a href="{{ '/' | relative_url }}" class="site-logo">
       {% if page.url contains '/chronos/' %}
         <img
@@ -19,6 +20,27 @@
           style="height:32px;width:auto;display:block;">
       {% endif %}
     </a>
+
+    <div class="header-wordmark">
+      {% if page.url contains '/chronos/' %}
+        <img
+          id="header-wordmark-img"
+          src="{{ '/assets/img/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
+          data-light="{{ '/assets/img/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/CHRONOS_yellow_darktheme_svg.svg' | relative_url }}"
+          alt="CHRONOS"
+          style="height:22px;width:auto;display:block;">
+      {% else %}
+        <img
+          id="header-wordmark-img"
+          src="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
+          data-light="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
+          data-dark="/assets/img/CRAFTING%20YOUR%20TOMORROW_darktheme_svg.svg"
+          alt="Crafting Your Tomorrow"
+          style="height:18px;width:auto;display:block;">
+      {% endif %}
+    </div>
+
     <nav class="site-nav">
       <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>C.H.R.O.N.O.S.</a>
       <a href="https://github.com/3PO-3D" target="_blank" rel="noopener">GitHub ↗</a>
@@ -27,5 +49,6 @@
         <option value="deep-space">Deep Space</option>
       </select>
     </nav>
+
   </div>
 </header>

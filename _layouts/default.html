@@ -21,12 +21,14 @@
   {% include header.html %}
 
   <script>
-    // Apply correct logo src immediately after header is in the DOM
+    // Apply correct logo and wordmark src immediately after header is in the DOM
     (function() {
-      var img = document.getElementById('site-logo-img');
-      if (!img) return;
       var t = localStorage.getItem('theme') || 'gold-burgundy';
-      img.src = DARK_THEMES.indexOf(t) !== -1 ? img.getAttribute('data-dark') : img.getAttribute('data-light');
+      var dark = DARK_THEMES.indexOf(t) !== -1;
+      var logo = document.getElementById('site-logo-img');
+      if (logo) logo.src = dark ? logo.getAttribute('data-dark') : logo.getAttribute('data-light');
+      var wordmark = document.getElementById('header-wordmark-img');
+      if (wordmark) wordmark.src = dark ? wordmark.getAttribute('data-dark') : wordmark.getAttribute('data-light');
     })();
   </script>
 
@@ -38,10 +40,13 @@
       sel.value = localStorage.getItem('theme') || 'gold-burgundy';
       sel.addEventListener('change', function() {
         var t = this.value;
+        var dark = DARK_THEMES.indexOf(t) !== -1;
         document.documentElement.setAttribute('data-theme', t);
         localStorage.setItem('theme', t);
-        var img = document.getElementById('site-logo-img');
-        if (img) img.src = DARK_THEMES.indexOf(t) !== -1 ? img.getAttribute('data-dark') : img.getAttribute('data-light');
+        var logo = document.getElementById('site-logo-img');
+        if (logo) logo.src = dark ? logo.getAttribute('data-dark') : logo.getAttribute('data-light');
+        var wordmark = document.getElementById('header-wordmark-img');
+        if (wordmark) wordmark.src = dark ? wordmark.getAttribute('data-dark') : wordmark.getAttribute('data-light');
       });
     });
   </script>
