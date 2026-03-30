@@ -35,7 +35,12 @@ description: "3PO builds tools for 3D artists and creative pipelines."
 <section class="about-strip">
   <div class="container">
     <p class="section-label">About</p>
-    <p class="lead">3PO is a solo creative and engineering platform — not a studio, not a team. The focus is on tools and projects that solve real problems: pipeline software, physical products, and applied R&D. Everything here is built by one person, by hand.</p>
+    <div class="about-strip-inner">
+      <img src="{{ '/assets/icons/About_profile_svg.svg' | relative_url }}" alt="About 3PO" class="about-portrait">
+      <div class="about-strip-text">
+        <p class="lead">3PO is a solo creative and engineering platform — not a studio, not a team. The focus is on tools and projects that solve real problems: pipeline software, physical products, and applied R&D. Everything here is built by one person, by hand.</p>
+      </div>
+    </div>
   </div>
 </section>
 

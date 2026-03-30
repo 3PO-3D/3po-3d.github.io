@@ -185,19 +185,7 @@ body {
   }
 }
 
-// .icon-tint — white-stroke/fill icons that need theme-aware tinting
-// Light theme: tint to warm brown. Dark theme: tint to warm cream.
-.icon-tint {
-  // Light theme default: tint white → warm brown
-  filter: invert(22%) sepia(40%) saturate(500%) hue-rotate(330deg) brightness(55%);
-}
-
-[data-theme="deep-space"] .icon-tint {
-  // Dark theme: tint white → warm cream (#EDE0CC)
-  filter: invert(90%) sepia(15%) saturate(200%) hue-rotate(330deg) brightness(95%);
-}
-
-// .icon-no-tint — sticker/branded icons that carry their own colors, never filtered
+// .icon-no-tint — all footer icons are self-colored, never filtered
 .icon-no-tint {
   filter: none !important;
   border-radius: 4px;
@@ -395,6 +383,19 @@ img {
   margin-top: 6rem;
   background: var(--surface);
   transition: background 0.2s;
+
+  // Dark theme: use cream/off-white background so icons are legible
+  [data-theme="deep-space"] & {
+    background: #F1EBDD;
+    border-top-color: #D4C9B8;
+
+    // Flip text colors to dark since bg is now light
+    .footer-brand p, .footer-brand strong { color: #2A1A14; }
+    .footer-brand .muted { color: #5C3E2E; }
+    .footer-links h4 { color: #8C5C3E; }
+    .footer-links a { color: #3D2015; }
+    .footer-bottom { color: #8C5C3E; border-top-color: rgba(51,25,10,0.15); }
+  }
 }
 
 .footer-grid {
@@ -1183,6 +1184,31 @@ hr {
     color: var(--muted);
     line-height: 1.75;
   }
+}
+
+// About strip portrait + text two-column layout (matches .about-rbl-inner pattern)
+.about-strip-inner {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+}
+
+.about-portrait {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: $radius;
+  margin: 0;
+}
+
+.about-strip-text {
+  flex: 1;
+  padding-top: 0.25rem;
 }
 
 // Creator portrait + text two-column layout
