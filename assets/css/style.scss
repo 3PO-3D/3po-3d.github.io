@@ -117,62 +117,83 @@ body {
   }
 }
 
-// Theme toggle button — replaces <select>
+// Theme toggle button — no border, icon only
 .theme-toggle-btn {
   display: flex;
   align-items: center;
   justify-content: center;
   background: transparent;
-  border: $bw solid rgba(var(--text-rgb), 0.2);
-  border-radius: $radius;
-  padding: 0.3rem;
+  border: none;
+  padding: 0.25rem;
   cursor: pointer;
-  transition: border-color 0.15s;
+  transition: transform 0.15s;
   flex-shrink: 0;
+  outline: none;
 
   img {
     display: block;
     width: 20px;
     height: 20px;
-    // Tint icon to match text color using CSS filters
-    filter: opacity(0.7);
+    transition: transform 0.15s;
+  }
+
+  // Light theme: Cupcake icon is white — tint to brown so it's visible
+  [data-theme="gold-burgundy"] & img,
+  :root:not([data-theme="deep-space"]) & img {
+    filter: invert(22%) sepia(30%) saturate(600%) hue-rotate(330deg) brightness(60%);
+  }
+
+  // Dark theme: Planet icon is white — leave as-is, slightly dimmed
+  [data-theme="deep-space"] & img {
+    filter: opacity(0.75);
   }
 
   &:hover {
-    border-color: var(--accent);
-    img { filter: opacity(1); }
+    transform: scale(1.18);
+    img { transform: scale(1.0); }
   }
 }
 
-// Footer social icons
-.footer-social {
-  display: flex;
-  gap: 1.25rem;
-  align-items: center;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: $bw solid rgba(var(--text-rgb), 0.12);
-}
-
-.social-icon {
+// Footer icon links (text + icon pairs)
+.footer-icon-link {
   display: flex;
   align-items: center;
-  justify-content: center;
-  opacity: 0.55;
-  transition: opacity 0.15s;
+  gap: 0.6rem;
   text-decoration: none;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.45rem;
+  transition: color 0.15s;
 
-  img {
-    display: block;
-    width: 22px;
-    height: 22px;
-    margin: 0;
-    // Tint to text color
-    filter: invert(1) sepia(1) saturate(0.3);
-    border-radius: 0;
+  &:hover { color: var(--muted); }
+
+  .footer-icon-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+
+    // Text fallback (email icon)
+    font-size: 0.9rem;
+    color: var(--muted);
+
+    img {
+      display: block;
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      border-radius: 0;
+      // Tint sticker SVGs (black strokes) to match text color
+      filter: invert(22%) sepia(30%) saturate(400%) hue-rotate(330deg) brightness(65%);
+    }
   }
 
-  &:hover { opacity: 1; }
+  // Dark theme: invert tint
+  [data-theme="deep-space"] & .footer-icon-wrap img {
+    filter: invert(85%) sepia(10%) saturate(200%) hue-rotate(330deg) brightness(90%);
+  }
 }
 
 // ─── Typography ─────────────────────────────────────────────
@@ -344,9 +365,17 @@ img {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1.4fr 1fr;
   gap: 2rem;
   margin-bottom: 2.5rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
 }
 
 .footer-brand {
@@ -1105,22 +1134,45 @@ hr {
 }
 
 // ─── About RBL (maker section on 3PO home) ────────────────────
-// Continuation of .about-strip — lighter border, smaller vertical padding,
-// slightly smaller lead text. Feels like an addendum, not a new chapter.
 .about-rbl {
   padding: 3.5rem 0 5rem;
   border-top: $bw solid rgba(var(--text-rgb), 0.08);
 
+  .section-label {
+    margin-bottom: 1.5rem;
+  }
+
   p.lead {
     font-size: 1rem;
-    max-width: 560px;
+    max-width: 520px;
     color: var(--muted);
     line-height: 1.75;
   }
+}
 
-  .section-label {
-    margin-bottom: 1.25rem;
+// Creator portrait + text two-column layout
+.about-rbl-inner {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 1.5rem;
   }
+}
+
+.creator-portrait {
+  width: 120px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: $radius;
+  margin: 0; // override global img margin
+}
+
+.about-rbl-text {
+  flex: 1;
+  padding-top: 0.25rem;
 }
 
 // ─── Responsive adjustments ───────────────────────────────────
