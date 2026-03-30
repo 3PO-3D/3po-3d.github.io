@@ -71,16 +71,37 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    padding: 0 1.25rem;
+    gap: 1rem;
+  }
 }
 
-// Center wordmark (CHRONOS or Crafting Your Tomorrow SVG)
+// Logo — never shrinks, always visible, always brown
+.site-logo {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+
+  img {
+    height: 32px;
+    width: auto;
+    display: block;
+    flex-shrink: 0;
+  }
+}
+
+// Center wordmark — always visible, shrinks gracefully
 .header-wordmark {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   min-width: 0;
+  overflow: hidden;
 
   img {
     height: 20px;
@@ -88,12 +109,70 @@ body {
     max-width: 100%;
     display: block;
     opacity: 0.9;
+    object-fit: contain;
   }
 
-  // Hide on narrow viewports where it would collide
-  @media (max-width: 860px) {
-    display: none;
+  @media (max-width: 480px) {
+    img { height: 16px; }
   }
+}
+
+// Theme toggle button — replaces <select>
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: $bw solid rgba(var(--text-rgb), 0.2);
+  border-radius: $radius;
+  padding: 0.3rem;
+  cursor: pointer;
+  transition: border-color 0.15s;
+  flex-shrink: 0;
+
+  img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    // Tint icon to match text color using CSS filters
+    filter: opacity(0.7);
+  }
+
+  &:hover {
+    border-color: var(--accent);
+    img { filter: opacity(1); }
+  }
+}
+
+// Footer social icons
+.footer-social {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: $bw solid rgba(var(--text-rgb), 0.12);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.55;
+  transition: opacity 0.15s;
+  text-decoration: none;
+
+  img {
+    display: block;
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    // Tint to text color
+    filter: invert(1) sepia(1) saturate(0.3);
+    border-radius: 0;
+  }
+
+  &:hover { opacity: 1; }
 }
 
 // ─── Typography ─────────────────────────────────────────────
@@ -226,17 +305,7 @@ img {
   // layout handled by .header-container
 }
 
-.site-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-
-  .logo-img {
-    height: 32px;
-    width: auto;
-    display: block;
-  }
-}
+// .site-logo defined above near .header-container
 
 .site-nav {
   display: flex;
@@ -262,32 +331,7 @@ img {
 }
 
 // ─── Theme Switcher ─────────────────────────────────────────
-.theme-switcher {
-  font-family: $font-mono;
-  font-size: 0.65rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: var(--bg);
-  border: $bw solid rgba(var(--text-rgb), 0.2);
-  border-radius: $radius;
-  padding: 0.3rem 0.5rem;
-  cursor: pointer;
-  outline: none;
-  transition: border-color 0.15s, color 0.15s;
-  margin-left: 0.5rem;
-
-  &:hover, &:focus {
-    border-color: var(--accent);
-    color: var(--text);
-  }
-
-  option {
-    font-family: $font-mono;
-    background: var(--bg);
-    color: var(--text);
-  }
-}
+// .theme-switcher removed — replaced by .theme-toggle-btn icon button
 
 // ─── Footer ─────────────────────────────────────────────────
 .site-footer {
@@ -890,8 +934,6 @@ img {
   h2 { font-size: 1.5rem; }
 
   .site-nav a { padding: 0.4rem 0.6rem; font-size: 0.68rem; }
-  .theme-switcher { font-size: 0.6rem; padding: 0.25rem 0.4rem; }
-  .header-container { padding: 0 1.25rem; }
 }
 
 @media (max-width: 480px) {

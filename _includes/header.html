@@ -2,34 +2,24 @@
   <div class="header-container">
 
     <a href="{{ '/' | relative_url }}" class="site-logo">
-      {% if page.url contains '/chronos/' %}
-        <img
-          id="site-logo-img"
-          src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
-          data-light="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
-          data-dark="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}"
-          alt="3PO"
-          style="height:32px;width:auto;display:block;">
-      {% else %}
-        <img
-          id="site-logo-img"
-          src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-          data-light="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-          data-dark="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-          alt="3PO"
-          style="height:32px;width:auto;display:block;">
-      {% endif %}
+      <img
+        id="site-logo-img"
+        src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
+        data-light="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
+        data-dark="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
+        alt="3PO"
+        style="height:32px;width:auto;display:block;flex-shrink:0;">
     </a>
 
     <div class="header-wordmark">
       {% if page.url contains '/chronos/' %}
         <img
           id="header-wordmark-img"
-          src="{{ '/assets/img/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
-          data-light="{{ '/assets/img/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
-          data-dark="{{ '/assets/img/CHRONOS_yellow_darktheme_svg.svg' | relative_url }}"
+          src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          data-light="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}"
           alt="CHRONOS"
-          style="height:22px;width:auto;display:block;">
+          style="height:28px;width:auto;display:block;">
       {% else %}
         <img
           id="header-wordmark-img"
@@ -37,17 +27,25 @@
           data-light="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
           data-dark="/assets/img/CRAFTING%20YOUR%20TOMORROW_darktheme_svg.svg"
           alt="Crafting Your Tomorrow"
-          style="height:18px;width:auto;display:block;">
+          style="height:16px;width:auto;display:block;">
       {% endif %}
     </div>
 
     <nav class="site-nav">
       <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>C.H.R.O.N.O.S.</a>
-      <a href="https://github.com/3PO-3D" target="_blank" rel="noopener">GitHub ↗</a>
-      <select class="theme-switcher" id="theme-switcher" aria-label="Select theme">
-        <option value="gold-burgundy">Gold + Burgundy</option>
-        <option value="deep-space">Deep Space</option>
-      </select>
+      <button
+        class="theme-toggle-btn"
+        id="theme-toggle-btn"
+        aria-label="Toggle theme"
+        title="Toggle theme">
+        <img
+          id="theme-toggle-icon"
+          src="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
+          data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
+          data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}"
+          alt="Toggle theme"
+          width="20" height="20">
+      </button>
     </nav>
 
   </div>

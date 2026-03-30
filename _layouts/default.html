@@ -11,7 +11,6 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}">
   <script>
-    // Apply theme immediately — before any paint — to prevent flash
     var DARK_THEMES = ['deep-space'];
     var _currentTheme = localStorage.getItem('theme') || 'gold-burgundy';
     document.documentElement.setAttribute('data-theme', _currentTheme);
@@ -21,32 +20,46 @@
   {% include header.html %}
 
   <script>
-    // Apply correct logo and wordmark src immediately after header is in the DOM
+    // Apply all theme-dependent images immediately after header is parsed
     (function() {
       var t = localStorage.getItem('theme') || 'gold-burgundy';
       var dark = DARK_THEMES.indexOf(t) !== -1;
-      var logo = document.getElementById('site-logo-img');
-      if (logo) logo.src = dark ? logo.getAttribute('data-dark') : logo.getAttribute('data-light');
-      var wordmark = document.getElementById('header-wordmark-img');
-      if (wordmark) wordmark.src = dark ? wordmark.getAttribute('data-dark') : wordmark.getAttribute('data-light');
+
+      function swapImg(id) {
+        var el = document.getElementById(id);
+        if (el) el.src = dark ? el.getAttribute('data-dark') : el.getAttribute('data-light');
+      }
+
+      swapImg('site-logo-img');
+      swapImg('header-wordmark-img');
+      swapImg('theme-toggle-icon');
     })();
   </script>
 
   <script>
-    // Wire up theme switcher
     document.addEventListener('DOMContentLoaded', function() {
-      var sel = document.getElementById('theme-switcher');
-      if (!sel) return;
-      sel.value = localStorage.getItem('theme') || 'gold-burgundy';
-      sel.addEventListener('change', function() {
-        var t = this.value;
+      var btn = document.getElementById('theme-toggle-btn');
+      if (!btn) return;
+
+      function applyTheme(t) {
         var dark = DARK_THEMES.indexOf(t) !== -1;
         document.documentElement.setAttribute('data-theme', t);
         localStorage.setItem('theme', t);
-        var logo = document.getElementById('site-logo-img');
-        if (logo) logo.src = dark ? logo.getAttribute('data-dark') : logo.getAttribute('data-light');
-        var wordmark = document.getElementById('header-wordmark-img');
-        if (wordmark) wordmark.src = dark ? wordmark.getAttribute('data-dark') : wordmark.getAttribute('data-light');
+
+        function swapImg(id) {
+          var el = document.getElementById(id);
+          if (el) el.src = dark ? el.getAttribute('data-dark') : el.getAttribute('data-light');
+        }
+
+        swapImg('site-logo-img');
+        swapImg('header-wordmark-img');
+        swapImg('theme-toggle-icon');
+      }
+
+      btn.addEventListener('click', function() {
+        var current = localStorage.getItem('theme') || 'gold-burgundy';
+        var next = DARK_THEMES.indexOf(current) !== -1 ? 'gold-burgundy' : 'deep-space';
+        applyTheme(next);
       });
     });
   </script>
