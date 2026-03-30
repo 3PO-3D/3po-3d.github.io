@@ -31,10 +31,14 @@
       {% endif %}
     </div>
 
-    <nav class="site-nav">
+    <!-- Right-side controls — ordered: [CHRONOS logo] [theme] [nav toggle] -->
+    <div class="header-controls">
+
+      <!-- CHRONOS logo link — always visible on /chronos/ pages, desktop + mobile -->
+      {% if page.url contains '/chronos/' %}
       <a href="{{ '/chronos/' | relative_url }}"
          class="nav-chronos-logo{% if page.url contains '/chronos/' %} active{% endif %}"
-         aria-label="CHRONOS">
+         aria-label="Go to CHRONOS overview">
         <img
           id="nav-chronos-logo"
           src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
@@ -43,35 +47,42 @@
           alt="CHRONOS"
           style="height:28px;width:auto;display:block;">
       </a>
-    </nav>
+      {% else %}
+      <!-- On 3PO home: show the text nav link instead -->
+      <nav class="site-nav">
+        <a href="{{ '/chronos/' | relative_url }}" aria-label="CHRONOS">C.H.R.O.N.O.S.</a>
+      </nav>
+      {% endif %}
 
-    <!-- Theme toggle — always in header, never moves -->
-    <button
-      class="theme-toggle-btn"
-      id="theme-toggle-btn"
-      aria-label="Toggle theme"
-      title="Toggle theme">
-      <img
-        id="theme-toggle-icon"
-        src="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
-        data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
-        data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}"
-        alt="Toggle theme"
-        width="20" height="20">
-    </button>
+      <!-- Theme toggle — always visible, always stays here -->
+      <button
+        class="theme-toggle-btn"
+        id="theme-toggle-btn"
+        aria-label="Toggle theme"
+        title="Toggle theme">
+        <img
+          id="theme-toggle-icon"
+          src="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
+          data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
+          data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}"
+          alt="Toggle theme"
+          width="20" height="20">
+      </button>
 
-    <!-- Mobile toggle — only shown on mobile, only relevant on CHRONOS pages -->
-    {% if page.url contains '/chronos/' %}
-    <button
-      class="mobile-menu-toggle"
-      id="mobile-menu-toggle"
-      aria-label="Open navigation"
-      aria-expanded="false">
-      <span class="toggle-track">
-        <span class="toggle-dot"></span>
-      </span>
-    </button>
-    {% endif %}
+      <!-- Mobile nav toggle — only on CHRONOS pages, only visible on mobile -->
+      {% if page.url contains '/chronos/' %}
+      <button
+        class="mobile-menu-toggle"
+        id="mobile-menu-toggle"
+        aria-label="Open navigation"
+        aria-expanded="false">
+        <span class="toggle-track">
+          <span class="toggle-dot"></span>
+        </span>
+      </button>
+      {% endif %}
+
+    </div>
 
   </div>
 </header>

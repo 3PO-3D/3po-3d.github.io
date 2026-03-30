@@ -323,15 +323,24 @@ img {
 
 // .site-logo defined above near .header-container
 
-// CHRONOS logo link in nav (replaces text link)
+// Right-side controls wrapper — flex row, always on the right
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+// CHRONOS gold head logo link — always visible on /chronos/ pages
+// Never hidden by mobile breakpoint (it's outside .site-nav)
 .nav-chronos-logo {
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.3rem 0.5rem;
-  opacity: 0.7;
-  transition: opacity 0.15s, transform 0.15s;
-  border-bottom: none !important;
+  padding: 0.25rem 0.4rem;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
 
   img {
     display: block;
@@ -340,16 +349,11 @@ img {
     margin: 0;
   }
 
-  &:hover, &.active {
-    opacity: 1;
-    border-bottom: none !important;
-  }
-
-  &.active {
-    opacity: 1;
-  }
+  &:hover { opacity: 1; }
+  &.active { opacity: 1; }
 }
 
+// Desktop-only text nav (home page — C.H.R.O.N.O.S. link)
 .site-nav {
   display: flex;
   align-items: center;
@@ -1301,47 +1305,46 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
   cursor: pointer;
   flex-shrink: 0;
   align-items: center;
+  margin-left: 0.5rem;   // breathing room from theme icon
 }
 
 // ─── Mobile CHRONOS page nav panel ────────────────────────
 // Drops down from the header (position:sticky top), overlays content.
 // Only rendered on /chronos/ pages via Liquid conditional.
 
+// Mobile CHRONOS nav panel
+// Uses max-height clip animation — reliable on all browsers and static sites.
+// Panel sits in normal document flow immediately after <header>,
+// so no positioning tricks needed.
 .mobile-nav-panel {
-  display: none;           // only visible on mobile
-  position: absolute;      // positions relative to .site-header (sticky)
-  top: 100%;               // just below the header
-  left: 0;
-  right: 0;
+  display: none;          // revealed only by the @media rule below
+  max-height: 0;
+  overflow: hidden;
   background: var(--bg);
   border-bottom: $bw solid rgba(var(--text-rgb), 0.15);
-  z-index: 99;
-  transform: translateY(-8px);
-  opacity: 0;
-  pointer-events: none;
-  transition: transform 0.22s cubic-bezier(0.4,0,0.2,1),
-              opacity 0.22s;
+  // Sticky z-index context: header is z-index 100, panel is below page content
+  position: relative;
+  z-index: 98;
+  transition: max-height 0.28s cubic-bezier(0.4,0,0.2,1);
 
   &.is-open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
+    max-height: 320px;   // taller than 5 links × ~50px, never clips
   }
 
   .mobile-nav-links {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem 0;
+    padding: 0.4rem 0 0.75rem;
 
     a {
       font-family: $font-mono;
-      font-size: 0.78rem;
+      font-size: 0.8rem;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--muted);
-      padding: 0.85rem 1.5rem;
-      border-right: 3px solid transparent;  // right-side accent
+      padding: 0.9rem 1.5rem;
+      border-right: 3px solid transparent;
       transition: color 0.15s, border-color 0.15s, background 0.15s;
 
       &:hover {
@@ -1353,30 +1356,25 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
         color: var(--accent);
         border-right-color: var(--accent);
         background: rgba(var(--accent-rgb), 0.06);
+        font-weight: 600;
       }
     }
   }
 }
 
-// Make site-header the positioning context for the panel
-.site-header {
-  position: sticky;   // already set above, but ensure relative is NOT set
-  // Using sticky + the panel is absolute = panel drops below sticky header
-  // This works because sticky headers are still part of the flow.
-}
-
 // ─── Breakpoint: activate mobile nav ─────────────────────────
 @media (max-width: 680px) {
-  // Show the toggle button
+  // Show the mobile nav toggle button
   .mobile-menu-toggle { display: flex; }
 
-  // Hide desktop nav (the head logo link)
+  // Hide the home-page text nav link only
+  // (nav-chronos-logo is outside .site-nav and stays visible)
   .site-nav { display: none; }
 
-  // Show mobile nav panel (still hidden until .is-open)
+  // Show mobile nav panel container (still max-height:0 until .is-open)
   .mobile-nav-panel { display: block; }
 
-  // Hide desktop chronos-nav sub-bar
+  // Hide the desktop chronos sub-nav bar
   .chronos-nav { display: none; }
 
   // Wordmark slightly smaller on narrow screens
@@ -1384,4 +1382,7 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
     height: 14px;
     max-width: 140px;
   }
+
+  // Tighten header controls gap on mobile
+  .header-controls { gap: 0.1rem; }
 }
