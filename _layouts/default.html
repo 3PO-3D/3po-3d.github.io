@@ -33,40 +33,96 @@
       swapImg('site-logo-img');
       swapImg('header-wordmark-img');
       swapImg('theme-toggle-icon');
+      swapImg('theme-toggle-icon-mobile');
       swapImg('nav-chronos-logo');
       swapImg('footer-email-icon');
       swapImg('footer-qa-icon');
+
+      // Set mobile theme label
+      var label = document.getElementById('mobile-theme-label');
+      if (label) label.textContent = dark ? 'Deep Space' : 'Gold + Burgundy';
     })();
   </script>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      var btn = document.getElementById('theme-toggle-btn');
-      if (!btn) return;
+
+      // ─── Theme swap helper ───────────────────────────────────
+      function swapImg(id) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        var dark = DARK_THEMES.indexOf(localStorage.getItem('theme') || 'gold-burgundy') !== -1;
+        el.src = dark ? el.getAttribute('data-dark') : el.getAttribute('data-light');
+      }
 
       function applyTheme(t) {
         var dark = DARK_THEMES.indexOf(t) !== -1;
         document.documentElement.setAttribute('data-theme', t);
         localStorage.setItem('theme', t);
-
-        function swapImg(id) {
-          var el = document.getElementById(id);
-          if (el) el.src = dark ? el.getAttribute('data-dark') : el.getAttribute('data-light');
-        }
-
         swapImg('site-logo-img');
         swapImg('header-wordmark-img');
         swapImg('theme-toggle-icon');
+        swapImg('theme-toggle-icon-mobile');
         swapImg('nav-chronos-logo');
         swapImg('footer-email-icon');
         swapImg('footer-qa-icon');
+        var label = document.getElementById('mobile-theme-label');
+        if (label) label.textContent = dark ? 'Deep Space' : 'Gold + Burgundy';
       }
 
-      btn.addEventListener('click', function() {
-        var current = localStorage.getItem('theme') || 'gold-burgundy';
-        var next = DARK_THEMES.indexOf(current) !== -1 ? 'gold-burgundy' : 'deep-space';
-        applyTheme(next);
+      // Desktop theme toggle
+      var btn = document.getElementById('theme-toggle-btn');
+      if (btn) {
+        btn.addEventListener('click', function() {
+          var current = localStorage.getItem('theme') || 'gold-burgundy';
+          applyTheme(DARK_THEMES.indexOf(current) !== -1 ? 'gold-burgundy' : 'deep-space');
+        });
+      }
+
+      // Mobile theme toggle (inside drawer)
+      var mobileThemeBtn = document.getElementById('theme-toggle-btn-mobile');
+      if (mobileThemeBtn) {
+        mobileThemeBtn.addEventListener('click', function() {
+          var current = localStorage.getItem('theme') || 'gold-burgundy';
+          applyTheme(DARK_THEMES.indexOf(current) !== -1 ? 'gold-burgundy' : 'deep-space');
+        });
+      }
+
+      // ─── Mobile nav drawer ───────────────────────────────────
+      var toggle   = document.getElementById('mobile-menu-toggle');
+      var close    = document.getElementById('mobile-nav-close');
+      var overlay  = document.getElementById('mobile-nav-overlay');
+      var drawer   = document.getElementById('mobile-nav-drawer');
+
+      function openDrawer() {
+        document.body.classList.add('nav-open');
+        if (drawer)  { drawer.classList.add('is-open');  drawer.setAttribute('aria-hidden', 'false'); }
+        if (overlay) overlay.classList.add('is-visible');
+        if (toggle)  toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeDrawer() {
+        document.body.classList.remove('nav-open');
+        if (drawer)  { drawer.classList.remove('is-open'); drawer.setAttribute('aria-hidden', 'true'); }
+        if (overlay) overlay.classList.remove('is-visible');
+        if (toggle)  toggle.setAttribute('aria-expanded', 'false');
+      }
+
+      if (toggle)  toggle.addEventListener('click', openDrawer);
+      if (close)   close.addEventListener('click', closeDrawer);
+      if (overlay) overlay.addEventListener('click', closeDrawer);
+
+      // Close drawer on Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeDrawer();
       });
+
+      // Close drawer on link click (navigation)
+      if (drawer) {
+        drawer.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', closeDrawer);
+        });
+      }
     });
   </script>
 
