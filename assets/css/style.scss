@@ -65,14 +65,14 @@ body {
 }
 
 // Full-width container for the header — 3-column CSS Grid.
-// Grid: [logo | wordmark | controls] with 1fr on each side keeps
-// the center wordmark mathematically centered at every viewport width.
-// min-width:0 on the center cell allows graceful shrinking.
+// [logo | wordmark | controls]
+// Outer cols: minmax(0,1fr) — equal, balance perfectly around center.
+// Center col: minmax(0,auto) — sizes to content, shrinks with content.
 .header-container {
   width: 100%;
   padding: 0 2.5rem;
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: minmax(0,1fr) minmax(0,auto) minmax(0,1fr);
   align-items: center;
 
   @media (max-width: 768px) {
@@ -80,12 +80,12 @@ body {
   }
 }
 
-// Logo — left cell, never shrinks
+// Logo — left cell, anchored to start
 .site-logo {
   display: flex;
   align-items: center;
   text-decoration: none;
-  justify-self: start;    // anchors to the left edge of the 1fr cell
+  justify-self: start;
 
   img {
     height: 32px;
@@ -95,44 +95,55 @@ body {
   }
 }
 
-// Center wordmark — middle cell of the 3-column grid.
-// Always perfectly centered. Scales down in two steps then disappears.
+// Center wordmark — true center of the 3-col grid.
+//
+// The inline style="height:Npx" has been removed from the HTML <img>
+// tags so CSS can fully control height. Class .wordmark-img is used
+// to target the image specifically without inline specificity fighting.
+//
+// Controls anti-jump strategy: when hiding, we keep .header-wordmark
+// visible as a block but set the img to opacity:0 + height:0. The
+// center grid column then collapses to 0 naturally, and because both
+// outer cols are minmax(0,1fr) they expand symmetrically — controls
+// stay pinned to the right via justify-self:end.
 //
 // Shrink stages:
-//   >600px        : full size (20px tall image)
-//   600px–460px  : scales to 85% using transform — smooth, no reflow
-//   <460px        : display:none — clean disappear, no sliver
-//
-// Why 460px: at that width the two 1fr cells hold ~130px each, and
-// the auto center cell (wordmark at 85% ≈85px) starts to feel cramped.
-// Disappearing is cleaner than becoming unreadable.
+//   >600px       : 20px (CHRONOS) / 15px (CYT) — full display
+//   600px-430px  : 14px (CHRONOS) / 12px (CYT) — gentle reduction
+//   <430px       : opacity:0, height:0 — fades and collapses cleanly
 .header-wordmark {
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;       // prevents bleed if img is wider than cell
-  padding: 0 0.5rem;      // breathing room from both sides
+  padding: 0 0.75rem;       // breathing room, never touches sides
+  overflow: hidden;
+}
 
-  img {
-    height: 20px;
-    width: auto;
-    display: block;
-    opacity: 0.9;
-    transition: transform 0.2s ease, opacity 0.2s ease;
-    transform-origin: center center;
-    flex-shrink: 1;       // allows natural shrink within the auto cell
-    max-width: 100%;
-  }
+// Wordmark images — no inline height on the HTML <img>s, CSS controls all.
+// Two variants: --chronos (CHRONOS pages) and --cyt (home page).
+// CYT SVG is ~2× wider than CHRONOS so it renders at a shorter height
+// to avoid overwhelming the header.
+.wordmark-img {
+  width: auto;
+  display: block;
+  opacity: 0.9;
+  transition: height 0.25s ease, opacity 0.25s ease;
+  flex-shrink: 0;
+}
 
-  // Stage 1: 600px – start scaling down to 85%
-  @media (max-width: 600px) {
-    img { transform: scale(0.85); opacity: 0.8; }
-  }
+// Desktop baseline heights
+.wordmark-img--chronos { height: 20px; }
+.wordmark-img--cyt     { height: 14px; }  // CYT is wide — smaller height balances it
 
-  // Stage 2: 460px – disappear cleanly
-  @media (max-width: 460px) {
-    display: none;
-  }
+// Stage 1 — 600px: reduce, still legible
+@media (max-width: 600px) {
+  .wordmark-img--chronos { height: 14px; opacity: 0.75; }
+  .wordmark-img--cyt     { height: 11px; opacity: 0.75; }
+}
+
+// Stage 2 — 430px: collapse to nothing, center column shrinks with it
+@media (max-width: 430px) {
+  .wordmark-img { height: 0; opacity: 0; }
 }
 
 // Theme toggle button — no border, icon only
