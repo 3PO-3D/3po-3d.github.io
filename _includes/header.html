@@ -1,5 +1,5 @@
 <header class="site-header">
-  <div class="container">
+  <div class="header-container">
     <a href="{{ '/' | relative_url }}" class="site-logo">
       {% if page.url contains '/chronos/' %}
         <img
@@ -18,7 +18,6 @@
           alt="3PO"
           style="height:32px;width:auto;display:block;">
       {% endif %}
-      <span class="logo-tagline">Crafting Your Tomorrow</span>
     </a>
     <nav class="site-nav">
       <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>C.H.R.O.N.O.S.</a>

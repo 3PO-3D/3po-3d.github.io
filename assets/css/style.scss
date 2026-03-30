@@ -19,44 +19,29 @@ $bw:         1.5px;
   --muted: #8C5C3E;
   --accent: #DDAA33;
   --accent-rgb: 221, 170, 51;
-  --accent-alt: #40E0C0;
+  --accent-alt: #DDAA33;
   --accent-dark: #C49A2A;
   --badge-green: #2D7A4A;
 }
 
-// ─── Theme: Muted Gold + Burgundy — REMOVED ─────────────────
+// ─── Removed themes: Muted Gold, Oxidized Terminal, Burnt Film ───
 
-// ─── Theme: Oxidized Terminal (dark) ─────────────────────────
-[data-theme="oxidized-terminal"] {
-  --bg: #0F1419;
-  --bg-rgb: 15, 20, 25;
-  --surface: #1C2530;
-  --text: #D4C5B0;
-  --text-rgb: 212, 197, 176;
-  --muted: #8A7A6A;
-  --accent: #40E0C0;
-  --accent-rgb: 64, 224, 192;
-  --accent-alt: #DDAA33;
-  --accent-dark: #30B898;
-  --badge-green: #4ADE80;
-}
-
-// ─── Theme: Deep Space Workshop (dark) ───────────────────────
+// ─── Theme: Deep Space (dark) ─────────────────────────────
+// Near-black neutral bg — no brown cast. Warm cream text.
+// Gold accent carries all warmth. accent-alt = gold (no teal).
 [data-theme="deep-space"] {
-  --bg: #1A1210;
-  --bg-rgb: 26, 18, 16;
-  --surface: #2A1F1A;
-  --text: #E8DDD0;
-  --text-rgb: 232, 221, 208;
-  --muted: #A08070;
+  --bg: #111010;
+  --bg-rgb: 17, 16, 16;
+  --surface: #1E1C1B;
+  --text: #EDE0CC;
+  --text-rgb: 237, 224, 204;
+  --muted: #9A8870;
   --accent: #DDAA33;
   --accent-rgb: 221, 170, 51;
-  --accent-alt: #40E0C0;
+  --accent-alt: #DDAA33;
   --accent-dark: #C49A2A;
   --badge-green: #4ADE80;
 }
-
-// ─── Theme: Burnt Film — REMOVED ────────────────────────────
 
 // ─── Reset ───────────────────────────────────────────────────
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -77,6 +62,16 @@ body {
   max-width: $max-width;
   margin: 0 auto;
   padding: 0 2rem;
+}
+
+// Full-width container for the header — no max-width cap
+.header-container {
+  width: 100%;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 // ─── Typography ─────────────────────────────────────────────
@@ -190,26 +185,10 @@ img {
   margin: 1.5rem 0;
 }
 
-// ─── Logo variants ──────────────────────────────────────────
-// .logo-img is the default (transparent/cream face — for light themes)
-// .logo-img--white is swapped in on dark themes via JS (see header.html)
-// .chronos-text-logo is the CHRONOS wordmark SVG shown in header on /chronos/ routes
-.logo-img--white { display: none; }
-
-[data-theme="oxidized-terminal"],
-[data-theme="deep-space"] {
-  .logo-img         { display: none; }
-  .logo-img--white  { display: block; }
-}
-
-.chronos-text-logo {
-  height: 22px;
-  width: auto;
-  display: block;
-  margin-left: 1.25rem;
-  opacity: 0.9;
-  flex-shrink: 0;
-}
+// ─── Logo ──────────────────────────────────────────────────────
+// Logo src is swapped by JS in default.html on theme change.
+// Size is set inline on the <img> tag to override SVG intrinsic dimensions.
+// No CSS class toggling needed.
 
 // ─── Header ─────────────────────────────────────────────────
 .site-header {
@@ -222,36 +201,19 @@ img {
   backdrop-filter: blur(8px);
   transition: background 0.2s;
 
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-  }
+  // layout handled by .header-container
 }
 
 .site-logo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   text-decoration: none;
-  gap: 2px;
 
   .logo-img {
     height: 32px;
     width: auto;
     display: block;
   }
-
-  .logo-tagline {
-    font-family: $font-mono;
-    font-size: 0.58rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-    text-decoration: none;
-  }
-
-  &:hover .logo-tagline { color: var(--text); }
 }
 
 .site-nav {
@@ -906,8 +868,8 @@ img {
   h2 { font-size: 1.5rem; }
 
   .site-nav a { padding: 0.4rem 0.6rem; font-size: 0.68rem; }
-
   .theme-switcher { font-size: 0.6rem; padding: 0.25rem 0.4rem; }
+  .header-container { padding: 0 1.25rem; }
 }
 
 @media (max-width: 480px) {

@@ -6,7 +6,7 @@ description: "3PO builds tools for 3D artists and creative pipelines."
 
 <section class="hero-3po">
   <div class="container">
-    <img src="{{ '/assets/img/V0_3PO_LOGO-HEAD_TRANS.svg' | relative_url }}" alt="3PO" class="hero-logo">
+    <img src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}" alt="3PO" class="hero-logo">
     <p class="hero-tagline">Crafting Your Tomorrow</p>
     <h1>Tools for 3D artists.<br>Built for real pipelines.</h1>
     <p class="lead">3PO is a one-person creative and engineering platform. Every project starts from a real problem — and ends with something that earns its place in your process.</p>
