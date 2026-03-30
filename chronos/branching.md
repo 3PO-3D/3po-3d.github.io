@@ -53,37 +53,52 @@ From that point it is sealed. No parent change can reach it. The inheritance cha
 All Generations link directly from the Blueprint. No children of children. Every Generation is a sibling.
 
 <div class="diagram topology-diagram">
-<svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 520 210" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp { fill: var(--text); stroke: var(--text); }
-    .n-lk { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
+    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
+    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
+    .e-bk  { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
     .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
+    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
     .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
+    .legend-line { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); }
   </style>
-  <!-- Blueprint -->
-  <circle cx="260" cy="40" r="26" class="n-bp"/>
-  <text x="260" y="44" class="lbl-i" font-weight="700">Blueprint</text>
-  <!-- Edges -->
-  <line x1="260" y1="66" x2="60"  y2="148" class="e-lk"/>
-  <line x1="260" y1="66" x2="160" y2="148" class="e-lk"/>
-  <line x1="260" y1="66" x2="260" y2="148" class="e-lk"/>
-  <line x1="260" y1="66" x2="360" y2="148" class="e-lk"/>
-  <line x1="260" y1="66" x2="460" y2="148" class="e-lk"/>
+  <!-- Blueprint node -->
+  <rect x="210" y="18" width="100" height="30" rx="4" class="n-bp"/>
+  <text x="260" y="38" class="lbl-bp">BLUEPRINT</text>
+  <!-- Link edges (solid) -->
+  <line x1="260" y1="48" x2="60"  y2="130" class="e-lk"/>
+  <line x1="260" y1="48" x2="160" y2="130" class="e-lk"/>
+  <line x1="260" y1="48" x2="260" y2="130" class="e-lk"/>
+  <line x1="260" y1="48" x2="360" y2="130" class="e-lk"/>
+  <line x1="260" y1="48" x2="460" y2="130" class="e-lk"/>
+  <!-- Link tags -->
+  <text x="148" y="88" class="tag" transform="rotate(-33,148,88)">Link</text>
+  <text x="210" y="92" class="tag" transform="rotate(-16,210,92)">Link</text>
+  <text x="262" y="90" class="tag">Link</text>
+  <text x="314" y="92" class="tag" transform="rotate(16,314,92)">Link</text>
+  <text x="376" y="88" class="tag" transform="rotate(33,376,88)">Link</text>
   <!-- Child nodes -->
-  <rect x="10"  y="148" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="60"  y="168" class="lbl">Hero_Lighting</text>
-  <rect x="110" y="148" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="160" y="168" class="lbl">Turntable_White</text>
-  <rect x="210" y="148" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="260" y="168" class="lbl">Dark_Mood</text>
-  <rect x="310" y="148" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="360" y="168" class="lbl">Ecom_Flat</text>
-  <rect x="410" y="148" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="460" y="168" class="lbl">Client_v1</text>
+  <rect x="10"  y="130" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="60"  y="150" class="lbl">Hero_Lighting</text>
+  <rect x="110" y="130" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="160" y="150" class="lbl">Turntable_White</text>
+  <rect x="210" y="130" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="260" y="150" class="lbl">Dark_Mood</text>
+  <rect x="310" y="130" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="360" y="150" class="lbl">Ecom_Flat</text>
+  <rect x="410" y="130" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="460" y="150" class="lbl">Client_v1</text>
   <!-- Caption -->
-  <text x="260" y="195" class="cap">All Generations inherit directly from Blueprint — simple, independent, parallel</text>
+  <text x="260" y="178" class="cap">All Generations link directly from Blueprint — live inheritance, parallel siblings</text>
+  <!-- Legend -->
+  <line x1="160" y1="194" x2="190" y2="194" stroke="var(--text)" stroke-width="1.5"/>
+  <text x="195" y="197" class="legend-line">Link (live data flow)</text>
+  <line x1="310" y1="194" x2="330" y2="194" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="335" y="197" class="legend-line">Bake (snapshot, no flow)</text>
 </svg>
 </div>
 
@@ -96,33 +111,40 @@ All Generations link directly from the Blueprint. No children of children. Every
 Each Generation inherits from the previous one. A revision history — each round builds on the last.
 
 <div class="diagram topology-diagram">
-<svg viewBox="0 0 520 120" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp { fill: var(--text); stroke: var(--text); }
-    .n-lk { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
+    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
+    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
     .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 10px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
     .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
   </style>
-  <!-- Nodes -->
-  <circle cx="40"  cy="50" r="24" class="n-bp"/>
-  <text x="40"  y="54" class="lbl-i" font-weight="700">BP</text>
-  <rect x="85"  y="35" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="135" y="55" class="lbl">Round_1</text>
-  <rect x="205" y="35" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="255" y="55" class="lbl">Round_2</text>
-  <rect x="325" y="35" width="100" height="30" rx="2" class="n-lk"/>
-  <text x="375" y="55" class="lbl">Round_3</text>
-  <rect x="445" y="35" width="65" height="30" rx="2" class="n-lk"/>
-  <text x="477" y="55" class="lbl">Final</text>
-  <!-- Edges -->
-  <line x1="64"  y1="50" x2="85"  y2="50" class="e-lk"/>
-  <line x1="185" y1="50" x2="205" y2="50" class="e-lk"/>
-  <line x1="305" y1="50" x2="325" y2="50" class="e-lk"/>
-  <line x1="425" y1="50" x2="445" y2="50" class="e-lk"/>
+  <!-- Blueprint -->
+  <rect x="4" y="35" width="72" height="30" rx="4" class="n-bp"/>
+  <text x="40" y="54" class="lbl-bp">BLUEPRINT</text>
+  <!-- Link edges (solid) -->
+  <line x1="76"  y1="50" x2="96"  y2="50" class="e-lk"/>
+  <line x1="216" y1="50" x2="236" y2="50" class="e-lk"/>
+  <line x1="336" y1="50" x2="356" y2="50" class="e-lk"/>
+  <line x1="456" y1="50" x2="476" y2="50" class="e-lk"/>
+  <!-- Link labels -->
+  <text x="86"  y="45" class="tag">Link</text>
+  <text x="226" y="45" class="tag">Link</text>
+  <text x="346" y="45" class="tag">Link</text>
+  <text x="466" y="45" class="tag">Link</text>
+  <!-- Generation nodes -->
+  <rect x="96"  y="35" width="120" height="30" rx="2" class="n-lk"/>
+  <text x="156" y="55" class="lbl">Round_1</text>
+  <rect x="236" y="35" width="120" height="30" rx="2" class="n-lk"/>
+  <text x="296" y="55" class="lbl">Round_2</text>
+  <rect x="356" y="35" width="100" height="30" rx="2" class="n-lk"/>
+  <text x="406" y="55" class="lbl">Round_3</text>
+  <rect x="476" y="35" width="40" height="30" rx="2" class="n-lk"/>
+  <text x="496" y="55" class="lbl">...</text>
   <!-- Caption -->
-  <text x="260" y="100" class="cap">Each Generation inherits from the previous — iterative refinement, full revision history preserved</text>
+  <text x="260" y="96" class="cap">Each Generation links from the previous — live chain, every ancestor's values flow through</text>
 </svg>
 </div>
 
@@ -135,55 +157,55 @@ Each Generation inherits from the previous one. A revision history — each roun
 Mix Link and Bake freely. A parent drives multiple live children; some children become sealed deliverables at a fork point.
 
 <div class="diagram topology-diagram">
-<svg viewBox="0 0 560 320" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp  { fill: var(--text); stroke: var(--text); }
+    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
     .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
     .n-bk  { fill: var(--surface); stroke: var(--accent); stroke-width: 2.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
-    .e-bk  { stroke: var(--accent); stroke-width: 2; fill: none; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
+    .e-bk  { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
     .seal  { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3,3; }
     .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
     .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
     .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
     .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
   </style>
   <!-- Blueprint -->
-  <circle cx="280" cy="36" r="26" class="n-bp"/>
-  <text x="280" y="40" class="lbl-i" font-weight="700">Blueprint</text>
-  <!-- Level 1 -->
-  <line x1="280" y1="62" x2="130" y2="118" class="e-lk"/>
-  <line x1="280" y1="62" x2="430" y2="118" class="e-lk"/>
+  <rect x="230" y="18" width="100" height="30" rx="4" class="n-bp"/>
+  <text x="280" y="38" class="lbl-bp">BLUEPRINT</text>
+  <!-- Level 1: solid Link edges -->
+  <line x1="280" y1="48" x2="130" y2="118" class="e-lk"/>
+  <line x1="280" y1="48" x2="430" y2="118" class="e-lk"/>
+  <text x="192" y="82" class="tag">Link</text>
+  <text x="368" y="82" class="tag">Link</text>
   <rect x="60"  y="118" width="140" height="30" rx="2" class="n-lk"/>
   <text x="130" y="138" class="lbl">Product_Line_Base</text>
-  <text x="130" y="108" class="tag">Linked</text>
   <rect x="360" y="118" width="140" height="30" rx="2" class="n-lk"/>
   <text x="430" y="138" class="lbl">Turntable_White</text>
-  <text x="430" y="108" class="tag">Linked</text>
-  <!-- Level 2 from Product_Line_Base -->
+  <!-- Level 2: solid Link edges -->
   <line x1="130" y1="148" x2="60"  y2="208" class="e-lk"/>
   <line x1="130" y1="148" x2="160" y2="208" class="e-lk"/>
   <line x1="130" y1="148" x2="260" y2="208" class="e-lk"/>
+  <text x="82"  y="182" class="tag">Link</text>
+  <text x="148" y="180" class="tag">Link</text>
+  <text x="204" y="178" class="tag">Link</text>
   <rect x="10"  y="208" width="100" height="30" rx="2" class="n-lk"/>
   <text x="60"  y="228" class="lbl">Colour_Red</text>
-  <text x="60"  y="198" class="tag">Linked</text>
   <rect x="110" y="208" width="100" height="30" rx="2" class="n-lk"/>
   <text x="160" y="228" class="lbl">Colour_Blue</text>
-  <text x="160" y="198" class="tag">Linked</text>
   <rect x="210" y="208" width="100" height="30" rx="2" class="n-lk"/>
   <text x="260" y="228" class="lbl">Colour_Gold</text>
-  <text x="260" y="198" class="tag">Linked</text>
-  <!-- Bake from Colour_Gold -->
+  <!-- Bake edge (dashed gold) -->
   <line x1="260" y1="238" x2="260" y2="272" class="e-bk"/>
+  <text x="300" y="258" class="tag">Bake ← fork</text>
+  <!-- Baked node + seal -->
   <rect x="210" y="272" width="100" height="32" rx="2" class="n-bk"/>
   <rect x="206" y="268" width="108" height="40" rx="4" class="seal"/>
   <text x="260" y="293" class="lbl" font-weight="600">Gold_Approved</text>
-  <text x="260" y="264" class="lbl-a">Baked — sealed</text>
-  <!-- Fork point label -->
-  <text x="310" y="258" class="tag" font-style="italic">← fork point</text>
+  <text x="260" y="264" class="lbl-a">sealed</text>
   <!-- Caption -->
-  <text x="280" y="316" class="cap">Live children from a shared parent — one seals into a deliverable at the fork point</text>
+  <text x="280" y="324" class="cap">Solid lines = live data flows. Dashed gold = snapshot taken, lineage firewall active.</text>
 </svg>
 </div>
 
@@ -198,51 +220,63 @@ Mix Link and Bake freely. A parent drives multiple live children; some children 
 Cinema 4D's architecture means CHRONOS V1 has one root Context — the Main Take. But you can create multiple independent variation systems within that Context by using a Baked Generation as a secondary branch root.
 
 <div class="diagram topology-diagram">
-<svg viewBox="0 0 560 280" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 560 290" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp  { fill: var(--text); stroke: var(--text); }
+    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
     .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
     .n-bk  { fill: var(--surface); stroke: var(--accent); stroke-width: 2.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; stroke-dasharray: 5,3; fill: none; }
-    .e-bk  { stroke: var(--accent); stroke-width: 2; fill: none; }
+    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
+    .e-bk  { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
     .seal  { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3,3; }
     .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-i { font-family: 'Space Grotesk', sans-serif; fill: var(--bg); font-size: 11px; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
     .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
     .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
     .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
   </style>
   <!-- Blueprint -->
-  <circle cx="280" cy="36" r="26" class="n-bp"/>
-  <text x="280" y="40" class="lbl-i" font-weight="700">Blueprint</text>
-  <!-- Branch A (left) — linked chain -->
-  <line x1="280" y1="62" x2="120" y2="108" class="e-lk"/>
+  <rect x="230" y="18" width="100" height="30" rx="4" class="n-bp"/>
+  <text x="280" y="38" class="lbl-bp">BLUEPRINT</text>
+  <!-- Left: solid Link edge to Branch A -->
+  <line x1="250" y1="48" x2="120" y2="108" class="e-lk"/>
+  <text x="172" y="76" class="tag">Link</text>
+  <!-- Right: dashed Bake edge to Branch_B_Root -->
+  <line x1="310" y1="48" x2="420" y2="108" class="e-bk"/>
+  <text x="380" y="76" class="tag">Bake</text>
+  <!-- Branch A node -->
   <rect x="50" y="108" width="140" height="30" rx="2" class="n-lk"/>
   <text x="120" y="128" class="lbl">Main_Branch_A</text>
-  <text x="120" y="98" class="tag">Linked</text>
-  <line x1="120" y1="138" x2="70"  y2="188" class="e-lk"/>
-  <line x1="120" y1="138" x2="170" y2="188" class="e-lk"/>
+  <!-- Branch A children: solid Link edges -->
+  <line x1="100" y1="138" x2="70"  y2="188" class="e-lk"/>
+  <line x1="140" y1="138" x2="170" y2="188" class="e-lk"/>
+  <text x="74"  y="166" class="tag">Link</text>
+  <text x="162" y="166" class="tag">Link</text>
   <rect x="20"  y="188" width="100" height="30" rx="2" class="n-lk"/>
   <text x="70"  y="208" class="lbl">A_Variant_1</text>
   <rect x="120" y="188" width="100" height="30" rx="2" class="n-lk"/>
   <text x="170" y="208" class="lbl">A_Variant_2</text>
-  <!-- Baked secondary root (right) -->
-  <line x1="280" y1="62" x2="420" y2="108" class="e-bk"/>
+  <!-- Branch_B_Root: baked node + seal -->
   <rect x="350" y="108" width="140" height="32" rx="2" class="n-bk"/>
   <rect x="346" y="104" width="148" height="40" rx="4" class="seal"/>
   <text x="420" y="129" class="lbl" font-weight="600">Branch_B_Root</text>
-  <text x="420" y="98" class="lbl-a">Baked — branch root</text>
-  <!-- Branch B children -->
-  <line x1="420" y1="144" x2="370" y2="188" class="e-lk"/>
-  <line x1="420" y1="144" x2="470" y2="188" class="e-lk"/>
+  <text x="420" y="100" class="lbl-a">Baked — firewall</text>
+  <!-- Branch B children: solid Link edges (new live chain from baked root) -->
+  <line x1="390" y1="144" x2="370" y2="188" class="e-lk"/>
+  <line x1="450" y1="144" x2="470" y2="188" class="e-lk"/>
+  <text x="372" y="169" class="tag">Link</text>
+  <text x="468" y="169" class="tag">Link</text>
   <rect x="320" y="188" width="100" height="30" rx="2" class="n-lk"/>
   <text x="370" y="208" class="lbl">B_Variant_1</text>
   <rect x="420" y="188" width="100" height="30" rx="2" class="n-lk"/>
   <text x="470" y="208" class="lbl">B_Variant_2</text>
-  <!-- Labels -->
-  <text x="100" y="250" class="tag">Main branch — inherits from Blueprint</text>
-  <text x="430" y="250" class="tag">Independent branch — sealed from Main</text>
-  <text x="280" y="270" class="cap">A Baked Generation as a secondary root creates a fully independent sub-tree within the same Context</text>
+  <!-- Divider line -->
+  <line x1="280" y1="108" x2="280" y2="230" stroke="var(--muted)" stroke-width="0.5" stroke-dasharray="3,4"/>
+  <!-- Zone labels -->
+  <text x="120" y="248" class="tag">Branch A — live from Blueprint</text>
+  <text x="420" y="248" class="tag">Branch B — isolated from A</text>
+  <!-- Caption -->
+  <text x="280" y="268" class="cap">Dashed gold = snapshot taken, no flow. Solid = live. Branch B cannot see Branch A changes.</text>
+  <text x="280" y="282" class="cap">Both branches have their own live Link trees beneath their respective roots.</text>
 </svg>
 </div>
 
