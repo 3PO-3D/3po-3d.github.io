@@ -94,7 +94,16 @@ body {
   }
 }
 
-// Center wordmark — always visible, shrinks gracefully
+// Center wordmark — visible between 480px and desktop.
+// Below 480px: disappears entirely (no shrink, no clip).
+// Hard cutoff defined here — the wordmark never shrinks infinitely.
+//
+// Breakpoint rationale at 480px:
+//   Header holds: 32px logo + 28px CHRONOS logo + 20px theme icon
+//   + 46px toggle + ~30px gaps = ~156px minimum.
+//   Below 480px there is less than 324px available for the wordmark
+//   (1042px-wide CYT SVG / 507px-wide CHRONOS SVG) — not enough to read.
+//   Clean disappear is better than an unreadable sliver.
 .header-wordmark {
   flex: 1;
   display: flex;
@@ -109,11 +118,12 @@ body {
     max-width: 100%;
     display: block;
     opacity: 0.9;
-    object-fit: contain;
+    // No object-fit:contain — let it clip naturally before the breakpoint hides it
   }
 
+  // Hard disappear at 480px — no shrinking past this point
   @media (max-width: 480px) {
-    img { height: 16px; }
+    display: none;
   }
 }
 
@@ -1376,12 +1386,6 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
 
   // Hide the desktop chronos sub-nav bar
   .chronos-nav { display: none; }
-
-  // Wordmark slightly smaller on narrow screens
-  .header-wordmark img {
-    height: 14px;
-    max-width: 140px;
-  }
 
   // Tighten header controls gap on mobile
   .header-controls { gap: 0.1rem; }

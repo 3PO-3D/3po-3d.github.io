@@ -31,14 +31,15 @@
       {% endif %}
     </div>
 
-    <!-- Right-side controls — ordered: [CHRONOS logo] [theme] [nav toggle] -->
+    <!-- Right-side controls: [CHRONOS logo] [theme toggle] [nav toggle] -->
     <div class="header-controls">
 
-      <!-- CHRONOS logo link — always visible on /chronos/ pages, desktop + mobile -->
-      {% if page.url contains '/chronos/' %}
+      <!-- CHRONOS gold head logo — always visible on ALL pages, desktop + mobile.
+           On /chronos/ pages: links back to CHRONOS overview.
+           On home page: same link, acts as entry point to CHRONOS. -->
       <a href="{{ '/chronos/' | relative_url }}"
          class="nav-chronos-logo{% if page.url contains '/chronos/' %} active{% endif %}"
-         aria-label="Go to CHRONOS overview">
+         aria-label="Go to CHRONOS">
         <img
           id="nav-chronos-logo"
           src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
@@ -47,14 +48,8 @@
           alt="CHRONOS"
           style="height:28px;width:auto;display:block;">
       </a>
-      {% else %}
-      <!-- On 3PO home: show the text nav link instead -->
-      <nav class="site-nav">
-        <a href="{{ '/chronos/' | relative_url }}" aria-label="CHRONOS">C.H.R.O.N.O.S.</a>
-      </nav>
-      {% endif %}
 
-      <!-- Theme toggle — always visible, always stays here -->
+      <!-- Theme toggle — always in header, never moves -->
       <button
         class="theme-toggle-btn"
         id="theme-toggle-btn"
@@ -69,7 +64,7 @@
           width="20" height="20">
       </button>
 
-      <!-- Mobile nav toggle — only on CHRONOS pages, only visible on mobile -->
+      <!-- Mobile nav toggle — only on CHRONOS pages, only visible at ≤680px -->
       {% if page.url contains '/chronos/' %}
       <button
         class="mobile-menu-toggle"
