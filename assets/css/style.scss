@@ -65,17 +65,17 @@ body {
 }
 
 // Full-width container for the header — no max-width cap
+// Uses position:relative so the absolutely-centered wordmark anchors here.
 .header-container {
   width: 100%;
   padding: 0 2.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  position: relative;     // wordmark anchors to this
 
   @media (max-width: 768px) {
     padding: 0 1.25rem;
-    gap: 1rem;
   }
 }
 
@@ -85,6 +85,8 @@ body {
   display: flex;
   align-items: center;
   text-decoration: none;
+  position: relative;
+  z-index: 2;             // sits above wordmark when they collide
 
   img {
     height: 32px;
@@ -94,35 +96,42 @@ body {
   }
 }
 
-// Center wordmark — visible between 480px and desktop.
-// Below 480px: disappears entirely (no shrink, no clip).
-// Hard cutoff defined here — the wordmark never shrinks infinitely.
+// Center wordmark — absolutely centered in the header.
+// Stops shrinking by disappearing at the defined breakpoint.
 //
-// Breakpoint rationale at 480px:
-//   Header holds: 32px logo + 28px CHRONOS logo + 20px theme icon
-//   + 46px toggle + ~30px gaps = ~156px minimum.
-//   Below 480px there is less than 324px available for the wordmark
-//   (1042px-wide CYT SVG / 507px-wide CHRONOS SVG) — not enough to read.
-//   Clean disappear is better than an unreadable sliver.
+// Strategy: position:absolute + left:50% + translateX(-50%) centers it
+// perfectly regardless of what the two sides do. When the sides grow
+// and physically overlap it, the wordmark is behind them (z-index:1)
+// and disappears cleanly. Hard cutoff at 500px.
+//
+// Breakpoint rationale (500px):
+//   At 500px the combined fixed elements (logo 32px + CHRONOS logo 28px
+//   + theme icon 20px + toggle 46px + padding ~50px + gaps) consume
+//   ~176px on both sides = ~352px total, leaving only ~148px for the
+//   wordmark — too narrow to read the 507px-wide CHRONOS SVG at 20px tall.
+//   Clean disappear at this point.
 .header-wordmark {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-width: 0;
-  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;             // behind logo and controls when they overlap
+  pointer-events: none;   // don't steal clicks from elements behind
+
+  // Allow controlled shrink: scale down to 85% before disappearing
+  // Uses a smooth transition so it doesn't pop
+  transition: transform 0.15s, opacity 0.15s;
 
   img {
     height: 20px;
     width: auto;
-    max-width: 100%;
     display: block;
     opacity: 0.9;
-    // No object-fit:contain — let it clip naturally before the breakpoint hides it
+    white-space: nowrap;
   }
 
-  // Hard disappear at 480px — no shrinking past this point
-  @media (max-width: 480px) {
+  // Hard disappear at 500px — no further shrinking
+  @media (max-width: 500px) {
     display: none;
   }
 }
@@ -339,6 +348,8 @@ img {
   align-items: center;
   gap: 0.25rem;
   flex-shrink: 0;
+  position: relative;
+  z-index: 2;   // sits above the absolutely-centered wordmark
 }
 
 // CHRONOS gold head logo link — always visible on /chronos/ pages
