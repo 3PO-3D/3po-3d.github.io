@@ -185,42 +185,22 @@ body {
   }
 }
 
-// Icon tinting for Cupcake/Coffee/Q&A (white stroke icons)
-.footer-icon-btn img[src*="Coffe"],
-.footer-icon-btn img[src*="Cupcake"] {
-  // White stroke — tint to match text on light theme
-  filter: invert(22%) sepia(30%) saturate(400%) hue-rotate(330deg) brightness(60%);
-
-  [data-theme="deep-space"] & {
-    filter: invert(85%) sepia(10%) saturate(200%) brightness(90%);
-  }
+// .icon-tint — white-stroke/fill icons that need theme-aware tinting
+// Light theme: tint to warm brown. Dark theme: tint to warm cream.
+.icon-tint {
+  // Light theme default: tint white → warm brown
+  filter: invert(22%) sepia(40%) saturate(500%) hue-rotate(330deg) brightness(55%);
 }
 
-// Platform icons (white fill) — tint to text color
-.footer-icon-btn img[src*="Platform"] {
-  filter: invert(22%) sepia(30%) saturate(400%) hue-rotate(330deg) brightness(60%);
-
-  [data-theme="deep-space"] & {
-    filter: invert(85%) sepia(10%) saturate(200%) brightness(90%);
-  }
+[data-theme="deep-space"] .icon-tint {
+  // Dark theme: tint white → warm cream (#EDE0CC)
+  filter: invert(90%) sepia(15%) saturate(200%) hue-rotate(330deg) brightness(95%);
 }
 
-// Q&A sticker (black stroke) — tint warmly
-.footer-icon-btn img[src*="q %26 a"],
-.footer-icon-btn img[src*="q & a"] {
-  filter: invert(22%) sepia(30%) saturate(400%) hue-rotate(330deg) brightness(60%);
-  width: 36px;
-  height: 36px;
-
-  [data-theme="deep-space"] & {
-    filter: invert(85%) sepia(10%) saturate(200%) brightness(90%);
-  }
-}
-
-// Gumroad logo — never tinted, always its own colors
-.footer-icon-btn img[src*="gumroad"] {
+// .icon-no-tint — sticker/branded icons that carry their own colors, never filtered
+.icon-no-tint {
   filter: none !important;
-  border-radius: 50%;
+  border-radius: 4px;
 }
 
 // ─── Typography ─────────────────────────────────────────────
