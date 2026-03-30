@@ -119,5 +119,7 @@ Everything you need to manage scene variations inside Cinema 4D.
 
 <hr class="sep-thin">
 
-[How It Works →]({{ '/chronos/workflow/' | relative_url }})
-&nbsp;&nbsp;[Get CHRONOS →]({{ '/chronos/get-it/' | relative_url }})
+<div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;">
+  <a href="{{ '/chronos/workflow/' | relative_url }}" class="btn btn-outline">How It Works →</a>
+  <a href="{{ '/chronos/get-it/' | relative_url }}" class="btn btn-accent">Get CHRONOS →</a>
+</div>

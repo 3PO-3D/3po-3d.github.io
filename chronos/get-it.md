@@ -120,5 +120,7 @@ Questions or issues? Use the Gumroad product page messaging — response within 
 
 ---
 
-[How It Works →]({{ '/chronos/workflow/' | relative_url }})
-&nbsp;&nbsp;[Roadmap →]({{ '/chronos/roadmap/' | relative_url }})
+<div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;">
+  <a href="{{ '/chronos/workflow/' | relative_url }}" class="btn btn-outline">How It Works →</a>
+  <a href="{{ '/chronos/roadmap/' | relative_url }}" class="btn btn-outline">Roadmap →</a>
+</div>

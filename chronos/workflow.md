@@ -161,5 +161,7 @@ Change a value on a parent Generation. Every Linked child that hasn't overridden
 
 ---
 
-[Branching & Inheritance in depth →]({{ '/chronos/branching/' | relative_url }})
-&nbsp;&nbsp;[Get CHRONOS →]({{ '/chronos/get-it/' | relative_url }})
+<div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:2rem;">
+  <a href="{{ '/chronos/branching/' | relative_url }}" class="btn btn-outline">Branching &amp; Inheritance →</a>
+  <a href="{{ '/chronos/get-it/' | relative_url }}" class="btn btn-accent">Get CHRONOS →</a>
+</div>
