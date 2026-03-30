@@ -19,13 +19,23 @@
 </head>
 <body>
   <script>
+    var DARK_THEMES = ['deep-space'];
+    function applyLogoTheme(theme) {
+      var img = document.getElementById('site-logo-img');
+      if (!img) return;
+      img.src = DARK_THEMES.indexOf(theme) !== -1 ? img.dataset.dark : img.dataset.light;
+    }
     document.addEventListener('DOMContentLoaded', function() {
       var sel = document.getElementById('theme-switcher');
+      var t = localStorage.getItem('theme') || 'gold-burgundy';
+      if (sel) sel.value = t;
+      applyLogoTheme(t);
       if (!sel) return;
-      sel.value = localStorage.getItem('theme') || 'gold-burgundy';
       sel.addEventListener('change', function() {
-        document.documentElement.setAttribute('data-theme', this.value);
-        localStorage.setItem('theme', this.value);
+        var t = this.value;
+        document.documentElement.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+        applyLogoTheme(t);
       });
     });
   </script>
