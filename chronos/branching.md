@@ -55,16 +55,16 @@ All Generations link directly from the Blueprint. No children of children. Every
 <div class="diagram topology-diagram">
 <svg viewBox="0 0 520 210" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
-    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
-    .e-bk  { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
-    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
-    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
-    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
-    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
-    .legend-line { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); }
+    .n-bp  { fill: #DDAA33; stroke: #C49A2A; stroke-width: 2; }
+    .n-lk  { fill: #F1EBDD; stroke: #F1EBDD; stroke-width: 1.5; }
+    .e-lk  { stroke: #F1EBDD; stroke-width: 1.5; fill: none; }
+    .e-bk  { stroke: #DDAA33; stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #1A0F0A; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #1A0F0A; text-anchor: middle; font-weight: 700; }
+    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: #DDAA33; text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: rgba(241,235,221,0.6); text-anchor: middle; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: rgba(241,235,221,0.5); text-anchor: middle; }
+    .legend-line { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: rgba(241,235,221,0.6); }
   </style>
   <!-- Blueprint node -->
   <rect x="210" y="18" width="100" height="30" rx="4" class="n-bp"/>
@@ -95,9 +95,9 @@ All Generations link directly from the Blueprint. No children of children. Every
   <!-- Caption -->
   <text x="260" y="178" class="cap">All Generations link directly from Blueprint — live inheritance, parallel siblings</text>
   <!-- Legend -->
-  <line x1="160" y1="194" x2="190" y2="194" stroke="var(--text)" stroke-width="1.5"/>
+  <line x1="160" y1="194" x2="190" y2="194" stroke="#F1EBDD" stroke-width="1.5"/>
   <text x="195" y="197" class="legend-line">Link (live data flow)</text>
-  <line x1="310" y1="194" x2="330" y2="194" stroke="var(--accent)" stroke-width="2" stroke-dasharray="4,2"/>
+  <line x1="310" y1="194" x2="330" y2="194" stroke="#DDAA33" stroke-width="2" stroke-dasharray="4,2"/>
   <text x="335" y="197" class="legend-line">Bake (snapshot, no flow)</text>
 </svg>
 </div>
@@ -113,13 +113,13 @@ Each Generation inherits from the previous one. A revision history — each roun
 <div class="diagram topology-diagram">
 <svg viewBox="0 0 520 110" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
-    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
-    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 10px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
-    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
-    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
+    .n-bp  { fill: #DDAA33; stroke: #C49A2A; stroke-width: 2; }
+    .n-lk  { fill: #F1EBDD; stroke: #F1EBDD; stroke-width: 1.5; }
+    .e-lk  { stroke: #F1EBDD; stroke-width: 1.5; fill: none; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #1A0F0A; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 10px; fill: #1A0F0A; text-anchor: middle; font-weight: 700; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: rgba(241,235,221,0.5); text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: rgba(241,235,221,0.6); text-anchor: middle; }
   </style>
   <!-- Blueprint -->
   <rect x="4" y="35" width="72" height="30" rx="4" class="n-bp"/>
@@ -159,17 +159,17 @@ Mix Link and Bake freely. A parent drives multiple live children; some children 
 <div class="diagram topology-diagram">
 <svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
-    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
-    .n-bk  { fill: var(--surface); stroke: var(--accent); stroke-width: 2.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
-    .e-bk  { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
-    .seal  { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3,3; }
-    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
-    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
-    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
-    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
+    .n-bp  { fill: #DDAA33; stroke: #C49A2A; stroke-width: 2; }
+    .n-lk  { fill: #F1EBDD; stroke: #F1EBDD; stroke-width: 1.5; }
+    .n-bk  { fill: #F1EBDD; stroke: #DDAA33; stroke-width: 2.5; }
+    .e-lk  { stroke: #F1EBDD; stroke-width: 1.5; fill: none; }
+    .e-bk  { stroke: #DDAA33; stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
+    .seal  { fill: none; stroke: #DDAA33; stroke-width: 1; stroke-dasharray: 3,3; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #1A0F0A; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #1A0F0A; text-anchor: middle; font-weight: 700; }
+    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: #DDAA33; text-anchor: middle; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: rgba(241,235,221,0.5); text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: rgba(241,235,221,0.6); text-anchor: middle; }
   </style>
   <!-- Blueprint -->
   <rect x="230" y="18" width="100" height="30" rx="4" class="n-bp"/>
@@ -222,17 +222,17 @@ Cinema 4D's architecture means CHRONOS V1 has one root Context — the Main Take
 <div class="diagram topology-diagram">
 <svg viewBox="0 0 560 290" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .n-bp  { fill: var(--accent); stroke: var(--accent-dark); stroke-width: 2; }
-    .n-lk  { fill: var(--surface); stroke: var(--text); stroke-width: 1.5; }
-    .n-bk  { fill: var(--surface); stroke: var(--accent); stroke-width: 2.5; }
-    .e-lk  { stroke: var(--text); stroke-width: 1.5; fill: none; }
-    .e-bk  { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
-    .seal  { fill: none; stroke: var(--accent); stroke-width: 1; stroke-dasharray: 3,3; }
-    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--text); text-anchor: middle; }
-    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: var(--bg); text-anchor: middle; font-weight: 700; }
-    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--accent); text-anchor: middle; }
-    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: var(--muted); text-anchor: middle; }
-    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: var(--muted); text-anchor: middle; }
+    .n-bp  { fill: #DDAA33; stroke: #C49A2A; stroke-width: 2; }
+    .n-lk  { fill: #F1EBDD; stroke: #F1EBDD; stroke-width: 1.5; }
+    .n-bk  { fill: #F1EBDD; stroke: #DDAA33; stroke-width: 2.5; }
+    .e-lk  { stroke: #F1EBDD; stroke-width: 1.5; fill: none; }
+    .e-bk  { stroke: #DDAA33; stroke-width: 2; stroke-dasharray: 5,3; fill: none; }
+    .seal  { fill: none; stroke: #DDAA33; stroke-width: 1; stroke-dasharray: 3,3; }
+    .lbl   { font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #1A0F0A; text-anchor: middle; }
+    .lbl-bp{ font-family: 'Space Grotesk', sans-serif; font-size: 11px; fill: #1A0F0A; text-anchor: middle; font-weight: 700; }
+    .lbl-a { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: #DDAA33; text-anchor: middle; }
+    .tag   { font-family: 'IBM Plex Mono', monospace; font-size: 8px; fill: rgba(241,235,221,0.6); text-anchor: middle; }
+    .cap   { font-family: 'IBM Plex Mono', monospace; font-size: 9px; fill: rgba(241,235,221,0.5); text-anchor: middle; }
   </style>
   <!-- Blueprint -->
   <rect x="230" y="18" width="100" height="30" rx="4" class="n-bp"/>
@@ -260,7 +260,7 @@ Cinema 4D's architecture means CHRONOS V1 has one root Context — the Main Take
   <rect x="346" y="104" width="148" height="40" rx="4" class="seal"/>
   <text x="420" y="129" class="lbl" font-weight="600">Branch_B_Root</text>
   <text x="420" y="100" class="lbl-a">Baked — firewall</text>
-  <!-- Branch B children: solid Link edges (new live chain from baked root) -->
+  <!-- Branch B children: solid Link edges -->
   <line x1="390" y1="144" x2="370" y2="188" class="e-lk"/>
   <line x1="450" y1="144" x2="470" y2="188" class="e-lk"/>
   <text x="372" y="169" class="tag">Link</text>
@@ -270,7 +270,7 @@ Cinema 4D's architecture means CHRONOS V1 has one root Context — the Main Take
   <rect x="420" y="188" width="100" height="30" rx="2" class="n-lk"/>
   <text x="470" y="208" class="lbl">B_Variant_2</text>
   <!-- Divider line -->
-  <line x1="280" y1="108" x2="280" y2="230" stroke="var(--muted)" stroke-width="0.5" stroke-dasharray="3,4"/>
+  <line x1="280" y1="108" x2="280" y2="230" stroke="rgba(241,235,221,0.25)" stroke-width="0.5" stroke-dasharray="3,4"/>
   <!-- Zone labels -->
   <text x="120" y="248" class="tag">Branch A — live from Blueprint</text>
   <text x="420" y="248" class="tag">Branch B — isolated from A</text>
