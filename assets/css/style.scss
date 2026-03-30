@@ -317,8 +317,8 @@ img {
   z-index: 100;
   backdrop-filter: blur(8px);
   transition: background 0.2s;
-
-  // layout handled by .header-container
+  // position:relative makes .mobile-nav-panel (absolute) anchor to header bottom
+  // sticky + relative is valid and works correctly
 }
 
 // .site-logo defined above near .header-container
@@ -1253,8 +1253,8 @@ hr {
 }
 
 // ─── Mobile Nav Toggle Switch ──────────────────────────────────
-// CSS-only animated toggle. Replicates L_check (off) / R_check (on).
-// No image swap — pure CSS transition on dot + track color.
+// CSS toggle switch: L_check (off=cream) → R_check (on=gold)
+// Pure CSS animation — no image swap needed.
 
 $toggle-w:      46px;
 $toggle-h:      24px;
@@ -1268,7 +1268,7 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
   width: $toggle-w;
   height: $toggle-h;
   border-radius: $toggle-h;
-  background: #F1EBDD;             // off = cream (L_check)
+  background: #F1EBDD;            // off = cream
   border: 1px solid rgba(0,0,0,0.2);
   padding: $toggle-pad;
   box-sizing: border-box;
@@ -1285,22 +1285,16 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
     flex-shrink: 0;
   }
 
-  // ON state: gold track + dot slides right (R_check)
+  // ON state: gold + dot right
   &--on {
     background: #FDB100;
     .toggle-dot { transform: translateX($toggle-travel); }
   }
 }
 
-// When drawer is open, toggle button in header shows ON state
-.nav-open .mobile-menu-toggle .toggle-track {
-  background: #FDB100;
-  .toggle-dot { transform: translateX($toggle-travel); }
-}
-
 // ─── Mobile menu trigger button ───────────────────────────
 .mobile-menu-toggle {
-  display: none;         // hidden on desktop
+  display: none;          // hidden on desktop
   background: transparent;
   border: none;
   padding: 0;
@@ -1309,134 +1303,83 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
   align-items: center;
 }
 
-// ─── Overlay ───────────────────────────────────────────
-.mobile-nav-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 200;
-  opacity: 0;
-  transition: opacity 0.25s;
+// ─── Mobile CHRONOS page nav panel ────────────────────────
+// Drops down from the header (position:sticky top), overlays content.
+// Only rendered on /chronos/ pages via Liquid conditional.
 
-  &.is-visible { display: block; opacity: 1; }
-}
-
-// ─── Drawer ────────────────────────────────────────────
-.mobile-nav-drawer {
-  position: fixed;
-  top: 0;
+.mobile-nav-panel {
+  display: none;           // only visible on mobile
+  position: absolute;      // positions relative to .site-header (sticky)
+  top: 100%;               // just below the header
   left: 0;
-  width: min(78vw, 290px);
-  height: 100dvh;
+  right: 0;
   background: var(--bg);
-  border-right: 1.5px solid rgba(var(--text-rgb), 0.15);
-  z-index: 201;
-  transform: translateX(-100%);
-  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  border-bottom: $bw solid rgba(var(--text-rgb), 0.15);
+  z-index: 99;
+  transform: translateY(-8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.22s cubic-bezier(0.4,0,0.2,1),
+              opacity 0.22s;
 
-  &.is-open { transform: translateX(0); }
-}
+  &.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
 
-.mobile-nav-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.1rem 1.25rem;
-  border-bottom: 1.5px solid rgba(var(--text-rgb), 0.12);
-
-  .mobile-nav-logo {
+  .mobile-nav-links {
     display: flex;
-    align-items: center;
-    text-decoration: none;
-    img { height: 30px; width: auto; display: block; margin: 0; }
-  }
+    flex-direction: column;
+    padding: 0.5rem 0;
 
-  .mobile-nav-close {
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-}
+    a {
+      font-family: $font-mono;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.85rem 1.5rem;
+      border-right: 3px solid transparent;  // right-side accent
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
 
-.mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  padding: 1.25rem 0;
-  flex: 1;
+      &:hover {
+        color: var(--text);
+        background: rgba(var(--text-rgb), 0.04);
+      }
 
-  a {
-    font-family: $font-mono;
-    font-size: 0.78rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--muted);
-    padding: 0.9rem 1.25rem;
-    border-left: 3px solid transparent;
-    transition: color 0.15s, border-color 0.15s, background 0.15s;
-
-    &:hover {
-      color: var(--text);
-      background: rgba(var(--text-rgb), 0.04);
-    }
-
-    &.active {
-      color: var(--text);
-      border-left-color: var(--accent);
-      background: rgba(var(--accent-rgb), 0.06);
+      &.active {
+        color: var(--accent);
+        border-right-color: var(--accent);
+        background: rgba(var(--accent-rgb), 0.06);
+      }
     }
   }
 }
 
-.mobile-nav-footer {
-  padding: 1.1rem 1.25rem;
-  border-top: 1.5px solid rgba(var(--text-rgb), 0.12);
+// Make site-header the positioning context for the panel
+.site-header {
+  position: sticky;   // already set above, but ensure relative is NOT set
+  // Using sticky + the panel is absolute = panel drops below sticky header
+  // This works because sticky headers are still part of the flow.
 }
-
-.theme-toggle-btn--mobile {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  width: 100%;
-  background: transparent;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-
-  img {
-    width: 20px;
-    height: 20px;
-
-    [data-theme="gold-burgundy"] & {
-      filter: invert(22%) sepia(30%) saturate(600%) hue-rotate(330deg) brightness(60%);
-    }
-    [data-theme="deep-space"] & { filter: opacity(0.75); }
-  }
-}
-
-.mobile-theme-label {
-  font-family: $font-mono;
-  font-size: 0.65rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-}
-
-body.nav-open { overflow: hidden; }
 
 // ─── Breakpoint: activate mobile nav ─────────────────────────
 @media (max-width: 680px) {
+  // Show the toggle button
   .mobile-menu-toggle { display: flex; }
-  .site-nav            { display: none; }
 
+  // Hide desktop nav (the head logo link)
+  .site-nav { display: none; }
+
+  // Show mobile nav panel (still hidden until .is-open)
+  .mobile-nav-panel { display: block; }
+
+  // Hide desktop chronos-nav sub-bar
+  .chronos-nav { display: none; }
+
+  // Wordmark slightly smaller on narrow screens
   .header-wordmark img {
     height: 14px;
     max-width: 140px;

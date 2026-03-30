@@ -43,22 +43,25 @@
           alt="CHRONOS"
           style="height:28px;width:auto;display:block;">
       </a>
-      <button
-        class="theme-toggle-btn"
-        id="theme-toggle-btn"
-        aria-label="Toggle theme"
-        title="Toggle theme">
-        <img
-          id="theme-toggle-icon"
-          src="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
-          data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
-          data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}"
-          alt="Toggle theme"
-          width="20" height="20">
-      </button>
     </nav>
 
-    <!-- Mobile: hamburger toggle (CSS-animated toggle switch) -->
+    <!-- Theme toggle — always in header, never moves -->
+    <button
+      class="theme-toggle-btn"
+      id="theme-toggle-btn"
+      aria-label="Toggle theme"
+      title="Toggle theme">
+      <img
+        id="theme-toggle-icon"
+        src="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
+        data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
+        data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}"
+        alt="Toggle theme"
+        width="20" height="20">
+    </button>
+
+    <!-- Mobile toggle — only shown on mobile, only relevant on CHRONOS pages -->
+    {% if page.url contains '/chronos/' %}
     <button
       class="mobile-menu-toggle"
       id="mobile-menu-toggle"
@@ -68,52 +71,20 @@
         <span class="toggle-dot"></span>
       </span>
     </button>
+    {% endif %}
 
   </div>
 </header>
 
-<!-- Mobile nav drawer -->
-<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-
-<div class="mobile-nav-drawer" id="mobile-nav-drawer" aria-hidden="true">
-  <div class="mobile-nav-header">
-    <a href="{{ '/' | relative_url }}" class="mobile-nav-logo">
-      <img
-        src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-        alt="3PO" height="36">
-    </a>
-    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close navigation">
-      <span class="toggle-track toggle-track--on">
-        <span class="toggle-dot"></span>
-      </span>
-    </button>
-  </div>
-
+<!-- Mobile CHRONOS page nav panel — only exists on CHRONOS pages -->
+{% if page.url contains '/chronos/' %}
+<div class="mobile-nav-panel" id="mobile-nav-panel" aria-hidden="true">
   <nav class="mobile-nav-links">
-    {% if page.url contains '/chronos/' %}
-      <a href="{{ '/chronos/' | relative_url }}"{% if page.url == '/chronos/' %} class="active"{% endif %}>Overview</a>
-      <a href="{{ '/chronos/workflow/' | relative_url }}"{% if page.url contains 'workflow' %} class="active"{% endif %}>How It Works</a>
-      <a href="{{ '/chronos/branching/' | relative_url }}"{% if page.url contains 'branching' %} class="active"{% endif %}>Branching</a>
-      <a href="{{ '/chronos/roadmap/' | relative_url }}"{% if page.url contains 'roadmap' %} class="active"{% endif %}>Roadmap</a>
-      <a href="{{ '/chronos/get-it/' | relative_url }}"{% if page.url contains 'get-it' %} class="active"{% endif %}>Get It</a>
-    {% else %}
-      <a href="{{ '/chronos/' | relative_url }}">C.H.R.O.N.O.S.</a>
-    {% endif %}
+    <a href="{{ '/chronos/' | relative_url }}"{% if page.url == '/chronos/' or page.url == '/chronos/index.html' %} class="active"{% endif %}>Overview</a>
+    <a href="{{ '/chronos/workflow/' | relative_url }}"{% if page.url contains 'workflow' %} class="active"{% endif %}>How It Works</a>
+    <a href="{{ '/chronos/branching/' | relative_url }}"{% if page.url contains 'branching' %} class="active"{% endif %}>Branching</a>
+    <a href="{{ '/chronos/roadmap/' | relative_url }}"{% if page.url contains 'roadmap' %} class="active"{% endif %}>Roadmap</a>
+    <a href="{{ '/chronos/get-it/' | relative_url }}"{% if page.url contains 'get-it' %} class="active"{% endif %}>Get It</a>
   </nav>
-
-  <div class="mobile-nav-footer">
-    <button
-      class="theme-toggle-btn theme-toggle-btn--mobile"
-      id="theme-toggle-btn-mobile"
-      aria-label="Toggle theme">
-      <img
-        id="theme-toggle-icon-mobile"
-        src="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
-        data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}"
-        data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}"
-        alt="Toggle theme"
-        width="20" height="20">
-      <span class="mobile-theme-label" id="mobile-theme-label">Gold + Burgundy</span>
-    </button>
-  </div>
 </div>
+{% endif %}
