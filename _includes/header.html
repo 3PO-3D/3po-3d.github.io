@@ -32,7 +32,17 @@
     </div>
 
     <nav class="site-nav">
-      <a href="{{ '/chronos/' | relative_url }}"{% if page.url contains '/chronos/' %} class="active"{% endif %}>C.H.R.O.N.O.S.</a>
+      <a href="{{ '/chronos/' | relative_url }}"
+         class="nav-chronos-logo{% if page.url contains '/chronos/' %} active{% endif %}"
+         aria-label="CHRONOS">
+        <img
+          id="nav-chronos-logo"
+          src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          data-light="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}"
+          alt="CHRONOS"
+          style="height:28px;width:auto;display:block;">
+      </a>
       <button
         class="theme-toggle-btn"
         id="theme-toggle-btn"
