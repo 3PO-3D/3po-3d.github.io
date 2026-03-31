@@ -26,17 +26,17 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
         </p>
 
         <div class="creator-contact-row">
-          <a href="mailto:3po@3po3d.com" class="creator-contact-btn" aria-label="Email">
-            <img src="{{ '/assets/icons/Icon=Emails.svg' | relative_url }}" alt="" width="22" height="22" class="icon-no-tint">
-            3po@3po3d.com
+          <a href="mailto:3po@3po3d.com" class="creator-contact-btn" aria-label="Email 3po@3po3d.com">
+            <img src="{{ '/assets/icons/Icon=Emails.svg' | relative_url }}" alt="Email" width="22" height="22" class="icon-no-tint">
           </a>
-          <a href="https://www.instagram.com/3po_3d" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="Instagram">
-            <img src="{{ '/assets/icons/Platform=Instagram.svg' | relative_url }}" alt="" width="22" height="22" class="icon-no-tint">
-            @3po_3d
+          <a href="https://www.instagram.com/3po_3d" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="Instagram @3po_3d">
+            <img src="{{ '/assets/icons/Platform=Instagram.svg' | relative_url }}" alt="Instagram" width="22" height="22" class="icon-no-tint">
           </a>
           <a href="https://www.behance.net/rczbence1" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="Behance">
-            <img src="{{ '/assets/icons/Platform=Github.svg' | relative_url }}" alt="" width="22" height="22" class="icon-no-tint">
-            Behance
+            <img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="Behance" width="28" height="18" class="icon-behance">
+          </a>
+          <a href="https://github.com/orgs/3PO-3D/discussions" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="GitHub">
+            <img src="{{ '/assets/icons/Platform=Github.svg' | relative_url }}" alt="GitHub" width="22" height="22" class="icon-no-tint">
           </a>
         </div>
       </div>
@@ -62,23 +62,36 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
       <div class="creator-pillar creator-pillar--cast">
         <p class="pillar-label">CAST</p>
         <h3>The biggest thing I've ever tried to build.</h3>
+
         <div class="cast-render-wrap">
           <img
             src="{{ '/assets/img/cast/Main.png' | relative_url }}"
-            alt="CAST — 3D printed orthopedic cast render"
+            alt="CAST — 3D printed walking cast render"
             class="cast-render">
         </div>
-        <p>
-          A semi-automated system for generating patient-specific, 3D-printed orthopedic casts from 3D body scans.
-          Breathable. Washable. Printable in a living room.
-          Designed to replace a 150-year-old technology — the plaster cast — with something that doesn't make a summer injury feel like a punishment.
-        </p>
-        <p>
-          The method exists. The code exists. The printers exist. The renders exist.
-          What doesn't exist yet is the funding and the regulatory infrastructure to manufacture it properly.
-          This one is a long game, and I'm still playing it.
-        </p>
-        <p class="pillar-tags">Shapr3D &nbsp;·&nbsp; FDM Printing &nbsp;·&nbsp; Python &nbsp;·&nbsp; R&D</p>
+
+        <p>A semi-automated system for generating patient-specific, 3D-printed orthopedic walking casts from 3D body scans. Breathable. Washable. Adjustable. Printable in a living room. Designed to replace a 150-year-old technology — the plaster cast — with something that doesn't turn a recovery into a punishment.</p>
+
+        <p class="cast-product-label">The walking cast</p>
+        <p>The cast snaps on with magnets and two wide velcro straps — one around the calf, one threaded through the outsole. As your calf shrinks during recovery (and it will — sometimes dramatically), the straps adjust. It follows your leg. The outsole has a structural void in the centre that collapses when you stand, giving you a flatter contact surface, but rolls forward on each step so you can walk without needing ankle flexion. Held by magnets and physics.</p>
+
+        <div class="cast-render-wrap">
+          <img
+            src="{{ '/assets/img/cast/Closeup_display.png' | relative_url }}"
+            alt="CAST — custom orthopedic insole"
+            class="cast-render">
+        </div>
+
+        <p class="cast-product-label">The insole</p>
+        <p>Every walking cast needs an orthopedic insole. So I built one. Infill pattern and density are tuned per person — foot shape, arch type, body weight — so it's soft where comfort matters and firm where support does. Flat-footed? Supported. Pronating? Corrected. Thin enough to fit inside most shoes, which most orthopedic insoles can't claim. It comes with the cast. It's not an afterthought.</p>
+
+        <p>The method exists. The code exists. The printers exist. What doesn't exist yet is the funding and the regulatory infrastructure to manufacture it at scale. This one is a long game, and I'm still playing it.</p>
+
+        <a href="https://www.instagram.com/p/DQzvSqFAiMT/?img_index=2" target="_blank" rel="noopener" class="cast-insta-link">
+          See it on Instagram →
+        </a>
+
+        <p class="pillar-tags">Shapr3D &nbsp;·&nbsp; FDM Printing &nbsp;·&nbsp; Python &nbsp;·&nbsp; Parametric design &nbsp;·&nbsp; R&amp;D</p>
       </div>
 
       <div class="creator-pillar">
@@ -201,7 +214,7 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
       <a href="mailto:3po@3po3d.com" class="btn btn-accent">Send an email</a>
       <a href="https://www.instagram.com/3po_3d" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
       <a href="https://www.behance.net/rczbence1" target="_blank" rel="noopener" class="btn btn-outline">Behance</a>
-      <a href="https://github.com/3PO-3D" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+      <a href="https://github.com/orgs/3PO-3D/discussions" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
     </div>
   </div>
 </section>

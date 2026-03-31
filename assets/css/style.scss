@@ -1642,6 +1642,59 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
   border-radius: 0;
 }
 
+// Sub-label within CAST pillar ("The walking cast" / "The insole")
+.cast-product-label {
+  font-family: $font-mono;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 1.5rem 0 0.4rem !important;
+  opacity: 0.7;
+}
+
+// Instagram CTA link inside CAST pillar
+.cast-insta-link {
+  display: inline-block;
+  font-family: $font-mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  text-decoration: none;
+  margin: 1rem 0 0.5rem;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+
+  &:hover {
+    border-bottom-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+// Behance icon — SVG has cream fill (#F1EBDD) designed for dark backgrounds.
+// On light theme we invert it to make it visible against the cream page bg.
+// On dark theme it renders naturally.
+.icon-behance {
+  display: block;
+  margin: 0;
+  border-radius: 0;
+  opacity: 0.7;
+  transition: opacity 0.15s, filter 0.15s;
+
+  // Light theme: cream fill on cream bg = invisible. Invert to dark.
+  [data-theme="gold-burgundy"] &,
+  :root:not([data-theme="deep-space"]) & {
+    filter: invert(1) brightness(0.4) sepia(0.4) hue-rotate(330deg);
+  }
+
+  // Dark theme: cream fill shows naturally against dark bg
+  [data-theme="deep-space"] & {
+    filter: none;
+  }
+}
+
+.creator-contact-btn:hover .icon-behance { opacity: 1; }
+
 // Skills section
 .creator-skills {
   padding: 3.5rem 0;
