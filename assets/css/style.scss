@@ -81,59 +81,51 @@ body {
 }
 
 // ─── Logo Carousel ──────────────────────────────────────────
-// Stacked logo cluster on the left of the header.
-// Each logo is absolutely positioned with a horizontal offset,
-// creating a visible stack. Active logo is front, full size, full
-// opacity. Inactive logos recede behind it: smaller + dimmer.
+// Responsive logo cluster — left side of the header.
 //
-// Stack layout (left to right):
-//   slot 0 (3PO home)   offset: 0px
-//   slot 1 (CHRONOS)    offset: 20px
-//   slot 2 (Creator)    offset: 40px
+// DESKTOP (>900px): logos sit side by side with gap, clearly separate
+// TABLET (600–900px): gap reduces, logos still side-by-side
+// MOBILE (<600px): logos overlap/stack — absolute positioned with offset
 //
-// z-index: active = 10, slot 0 behind = 3, slot 1 behind = 2, slot 2 = 1
-//
-// Logo sizes:
-//   active:   36px height, opacity 1.0, scale 1.0
-//   inactive: 28px height, opacity 0.38, scale 0.85
-//   hover:    opacity 0.6
+// Active logo:   110% scale, opacity 1.0
+// Inactive logos: 100% scale, opacity 0.12 (90% transparent per spec)
+// Hover on inactive: opacity 0.45 (visible enough to invite click)
 
-$carousel-logo-h-active:   36px;
-$carousel-logo-h-inactive: 26px;
-$carousel-slot-offset:     28px;  // separation between logo slots
+$carousel-logo-h:          34px;  // base height for all logos
 $carousel-transition:      0.32s cubic-bezier(0.4, 0, 0.2, 1);
-// Hit-target padding around each inactive logo (improves tap accuracy)
-$carousel-hit-pad:         6px;
+$carousel-stack-offset:    24px;  // overlap offset when stacking (mobile)
 
-// Outer container — sized to hold the full stack.
-// Width = active logo width (~40px) + 2 slot offsets + hit padding buffer
+// Container — flex row on desktop, stacking context on mobile
 .logo-carousel {
+  justify-self: start;
   display: flex;
   align-items: center;
-  justify-self: start;
-  position: relative;
-  height: $carousel-logo-h-active;
-  // 40px active logo + 2×28px offsets + 16px buffer = 112px
-  width: calc(#{$carousel-logo-h-active} * 1.1 + 2 * #{$carousel-slot-offset} + 16px);
+  gap: 16px;              // desktop: generous gap between logos
   flex-shrink: 0;
+
+  @media (max-width: 900px) { gap: 10px; }    // tablet: tighter
+  @media (max-width: 600px) {
+    // Mobile: switch to stacked/absolute layout
+    position: relative;
+    gap: 0;
+    // width = logo width + 2 * stack offset
+    // logo at 34px height ≈ 34px wide (square-ish SVGs)
+    // 34 + 2*24 = 82px
+    width: calc(#{$carousel-logo-h} + 2 * #{$carousel-stack-offset} + 8px);
+    height: $carousel-logo-h;
+  }
 }
 
-// Each logo item — absolutely positioned in the stack.
-// Padding creates a larger tap/click target without affecting visual layout.
+// Each logo link
 .logo-carousel__item {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   align-items: center;
   text-decoration: none;
-  // Invisible hit-target padding — makes each logo easier to tap on mobile
-  padding: $carousel-hit-pad;
-  margin: -#{$carousel-hit-pad};   // offset padding so visual position doesn't shift
-  border-radius: 4px;
-  transition:
-    opacity $carousel-transition;
-  z-index: 1;
+  flex-shrink: 0;
+  transition: opacity $carousel-transition;
+  // Invisible hit-target: 8px padding, no visual change
+  padding: 8px;
+  margin: -8px;
 
   img {
     display: block;
@@ -141,39 +133,51 @@ $carousel-hit-pad:         6px;
     margin: 0;
     transition:
       height $carousel-transition,
+      transform $carousel-transition,
       opacity $carousel-transition;
+    // Base (inactive) size
+    height: $carousel-logo-h;
+    opacity: 0.12;            // 90% transparent = inactive
+    transform: scale(1.0);
   }
 
-  // Slot positions — inactive z-index ordering (back to front left-to-right)
-  &:nth-child(1) { left: calc(0 * #{$carousel-slot-offset}); z-index: 3; }
-  &:nth-child(2) { left: calc(1 * #{$carousel-slot-offset}); z-index: 2; }
-  &:nth-child(3) { left: calc(2 * #{$carousel-slot-offset}); z-index: 1; }
+  &:hover img { opacity: 0.45; }
 
-  // Inactive default
-  img {
-    height: $carousel-logo-h-inactive;
-    opacity: 0.4;
+  // Active state — 10% bigger, fully opaque
+  &.is-active img {
+    opacity: 1.0;
+    transform: scale(1.1);
+    transform-origin: left center;
   }
+  &.is-active:hover img { opacity: 1.0; }
 
-  &:hover img { opacity: 0.65; }
+  // Mobile stacking: absolute positions
+  @media (max-width: 600px) {
+    position: absolute;
+    top: 50%;
+    margin: 0;
+    padding: 6px;
 
-  // ─ Active state ─
-  &.is-active {
-    z-index: 10 !important;
-
-    img {
-      height: $carousel-logo-h-active;
-      opacity: 1;
+    &:nth-child(1) {
+      left: calc(0 * #{$carousel-stack-offset});
+      z-index: 3;
+      transform: translateY(-50%);
+      &.is-active { transform: translateY(-50%) scale(1.1); }
     }
-
-    &:hover img { opacity: 1; }
+    &:nth-child(2) {
+      left: calc(1 * #{$carousel-stack-offset});
+      z-index: 2;
+      transform: translateY(-50%);
+      &.is-active { transform: translateY(-50%) scale(1.1); }
+    }
+    &:nth-child(3) {
+      left: calc(2 * #{$carousel-stack-offset});
+      z-index: 1;
+      transform: translateY(-50%);
+      &.is-active { transform: translateY(-50%) scale(1.1); }
+    }
   }
 }
-
-// When slot 0 is active, push slots 1+2 further right so they peek out
-// When slot 2 is active, bring it visually forward
-// These are handled by z-index and the fixed offsets above.
-// JS sets .is-active on click/swipe for interactive switching.
 
 // Center wordmark — true center of the 3-col grid.
 //
@@ -212,17 +216,20 @@ $carousel-hit-pad:         6px;
 }
 
 // Desktop baseline heights
-.wordmark-img--chronos { height: 20px; }
-.wordmark-img--cyt     { height: 14px; }  // CYT is wide — smaller height balances it
+// CHRONOS SVG (507×66px) at 22px tall — comfortable, readable
+// CYT SVG (wider) at 15px tall — shorter keeps visual balance
+.wordmark-img--chronos { height: 22px; }
+.wordmark-img--cyt     { height: 15px; }
 
-// Stage 1 — 600px: reduce, still legible
-@media (max-width: 600px) {
-  .wordmark-img--chronos { height: 14px; opacity: 0.75; }
-  .wordmark-img--cyt     { height: 11px; opacity: 0.75; }
+// Stage 1 — 500px: reduce slightly, still legible
+@media (max-width: 500px) {
+  .wordmark-img--chronos { height: 15px; opacity: 0.8; }
+  .wordmark-img--cyt     { height: 12px; opacity: 0.8; }
 }
 
-// Stage 2 — 430px: collapse to nothing, center column shrinks with it
-@media (max-width: 430px) {
+// Stage 2 — 380px: collapse — at this width the carousel + controls
+// leave almost no room; disappearing is cleaner than an unreadable sliver
+@media (max-width: 380px) {
   .wordmark-img { height: 0; opacity: 0; }
 }
 
