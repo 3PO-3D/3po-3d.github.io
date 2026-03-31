@@ -1,16 +1,48 @@
 <header class="site-header">
   <div class="header-container">
 
-    <a href="{{ '/' | relative_url }}" class="site-logo">
-      <img
-        id="site-logo-img"
-        src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-        data-light="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-        data-dark="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-        alt="3PO"
-        style="height:32px;width:auto;display:block;flex-shrink:0;">
-    </a>
+    <!-- Left: Logo Carousel — stacked, active logo in front -->
+    <div class="logo-carousel" id="logo-carousel" aria-label="Site navigation">
 
+      <!-- Slot 1: 3PO Home — front on home page, behind on other pages -->
+      <a href="{{ '/' | relative_url }}"
+         class="logo-carousel__item{% unless page.url contains '/chronos/' or page.url contains '/creator/' %} is-active{% endunless %}"
+         data-slot="0"
+         aria-label="3PO Home">
+        <img
+          src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
+          alt="3PO"
+          id="site-logo-img"
+          data-light="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}">
+      </a>
+
+      <!-- Slot 2: CHRONOS — front on /chronos/ pages -->
+      <a href="{{ '/chronos/' | relative_url }}"
+         class="logo-carousel__item{% if page.url contains '/chronos/' %} is-active{% endif %}"
+         data-slot="1"
+         aria-label="CHRONOS">
+        <img
+          src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          alt="CHRONOS"
+          id="nav-chronos-logo"
+          data-light="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}">
+      </a>
+
+      <!-- Slot 3: Creator — front on /creator/ pages (future) -->
+      <a href="{{ '/creator/' | relative_url }}"
+         class="logo-carousel__item{% if page.url contains '/creator/' %} is-active{% endif %}"
+         data-slot="2"
+         aria-label="Creator / About">
+        <img
+          src="{{ '/assets/icons/Creator_head_svg.svg' | relative_url }}"
+          alt="Creator">
+      </a>
+
+    </div>
+
+    <!-- Center: Wordmark -->
     <div class="header-wordmark">
       {% if page.url contains '/chronos/' %}
         <img
@@ -20,6 +52,14 @@
           data-dark="{{ '/assets/img/CHRONOS_yellow_darktheme_svg.svg' | relative_url }}"
           alt="CHRONOS"
           class="wordmark-img wordmark-img--chronos">
+      {% elsif page.url contains '/creator/' %}
+        <img
+          id="header-wordmark-img"
+          src="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
+          data-light="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
+          data-dark="/assets/img/CRAFTING%20YOUR%20TOMORROW_darktheme_svg.svg"
+          alt="Crafting Your Tomorrow"
+          class="wordmark-img wordmark-img--cyt">
       {% else %}
         <img
           id="header-wordmark-img"
@@ -31,25 +71,9 @@
       {% endif %}
     </div>
 
-    <!-- Right-side controls: [CHRONOS logo] [theme toggle] [nav toggle] -->
+    <!-- Right: Theme toggle + mobile nav toggle -->
     <div class="header-controls">
 
-      <!-- CHRONOS gold head logo — always visible on ALL pages, desktop + mobile.
-           On /chronos/ pages: links back to CHRONOS overview.
-           On home page: same link, acts as entry point to CHRONOS. -->
-      <a href="{{ '/chronos/' | relative_url }}"
-         class="nav-chronos-logo{% if page.url contains '/chronos/' %} active{% endif %}"
-         aria-label="Go to CHRONOS">
-        <img
-          id="nav-chronos-logo"
-          src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
-          data-light="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
-          data-dark="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}"
-          alt="CHRONOS"
-          style="height:28px;width:auto;display:block;">
-      </a>
-
-      <!-- Theme toggle — always in header, never moves -->
       <button
         class="theme-toggle-btn"
         id="theme-toggle-btn"
@@ -64,7 +88,6 @@
           width="20" height="20">
       </button>
 
-      <!-- Mobile nav toggle — only on CHRONOS pages, only visible at ≤680px -->
       {% if page.url contains '/chronos/' %}
       <button
         class="mobile-menu-toggle"
@@ -82,7 +105,6 @@
   </div>
 </header>
 
-<!-- Mobile CHRONOS page nav panel — only exists on CHRONOS pages -->
 {% if page.url contains '/chronos/' %}
 <div class="mobile-nav-panel" id="mobile-nav-panel" aria-hidden="true">
   <nav class="mobile-nav-links">

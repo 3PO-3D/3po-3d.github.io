@@ -80,20 +80,102 @@ body {
   }
 }
 
-// Logo — left cell, anchored to start
-.site-logo {
+// ─── Logo Carousel ──────────────────────────────────────────
+// Stacked logo cluster on the left of the header.
+// Each logo is absolutely positioned with a horizontal offset,
+// creating a visible stack. Active logo is front, full size, full
+// opacity. Inactive logos recede behind it: smaller + dimmer.
+//
+// Stack layout (left to right):
+//   slot 0 (3PO home)   offset: 0px
+//   slot 1 (CHRONOS)    offset: 20px
+//   slot 2 (Creator)    offset: 40px
+//
+// z-index: active = 10, slot 0 behind = 3, slot 1 behind = 2, slot 2 = 1
+//
+// Logo sizes:
+//   active:   36px height, opacity 1.0, scale 1.0
+//   inactive: 28px height, opacity 0.38, scale 0.85
+//   hover:    opacity 0.6
+
+$carousel-logo-h-active:   36px;
+$carousel-logo-h-inactive: 28px;
+$carousel-slot-offset:     20px;  // px each logo steps to the right
+$carousel-transition:      0.32s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Outer container — sized to hold the full stack width
+.logo-carousel {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  // Width = largest logo width + (slots-1) * offset + small buffer
+  // Approximated at 3 slots: ~36px logo + 2*20px offsets = ~90px
+  position: relative;
+  height: $carousel-logo-h-active;
+  width: calc(#{$carousel-logo-h-active} * 1.1 + 2 * #{$carousel-slot-offset} + 12px);
+  flex-shrink: 0;
+}
+
+// Each logo item — absolutely positioned in the stack
+.logo-carousel__item {
+  position: absolute;
+  top: 50%;
   display: flex;
   align-items: center;
   text-decoration: none;
-  justify-self: start;
+  transition:
+    transform $carousel-transition,
+    opacity $carousel-transition,
+    z-index 0s;   // z-index snaps instantly
 
   img {
-    height: 32px;
-    width: auto;
     display: block;
-    flex-shrink: 0;
+    width: auto;
+    margin: 0;
+    // height and opacity are controlled per-state below
+    transition:
+      height $carousel-transition,
+      opacity $carousel-transition,
+      filter $carousel-transition;
+  }
+
+  // ─ Inactive (default) state ─
+  // All logos start inactive; .is-active overrides
+  transform: translateY(-50%);
+  z-index: 1;
+
+  &:nth-child(1) { left: calc(0 * #{$carousel-slot-offset}); z-index: 3; }
+  &:nth-child(2) { left: calc(1 * #{$carousel-slot-offset}); z-index: 2; }
+  &:nth-child(3) { left: calc(2 * #{$carousel-slot-offset}); z-index: 1; }
+
+  img {
+    height: $carousel-logo-h-inactive;
+    opacity: 0.38;
+    filter: none;
+  }
+
+  &:hover img {
+    opacity: 0.62;
+  }
+
+  // ─ Active state ─
+  &.is-active {
+    z-index: 10 !important;   // always on top regardless of slot
+
+    img {
+      height: $carousel-logo-h-active;
+      opacity: 1;
+      filter: none;
+    }
+
+    &:hover img { opacity: 1; }
   }
 }
+
+// When slot 0 is active, push slots 1+2 further right so they peek out
+// When slot 2 is active, bring it visually forward
+// These are handled by z-index and the fixed offsets above.
+// JS sets .is-active on click/swipe for interactive switching.
 
 // Center wordmark — true center of the 3-col grid.
 //
@@ -360,27 +442,7 @@ img {
   justify-self: end;      // anchors to the right edge of the 1fr cell
 }
 
-// CHRONOS gold head logo link — always visible on /chronos/ pages
-// Never hidden by mobile breakpoint (it's outside .site-nav)
-.nav-chronos-logo {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  padding: 0.25rem 0.4rem;
-  opacity: 0.75;
-  transition: opacity 0.15s;
-  flex-shrink: 0;
-
-  img {
-    display: block;
-    height: 28px;
-    width: auto;
-    margin: 0;
-  }
-
-  &:hover { opacity: 1; }
-  &.active { opacity: 1; }
-}
+// .nav-chronos-logo removed — CHRONOS logo now lives in .logo-carousel
 
 // Desktop-only text nav (home page — C.H.R.O.N.O.S. link)
 .site-nav {

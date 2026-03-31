@@ -69,7 +69,54 @@
         });
       }
 
-      // ─── Mobile CHRONOS nav panel ────────────────────────────
+      // ─── Logo Carousel ────────────────────────────────────────
+      (function() {
+        var carousel = document.getElementById('logo-carousel');
+        if (!carousel) return;
+
+        var items = Array.from(carousel.querySelectorAll('.logo-carousel__item'));
+        var activeIndex = items.findIndex(function(el) {
+          return el.classList.contains('is-active');
+        });
+        if (activeIndex < 0) activeIndex = 0;
+
+        function setActive(idx) {
+          items.forEach(function(el, i) {
+            el.classList.toggle('is-active', i === idx);
+          });
+          activeIndex = idx;
+        }
+
+        // Click: navigate (follow the link naturally — no JS needed)
+        // But also update visual state immediately before navigation
+        items.forEach(function(el, i) {
+          el.addEventListener('click', function() {
+            setActive(i);
+            // Let the href navigate — don't preventDefault
+          });
+        });
+
+        // Touch swipe: cycle through logos without navigating
+        var touchStartX = 0;
+        carousel.addEventListener('touchstart', function(e) {
+          touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', function(e) {
+          var dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) < 30) return; // threshold — ignore tiny movements
+          if (dx < 0) {
+            // swipe left → next logo
+            setActive((activeIndex + 1) % items.length);
+          } else {
+            // swipe right → prev logo
+            setActive((activeIndex - 1 + items.length) % items.length);
+          }
+          e.preventDefault(); // prevent accidental navigation on swipe
+        }, { passive: false });
+      })();
+
+      // ─── Mobile CHRONOS nav panel ────────────────────────────────────────
       var toggle  = document.getElementById('mobile-menu-toggle');
       var panel   = document.getElementById('mobile-nav-panel');
 
