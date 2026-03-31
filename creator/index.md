@@ -130,11 +130,12 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
       <div class="skills-col">
         <h4 class="skills-col__label">Also, somehow</h4>
         <ul class="skills-list">
-          <li>Product development</li>
-          <li>Food &amp; beverage R&amp;D</li>
           <li>Industrial chemistry</li>
+          <li>Product development</li>
           <li>Factory pipeline design</li>
-          <li>Lacto-fermented apple juice</li>
+          <li>ERP implementation &amp; integration</li>
+          <li>SQL &amp; process automation</li>
+          <li>Manufacturing quality systems</li>
         </ul>
       </div>
     </div>
@@ -162,11 +163,17 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
       <div class="arc-item">
         <span class="arc-year">2021 – 2022</span>
         <div class="arc-content">
-          <p>Worked in manufacturing. Started using Cinema 4D to reorganize factory floor layouts in 3D — faster than drawing on paper, better than arguing in a meeting room. Got good at it. Realized that was a skill.</p>
+          <p>Worked as a factory technologist — product development, pipeline design, quality systems. Started using Cinema 4D to reorganize production floor layouts in 3D because it was faster than drawing on paper. Got good at it. Realized that was a skill worth keeping.</p>
         </div>
       </div>
       <div class="arc-item">
-        <span class="arc-year">Summer, somewhere in there</span>
+        <span class="arc-year">Mid-2022</span>
+        <div class="arc-content">
+          <p>The company's IT lead quit mid-project. The ERP system they were implementing had no one driving it. Someone noticed I could code. That someone was management. I went from sitting alone in an office developing products to leading the full ERP rollout across the factory — warehouse, production management, quality lifecycle, the lot. Wrote the SQL, built the integrations, briefed the new IT lead when he arrived, and kept going until the handover was clean. Junior developer. Senior problem.</p>
+        </div>
+      </div>
+      <div class="arc-item">
+        <span class="arc-year">Summer 2022</span>
         <div class="arc-content">
           <p>Broke a leg. Spent a summer in a plaster cast. Thought: there has to be a better version of this. Started sketching what became CAST.</p>
         </div>
