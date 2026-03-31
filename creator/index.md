@@ -32,6 +32,9 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
       <a href="https://github.com/orgs/3PO-3D/discussions" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="GitHub">
         <img src="{{ '/assets/icons/Platform=Github.svg' | relative_url }}" alt="GitHub" width="22" height="22" class="icon-no-tint">
       </a>
+      <a href="https://linkedin.com/in/bence-r%C3%A1cz-b444ab1b3" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="LinkedIn">
+        <img src="{{ '/assets/icons/Platform=LinkedIn.svg' | relative_url }}" alt="LinkedIn" width="22" height="22" class="icon-no-tint">
+      </a>
     </div>
   </div>
 </section>
@@ -277,14 +280,11 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
     <p style="color:var(--muted);max-width:480px;">
       Email is the best way to reach me. I check it regularly, reply when I have something useful to say, and don't send newsletters.
     </p>
-    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1.75rem;">
-      <a href="mailto:3po@3po3d.com" class="btn btn-accent">Send an email</a>
+    <div class="creator-cta-row">
+      <a href="mailto:3po@3po3d.com" class="btn btn-accent creator-cta-primary">Send an email</a>
       <a href="{{ '/assets/cv/V1._CV_(EN)_Bence_L._Racz_3DArtist.pdf' | relative_url }}"
          download="Bence_L_Racz_CV_3DArtist.pdf"
-         class="btn btn-outline">Download CV ↓</a>
-      <a href="https://www.instagram.com/3po_3d" target="_blank" rel="noopener" class="btn btn-outline">Instagram</a>
-      <a href="https://www.behance.net/rczbence1" target="_blank" rel="noopener" class="btn btn-outline">Behance</a>
-      <a href="https://github.com/orgs/3PO-3D/discussions" target="_blank" rel="noopener" class="btn btn-outline">GitHub</a>
+         class="btn btn-outline creator-cta-primary">Download CV ↓</a>
     </div>
   </div>
 </section>

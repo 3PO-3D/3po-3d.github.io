@@ -1877,6 +1877,27 @@ $toggle-travel: calc(#{$toggle-w} - #{$toggle-dot-sz} - #{$toggle-pad} * 2);
 // ─ Contact section ─
 .creator-contact-section { padding: 3.5rem 0 5rem; }
 
+// Two-button CTA row — email + CV download side by side, wider than normal btns
+.creator-cta-row {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.75rem;
+}
+
+.creator-cta-primary {
+  flex: 1;              // both buttons share the row equally
+  min-width: 180px;     // never too narrow to read
+  max-width: 280px;     // cap so they don't stretch absurdly wide
+  text-align: center;
+  justify-content: center;
+
+  @media (max-width: 480px) {
+    flex: 1 1 100%;     // stack on very narrow phones
+    max-width: none;
+  }
+}
+
 // ─── Breakpoint: activate mobile nav ─────────────────────────
 @media (max-width: 680px) {
   // Show the mobile nav toggle button
