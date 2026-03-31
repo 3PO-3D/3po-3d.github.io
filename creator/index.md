@@ -4,106 +4,173 @@ title: "Bence L. Rácz — Creator"
 description: "Technical artist, developer, maker. Chemistry background, Cinema 4D specialist, CHRONOS creator. Based in Szeged, Hungary."
 ---
 
-<section class="creator-hero">
-  <div class="container">
-    <div class="creator-hero-inner">
-
-      <div class="creator-photo-wrap">
-        <img
-          src="{{ '/assets/img/Creator_pictures/a442ee46-fd6a-41db-8243-096fc853b5a7.jpg' | relative_url }}"
-          alt="Bence Rácz"
-          class="creator-photo">
-      </div>
-
-      <div class="creator-hero-text">
-        <p class="section-label">Creator</p>
-        <h1>Rácz Bence László.</h1>
-        <p class="creator-titles">Technical Artist &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Maker</p>
-        <p class="lead">
-          Started in chemistry. Ended up in a factory, reorganizing production lines in 3D because it was faster than drawing on paper.
-          Quit that job. Built tools. Still going.
-          Based in Szeged, Hungary. Available for the right project.
-        </p>
-
-        <div class="creator-contact-row">
-          <a href="mailto:3po@3po3d.com" class="creator-contact-btn" aria-label="Email 3po@3po3d.com">
-            <img src="{{ '/assets/icons/Icon=Emails.svg' | relative_url }}" alt="Email" width="22" height="22" class="icon-no-tint">
-          </a>
-          <a href="https://www.instagram.com/3po_3d" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="Instagram @3po_3d">
-            <img src="{{ '/assets/icons/Platform=Instagram.svg' | relative_url }}" alt="Instagram" width="22" height="22" class="icon-no-tint">
-          </a>
-          <a href="https://www.behance.net/rczbence1" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="Behance">
-            <img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="Behance" width="28" height="18" class="icon-behance">
-          </a>
-          <a href="https://github.com/orgs/3PO-3D/discussions" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="GitHub">
-            <img src="{{ '/assets/icons/Platform=Github.svg' | relative_url }}" alt="GitHub" width="22" height="22" class="icon-no-tint">
-          </a>
-        </div>
-      </div>
-
+<!-- ─── Hero: full-bleed photo, text over foggy left ─── -->
+<section class="creator-hero" id="creator-hero">
+  <div class="creator-hero-bg" id="creator-hero-bg"
+    style="background-image: url('{{ '/assets/img/Creator_pictures/a442ee46-fd6a-41db-8243-096fc853b5a7.jpg' | relative_url }}');">
+  </div>
+  <div class="creator-hero-overlay"></div>
+  <div class="container creator-hero-content">
+    <p class="section-label creator-hero-label">Creator</p>
+    <h1 class="creator-hero-name">Rácz Bence László.</h1>
+    <p class="creator-titles">Technical Artist &nbsp;·&nbsp; Developer &nbsp;·&nbsp; Maker</p>
+    <p class="lead creator-hero-lead">
+      Started in chemistry. Ended up in a factory, reorganizing production lines in 3D because it was faster than drawing on paper.
+      Quit that job. Built tools. Still going.
+      Based in Szeged, Hungary. Available for the right project.
+    </p>
+    <div class="creator-contact-row">
+      <a href="mailto:3po@3po3d.com" class="creator-contact-btn" aria-label="Email 3po@3po3d.com">
+        <img src="{{ '/assets/icons/Icon=Emails.svg' | relative_url }}" alt="Email" width="22" height="22" class="icon-no-tint">
+      </a>
+      <a href="https://www.instagram.com/3po_3d" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="Instagram @3po_3d">
+        <img src="{{ '/assets/icons/Platform=Instagram.svg' | relative_url }}" alt="Instagram" width="22" height="22" class="icon-no-tint">
+      </a>
+      <a href="https://www.behance.net/rczbence1" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="Behance">
+        <img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="Behance" width="28" height="18" class="icon-behance">
+      </a>
+      <a href="https://github.com/orgs/3PO-3D/discussions" target="_blank" rel="noopener" class="creator-contact-btn" aria-label="GitHub">
+        <img src="{{ '/assets/icons/Platform=Github.svg' | relative_url }}" alt="GitHub" width="22" height="22" class="icon-no-tint">
+      </a>
     </div>
   </div>
 </section>
+
+<script>
+  // Fade the hero photo out as the user scrolls past it
+  (function() {
+    var hero = document.getElementById('creator-hero');
+    var bg   = document.getElementById('creator-hero-bg');
+    if (!hero || !bg) return;
+
+    function onScroll() {
+      var rect     = hero.getBoundingClientRect();
+      var heroH    = hero.offsetHeight;
+      // How far the bottom of the hero has scrolled past the viewport top
+      var scrolled = Math.max(0, -rect.top);
+      // Fade starts when user begins scrolling, completes when hero is gone
+      var progress = Math.min(1, scrolled / heroH);
+      bg.style.opacity = 1 - progress;
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll(); // run once on load
+  })();
+</script>
 
 <hr class="sep-major">
 
+<!-- ─── Pillars: accordion rows ─── -->
 <section class="creator-pillars">
   <div class="container">
     <p class="section-label">What I do</p>
-    <div class="creator-pillars-grid">
 
-      <div class="creator-pillar">
-        <p class="pillar-label">ART</p>
-        <h3>3D generalist for hire.</h3>
-        <p>Cinema 4D, Blender, the Adobe suite. Product visualization, advertising, motion. If it needs to look good in a render and actually match a brief, this is the lane. I've been doing it long enough that I'm fast, and picky enough that the results are good.</p>
-        <p class="pillar-tags">Cinema 4D &nbsp;·&nbsp; Blender &nbsp;·&nbsp; Adobe Suite</p>
+    <div class="pillar-accordion" id="pillar-accordion">
+
+      <!-- ART -->
+      <div class="pillar-row" data-pillar="art">
+        <button class="pillar-header" aria-expanded="false" aria-controls="pillar-body-art">
+          <span class="pillar-header__label">ART</span>
+          <span class="pillar-header__title">3D generalist for hire.</span>
+          <span class="pillar-header__toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="pillar-body" id="pillar-body-art" hidden>
+          <div class="pillar-body-inner">
+            <p>Cinema 4D, Blender, the Adobe suite. Product visualization, advertising, motion. If it needs to look good in a render and actually match a brief, this is the lane. I've been doing it long enough that I'm fast, and picky enough that the results are good.</p>
+            <p class="pillar-tags">Cinema 4D &nbsp;·&nbsp; Blender &nbsp;·&nbsp; Adobe Suite</p>
+          </div>
+        </div>
       </div>
 
-      <div class="creator-pillar creator-pillar--cast">
-        <p class="pillar-label">CAST</p>
-        <h3>The biggest thing I've ever tried to build.</h3>
+      <!-- CAST -->
+      <div class="pillar-row" data-pillar="cast">
+        <button class="pillar-header" aria-expanded="false" aria-controls="pillar-body-cast">
+          <span class="pillar-header__label">CAST</span>
+          <span class="pillar-header__title">The biggest thing I've ever tried to build.</span>
+          <span class="pillar-header__toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="pillar-body" id="pillar-body-cast" hidden>
+          <div class="pillar-body-inner">
+            <p>A semi-automated system for generating patient-specific, 3D-printed orthopedic walking casts from 3D body scans. Breathable. Washable. Adjustable. Printable in a living room. Designed to replace a 150-year-old technology — the plaster cast — with something that doesn't turn a recovery into a punishment.</p>
 
-        <div class="cast-render-wrap">
-          <img
-            src="{{ '/assets/img/cast/Main.png' | relative_url }}"
-            alt="CAST — 3D printed walking cast render"
-            class="cast-render">
+            <p class="cast-product-label">The walking cast</p>
+            <p>The cast snaps on with magnets and two wide velcro straps — one around the calf, one threaded through the outsole. As your calf shrinks during recovery (and it will — sometimes dramatically), the straps adjust. It follows your leg. The outsole has a structural void in the centre that collapses when you stand, giving you a flatter contact surface, but rolls forward on each step so you can walk without needing ankle flexion. Held by magnets and physics.</p>
+
+            <p class="cast-product-label">The insole</p>
+            <p>Every walking cast needs an orthopedic insole. So I built one. Infill pattern and density are tuned per person — foot shape, arch type, body weight — so it's soft where comfort matters and firm where support does. Flat-footed? Supported. Pronating? Corrected. Thin enough to fit inside most shoes, which most orthopedic insoles can't claim. It comes with the cast. It's not an afterthought.</p>
+
+            <p>The method exists. The code exists. The printers exist. What doesn't exist yet is the funding and the regulatory infrastructure to manufacture it at scale. This one is a long game, and I'm still playing it.</p>
+
+            <a href="https://www.instagram.com/p/DQzvSqFAiMT/?img_index=2" target="_blank" rel="noopener" class="cast-insta-link">
+              See it on Instagram →
+            </a>
+
+            <p class="pillar-tags">Shapr3D &nbsp;·&nbsp; FDM Printing &nbsp;·&nbsp; Python &nbsp;·&nbsp; Parametric design &nbsp;·&nbsp; R&amp;D</p>
+          </div>
         </div>
-
-        <p>A semi-automated system for generating patient-specific, 3D-printed orthopedic walking casts from 3D body scans. Breathable. Washable. Adjustable. Printable in a living room. Designed to replace a 150-year-old technology — the plaster cast — with something that doesn't turn a recovery into a punishment.</p>
-
-        <p class="cast-product-label">The walking cast</p>
-        <p>The cast snaps on with magnets and two wide velcro straps — one around the calf, one threaded through the outsole. As your calf shrinks during recovery (and it will — sometimes dramatically), the straps adjust. It follows your leg. The outsole has a structural void in the centre that collapses when you stand, giving you a flatter contact surface, but rolls forward on each step so you can walk without needing ankle flexion. Held by magnets and physics.</p>
-
-        <div class="cast-render-wrap">
-          <img
-            src="{{ '/assets/img/cast/Closeup_display.png' | relative_url }}"
-            alt="CAST — custom orthopedic insole"
-            class="cast-render">
-        </div>
-
-        <p class="cast-product-label">The insole</p>
-        <p>Every walking cast needs an orthopedic insole. So I built one. Infill pattern and density are tuned per person — foot shape, arch type, body weight — so it's soft where comfort matters and firm where support does. Flat-footed? Supported. Pronating? Corrected. Thin enough to fit inside most shoes, which most orthopedic insoles can't claim. It comes with the cast. It's not an afterthought.</p>
-
-        <p>The method exists. The code exists. The printers exist. What doesn't exist yet is the funding and the regulatory infrastructure to manufacture it at scale. This one is a long game, and I'm still playing it.</p>
-
-        <a href="https://www.instagram.com/p/DQzvSqFAiMT/?img_index=2" target="_blank" rel="noopener" class="cast-insta-link">
-          See it on Instagram →
-        </a>
-
-        <p class="pillar-tags">Shapr3D &nbsp;·&nbsp; FDM Printing &nbsp;·&nbsp; Python &nbsp;·&nbsp; Parametric design &nbsp;·&nbsp; R&amp;D</p>
       </div>
 
-      <div class="creator-pillar">
-        <p class="pillar-label">PRINT</p>
-        <h3>If it exists in CAD, it can exist on your desk.</h3>
-        <p>FDM and SLA printing service for prototypes, custom parts, and physical goods. I run the machines, tune the profiles, and ship the results. OrcaSlicer, real hardware, actual tolerances.</p>
-        <p class="pillar-tags">FDM &nbsp;·&nbsp; SLA &nbsp;·&nbsp; OrcaSlicer &nbsp;·&nbsp; Shapr3D</p>
+      <!-- PRINT -->
+      <div class="pillar-row" data-pillar="print">
+        <button class="pillar-header" aria-expanded="false" aria-controls="pillar-body-print">
+          <span class="pillar-header__label">PRINT</span>
+          <span class="pillar-header__title">If it exists in CAD, it can exist on your desk.</span>
+          <span class="pillar-header__toggle" aria-hidden="true">+</span>
+        </button>
+        <div class="pillar-body" id="pillar-body-print" hidden>
+          <div class="pillar-body-inner">
+            <p>FDM and SLA printing service for prototypes, custom parts, and physical goods. I run the machines, tune the profiles, and ship the results. OrcaSlicer, real hardware, actual tolerances.</p>
+            <p class="pillar-tags">FDM &nbsp;·&nbsp; SLA &nbsp;·&nbsp; OrcaSlicer &nbsp;·&nbsp; Shapr3D</p>
+          </div>
+        </div>
       </div>
 
     </div>
   </div>
 </section>
+
+<script>
+  // Accordion: toggle open/close, gold border on the open row, +/- toggle
+  (function() {
+    var rows = document.querySelectorAll('.pillar-row');
+    rows.forEach(function(row) {
+      var btn  = row.querySelector('.pillar-header');
+      var body = row.querySelector('.pillar-body');
+      var icon = row.querySelector('.pillar-header__toggle');
+      if (!btn || !body) return;
+
+      btn.addEventListener('click', function() {
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        if (isOpen) {
+          // Close this one
+          btn.setAttribute('aria-expanded', 'false');
+          body.hidden = true;
+          icon.textContent = '+';
+          row.classList.remove('is-open');
+        } else {
+          // Close any other open row first
+          rows.forEach(function(other) {
+            if (other !== row) {
+              var ob = other.querySelector('.pillar-header');
+              var obb = other.querySelector('.pillar-body');
+              var oi = other.querySelector('.pillar-header__toggle');
+              if (ob) ob.setAttribute('aria-expanded', 'false');
+              if (obb) obb.hidden = true;
+              if (oi) oi.textContent = '+';
+              other.classList.remove('is-open');
+            }
+          });
+          // Open this one
+          btn.setAttribute('aria-expanded', 'true');
+          body.hidden = false;
+          icon.textContent = '−';
+          row.classList.add('is-open');
+        }
+      });
+    });
+  })();
+</script>
 
 <hr class="sep-major">
 
