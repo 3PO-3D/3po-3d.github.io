@@ -123,7 +123,7 @@ $carousel-stack-offset:    24px;  // overlap offset when stacking (mobile)
   text-decoration: none;
   flex-shrink: 0;
   transition: opacity $carousel-transition;
-  // Invisible hit-target: 8px padding, no visual change
+  // Generous hit-target padding for easy tapping
   padding: 8px;
   margin: -8px;
 
@@ -135,10 +135,16 @@ $carousel-stack-offset:    24px;  // overlap offset when stacking (mobile)
       height $carousel-transition,
       transform $carousel-transition,
       opacity $carousel-transition;
-    // Base (inactive) size
     height: $carousel-logo-h;
     opacity: 0.12;            // 90% transparent = inactive
     transform: scale(1.0);
+  }
+
+  // Slot 3 (Creator) — its viewBox is portrait (725×939) so it renders
+  // narrower than the landscape logos at the same height.
+  // Boosting height to 44px makes its rendered width match the others (~34px).
+  &:nth-child(3) img {
+    height: calc(#{$carousel-logo-h} * 1.28);
   }
 
   &:hover img { opacity: 0.45; }
@@ -151,7 +157,7 @@ $carousel-stack-offset:    24px;  // overlap offset when stacking (mobile)
   }
   &.is-active:hover img { opacity: 1.0; }
 
-  // Mobile stacking: absolute positions
+  // Mobile stacking: switch to absolute layout
   @media (max-width: 600px) {
     position: absolute;
     top: 50%;
@@ -176,6 +182,40 @@ $carousel-stack-offset:    24px;  // overlap offset when stacking (mobile)
       transform: translateY(-50%);
       &.is-active { transform: translateY(-50%) scale(1.1); }
     }
+  }
+}
+
+// ─── Creator portrait pulse animation ─────────────────────────────
+// Subtle scale pulse on the maker portrait SVG to signal clickability.
+// Three-beat pattern: rest → breathe up → rest → bigger breath → rest.
+// Pauses between beats feel natural, not mechanical.
+@keyframes creator-pulse {
+  0%   { transform: scale(1.0); }
+  8%   { transform: scale(1.06); }
+  16%  { transform: scale(1.0); }
+  24%  { transform: scale(1.04); }
+  32%  { transform: scale(1.0); }
+  100% { transform: scale(1.0); }  // long rest before repeating
+}
+
+.creator-portrait-link {
+  display: inline-flex;
+  flex-shrink: 0;
+  text-decoration: none;
+  border-radius: $radius;
+
+  // The portrait SVG inside the link gets the animation
+  .creator-portrait {
+    animation: creator-pulse 3.5s ease-in-out infinite;
+    transform-origin: center bottom;  // pulses upward from the base
+    cursor: pointer;
+    transition: filter 0.2s;
+  }
+
+  &:hover .creator-portrait {
+    animation-play-state: paused;
+    filter: brightness(1.08);
+    transform: scale(1.08);
   }
 }
 

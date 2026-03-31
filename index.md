@@ -48,9 +48,12 @@ description: "3PO builds tools for 3D artists and creative pipelines."
   <div class="container">
     <p class="section-label">The maker</p>
     <div class="about-rbl-inner">
-      <img src="{{ '/assets/icons/Creator_svg.svg' | relative_url }}" alt="Creator" class="creator-portrait">
+      <a href="{{ '/creator/' | relative_url }}" class="creator-portrait-link" aria-label="About Bence">
+        <img src="{{ '/assets/icons/Creator_svg.svg' | relative_url }}" alt="Bence Rácz" class="creator-portrait">
+      </a>
       <div class="about-rbl-text">
         <p class="lead">RBL — Rácz Bence László. Technical artist, developer, and maker based in Hungary. 3PO is where the work lives.</p>
+        <a href="{{ '/creator/' | relative_url }}" class="btn btn-outline" style="margin-top:1rem;display:inline-block;">Meet the maker →</a>
       </div>
     </div>
   </div>

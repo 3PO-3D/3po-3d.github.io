@@ -70,6 +70,10 @@
       }
 
       // ─── Logo Carousel ────────────────────────────────────────
+      // Interaction rules:
+      //   CLICK  on the ACTIVE logo  → scroll to top of current page (no navigation)
+      //   CLICK  on an INACTIVE logo → navigate to that site section
+      //   SWIPE  left or right        → navigate to the next/prev site section
       (function() {
         var carousel = document.getElementById('logo-carousel');
         if (!carousel) return;
@@ -80,39 +84,52 @@
         });
         if (activeIndex < 0) activeIndex = 0;
 
-        function setActive(idx) {
-          items.forEach(function(el, i) {
-            el.classList.toggle('is-active', i === idx);
-          });
-          activeIndex = idx;
+        // Navigate to a carousel item's href
+        function navigateTo(idx) {
+          var href = items[idx] ? items[idx].getAttribute('href') : null;
+          if (href) window.location.href = href;
         }
 
-        // Click: navigate (follow the link naturally — no JS needed)
-        // But also update visual state immediately before navigation
+        // Click handler
         items.forEach(function(el, i) {
-          el.addEventListener('click', function() {
-            setActive(i);
-            // Let the href navigate — don't preventDefault
+          el.addEventListener('click', function(e) {
+            e.preventDefault();  // always intercept — we decide what happens
+
+            if (i === activeIndex) {
+              // Active logo clicked → scroll to top of current page
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+              // Inactive logo clicked → navigate to that section
+              navigateTo(i);
+            }
           });
         });
 
-        // Touch swipe: cycle through logos without navigating
+        // Swipe handler — navigates to the adjacent site
         var touchStartX = 0;
+        var touchStartY = 0;
         carousel.addEventListener('touchstart', function(e) {
           touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
         }, { passive: true });
 
         carousel.addEventListener('touchend', function(e) {
           var dx = e.changedTouches[0].clientX - touchStartX;
-          if (Math.abs(dx) < 30) return; // threshold — ignore tiny movements
+          var dy = e.changedTouches[0].clientY - touchStartY;
+
+          // Only act on horizontal swipes (dx dominant, > 30px threshold)
+          if (Math.abs(dx) < 30 || Math.abs(dy) > Math.abs(dx)) return;
+
+          e.preventDefault();
           if (dx < 0) {
-            // swipe left → next logo
-            setActive((activeIndex + 1) % items.length);
+            // Swipe left → next site (higher index)
+            var nextIdx = (activeIndex + 1) % items.length;
+            navigateTo(nextIdx);
           } else {
-            // swipe right → prev logo
-            setActive((activeIndex - 1 + items.length) % items.length);
+            // Swipe right → prev site (lower index)
+            var prevIdx = (activeIndex - 1 + items.length) % items.length;
+            navigateTo(prevIdx);
           }
-          e.preventDefault(); // prevent accidental navigation on swipe
         }, { passive: false });
       })();
 
