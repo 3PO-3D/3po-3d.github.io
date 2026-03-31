@@ -10,11 +10,11 @@
          data-slot="0"
          aria-label="3PO Home">
         <img
-          src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
+          src="{{ '/assets/img/3PO_logo/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
           alt="3PO"
           id="site-logo-img"
-          data-light="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
-          data-dark="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}">
+          data-light="{{ '/assets/img/3PO_logo/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/3PO_logo/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}">
       </a>
 
       <!-- Slot 2: CHRONOS — front on /chronos/ pages -->
@@ -23,20 +23,20 @@
          data-slot="1"
          aria-label="CHRONOS">
         <img
-          src="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          src="{{ '/assets/img/3PO_logo/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
           alt="CHRONOS"
           id="nav-chronos-logo"
-          data-light="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
-          data-dark="{{ '/assets/img/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}">
+          data-light="{{ '/assets/img/3PO_logo/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_TRANS_SVG.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/3PO_logo/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}">
       </a>
 
-      <!-- Slot 3: Creator — front on /creator/ pages (future) -->
+      <!-- Slot 3: Creator — front on /creator/ pages -->
       <a href="{{ '/creator/' | relative_url }}"
          class="logo-carousel__item{% if page.url contains '/creator/' %} is-active{% endif %}"
          data-slot="2"
          aria-label="Creator / About Bence">
         <img
-          src="{{ '/assets/icons/Creator_head_svg.svg' | relative_url }}"
+          src="{{ '/assets/img/3PO_logo/Creator_logo/Creator_head_svg.svg' | relative_url }}"
           alt="Creator">
       </a>
 
@@ -47,25 +47,17 @@
       {% if page.url contains '/chronos/' %}
         <img
           id="header-wordmark-img"
-          src="{{ '/assets/img/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
-          data-light="{{ '/assets/img/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
-          data-dark="{{ '/assets/img/CHRONOS_yellow_darktheme_svg.svg' | relative_url }}"
+          src="{{ '/assets/img/3PO_logo/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
+          data-light="{{ '/assets/img/3PO_logo/CHRONOS_yellow_lighttheme_svg.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/3PO_logo/CHRONOS_yellow_darktheme_svg.svg' | relative_url }}"
           alt="CHRONOS"
           class="wordmark-img wordmark-img--chronos">
-      {% elsif page.url contains '/creator/' %}
-        <img
-          id="header-wordmark-img"
-          src="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
-          data-light="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
-          data-dark="/assets/img/CRAFTING%20YOUR%20TOMORROW_darktheme_svg.svg"
-          alt="Crafting Your Tomorrow"
-          class="wordmark-img wordmark-img--cyt">
       {% else %}
         <img
           id="header-wordmark-img"
-          src="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
-          data-light="/assets/img/CRAFTING%20YOUR%20TOMORROW_ligtheme_svg.svg"
-          data-dark="/assets/img/CRAFTING%20YOUR%20TOMORROW_darktheme_svg.svg"
+          src="{{ '/assets/img/3PO_logo/CRAFTING YOUR TOMORROW_ligtheme_svg.svg' | relative_url }}"
+          data-light="{{ '/assets/img/3PO_logo/CRAFTING YOUR TOMORROW_ligtheme_svg.svg' | relative_url }}"
+          data-dark="{{ '/assets/img/3PO_logo/CRAFTING YOUR TOMORROW_darktheme_svg.svg' | relative_url }}"
           alt="Crafting Your Tomorrow"
           class="wordmark-img wordmark-img--cyt">
       {% endif %}

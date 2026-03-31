@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/3PO_logo/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}">
   <script>
     var DARK_THEMES = ['deep-space'];
     var _currentTheme = localStorage.getItem('theme') || 'gold-burgundy';
@@ -20,7 +20,7 @@
   {% include header.html %}
 
   <script>
-    // Apply all theme-dependent images immediately after header is parsed
+    // Apply theme-dependent images immediately after header is parsed
     (function() {
       var t = localStorage.getItem('theme') || 'gold-burgundy';
       var dark = DARK_THEMES.indexOf(t) !== -1;
@@ -34,8 +34,8 @@
       swapImg('header-wordmark-img');
       swapImg('theme-toggle-icon');
       swapImg('nav-chronos-logo');
-      swapImg('footer-email-icon');
       swapImg('footer-qa-icon');
+      // footer-email-icon: single-color icon, no swap needed
     })();
   </script>
 
@@ -57,7 +57,6 @@
         swapImg('header-wordmark-img');
         swapImg('theme-toggle-icon');
         swapImg('nav-chronos-logo');
-        swapImg('footer-email-icon');
         swapImg('footer-qa-icon');
       }
 
@@ -70,10 +69,9 @@
       }
 
       // ─── Logo Carousel ────────────────────────────────────────
-      // Interaction rules:
-      //   CLICK  on the ACTIVE logo  → scroll to top of current page (no navigation)
-      //   CLICK  on an INACTIVE logo → navigate to that site section
-      //   SWIPE  left or right        → navigate to the next/prev site section
+      // CLICK  active logo  → scroll to top of current page
+      // CLICK  inactive logo → navigate to that site
+      // SWIPE  left/right   → navigate to adjacent site
       (function() {
         var carousel = document.getElementById('logo-carousel');
         if (!carousel) return;
@@ -84,28 +82,22 @@
         });
         if (activeIndex < 0) activeIndex = 0;
 
-        // Navigate to a carousel item's href
         function navigateTo(idx) {
           var href = items[idx] ? items[idx].getAttribute('href') : null;
           if (href) window.location.href = href;
         }
 
-        // Click handler
         items.forEach(function(el, i) {
           el.addEventListener('click', function(e) {
-            e.preventDefault();  // always intercept — we decide what happens
-
+            e.preventDefault();
             if (i === activeIndex) {
-              // Active logo clicked → scroll to top of current page
               window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-              // Inactive logo clicked → navigate to that section
               navigateTo(i);
             }
           });
         });
 
-        // Swipe handler — navigates to the adjacent site
         var touchStartX = 0;
         var touchStartY = 0;
         carousel.addEventListener('touchstart', function(e) {
@@ -116,38 +108,29 @@
         carousel.addEventListener('touchend', function(e) {
           var dx = e.changedTouches[0].clientX - touchStartX;
           var dy = e.changedTouches[0].clientY - touchStartY;
-
-          // Only act on horizontal swipes (dx dominant, > 30px threshold)
           if (Math.abs(dx) < 30 || Math.abs(dy) > Math.abs(dx)) return;
-
           e.preventDefault();
           if (dx < 0) {
-            // Swipe left → next site (higher index)
-            var nextIdx = (activeIndex + 1) % items.length;
-            navigateTo(nextIdx);
+            navigateTo((activeIndex + 1) % items.length);
           } else {
-            // Swipe right → prev site (lower index)
-            var prevIdx = (activeIndex - 1 + items.length) % items.length;
-            navigateTo(prevIdx);
+            navigateTo((activeIndex - 1 + items.length) % items.length);
           }
         }, { passive: false });
       })();
 
-      // ─── Mobile CHRONOS nav panel ────────────────────────────────────────
-      var toggle  = document.getElementById('mobile-menu-toggle');
-      var panel   = document.getElementById('mobile-nav-panel');
+      // ─── Mobile CHRONOS nav panel ─────────────────────────────
+      var toggle = document.getElementById('mobile-menu-toggle');
+      var panel  = document.getElementById('mobile-nav-panel');
 
       if (toggle && panel) {
         toggle.addEventListener('click', function() {
           var isOpen = panel.classList.toggle('is-open');
           panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
           toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-          // Toggle switch visual state
           var track = toggle.querySelector('.toggle-track');
           if (track) track.classList.toggle('toggle-track--on', isOpen);
         });
 
-        // Close panel when a nav link is clicked
         panel.querySelectorAll('a').forEach(function(link) {
           link.addEventListener('click', function() {
             panel.classList.remove('is-open');
@@ -158,7 +141,6 @@
           });
         });
 
-        // Close on Escape
         document.addEventListener('keydown', function(e) {
           if (e.key === 'Escape') {
             panel.classList.remove('is-open');
