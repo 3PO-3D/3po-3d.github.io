@@ -282,9 +282,19 @@ description: "Technical artist, developer, maker. Chemistry background, Cinema 4
     </p>
     <div class="creator-cta-row">
       <a href="mailto:3po@3po3d.com" class="btn btn-accent creator-cta-primary">Send an email</a>
+    </div>
+
+    <p class="section-label" style="margin-top:2.5rem;">Download CV</p>
+    <div class="creator-cv-row">
       <a href="{{ '/assets/cv/V1._CV_(EN)_Bence_L._Racz_3DArtist.pdf' | relative_url }}"
          download="Bence_L_Racz_CV_3DArtist.pdf"
-         class="btn btn-outline creator-cta-primary">Download CV ↓</a>
+         class="btn btn-accent creator-cv-btn">3D Artist CV ↓</a>
+      <a href="{{ '/assets/cv/RBL_PO_CV_ENG.pdf' | relative_url }}"
+         download="Bence_L_Racz_CV_ProductOwner_EN.pdf"
+         class="btn btn-outline creator-cv-btn">Product Owner CV English ↓</a>
+      <a href="{{ '/assets/cv/RBL_PO_CV_HUN.pdf' | relative_url }}"
+         download="Bence_L_Racz_CV_ProductOwner_HU.pdf"
+         class="btn btn-outline creator-cv-btn">Product Owner CV Hungarian ↓</a>
     </div>
   </div>
 </section>
