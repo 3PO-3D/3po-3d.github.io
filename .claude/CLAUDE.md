@@ -2,7 +2,7 @@
 
 ## What Is This Project?
 
-CHRONOS_Site is the **3PO company website + CHRONOS product pages** — a Jekyll static site hosted on GitHub Pages at `https://3po-3d.github.io`. Content originates from the Obsidian vault's `09_PUBLISH/` folder and is converted to Jekyll-compatible markdown.
+CHRONOS_Site is the **3PO company website** — 3PO home, CHRONOS product pages, the Creator bio, the **3PO Print** business, and a showreel. Currently a Jekyll static site on GitHub Pages at `https://3po-3d.github.io` (migrating to **Next.js on Vercel** at **3po3d.com** — see roadmap Phase 2). Content originates from the Obsidian vault project **`Projects/3PO_Site/content/`** and is converted to site markdown. The repo itself will be renamed `CHRONOS_Site → 3PO_Site` in Phase 1.5.
 
 ---
 
@@ -16,15 +16,15 @@ Step 1 — Git health check
 
 Step 2 — Load vault chain (full routing)
   Read: D:\Dropbox\[3PO]_CodeVault\HELPERS\CLAUDE.md
-  Read: D:\Dropbox\[3PO]_CodeVault\Projects\CHRONOS\CLAUDE.md
-  Read: D:\Dropbox\[3PO]_CodeVault\Projects\CHRONOS\09_PUBLISH\CLAUDE.md
-  → 09_PUBLISH/CLAUDE.md is the operational brain for this project.
+  Read: D:\Dropbox\[3PO]_CodeVault\Projects\3PO_Site\CLAUDE.md
+  → 3PO_Site/CLAUDE.md is the operational brain for this project.
+  → (The CHRONOS project is NOT in the site chain — it's referenced only for publish-flagged content.)
 
-Step 3 — Load publish stepmap
-  Read: D:\Dropbox\[3PO]_CodeVault\Projects\CHRONOS\09_PUBLISH\publish_stepmap.json
-  → Find step where status = "active"
-  → Read context_handoff
-  → Read all files in vault_refs
+Step 3 — Load the lean stepmap (active step only)
+  Read: D:\Dropbox\[3PO]_CodeVault\Projects\3PO_Site\stepmap.json
+  → Read the `active` block (the working context)
+  → Read active.migration_ref (full handoff) + active.vault_refs / site_refs
+  → roadmap.md is orientation only — never load it wholesale
 
 Step 4 — Announce
   "Rules loaded. Context restored. Active step: [id] — [title]."
@@ -37,13 +37,15 @@ Step 4 — Announce
 | Resource | Path |
 |---|---|
 | Vault root | `D:\Dropbox\[3PO]_CodeVault\` |
-| Vault CHRONOS | `D:\Dropbox\[3PO]_CodeVault\Projects\CHRONOS\` |
-| Vault 09_PUBLISH | `D:\Dropbox\[3PO]_CodeVault\Projects\CHRONOS\09_PUBLISH\` |
+| Vault project (3PO_Site) | `D:\Dropbox\[3PO]_CodeVault\Projects\3PO_Site\` |
+| Vault CHRONOS (publish-flagged content only) | `D:\Dropbox\[3PO]_CodeVault\Projects\CHRONOS\` |
 | Vault HELPERS | `D:\Dropbox\[3PO]_CodeVault\HELPERS\` |
-| Site root | `D:\0._3D_Dev\1._PROJECTS\4._PLUGINS\CHRONOS_Site\` |
+| Brand (shared) | `D:\Dropbox\[3PO]_CodeVault\Brand\` |
+| Site root | `D:\0._3D_Dev\1._PROJECTS\4._PLUGINS\CHRONOS_Site\` (→ `3PO_Site` after Phase 1.5) |
 | CHRONOS_Project | `D:\0._3D_Dev\1._PROJECTS\4._PLUGINS\CHRONOS_Project\` |
-| Publish stepmap | `...09_PUBLISH\publish_stepmap.json` |
-| Brand guide | `...09_PUBLISH\brand_guide.md` |
+| Roadmap (full plan) | `...3PO_Site\roadmap.md` |
+| Stepmap (active step) | `...3PO_Site\stepmap.json` |
+| Brand guide | `...Brand\brand_guide.md` |
 
 ---
 
@@ -155,13 +157,13 @@ CHRONOS_Site/
 | Accent | Retro Mint `#40E0C0` | Harvest Gold `#DDAA33` |
 | Tone | Direct, no filler, benefit-first | same |
 
-Full guide: `09_PUBLISH/brand_guide.md`
+Full guide: vault-level `Brand/brand_guide.md`
 
 ---
 
 ## Related
 
-- `09_PUBLISH/CLAUDE.md` — Operational brain (publish workflow, agent roles, quality gates)
-- `09_PUBLISH/publish_stepmap.json` — Doubly linked execution plan
+- `Projects/3PO_Site/CLAUDE.md` — Operational brain (site workflow, agent roles, quality gates)
+- `Projects/3PO_Site/roadmap.md` — Full plan · `Projects/3PO_Site/stepmap.json` — active step (lean)
 - `HELPERS/CLAUDE.md` — Vault router and shared infrastructure
-- `Projects/CHRONOS/CLAUDE.md` — Plugin project entry point
+- `Projects/CHRONOS/CLAUDE.md` — Plugin project entry point (source of publish-flagged content)
