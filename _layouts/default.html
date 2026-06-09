@@ -68,54 +68,83 @@
         });
       }
 
-      // ─── Logo Carousel ────────────────────────────────────────
-      // CLICK  active logo  → scroll to top of current page
-      // CLICK  inactive logo → navigate to that site
-      // SWIPE  left/right   → navigate to adjacent site
+      // ─── Site Pager ───────────────────────────────────────────
+      // Ordered top-level destinations come from the logo carousel.
+      //   CLICK active logo   → scroll to top of current page
+      //   CLICK inactive logo → navigate to that section
+      //   SIDE ARROWS (desktop) → prev / next section
+      //   SWIPE on carousel OR anywhere on the page body (mobile) → prev / next
+      // A light slide+fade on #page-shell gives a "push" feel before the page load.
+      // (The true animated route transition lands in the Next.js rewrite — Phase 2.)
       (function() {
         var carousel = document.getElementById('logo-carousel');
         if (!carousel) return;
 
-        var items = Array.from(carousel.querySelectorAll('.logo-carousel__item'));
-        var activeIndex = items.findIndex(function(el) {
-          return el.classList.contains('is-active');
-        });
+        var items = Array.prototype.slice.call(carousel.querySelectorAll('.logo-carousel__item'));
+        if (!items.length) return;
+        var n = items.length;
+        var activeIndex = items.findIndex(function(el) { return el.classList.contains('is-active'); });
         if (activeIndex < 0) activeIndex = 0;
 
-        function navigateTo(idx) {
-          var href = items[idx] ? items[idx].getAttribute('href') : null;
-          if (href) window.location.href = href;
-        }
+        var shell = document.getElementById('page-shell');
+        var navigating = false;
 
+        function go(idx, dir) {
+          var href = items[idx] ? items[idx].getAttribute('href') : null;
+          if (!href || navigating) return;
+          navigating = true;
+          if (shell) shell.classList.add(dir === 'next' ? 'is-leaving-next' : 'is-leaving-prev');
+          setTimeout(function() { window.location.href = href; }, 150);
+        }
+        function next() { go((activeIndex + 1) % n, 'next'); }
+        function prev() { go((activeIndex - 1 + n) % n, 'prev'); }
+
+        // Carousel logo clicks
         items.forEach(function(el, i) {
           el.addEventListener('click', function(e) {
             e.preventDefault();
-            if (i === activeIndex) {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-              navigateTo(i);
-            }
+            if (i === activeIndex) { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+            else { go(i, i > activeIndex ? 'next' : 'prev'); }
           });
         });
 
-        var touchStartX = 0;
-        var touchStartY = 0;
+        // Swipe on the carousel itself (kept from before)
+        var cX = 0, cY = 0;
         carousel.addEventListener('touchstart', function(e) {
-          touchStartX = e.touches[0].clientX;
-          touchStartY = e.touches[0].clientY;
+          cX = e.touches[0].clientX; cY = e.touches[0].clientY;
         }, { passive: true });
-
         carousel.addEventListener('touchend', function(e) {
-          var dx = e.changedTouches[0].clientX - touchStartX;
-          var dy = e.changedTouches[0].clientY - touchStartY;
+          var dx = e.changedTouches[0].clientX - cX, dy = e.changedTouches[0].clientY - cY;
           if (Math.abs(dx) < 30 || Math.abs(dy) > Math.abs(dx)) return;
           e.preventDefault();
-          if (dx < 0) {
-            navigateTo((activeIndex + 1) % items.length);
-          } else {
-            navigateTo((activeIndex - 1 + items.length) % items.length);
-          }
+          if (dx < 0) next(); else prev();
         }, { passive: false });
+
+        // Desktop side arrows
+        var aPrev = document.getElementById('page-arrow-prev');
+        var aNext = document.getElementById('page-arrow-next');
+        if (aPrev) aPrev.addEventListener('click', prev);
+        if (aNext) aNext.addEventListener('click', next);
+
+        // Site-wide body swipe (mobile). Horizontal intent only, so it never
+        // hijacks vertical scrolling, and it ignores interactive / horizontally
+        // scrollable elements so it doesn't fight links, forms, tables, embeds.
+        var IGNORE = 'a, button, input, textarea, select, label, #logo-carousel,' +
+                     '.chronos-nav, pre, table, .diagram, .topology-diagram,' +
+                     '.screenshot-tray, .reel-embed, [data-noswipe]';
+        var bX = 0, bY = 0, bSkip = false;
+        document.addEventListener('touchstart', function(e) {
+          var t = e.touches[0];
+          bX = t.clientX; bY = t.clientY;
+          bSkip = !!(e.target.closest && e.target.closest(IGNORE));
+        }, { passive: true });
+        document.addEventListener('touchend', function(e) {
+          if (bSkip) return;
+          var t = e.changedTouches[0];
+          var dx = t.clientX - bX, dy = t.clientY - bY;
+          if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.6) return; // deliberate horizontal only
+          if (dx < 0) next(); else prev();
+        }, { passive: true });
       })();
 
       // ─── Mobile CHRONOS nav panel ─────────────────────────────
@@ -154,7 +183,16 @@
     });
   </script>
 
-  {{ content }}
+  <button class="page-arrow page-arrow--prev" id="page-arrow-prev" type="button" aria-label="Previous section">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="page-arrow page-arrow--next" id="page-arrow-next" type="button" aria-label="Next section">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <main class="page-shell" id="page-shell">
+    {{ content }}
+  </main>
   {% include footer.html %}
 </body>
 </html>

@@ -6,7 +6,7 @@ description: "3PO builds tools for 3D artists and creative pipelines."
 
 <section class="hero-3po">
   <div class="container">
-    <img src="{{ '/assets/img/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}" alt="3PO" class="hero-logo">
+    <img src="{{ '/assets/img/3PO_logo/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}" alt="3PO" class="hero-logo">
     <p class="hero-tagline">Crafting Your Tomorrow</p>
     <h1>Tools for 3D artists.<br>Built for real pipelines.</h1>
     <p class="lead">3PO is a one-person creative and engineering platform. Every project starts from a real problem — and ends with something that earns its place in your process.</p>
@@ -23,12 +23,26 @@ description: "3PO builds tools for 3D artists and creative pipelines."
         <p>Non-destructive scene variation management. One file. Every version. Named, switchable, and permanent.</p>
         <span class="tile-arrow">→ Explore</span>
       </a>
-      <div class="project-tile coming-soon">
-        <p class="tile-label">In Development</p>
-        <h3>—</h3>
-        <p>The next 3PO project is on the way.</p>
+      <a href="{{ '/print/' | relative_url }}" class="project-tile print">
+        <p class="tile-label">3D Printing &amp; Service</p>
+        <h3>3PO Print</h3>
+        <p>Custom FDM &amp; SLA printing and made-to-fit goods. Buy a finished product, or send a model and get it made.</p>
+        <span class="tile-arrow">→ Explore</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="home-reel">
+  <div class="container">
+    <p class="section-label">Showreel</p>
+    <div class="reel-embed">
+      <div class="embed-placeholder">
+        <span class="embed-placeholder__label">Reel embed pending</span>
+        <span class="embed-placeholder__sub">A Vimeo or YouTube reel will play here.</span>
       </div>
     </div>
+    <a href="{{ '/reel/' | relative_url }}" class="btn btn-outline home-reel__btn">Open the showreel →</a>
   </div>
 </section>
 

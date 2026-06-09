@@ -6,7 +6,7 @@
 
       <!-- Slot 1: 3PO Home — front on home page, behind on other pages -->
       <a href="{{ '/' | relative_url }}"
-         class="logo-carousel__item{% unless page.url contains '/chronos/' or page.url contains '/creator/' %} is-active{% endunless %}"
+         class="logo-carousel__item{% unless page.url contains '/chronos/' or page.url contains '/creator/' or page.url contains '/print/' %} is-active{% endunless %}"
          data-slot="0"
          aria-label="3PO Home">
         <img
@@ -30,10 +30,20 @@
           data-dark="{{ '/assets/img/3PO_logo/V41_3PO_LOGO_HEAD_(HARVEST_GOLD)_WHITEFILL_SVG.svg' | relative_url }}">
       </a>
 
-      <!-- Slot 3: Creator — front on /creator/ pages -->
+      <!-- Slot 3: 3PO Print — front on /print/ pages.  PLACEHOLDER mark — replace Print_head_PLACEHOLDER_svg.svg -->
+      <a href="{{ '/print/' | relative_url }}"
+         class="logo-carousel__item{% if page.url contains '/print/' %} is-active{% endif %}"
+         data-slot="2"
+         aria-label="3PO Print">
+        <img
+          src="{{ '/assets/img/3PO_logo/Print_head_PLACEHOLDER_svg.svg' | relative_url }}"
+          alt="3PO Print">
+      </a>
+
+      <!-- Slot 4: Creator — front on /creator/ pages -->
       <a href="{{ '/creator/' | relative_url }}"
          class="logo-carousel__item{% if page.url contains '/creator/' %} is-active{% endif %}"
-         data-slot="2"
+         data-slot="3"
          aria-label="Creator / About Bence">
         <img
           src="{{ '/assets/img/3PO_logo/Creator_logo/Creator_head_svg.svg' | relative_url }}"

@@ -1,0 +1,7 @@
+<nav class="chronos-nav print-nav">
+  <div class="container">
+    <a href="{{ '/print/' | relative_url }}"{% if page.url == '/print/' or page.url == '/print/index.html' %} class="active"{% endif %}>Overview</a>
+    <a href="{{ '/print/shop/' | relative_url }}"{% if page.url contains '/print/shop' %} class="active"{% endif %}>Shop</a>
+    <a href="{{ '/print/services/' | relative_url }}"{% if page.url contains '/print/services' %} class="active"{% endif %}>Services</a>
+  </div>
+</nav>

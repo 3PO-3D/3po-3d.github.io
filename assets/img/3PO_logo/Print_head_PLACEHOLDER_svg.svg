@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="3PO Print">
+  <!-- PLACEHOLDER 3PO Print mark — isometric cube. Replace with final brand logo. -->
+  <g fill="none" stroke="#DDAA33" stroke-width="7" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M50 16 L84 35 L50 54 L16 35 Z"/>
+    <path d="M16 35 L16 66 L50 85 L50 54"/>
+    <path d="M84 35 L84 66 L50 85"/>
+  </g>
+</svg>
