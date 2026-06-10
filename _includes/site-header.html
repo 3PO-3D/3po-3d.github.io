@@ -21,8 +21,8 @@
       <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
         <img id="theme-toggle-icon" src="{{ '/assets/icons/Cupcake.svg' | relative_url }}" data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}" data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}" alt="Toggle theme" width="20" height="20">
       </button>
-      {% if page.subnav %}<button class="menu-toggle" id="menu-toggle" aria-label="Menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      {% if page.subnav %}<button class="menu-toggle" id="menu-toggle" aria-label="Menu" aria-expanded="false">
+        <span class="toggle-track"><span class="toggle-dot"></span></span>
       </button>{% endif %}
     </div>
   </div>

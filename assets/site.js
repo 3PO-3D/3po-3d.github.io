@@ -112,7 +112,11 @@
     // ── Mobile sub-nav toggle (FORGE / Portfolio / CHRONOS) ─
     var menuBtn = document.getElementById('menu-toggle');
     var subnav = document.getElementById('sub-nav');
-    if (menuBtn && subnav) menuBtn.addEventListener('click', function () { subnav.classList.toggle('open'); });
+    if (menuBtn && subnav) menuBtn.addEventListener('click', function () {
+      var open = subnav.classList.toggle('open');
+      menuBtn.classList.toggle('is-open', open);
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
 
     // ── Sub-nav scroll-spy (in-page anchors) ─────────────
     var navLinks = Array.prototype.slice.call(document.querySelectorAll('.sub-nav a[href^="#"]'));

@@ -246,3 +246,51 @@
 .shot-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--bw); border: var(--bw) solid var(--text); margin: 2rem 0; }
 @media (max-width: 640px) { .shot-grid { grid-template-columns: 1fr; } }
 .shot-grid img { margin: 0; display: block; width: 100%; border-radius: 0; }
+
+/* ════════════════════════════════════════════════════════════
+   Mobile + polish fixes (post CD-01) — overrides site.css
+   ════════════════════════════════════════════════════════════ */
+
+/* 1 — Icons: no frames (footer + creator hero); keep the lift on hover */
+.footer-icon-btn, .creator-contact-btn { border: none; background: transparent; }
+.footer-icon-btn:hover { border: none; background: transparent; transform: translateY(-2px); opacity: .78; }
+.creator-contact-btn:hover { border: none; background: transparent; transform: translateY(-2px); }
+[data-theme="dark"] .site-footer .footer-icon-btn,
+[data-theme="dark"] .site-footer .footer-icon-btn:hover { border: none; background: transparent; }
+
+/* 2 — Carousel: never distort; Creator head (portrait) sized to match the others */
+.logo-carousel__item { flex-shrink: 0; }
+.logo-carousel__item img { max-width: none; flex-shrink: 0; }
+.logo-carousel__item:nth-child(5) img { height: 44px; }
+
+/* 3 — Wordmark: shrink on small screens, hide only when truly narrow; controls stay right */
+@media (max-width: 560px) { .header-wordmark .wm-name { font-size: .9rem; letter-spacing: .16em; text-indent: .16em; } }
+@media (max-width: 520px) { .header-wordmark { display: flex; } }      /* override design's display:none */
+@media (max-width: 400px) { .header-wordmark .wm-name { font-size: .78rem; letter-spacing: .1em; } }
+@media (max-width: 330px) { .header-wordmark { display: none; } }      /* truly collapses; toggle stays right via justify-self:end */
+
+/* 4 — Carousel: stack heads behind one another on mobile (like the old site), no squish */
+@media (max-width: 600px) {
+  .logo-carousel { position: relative; gap: 0; width: calc(30px + 4 * 22px); height: 42px; }
+  .logo-carousel__item { position: absolute; top: 50%; padding: 6px; margin: 0; transform: translateY(-50%); }
+  .logo-carousel__item:nth-child(1) { left: 0;    z-index: 5; }
+  .logo-carousel__item:nth-child(2) { left: 22px; z-index: 4; }
+  .logo-carousel__item:nth-child(3) { left: 44px; z-index: 3; }
+  .logo-carousel__item:nth-child(4) { left: 66px; z-index: 2; }
+  .logo-carousel__item:nth-child(5) { left: 88px; z-index: 1; }
+  .logo-carousel__item.is-active { z-index: 6; }
+  .logo-carousel__item img { height: 30px; }
+  .logo-carousel__item:nth-child(5) img { height: 38px; }
+  .logo-carousel__item.is-active img { transform: scale(1.12); transform-origin: center; }
+}
+
+/* 5 — Menu button = accent toggle-switch (replaces the hamburger box) */
+.menu-toggle { border: none !important; background: transparent !important; width: auto; height: auto; padding: 0; }
+.menu-toggle .toggle-track {
+  display: inline-flex; align-items: center; width: 46px; height: 24px; border-radius: 24px;
+  background: #F1EBDD; border: 1px solid rgba(0,0,0,.2); padding: 3px; box-sizing: border-box;
+  transition: background .28s cubic-bezier(.4,0,.2,1);
+}
+.menu-toggle .toggle-dot { width: 18px; height: 18px; border-radius: 50%; background: #0D0D0D; transform: translateX(0); transition: transform .28s cubic-bezier(.4,0,.2,1); }
+.menu-toggle.is-open .toggle-track { background: var(--accent); }
+.menu-toggle.is-open .toggle-dot  { transform: translateX(22px); }
