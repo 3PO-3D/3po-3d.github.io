@@ -18,7 +18,18 @@
       "Bash(gh run:*)",
       "WebFetch(domain:3po-3d.github.io)",
       "WebFetch(domain:gumroad.com)",
-      "PowerShell(bundle exec jekyll build 2>&1)"
+      "PowerShell(bundle exec jekyll build 2>&1)",
+      "PowerShell(\"=== 3PO_logo ===\")",
+      "PowerShell(\"=== icons ===\")",
+      "PowerShell(\"=== img top ===\")",
+      "PowerShell(\"=== assets top ===\")",
+      "Bash(gh api *)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('status:',d.get\\('status'\\)\\); print\\('commit:',\\(d.get\\('commit'\\) or ''\\)[:12]\\); print\\('duration:',d.get\\('duration'\\)\\); err=d.get\\('error'\\) or {}; print\\('error:',err.get\\('message'\\)\\)\")",
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(mkdir -p design)",
+      "Bash(tar -xzf webfetch-1781022848177-371exs.bin -C design)",
+      "Bash(rm -f print/shop.md print/services.md print/index.md reel.md _includes/print-nav.html)",
+      "Bash(ls print *)"
     ],
     "additionalDirectories": [
       "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Site\\.claude",

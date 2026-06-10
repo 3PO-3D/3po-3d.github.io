@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <title>{% if page.title %}{{ page.title }} — {% endif %}{{ site.title }}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500&family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/3PO_logo/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg' | relative_url }}">
+  <script>
+    var DARK_THEMES = ['deep-space'];
+    var _currentTheme = localStorage.getItem('theme') || 'gold-burgundy';
+    document.documentElement.setAttribute('data-theme', _currentTheme);
+  </script>
+</head>
+<body>
+  {% include header.html %}
+
+  <script>
+    // Apply theme-dependent images immediately after header is parsed
+    (function() {
+      var t = localStorage.getItem('theme') || 'gold-burgundy';
+      var dark = DARK_THEMES.indexOf(t) !== -1;
+
+      function swapImg(id) {
+        var el = document.getElementById(id);
+        if (el) el.src = dark ? el.getAttribute('data-dark') : el.getAttribute('data-light');
+      }
+
+      swapImg('site-logo-img');
+      swapImg('header-wordmark-img');
+      swapImg('theme-toggle-icon');
+      swapImg('nav-chronos-logo');
+      swapImg('footer-qa-icon');
+      // footer-email-icon: single-color icon, no swap needed
+    })();
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // ─── Theme toggle ────────────────────────────────────────
+      function applyTheme(t) {
+        var dark = DARK_THEMES.indexOf(t) !== -1;
+        document.documentElement.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+
+        function swapImg(id) {
+          var el = document.getElementById(id);
+          if (el) el.src = dark ? el.getAttribute('data-dark') : el.getAttribute('data-light');
+        }
+
+        swapImg('site-logo-img');
+        swapImg('header-wordmark-img');
+        swapImg('theme-toggle-icon');
+        swapImg('nav-chronos-logo');
+        swapImg('footer-qa-icon');
+      }
+
+      var themeBtn = document.getElementById('theme-toggle-btn');
+      if (themeBtn) {
+        themeBtn.addEventListener('click', function() {
+          var current = localStorage.getItem('theme') || 'gold-burgundy';
+          applyTheme(DARK_THEMES.indexOf(current) !== -1 ? 'gold-burgundy' : 'deep-space');
+        });
+      }
+
+      // ─── Site Pager ───────────────────────────────────────────
+      // Ordered top-level destinations come from the logo carousel.
+      //   CLICK active logo   → scroll to top of current page
+      //   CLICK inactive logo → navigate to that section
+      //   SIDE ARROWS (desktop) → prev / next section
+      //   SWIPE on carousel OR anywhere on the page body (mobile) → prev / next
+      // A light slide+fade on #page-shell gives a "push" feel before the page load.
+      // (The true animated route transition lands in the Next.js rewrite — Phase 2.)
+      (function() {
+        var carousel = document.getElementById('logo-carousel');
+        if (!carousel) return;
+
+        var items = Array.prototype.slice.call(carousel.querySelectorAll('.logo-carousel__item'));
+        if (!items.length) return;
+        var n = items.length;
+        var activeIndex = items.findIndex(function(el) { return el.classList.contains('is-active'); });
+        if (activeIndex < 0) activeIndex = 0;
+
+        var shell = document.getElementById('page-shell');
+        var navigating = false;
+
+        function go(idx, dir) {
+          var href = items[idx] ? items[idx].getAttribute('href') : null;
+          if (!href || navigating) return;
+          navigating = true;
+          if (shell) shell.classList.add(dir === 'next' ? 'is-leaving-next' : 'is-leaving-prev');
+          setTimeout(function() { window.location.href = href; }, 150);
+        }
+        function next() { go((activeIndex + 1) % n, 'next'); }
+        function prev() { go((activeIndex - 1 + n) % n, 'prev'); }
+
+        // Carousel logo clicks
+        items.forEach(function(el, i) {
+          el.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (i === activeIndex) { window.scrollTo({ top: 0, behavior: 'smooth' }); }
+            else { go(i, i > activeIndex ? 'next' : 'prev'); }
+          });
+        });
+
+        // Swipe on the carousel itself (kept from before)
+        var cX = 0, cY = 0;
+        carousel.addEventListener('touchstart', function(e) {
+          cX = e.touches[0].clientX; cY = e.touches[0].clientY;
+        }, { passive: true });
+        carousel.addEventListener('touchend', function(e) {
+          var dx = e.changedTouches[0].clientX - cX, dy = e.changedTouches[0].clientY - cY;
+          if (Math.abs(dx) < 30 || Math.abs(dy) > Math.abs(dx)) return;
+          e.preventDefault();
+          if (dx < 0) next(); else prev();
+        }, { passive: false });
+
+        // Desktop side arrows
+        var aPrev = document.getElementById('page-arrow-prev');
+        var aNext = document.getElementById('page-arrow-next');
+        if (aPrev) aPrev.addEventListener('click', prev);
+        if (aNext) aNext.addEventListener('click', next);
+
+        // Site-wide body swipe (mobile). Horizontal intent only, so it never
+        // hijacks vertical scrolling, and it ignores interactive / horizontally
+        // scrollable elements so it doesn't fight links, forms, tables, embeds.
+        var IGNORE = 'a, button, input, textarea, select, label, #logo-carousel,' +
+                     '.chronos-nav, pre, table, .diagram, .topology-diagram,' +
+                     '.screenshot-tray, .reel-embed, [data-noswipe]';
+        var bX = 0, bY = 0, bSkip = false;
+        document.addEventListener('touchstart', function(e) {
+          var t = e.touches[0];
+          bX = t.clientX; bY = t.clientY;
+          bSkip = !!(e.target.closest && e.target.closest(IGNORE));
+        }, { passive: true });
+        document.addEventListener('touchend', function(e) {
+          if (bSkip) return;
+          var t = e.changedTouches[0];
+          var dx = t.clientX - bX, dy = t.clientY - bY;
+          if (Math.abs(dx) < 70 || Math.abs(dx) < Math.abs(dy) * 1.6) return; // deliberate horizontal only
+          if (dx < 0) next(); else prev();
+        }, { passive: true });
+      })();
+
+      // ─── Mobile CHRONOS nav panel ─────────────────────────────
+      var toggle = document.getElementById('mobile-menu-toggle');
+      var panel  = document.getElementById('mobile-nav-panel');
+
+      if (toggle && panel) {
+        toggle.addEventListener('click', function() {
+          var isOpen = panel.classList.toggle('is-open');
+          panel.setAttribute('aria-hidden', isOpen ? 'false' : 'true');
+          toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          var track = toggle.querySelector('.toggle-track');
+          if (track) track.classList.toggle('toggle-track--on', isOpen);
+        });
+
+        panel.querySelectorAll('a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            panel.classList.remove('is-open');
+            panel.setAttribute('aria-hidden', 'true');
+            toggle.setAttribute('aria-expanded', 'false');
+            var track = toggle.querySelector('.toggle-track');
+            if (track) track.classList.remove('toggle-track--on');
+          });
+        });
+
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape') {
+            panel.classList.remove('is-open');
+            panel.setAttribute('aria-hidden', 'true');
+            toggle.setAttribute('aria-expanded', 'false');
+            var track = toggle.querySelector('.toggle-track');
+            if (track) track.classList.remove('toggle-track--on');
+          }
+        });
+      }
+    });
+  </script>
+
+  <button class="page-arrow page-arrow--prev" id="page-arrow-prev" type="button" aria-label="Previous section">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4 L7 12 L15 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="page-arrow page-arrow--next" id="page-arrow-next" type="button" aria-label="Next section">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 L17 12 L9 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <main class="page-shell" id="page-shell">
+    {{ content }}
+  </main>
+  {% include footer.html %}
+</body>
+</html>

@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="header-container">
+    <div class="logo-carousel" id="logo-carousel" aria-label="3PO collection">
+      <a class="logo-carousel__item{% if page.nav_key == 'home' %} is-active{% endif %}" href="{{ '/' | relative_url }}" aria-label="3PO Home">
+        <img src="{{ '/assets/img/3PO_logo/base_whitefill.svg' | relative_url }}" alt="3PO"></a>
+      <a class="logo-carousel__item{% if page.nav_key == 'chronos' %} is-active{% endif %}" href="{{ '/chronos/' | relative_url }}" aria-label="CHRONOS">
+        <img src="{{ '/assets/img/3PO_logo/chronos_head_trans.svg' | relative_url }}" data-light="{{ '/assets/img/3PO_logo/chronos_head_trans.svg' | relative_url }}" data-dark="{{ '/assets/img/3PO_logo/chronos_head_whitefill.svg' | relative_url }}" alt="CHRONOS"></a>
+      <a class="logo-carousel__item{% if page.nav_key == 'forge' %} is-active{% endif %}" href="{{ '/forge/' | relative_url }}" aria-label="FORGE — 3D Printing">
+        <img src="{{ '/assets/logos/3po-v3.png' | relative_url }}" alt="FORGE"></a>
+      <a class="logo-carousel__item{% if page.nav_key == 'portfolio' %} is-active{% endif %}" href="{{ '/portfolio/' | relative_url }}" aria-label="Portfolio — 3D Art">
+        <img src="{{ '/assets/logos/3po-denim.png' | relative_url }}" alt="Portfolio"></a>
+      <a class="logo-carousel__item{% if page.nav_key == 'creator' %} is-active{% endif %}" href="{{ '/creator/' | relative_url }}" aria-label="Creator">
+        <img src="{{ '/assets/img/3PO_logo/Creator_head_svg.svg' | relative_url }}" alt="Creator"></a>
+    </div>
+
+    <div class="header-wordmark">
+      <a class="wm-name" href="{{ page.url | relative_url }}">{{ page.wordmark | default: 'CRAFTING YOUR TOMORROW' }}<span class="wm-dot">.</span></a>
+    </div>
+
+    <div class="header-controls">
+      <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+        <img id="theme-toggle-icon" src="{{ '/assets/icons/Cupcake.svg' | relative_url }}" data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}" data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}" alt="Toggle theme" width="20" height="20">
+      </button>
+      {% if page.subnav %}<button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>{% endif %}
+    </div>
+  </div>
+</header>
