@@ -149,13 +149,13 @@ permalink: /forge/
                 <div class="iv-info"><span class="iv-name">Orthopedic</span><span class="iv-desc">Structured support — arch, weight &amp; gait</span></div>
                 <div class="iv-foot"><span class="price">40 000 Ft</span>
                   <!-- TODO: set data-stripe-link to the Stripe Payment Link for the ORTHOPEDIC insole -->
-                  <a class="btn btn-accent product-buy" data-stripe-link="" href="mailto:3po@3po3d.com?subject=Orthopedic%20insole%20order&body=Colour%20(Blue%2FBlack%2FRed)%3A%0AShoe%20size%3A">Buy</a></div>
+                  <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/8x2cN5dGraxX0xC1pg2go01" href="mailto:3po@3po3d.com?subject=Orthopedic%20insole%20order&body=Colour%20(Blue%2FBlack%2FRed)%3A%0AShoe%20size%3A">Buy</a></div>
               </div>
               <div class="insole-variant">
                 <div class="iv-info"><span class="iv-name">Comfort</span><span class="iv-desc">Soft all-day cushioning, shoe-friendly</span></div>
                 <div class="iv-foot"><span class="price">25 000 Ft</span>
                   <!-- TODO: set data-stripe-link to the Stripe Payment Link for the COMFORT insole -->
-                  <a class="btn btn-accent product-buy" data-stripe-link="" href="mailto:3po@3po3d.com?subject=Comfort%20insole%20order&body=Colour%20(Blue%2FBlack%2FRed)%3A%0AShoe%20size%3A">Buy</a></div>
+                  <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/9B628rcCn21r804aZQ2go00" href="mailto:3po@3po3d.com?subject=Comfort%20insole%20order&body=Colour%20(Blue%2FBlack%2FRed)%3A%0AShoe%20size%3A">Buy</a></div>
               </div>
             </div>
             <div class="upload-note" style="margin-top:1.1rem;"><strong>After checkout:</strong> you get a private, secure folder by email to upload your foot scan (and confirm your colour). No one else can see your files.</div>
@@ -180,7 +180,7 @@ permalink: /forge/
     <!-- Insole upload path (Mechanism B): pay/agree → private folder upload. Hook swaps in the Dropbox File Request link. -->
     <div class="upload-note" style="margin-top:1.25rem;">
       <strong>Custom insoles &amp; scan-based jobs:</strong> once we&rsquo;ve agreed the job, you get your own private, secure folder to upload your foot scan or model — no one else can see your files.
-      <a class="upload-req" data-dropbox-request="" href="mailto:3po@3po3d.com?subject=Need%20upload%20link" style="white-space:nowrap;">Get an upload link →</a>
+      <a class="upload-req" data-dropbox-request="https://www.dropbox.com/request/xmhltb9zr4j5qz8qdbcz" href="mailto:3po@3po3d.com?subject=Need%20upload%20link" style="white-space:nowrap;">Get an upload link →</a>
     </div>
   </div>
 </section>
