@@ -287,6 +287,27 @@ p { text-wrap: pretty; }
           mask-image: radial-gradient(circle at 78% 28%, #000, transparent 62%);
 }
 
+/* Hero backdrop — CHRONOS dot lattice (generation nodes) */
+.hero-dots::before {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image:
+    radial-gradient(rgba(var(--accent-rgb),.6) 2.6px, transparent 3.2px),
+    radial-gradient(var(--hairline) 1.7px, transparent 2.2px);
+  background-size: 88px 88px, 30px 30px;
+  -webkit-mask-image: radial-gradient(ellipse at 82% 22%, #000, transparent 74%);
+          mask-image: radial-gradient(ellipse at 82% 22%, #000, transparent 74%);
+}
+
+/* Hero backdrop — PORTFOLIO concentric arcs (aperture / light) */
+.hero-arcs::before {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image:
+    repeating-radial-gradient(circle at 80% 14%, transparent 0 33px, var(--hairline) 33px 34px),
+    repeating-radial-gradient(circle at 80% 14%, transparent 0 132px, rgba(var(--accent-rgb),.32) 132px 134px);
+  -webkit-mask-image: radial-gradient(circle at 80% 14%, #000, transparent 92%);
+          mask-image: radial-gradient(circle at 80% 14%, #000, transparent 92%);
+}
+
 /* ── Media placeholder ───────────────────────────────────── */
 .media {
   position: relative; background: var(--surface-2);

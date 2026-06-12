@@ -30,10 +30,10 @@ permalink: /portfolio/
   </div>
 </nav>
 
-<section class="hero hero-split">
+<section class="hero hero-split hero-arcs">
   <div class="container">
     <div class="hero-text">
-      <img class="hero-mark" src="{{ '/assets/logos/3po-denim.png' | relative_url }}" alt="Portfolio" style="height:64px;margin-bottom:1.6rem;">
+      <img class="hero-mark" src="{{ '/assets/img/logos/Portfolio/portfolio_head.svg' | relative_url }}" alt="Portfolio" style="height:64px;margin-bottom:1.6rem;">
       <p class="eyebrow-accent">3D Generalist — Motion &amp; Product Animation</p>
       <h1>Product stories, <span class="accent-text">in&nbsp;motion.</span></h1>
       <p class="lead">I&rsquo;m a 3D generalist working in advertising — modelling, look-dev, lighting and animation for product films and motion graphics. This is where the work lives.</p>
