@@ -7,19 +7,10 @@ title: "CHRONOS — Scene Variation Management for Cinema 4D"
 description: "One scene file. Every lighting setup, material state, and configuration — named, switchable, and permanent."
 ---
 
-<nav class="sub-nav" id="sub-nav">
-  <div class="container">
-    <a href="#top" class="active">Overview</a>
-    <a href="#concepts">Core Concepts</a>
-    <a href="#shots">Screenshots</a>
-    <a href="{{ '/chronos/workflow/' | relative_url }}">How It Works ↗</a>
-    <a href="{{ '/chronos/get-it/' | relative_url }}">Get It ↗</a>
-  </div>
-</nav>
+{% include chronos-subnav.html %}
 
-<section class="hero-chronos">
+<section class="hero-chronos hero-dots">
   <div class="container">
-    <img class="hero-mark" src="{{ '/assets/img/3PO_logo/chronos_head_trans.svg' | relative_url }}" data-light="{{ '/assets/img/3PO_logo/chronos_head_trans.svg' | relative_url }}" data-dark="{{ '/assets/img/3PO_logo/chronos_head_whitefill.svg' | relative_url }}" alt="CHRONOS">
     <p class="hero-product-label">A 3PO Project — Cinema 4D Plugin</p>
     <h1>One scene.<br>Every variation.<br>Nothing lost.</h1>
     <p class="lead">C.H.R.O.N.O.S. lets you manage multiple versions of your scene — lighting setups, material states, object configurations, camera angles — as named, switchable Generations, all inside a single .c4d file. No duplicates. No manual tracking. No destructive changes.</p>

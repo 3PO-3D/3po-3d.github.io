@@ -22,14 +22,13 @@ defaults:
     values:
       layout: home
   - scope:
-      path: "chronos/index.md"
-    values:
-      layout: chronos-home
-  - scope:
       path: "chronos"
       type: pages
     values:
-      layout: chronos
+      layout: chronos-page
+      nav_key: chronos
+      wordmark: "CHRONOS"
+      subnav: true
 
 exclude:
   - Gemfile
