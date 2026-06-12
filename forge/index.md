@@ -22,7 +22,7 @@ permalink: /forge/
 
 <section class="hero hero-grid-bg">
   <div class="container">
-    <img class="hero-mark" src="{{ '/assets/logos/3po-v3.png' | relative_url }}" alt="FORGE">
+    <img class="hero-mark" src="{{ '/assets/img/logos/Print_logo/forge_head.svg' | relative_url }}" alt="FORGE">
     <p class="eyebrow-accent">A 3PO Workshop — FDM / FFF Printing</p>
     <h1>From file to <span class="accent-text">finished part.</span></h1>
     <p class="lead">Large-format FDM printing, finishing, and 3D scanning out of one workshop. Bring a model — or a problem — and leave with a part in your hands. Up to half a metre cubed, printed on a Sovol SV08&nbsp;Max.</p>
