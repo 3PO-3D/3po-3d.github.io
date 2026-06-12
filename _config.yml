@@ -29,6 +29,14 @@ defaults:
       nav_key: chronos
       wordmark: "CHRONOS"
       subnav: true
+  - scope:
+      path: "forge"
+      type: pages
+    values:
+      nav_key: forge
+      site_accent: forge
+      wordmark: "FORGE"
+      subnav: true
 
 exclude:
   - Gemfile

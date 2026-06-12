@@ -1,0 +1,34 @@
+{% comment %} Cross-sell hook band — end of FORGE pages. include.context tailors it. {% endcomment %}
+<section class="section forge-crosssell">
+  <div class="container">
+    <div class="xsell">
+      {% case include.context %}
+      {% when "services" %}
+        <p class="mono-label">Also at 3PO</p>
+        <h3>Need it moving, not just printed?</h3>
+        <p>Product films, motion graphics and look-dev live in the Portfolio studio.</p>
+        <div class="xsell-cta"><a href="{{ '/portfolio/' | relative_url }}" class="btn btn-outline">See the Portfolio &rarr;</a><a href="{{ '/forge/products/' | relative_url }}" class="btn btn-ghost">Browse Products</a></div>
+      {% when "products" %}
+        <p class="mono-label">Don&rsquo;t see it?</p>
+        <h3>Custom and one-off pieces are a service.</h3>
+        <p>Bring a concept, a broken part, or a foot to scan — I&rsquo;ll quote it.</p>
+        <div class="xsell-cta"><a href="{{ '/forge/services/' | relative_url }}" class="btn btn-outline">Browse Services &rarr;</a><a href="{{ '/forge/order/' | relative_url }}" class="btn btn-ghost">Start an Order</a></div>
+      {% when "process" %}
+        <p class="mono-label">Ready when you are</p>
+        <h3>Got a file or an idea?</h3>
+        <p>Send it through and it goes into the queue with a fixed price first.</p>
+        <div class="xsell-cta"><a href="{{ '/forge/order/' | relative_url }}" class="btn btn-accent">Start an Order &rarr;</a><a href="{{ '/forge/services/' | relative_url }}" class="btn btn-ghost">Browse Services</a></div>
+      {% when "order" %}
+        <p class="mono-label">While you&rsquo;re here</p>
+        <h3>Stack a product onto your job.</h3>
+        <p>Ready-made pieces and the custom insoles order separately — one click each.</p>
+        <div class="xsell-cta"><a href="{{ '/forge/products/' | relative_url }}" class="btn btn-outline">See Products &rarr;</a></div>
+      {% else %}
+        <p class="mono-label">More from 3PO</p>
+        <h3>Tools and art beyond the workshop.</h3>
+        <p>CHRONOS manages scene variations in Cinema 4D; the Portfolio holds the motion work.</p>
+        <div class="xsell-cta"><a href="{{ '/portfolio/' | relative_url }}" class="btn btn-outline">Portfolio &rarr;</a><a href="{{ '/chronos/' | relative_url }}" class="btn btn-ghost">CHRONOS</a></div>
+      {% endcase %}
+    </div>
+  </div>
+</section>

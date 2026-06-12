@@ -390,3 +390,64 @@
   .chronos-doc .roadmap-item { grid-template-columns: 1fr; gap: 0.75rem; }
   .chronos-doc .install-steps .step { grid-template-columns: 2.5rem 1fr; }
 }
+
+/* ════════════════════════════════════════════════════════════
+   FORGE — routed ordering surface (CD-03)
+   Accordion shop · no-cart notice · cross-sell hook · order intake.
+   Accent is forge-orange via [data-site="forge"].
+   ════════════════════════════════════════════════════════════ */
+
+/* No-cart notice */
+.cart-note { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 1rem 1.25rem; margin: 1.5rem 0; font-size: 0.9rem; color: var(--muted); line-height: 1.65; }
+.cart-note strong { color: var(--text); }
+
+/* Services accordion shop */
+.shop { border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; margin-top: 1.5rem; }
+.shop-row { border-bottom: var(--bw) solid var(--hairline); }
+.shop-row:last-child { border-bottom: none; }
+.shop-head { width: 100%; display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1rem; align-items: center; background: var(--surface); border: none; cursor: pointer; text-align: left; padding: 1.4rem 1.5rem; color: var(--text); transition: background .15s; font-family: inherit; }
+.shop-head:hover { background: var(--bg); }
+.shop-title { grid-column: 1; font-family: var(--font-head); font-size: 1.2rem; font-weight: 600; }
+.shop-tag { grid-column: 1; font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.shop-toggle { grid-column: 2; grid-row: 1 / span 2; align-self: center; width: 24px; height: 24px; position: relative; flex-shrink: 0; }
+.shop-toggle::before, .shop-toggle::after { content: ''; position: absolute; background: var(--accent); transition: transform .25s, opacity .25s; }
+.shop-toggle::before { top: 50%; left: 3px; right: 3px; height: 2px; transform: translateY(-50%); }
+.shop-toggle::after { left: 50%; top: 3px; bottom: 3px; width: 2px; transform: translateX(-50%); }
+.shop-row.is-open .shop-toggle::after { opacity: 0; transform: translateX(-50%) scaleY(0); }
+.shop-body { display: none; padding: 0 1.5rem 1.75rem; background: var(--surface); }
+.shop-row.is-open .shop-body { display: block; }
+.shop-body p { color: var(--muted); margin: 0 0 0.9rem; line-height: 1.7; }
+.shop-body strong { color: var(--text); }
+.shop-body ul { color: var(--muted); margin: 0 0 1.25rem 1.25rem; line-height: 1.7; }
+.shop-body li { margin-bottom: 0.4rem; }
+
+/* Cross-sell hook band (end of each FORGE page) */
+.forge-crosssell .xsell { border: var(--bw) solid var(--text); border-radius: var(--radius); background: var(--surface); padding: 2.25rem 2.5rem; }
+.forge-crosssell .xsell h3 { font-size: 1.5rem; font-weight: 700; margin: 0.5rem 0 0.4rem; }
+.forge-crosssell .xsell p { color: var(--muted); margin: 0 0 1.25rem; }
+.forge-crosssell .xsell-cta { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+@media (max-width: 600px) { .forge-crosssell .xsell { padding: 1.75rem 1.5rem; } }
+
+/* Order intake — upload centrepiece + form */
+.upload-hero { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: center; background: var(--text); color: var(--bg); border-radius: var(--radius); padding: 2.25rem 2.5rem; margin: 1.5rem 0 2.5rem; }
+.upload-hero .mono-label { color: rgba(var(--bg-rgb),0.55); }
+.upload-hero h3 { color: var(--bg); font-size: 1.5rem; font-weight: 700; margin: 0.4rem 0 0.5rem; }
+.upload-hero p { color: rgba(var(--bg-rgb),0.72); margin: 0; max-width: 46ch; }
+.upload-hero .upload-btn { white-space: nowrap; }
+@media (max-width: 600px) { .upload-hero { grid-template-columns: 1fr; } }
+
+.order-form { display: flex; flex-direction: column; gap: 1.1rem; margin: 0 0 2.5rem; }
+.of-field { display: flex; flex-direction: column; gap: 0.4rem; }
+.of-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.of-hint { text-transform: none; letter-spacing: 0; opacity: 0.8; }
+.order-form input, .order-form select, .order-form textarea { font-family: var(--font-body); font-size: 0.95rem; color: var(--text); background: var(--surface); border: var(--bw) solid var(--hairline); border-radius: var(--radius); padding: 0.7rem 0.9rem; width: 100%; }
+.order-form input:focus, .order-form select:focus, .order-form textarea:focus { outline: none; border-color: var(--accent); }
+.of-check { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+.of-check input { width: auto; margin-top: 0.2rem; }
+.of-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.1rem; }
+@media (max-width: 600px) { .of-row { grid-template-columns: 1fr; } }
+.of-foot { font-size: 0.78rem; color: var(--muted); margin-top: 0.25rem; }
+.order-form .btn { align-self: flex-start; }
+.next-steps { border-top: var(--bw) solid var(--hairline); padding-top: 2rem; }
+.inline-link { color: var(--accent); text-decoration: none; }
+.inline-link:hover { text-decoration: underline; }
