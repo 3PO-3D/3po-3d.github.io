@@ -310,8 +310,8 @@
 .chronos-doc h4 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.5rem; }
 .chronos-doc p { color: var(--muted); margin: 0 0 1.1rem; line-height: 1.75; }
 .chronos-doc strong { color: var(--text); font-weight: 600; }
-.chronos-doc a { color: var(--accent); text-decoration: none; }
-.chronos-doc a:hover { text-decoration: underline; }
+.chronos-doc a:not(.btn) { color: var(--accent); text-decoration: none; }
+.chronos-doc a:not(.btn):hover { text-decoration: underline; }
 .chronos-doc ul, .chronos-doc ol { color: var(--muted); margin: 0 0 1.1rem 1.25rem; line-height: 1.7; }
 .chronos-doc li { margin-bottom: 0.4rem; }
 .chronos-doc blockquote {

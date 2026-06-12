@@ -118,6 +118,17 @@
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
+    // ── Dock the sub-nav exactly under the sticky header ──
+    // Header height varies; pin the sub-nav's sticky `top` to it so it
+    // never slides under the header (loses its top padding) on scroll.
+    var header = document.querySelector('.site-header');
+    if (header && subnav) {
+      var dockSubnav = function () { subnav.style.top = header.offsetHeight + 'px'; };
+      dockSubnav();
+      window.addEventListener('resize', dockSubnav, { passive: true });
+      window.addEventListener('load', dockSubnav);
+    }
+
     // ── Sub-nav scroll-spy (in-page anchors) ─────────────
     var navLinks = Array.prototype.slice.call(document.querySelectorAll('.sub-nav a[href^="#"]'));
     if (navLinks.length) {

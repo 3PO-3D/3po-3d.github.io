@@ -193,7 +193,7 @@ p { text-wrap: pretty; }
 .sub-nav {
   border-bottom: var(--bw) solid var(--hairline);
   background: var(--surface);
-  position: sticky; top: 63px; z-index: 90;
+  position: sticky; top: 72px; z-index: 90; /* JS pins this to the exact header height */
 }
 .sub-nav .container { display: flex; overflow-x: auto; scrollbar-width: none; }
 .sub-nav .container::-webkit-scrollbar { display: none; }
