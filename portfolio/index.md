@@ -54,17 +54,33 @@ permalink: /portfolio/
   <div class="container">
     <div class="section-head">
       <p class="mono-label">Selected Work</p>
-      <h2>A place for every animation.</h2>
-      <p class="lead">A skeleton gallery — drop films, loops and stills into any slot. Replace the placeholders with your strongest pieces.</p>
+      <h2>Recent pieces.</h2>
+      <p class="lead">Product animation, motion graphics and look-dev. Embedded from Behance for now — a cut-together showreel is coming.</p>
     </div>
 
     <div class="work-grid">
-      <a class="work wide" href="#"><div class="media ratio-16-9" data-label="Hero film — placeholder"><div class="media-grid-tex"></div></div><span class="play"><span class="play-tri" style="border-width:7px 0 7px 11px;"></span></span><div class="work-meta"><div><span class="work-cat">Product Animation</span><h3>Featured Campaign Film</h3></div><span class="runtime">0:45</span></div></a>
-      <a class="work" href="#"><div class="media ratio-4-3" data-label="Loop — placeholder"><div class="media-grid-tex"></div></div><span class="play"><span class="play-tri" style="border-width:7px 0 7px 11px;"></span></span><div class="work-meta"><div><span class="work-cat">Motion Graphics</span><h3>Brand Loop</h3></div><span class="runtime">0:08</span></div></a>
-      <a class="work" href="#"><div class="media ratio-4-3" data-label="Product shot — placeholder"><div class="media-grid-tex"></div></div><span class="play"><span class="play-tri" style="border-width:7px 0 7px 11px;"></span></span><div class="work-meta"><div><span class="work-cat">Look-dev</span><h3>Material Study</h3></div><span class="runtime">Still</span></div></a>
-      <a class="work" href="#"><div class="media ratio-4-3" data-label="Loop — placeholder"><div class="media-grid-tex"></div></div><span class="play"><span class="play-tri" style="border-width:7px 0 7px 11px;"></span></span><div class="work-meta"><div><span class="work-cat">Motion Graphics</span><h3>Title Sequence</h3></div><span class="runtime">0:12</span></div></a>
-      <a class="work" href="#"><div class="media ratio-4-3" data-label="Product shot — placeholder"><div class="media-grid-tex"></div></div><span class="play"><span class="play-tri" style="border-width:7px 0 7px 11px;"></span></span><div class="work-meta"><div><span class="work-cat">Product Animation</span><h3>Hero Render</h3></div><span class="runtime">0:20</span></div></a>
+      <figure class="work-card">
+        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/251151509?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <figcaption class="work-cap"><span class="work-cat">Product Animation</span><h3>Casio VL-Tone VL-1</h3></figcaption>
+      </figure>
+      <figure class="work-card">
+        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/251018153?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <figcaption class="work-cap"><span class="work-cat">Motion Graphics</span><h3>Cosmetic Loop</h3></figcaption>
+      </figure>
+      <figure class="work-card">
+        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/251017395?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+        <figcaption class="work-cap"><span class="work-cat">Product Animation · made at 3PO FORGE</span><h3>Custom Orthopedic Insole</h3></figcaption>
+      </figure>
     </div>
+
+<style>
+  .work-card { margin: 0; border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
+  .work-embed { position: relative; width: 100%; aspect-ratio: 404 / 316; background: var(--surface-2); }
+  .work-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
+  .work-cap { display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 1.2rem 1.2rem; border-top: var(--bw) solid var(--hairline); }
+  .work-cap .work-cat { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+  .work-cap h3 { font-size: 1.15rem; font-weight: 600; margin: 0; }
+</style>
 
     <div style="margin-top:2.5rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
       <span class="chip chip-accent">Motion Graphics</span>
