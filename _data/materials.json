@@ -1,0 +1,7 @@
+[
+  { "name": "PLA — Black",            "type": "PLA",  "colour": "Black",   "hex": "#1c1c1c", "availability": "In stock" },
+  { "name": "PLA — White",            "type": "PLA",  "colour": "White",   "hex": "#f1efe8", "availability": "In stock" },
+  { "name": "PETG — Natural",         "type": "PETG", "colour": "Natural", "hex": "#d9cdb8", "availability": "In stock" },
+  { "name": "ABS — Grey",             "type": "ABS",  "colour": "Grey",    "hex": "#8a8a8a", "availability": "In stock" },
+  { "name": "TPU — Black (flexible)", "type": "TPU",  "colour": "Black",   "hex": "#222222", "availability": "Made to order", "lead_days": 7 }
+]
