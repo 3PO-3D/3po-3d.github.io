@@ -64,7 +64,7 @@ permalink: /portfolio/
       {% for p in site.data.portfolio %}{% assign base = '/assets/img/portfolio/' | append: p.key | append: '/' %}{% assign first = p.stills | first %}
       <div class="pf-proj" id="{{ p.key }}" data-images='[{% for s in p.stills %}{"src":"{{ base | append: s | relative_url }}","cap":"{{ p.title }} — {{ forloop.index }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
         <div class="pf-proj__row" role="button" tabindex="0" aria-expanded="false">
-          <a class="pf-proj__thumb" href="#" data-lbx-group data-lbx-index="0" aria-label="Open {{ p.title }} images"><img src="{{ base | append: first | relative_url }}" alt="{{ p.title }}"></a>
+          {% if p.vimeo %}<div class="pf-proj__thumb pf-proj__video"{% if p.vaspect %} style="aspect-ratio:{{ p.vaspect }}"{% endif %}><iframe src="https://player.vimeo.com/video/{{ p.vimeo }}?background=1&muted=1&autopause=0&app_id=58479" loading="lazy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe></div>{% else %}<a class="pf-proj__thumb" href="#" data-lbx-group data-lbx-index="0" aria-label="Open {{ p.title }} images"><img src="{{ base | append: first | relative_url }}" alt="{{ p.title }}"></a>{% endif %}
           <div class="pf-proj__meta">
             <span class="pf-proj__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
             <div class="pf-proj__title">{{ p.title }}</div>

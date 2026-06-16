@@ -429,3 +429,10 @@
 @media (max-width: 600px) { .forge-crosssell .xsell { padding: 1.75rem 1.5rem; } }
 
 /* (FORGE order form + portfolio work styles now live in assets/work-order.css) */
+/* Honeypot — hide the bot-trap "Company" field */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+/* Portfolio: Vimeo video as the project media (replaces the still thumb when present) */
+.pf-proj__video { position: relative; overflow: hidden; border-radius: 10px; background: var(--surface-2); }
+.pf-proj__video::after { display: none !important; }
+.pf-proj__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }

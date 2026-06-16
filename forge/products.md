@@ -23,12 +23,19 @@ permalink: /forge/products/
     <!-- Flagship: custom insoles -->
     <div class="product insole-flagship" style="grid-column: span 3;">
       <div class="insole-cols" style="display:grid; grid-template-columns: 0.8fr 1.2fr;">
-        <div class="media ratio-4-3" data-label="Scan → insole" style="border-right:var(--bw) solid var(--text);border-bottom:none;"><div class="media-grid-tex"></div><svg class="ph-glyph" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"><path d="M8 3c2 0 3 1 3 3 0 2 1 3 2 4s2 2 2 4-1 4-4 5-6 0-7-3 0-5 1-7 1-3 1-5 1-3 2-3z"/><circle cx="16" cy="6" r="1"/><circle cx="18" cy="9" r="1"/></svg></div>
+        <div style="position:relative;aspect-ratio:16/9;border-right:var(--bw) solid var(--text);overflow:hidden;background:var(--surface-2);"><iframe src="https://player.vimeo.com/video/1201719548?background=1&muted=1&autopause=0&app_id=58479" loading="lazy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Custom Orthopedic Insole animation" style="position:absolute;inset:0;width:100%;height:100%;border:0;"></iframe></div>
         <div class="product-body" style="padding:2rem 2.2rem;">
           <span class="product-cat">Custom Fit — Flagship · made from your foot scan</span>
           <h3 style="font-size:1.5rem;">Custom Insoles</h3>
           <p style="max-width:54ch;">3D-printed to fit your foot from a scan you upload after checkout. Pick the support level and colour; I print the pair and ship it. Scan-based geometry, variable infill mapped to load, and integrated air channels for breathability.</p>
           <p class="insole-explainer"><strong>Blue &amp; Red</strong> are firm, elastic TPU — best for active walking and sport rebound. <strong>Black</strong> is a soft-touch foaming TPU — best for all-day standing comfort, with less spring-back.</p>
+          <div class="insole-stills" style="display:flex;gap:0.5rem;margin:0.4rem 0 0.2rem;flex-wrap:wrap;">
+            {% assign ibase = '/assets/img/portfolio/custom_insole/' %}
+            {% assign istills = 'Blue_2.1.1.png,Red_2.2.1.png,Black_2.2.2.png,Black_transition_2.2.1.png' | split: ',' %}
+            {% for s in istills %}
+            <a href="{{ ibase | append: s | relative_url }}" target="_blank" rel="noopener" style="flex:1;min-width:74px;"><img src="{{ ibase | append: s | relative_url }}" loading="lazy" alt="Custom insole still" style="width:100%;aspect-ratio:1/1;object-fit:cover;border:var(--bw) solid var(--hairline);border-radius:var(--radius);display:block;"></a>
+            {% endfor %}
+          </div>
           <div class="insole-buy-row">
             <div class="insole-variant">
               <div class="iv-info"><span class="iv-name">Orthopedic</span><span class="iv-desc">Structural support — arch, weight &amp; gait. Colour: Blue or Black.</span></div>
