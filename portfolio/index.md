@@ -85,7 +85,9 @@ permalink: /portfolio/
 <section class="section" id="about">
   <div class="container">
     <div style="display:grid; grid-template-columns: 0.8fr 1.2fr; gap:3.5rem; align-items:start;" class="about-cols">
-      <div class="about-portrait" style="max-width:320px;"><img src="{{ '/assets/img/logos/Creator/Creator_svg.svg' | relative_url }}" alt="3PO — the maker" loading="lazy"></div>
+      <a href="{{ '/creator/' | relative_url }}" class="creator-portrait-link pf-about-portrait" aria-label="Meet the maker">
+        <img src="{{ '/assets/img/logos/Creator/Creator_svg.svg' | relative_url }}" alt="3PO — the maker" class="creator-portrait" loading="lazy">
+      </a>
       <div>
         <p class="mono-label" style="margin-bottom:1rem;">About</p>
         <h2 style="margin-bottom:1.25rem;">3D generalist for the advertising industry.</h2>
@@ -119,7 +121,8 @@ permalink: /portfolio/
 <script src="{{ '/assets/work-order.js' | relative_url }}"></script>
 
 <style>
-  .about-portrait { border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface-2); aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
-  .about-portrait img { width: 100%; height: 100%; object-fit: contain; display: block; padding: 1.5rem; }
-  @media (max-width: 760px) { .about-cols { grid-template-columns: 1fr !important; gap: 2rem !important; } }
+  /* About portrait reuses the Home "maker" pulse link, scaled up to ~text height */
+  .pf-about-portrait { align-self: center; justify-self: center; }
+  .pf-about-portrait .creator-portrait { height: clamp(220px, 26vw, 300px); }
+  @media (max-width: 760px) { .about-cols { grid-template-columns: 1fr !important; gap: 2rem !important; } .pf-about-portrait { justify-self: start; } .pf-about-portrait .creator-portrait { height: 200px; } }
 </style>

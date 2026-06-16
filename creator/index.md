@@ -107,16 +107,17 @@ description: "Technical artist, developer, maker. Cinema 4D specialist, CHRONOS 
 
 <section class="creator-contact-section">
   <div class="container">
-    <p class="section-label">Get in touch</p>
-    <h2 style="margin-top:0;">If you've made it this far,<br>you're probably worth talking to.</h2>
-    <p style="color:var(--muted);max-width:480px;">Email is the best way to reach me. I check it regularly, reply when I have something useful to say, and don't send newsletters.</p>
-    <div class="creator-cta-row"><a href="mailto:3po@3po3d.com" class="btn btn-accent">Send an email</a></div>
-
-    <p class="section-label" style="margin-top:2.5rem;">Download CV &amp; cover letter</p>
-    <div class="creator-cv-row">
-      <a href="{{ '/assets/cv/V1._CV_(EN)_Bence_L._Racz_3DArtist.pdf' | relative_url }}" download class="btn btn-accent">3D Artist CV ↓</a>
-      <a href="{{ '/assets/cv/RBL_PO_CV_ENG.pdf' | relative_url }}" download class="btn btn-outline">Product Owner CV — EN ↓</a>
-      <a href="{{ '/assets/cv/RBL_PO_CV_HUN.pdf' | relative_url }}" download class="btn btn-outline">Product Owner CV — HU ↓</a>
+    <div class="order-band">
+      <div>
+        <p class="ob-label">Get in touch</p>
+        <h3>If you&rsquo;ve made it this far,<br>you&rsquo;re probably worth talking to.</h3>
+        <p>Email is the best way to reach me. I check it regularly, reply when I have something useful to say, and don&rsquo;t send newsletters.</p>
+      </div>
+      <div class="hero-cta" style="margin:0;">
+        <a href="mailto:3po@3po3d.com" class="btn btn-accent">Send an email</a>
+        <a href="{{ '/assets/cv/V1._CV_(EN)_Bence_L._Racz_3DArtist.pdf' | relative_url }}" download class="btn btn-accent">3D Artist CV ↓</a>
+        <a href="{{ '/portfolio/' | relative_url }}" class="btn btn-accent">See my portfolio →</a>
+      </div>
     </div>
   </div>
 </section>
