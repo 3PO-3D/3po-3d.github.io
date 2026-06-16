@@ -61,7 +61,7 @@ permalink: /portfolio/
     <div class="work-list">
       {% for p in site.data.portfolio %}
       <article class="work-item">
-        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/{{ p.behance_id }}?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe></div>
+        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/{{ p.behance_id }}?ilo0=1" loading="lazy" scrolling="no" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe></div>
         <button type="button" class="work-toggle" aria-expanded="false">
           <span class="work-meta"><span class="work-cat">{{ p.category }}</span><span class="work-title">{{ p.title }}</span></span>
           <span class="work-toggle-ico" aria-hidden="true"></span>
