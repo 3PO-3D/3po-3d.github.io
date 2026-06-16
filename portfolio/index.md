@@ -6,49 +6,31 @@ wordmark: "PORTFOLIO"
 subnav: true
 footer_tagline: "Portfolio · 3D Art & Animation"
 title: "PORTFOLIO — 3PO 3D Art"
-description: "Motion graphics and product animation by a 3D generalist. Reel, selected work and look-dev."
+description: "Motion graphics and product animation by a 3D generalist. Selected work, stills and look-dev."
 permalink: /portfolio/
 ---
 
 <link rel="stylesheet" href="{{ '/assets/work-order.css' | relative_url }}">
 
-<style>
-  .reel-hero { position: relative; border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface-2); }
-  .reel-hero .media-grid-tex { opacity: 0.6; }
-  .reel-hero .reel-play { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; text-decoration: none; color: var(--text); }
-  .reel-hero .pbtn { width: 78px; height: 78px; border-radius: 50%; border: var(--bw) solid var(--text); background: rgba(var(--bg-rgb), 0.6); color: var(--accent); display: flex; align-items: center; justify-content: center; transition: transform .18s, background .18s; }
-  .reel-hero:hover .pbtn { transform: scale(1.08); background: var(--accent); color: #fff; }
-  .reel-hero .reel-cap { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
-  .play-tri { width: 0; height: 0; border-style: solid; border-width: 11px 0 11px 18px; border-color: transparent transparent transparent currentColor; margin-left: 4px; }
-</style>
-
 <nav class="sub-nav" id="sub-nav">
   <div class="container">
     <a href="#top" class="active">Overview</a>
     <a href="#work">Work</a>
-    <a href="#reel">Reel</a>
     <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<section class="hero hero-split hero-arcs">
+<section class="hero hero-arcs">
   <div class="container">
-    <div class="hero-text">
-      <img class="hero-mark" src="{{ '/assets/img/logos/Portfolio/portfolio_head.svg' | relative_url }}" alt="Portfolio" style="height:64px;margin-bottom:1.6rem;">
-      <p class="eyebrow-accent">3D Generalist — Motion &amp; Product Animation</p>
-      <h1>Product stories, <span class="accent-text">in&nbsp;motion.</span></h1>
-      <p class="lead">I&rsquo;m a 3D generalist working in advertising — modelling, look-dev, lighting and animation for product films and motion graphics. This is where the work lives.</p>
-      <div class="hero-cta">
-        <a href="#reel" class="btn btn-accent">Watch the Reel</a>
-        <a href="#work" class="btn btn-outline">Browse Work</a>
-      </div>
+    <img class="hero-mark" src="{{ '/assets/img/logos/Portfolio/portfolio_head.svg' | relative_url }}" alt="Portfolio" style="height:64px;margin-bottom:1.6rem;">
+    <p class="eyebrow-accent">3D Generalist — Motion &amp; Product Animation</p>
+    <h1>Product stories, <span class="accent-text">in&nbsp;motion.</span></h1>
+    <p class="lead">I&rsquo;m a 3D generalist working in advertising — modelling, look-dev, lighting and animation for product films and motion graphics. This is where the work lives.</p>
+    <div class="hero-cta">
+      <a href="#work" class="btn btn-accent">Browse Work</a>
+      <a href="#contact" class="btn btn-outline">Get in touch</a>
     </div>
-    <a class="reel-hero ratio-4-3 reel-play" href="#reel">
-      <div class="media-grid-tex"></div>
-      <span class="pbtn"><span class="play-tri"></span></span>
-      <span class="reel-cap">Showreel 2026 — placeholder</span>
-    </a>
   </div>
 </section>
 
@@ -57,32 +39,35 @@ permalink: /portfolio/
     <div class="section-head">
       <p class="mono-label">Selected Work</p>
       <h2>Recent pieces.</h2>
-      <p class="lead">Click a project to expand its write-up and stills; click a thumbnail to open the images full-screen. The <strong>View on Behance</strong> button is the only link that leaves the site — a cut-together showreel is coming.</p>
+      <p class="lead">Each piece runs as a live banner. Click one to open the full, playable film, the write-up, and the <strong>View on Behance</strong> link — the only link that leaves the site.</p>
     </div>
 
-    <div class="pf-projects pl-wide" id="work-projects">
-      {% for p in site.data.portfolio %}{% assign base = '/assets/img/portfolio/' | append: p.key | append: '/' %}{% assign first = p.stills | first %}
-      <div class="pf-proj" id="{{ p.key }}" data-images='[{% for s in p.stills %}{"src":"{{ base | append: s | relative_url }}","cap":"{{ p.title }} — {{ forloop.index }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
-        <div class="pf-proj__row" role="button" tabindex="0" aria-expanded="false">
-          {% if p.vimeo %}<div class="pf-proj__thumb pf-proj__video"{% if p.vaspect %} style="aspect-ratio:{{ p.vaspect }}"{% endif %}><iframe src="https://player.vimeo.com/video/{{ p.vimeo }}?background=1&muted=1&autopause=0&app_id=58479" loading="lazy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe></div>{% else %}<a class="pf-proj__thumb" href="#" data-lbx-group data-lbx-index="0" aria-label="Open {{ p.title }} images"><img src="{{ base | append: first | relative_url }}" alt="{{ p.title }}"></a>{% endif %}
-          <div class="pf-proj__meta">
-            <span class="pf-proj__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-            <div class="pf-proj__title">{{ p.title }}</div>
-            <div class="pf-proj__cat"><span>{{ p.category }}</span></div>
+    <div class="pf-projects pl-banner" id="work-projects">
+      {% for p in site.data.portfolio %}{% assign base = '/assets/img/portfolio/' | append: p.key | append: '/' %}
+      <article class="pf-proj pf-banner" id="{{ p.key }}">
+        <div class="pf-proj__row pf-banner__row" role="button" tabindex="0" aria-expanded="false" aria-label="Expand {{ p.title }}">
+          <div class="pf-banner__bg" data-carousel data-interval="5000">
+            {% for s in p.stills %}<img class="pf-banner__img{% if forloop.first %} is-active{% endif %}" src="{{ base | append: s | relative_url }}" loading="lazy" alt="" aria-hidden="true">{% endfor %}
           </div>
-          <span class="pf-proj__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          <div class="pf-banner__veil"></div>
+          <div class="pf-banner__meta">
+            <span class="pf-banner__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <h3 class="pf-banner__title">{{ p.title }}</h3>
+            <span class="pf-banner__cat">{{ p.category }}</span>
+          </div>
+          <span class="pf-proj__chev pf-banner__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </div>
-        <div class="pf-proj__panel"><div class="pf-proj__panel-inner"><div class="pf-proj__panel-pad">
+        <div class="pf-proj__panel"><div class="pf-proj__panel-inner"><div class="pf-proj__panel-pad pf-banner__pad">
           <div class="pf-proj__desc">
             <p>{{ p.blurb }}</p>
             {% if p.variants %}{% for v in p.variants %}<p><strong>{{ v.name }}</strong> — {{ v.desc }}</p>{% endfor %}{% endif %}
           </div>
-          <div class="pf-attach">
-            {% for s in p.stills %}<a href="#" data-lbx-group data-lbx-index="{{ forloop.index0 }}" aria-label="Open image"><img src="{{ base | append: s | relative_url }}" loading="lazy" alt=""></a>{% endfor %}
-          </div>
+          {% if p.vimeo %}<div class="pf-proj__video pf-banner__video"{% if p.vaspect %} style="aspect-ratio:{{ p.vaspect }}"{% endif %}>
+            <iframe data-vsrc="https://player.vimeo.com/video/{{ p.vimeo }}?dnt=1&app_id=58479" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture; clipboard-write" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe>
+          </div>{% endif %}
           <a class="pf-behance" href="{{ p.behance_url }}" target="_blank" rel="noopener"><img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="">View on Behance <span class="ext">&#8599;</span></a>
         </div></div></div>
-      </div>
+      </article>
       {% endfor %}
     </div>
 
@@ -97,28 +82,10 @@ permalink: /portfolio/
   </div>
 </section>
 
-<section class="section" id="reel">
-  <div class="container">
-    <div class="section-head">
-      <p class="mono-label">Showreel</p>
-      <h2>The 60-second version.</h2>
-    </div>
-    <a class="reel-hero ratio-16-9 reel-play" href="#">
-      <div class="media-grid-tex"></div>
-      <span class="pbtn"><span class="play-tri"></span></span>
-      <span class="reel-cap">Drop your showreel here — placeholder</span>
-    </a>
-    <div class="client-strip" style="margin-top:2.5rem;">
-      <span class="mono-label" style="width:100%;">Selected Clients — placeholder</span>
-      <span class="cl">CLIENT</span><span class="cl">AGENCY</span><span class="cl">STUDIO</span><span class="cl">BRAND</span><span class="cl">LABEL</span>
-    </div>
-  </div>
-</section>
-
 <section class="section" id="about">
   <div class="container">
     <div style="display:grid; grid-template-columns: 0.8fr 1.2fr; gap:3.5rem; align-items:start;" class="about-cols">
-      <div class="media ratio-3-4" data-label="Portrait — placeholder" style="max-width:320px;"><div class="media-grid-tex"></div></div>
+      <div class="about-portrait" style="max-width:320px;"><img src="{{ '/assets/img/logos/Creator/Creator_svg.svg' | relative_url }}" alt="3PO — the maker" loading="lazy"></div>
       <div>
         <p class="mono-label" style="margin-bottom:1rem;">About</p>
         <h2 style="margin-bottom:1.25rem;">3D generalist for the advertising industry.</h2>
@@ -149,16 +116,10 @@ permalink: /portfolio/
   </div>
 </section>
 
-<div class="lbx" id="lbx" aria-hidden="true">
-  <button class="lbx__close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
-  <button class="lbx__btn lbx__prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-  <div class="lbx__stage"><div class="lbx__media"></div><div class="lbx__cap"></div></div>
-  <button class="lbx__btn lbx__next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
-  <div class="lbx__count"></div>
-</div>
-
 <script src="{{ '/assets/work-order.js' | relative_url }}"></script>
 
 <style>
+  .about-portrait { border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface-2); aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center; }
+  .about-portrait img { width: 100%; height: 100%; object-fit: contain; display: block; padding: 1.5rem; }
   @media (max-width: 760px) { .about-cols { grid-template-columns: 1fr !important; gap: 2rem !important; } }
 </style>

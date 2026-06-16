@@ -12,17 +12,7 @@
         <p class="mono-label">Don&rsquo;t see it?</p>
         <h3>Custom and one-off pieces are a service.</h3>
         <p>Bring a concept, a broken part, or a foot to scan — I&rsquo;ll quote it.</p>
-        <div class="xsell-cta"><a href="{{ '/forge/services/' | relative_url }}" class="btn btn-outline">Browse Services &rarr;</a><a href="{{ '/forge/order/' | relative_url }}" class="btn btn-ghost">Start an Order</a></div>
-      {% when "process" %}
-        <p class="mono-label">Ready when you are</p>
-        <h3>Got a file or an idea?</h3>
-        <p>Send it through and it goes into the queue with a fixed price first.</p>
-        <div class="xsell-cta"><a href="{{ '/forge/order/' | relative_url }}" class="btn btn-accent">Start an Order &rarr;</a><a href="{{ '/forge/services/' | relative_url }}" class="btn btn-ghost">Browse Services</a></div>
-      {% when "order" %}
-        <p class="mono-label">While you&rsquo;re here</p>
-        <h3>Stack a product onto your job.</h3>
-        <p>Ready-made pieces and the custom insoles order separately — one click each.</p>
-        <div class="xsell-cta"><a href="{{ '/forge/products/' | relative_url }}" class="btn btn-outline">See Products &rarr;</a></div>
+        <div class="xsell-cta"><a href="{{ '/forge/services/' | relative_url }}" class="btn btn-outline">Browse Services &rarr;</a><a href="{{ '/forge/services/#order' | relative_url }}" class="btn btn-ghost">Start a quote</a></div>
       {% else %}
         <p class="mono-label">More from 3PO</p>
         <h3>Tools and art beyond the workshop.</h3>

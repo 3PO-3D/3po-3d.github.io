@@ -15,9 +15,9 @@ permalink: /forge/products/
     </div>
 
     <div class="cart-note">
-      <strong>No cart yet — order one item at a time.</strong> Each product checks out on its own, and
-      anything scan-based emails you a private upload link afterwards. Stacking several? Expect one email
-      per item, each with its own steps.
+      <strong>Products are fixed-price — buy and I ship.</strong> Each product checks out on its own through
+      Stripe, and anything scan-based emails you a private upload link afterwards. Buying a few? Stripe lets
+      you add same-type items at checkout; each scan-based item still gets its own upload folder.
     </div>
 
     <!-- Flagship: custom insoles -->
@@ -48,7 +48,7 @@ permalink: /forge/products/
                 <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/9B628rcCn21r804aZQ2go00" href="mailto:3po@3po3d.com?subject=Comfort%20insole%20order&body=Colour%20(Red%2FBlack)%3A%0AShoe%20size%3A">Buy</a></div>
             </div>
           </div>
-          <div class="upload-note" style="margin-top:1.1rem;"><strong>After checkout:</strong> you get a private, secure folder by email to upload your foot scan and confirm your colour. No one else can see your files. <a href="{{ '/forge/order/' | relative_url }}">How upload works &rarr;</a></div>
+          <div class="upload-note" style="margin-top:1.1rem;"><strong>After checkout:</strong> you get a private, secure folder by email to upload your foot scan and confirm your colour. No one else can see your files. <a href="{{ '/forge/services/#process' | relative_url }}">How the workshop works &rarr;</a></div>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@ permalink: /forge/products/
       <p class="lead">No fixed price — send the details and I&rsquo;ll come back with materials, timeline and a price.</p>
     </div>
     <div class="product-grid">
-      <a class="product" href="{{ '/forge/order/?service=fdm' | relative_url }}">
+      <a class="product" href="{{ '/forge/services/?service=fdm' | relative_url }}">
         <div class="media ratio-4-3" data-label="Functional"><div class="media-grid-tex"></div><svg class="ph-glyph" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="7" width="16" height="11" rx="1"/><path d="M4 11h16M9 7V5h6v2"/></svg></div>
         <div class="product-body">
           <span class="product-cat">Functional</span>
@@ -69,7 +69,7 @@ permalink: /forge/products/
           <div class="product-foot"><span class="price">From quote</span><span class="arrow">Order &rarr;</span></div>
         </div>
       </a>
-      <a class="product" href="{{ '/forge/order/?service=fdm' | relative_url }}">
+      <a class="product" href="{{ '/forge/services/?service=fdm' | relative_url }}">
         <div class="media ratio-4-3" data-label="Makers"><div class="media-grid-tex"></div><svg class="ph-glyph" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3 4 7v10l8 4 8-4V7z"/><path d="M12 3v18M4 7l8 4 8-4"/></svg></div>
         <div class="product-body">
           <span class="product-cat">Makers</span>
@@ -78,7 +78,7 @@ permalink: /forge/products/
           <div class="product-foot"><span class="price">From quote</span><span class="arrow">Order &rarr;</span></div>
         </div>
       </a>
-      <a class="product" href="{{ '/forge/order/?service=commission' | relative_url }}">
+      <a class="product" href="{{ '/forge/services/?service=model' | relative_url }}">
         <div class="media ratio-4-3" data-label="Bespoke"><div class="media-grid-tex"></div><svg class="ph-glyph" width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 3v3M5.5 5.5 7.6 7.6M3 12h3M18 12h3M16.4 7.6l2.1-2.1"/><path d="M8 14a4 4 0 1 1 8 0c0 2-1.5 3-1.5 5h-5C9.5 17 8 16 8 14z"/></svg></div>
         <div class="product-body">
           <span class="product-cat">Bespoke</span>

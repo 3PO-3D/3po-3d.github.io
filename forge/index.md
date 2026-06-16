@@ -19,7 +19,7 @@ permalink: /forge/
     <h1>From file to <span class="accent-text">finished part.</span></h1>
     <p class="lead">Large-format FDM printing, finishing, and 3D scanning out of one workshop. Bring a model — or a problem — and leave with a part in your hands. Up to half a metre cubed, printed on a Sovol SV08&nbsp;Max.</p>
     <div class="hero-cta">
-      <a href="{{ '/forge/order/' | relative_url }}" class="btn btn-accent">Request a Quote</a>
+      <a href="{{ '/forge/services/#order' | relative_url }}" class="btn btn-accent">Request a Quote</a>
       <a href="{{ '/forge/services/' | relative_url }}" class="btn btn-outline">Browse Services</a>
     </div>
     <div class="hero-meta">
@@ -35,35 +35,29 @@ permalink: /forge/
   <div class="container">
     <div class="section-head">
       <p class="mono-label">Where to start</p>
-      <h2>Pick the door you need.</h2>
-      <p class="lead">Everything FORGE does is split into four clear places — no scrolling past what you didn&rsquo;t come for.</p>
+      <h2>Two doors. Pick the one you need.</h2>
+      <p class="lead">FORGE is either a <strong>service</strong> — you bring a job and I quote it — or a <strong>product</strong> — a ready-made piece you buy and I ship. No scrolling past what you didn&rsquo;t come for.</p>
     </div>
     <div class="tile-grid cols-2">
       <a class="tile accent-top" href="{{ '/forge/services/' | relative_url }}" style="text-decoration:none;color:inherit;">
         <p class="tile-num">01</p>
         <h3>Services</h3>
-        <p>Print my file, scan a real object, model from scratch, or animate it. Read what each one does, then start an order.</p>
-        <div class="tile-tags"><span class="chip chip-accent">Browse services &rarr;</span></div>
+        <p>Print my file, scan a real object, or model it from scratch — stack as many as the job needs. Read how each works, see how a job moves through the workshop, then start a quote. <strong>No fixed price — I quote it first.</strong></p>
+        <div class="tile-tags"><span class="chip chip-accent">Browse services &rarr;</span><span class="chip">Start a quote</span></div>
       </a>
       <a class="tile accent-top" href="{{ '/forge/products/' | relative_url }}" style="text-decoration:none;color:inherit;">
         <p class="tile-num">02</p>
         <h3>Products</h3>
-        <p>Ready-to-order pieces — including the flagship custom-fit orthopedic and comfort insoles, printed from your foot scan.</p>
-        <div class="tile-tags"><span class="chip chip-accent">See products &rarr;</span></div>
-      </a>
-      <a class="tile accent-top" href="{{ '/forge/process/' | relative_url }}" style="text-decoration:none;color:inherit;">
-        <p class="tile-num">03</p>
-        <h3>Process</h3>
-        <p>How a job moves through the workshop — scan or model, slice and quote, print, finish, hand-off — plus the machine spec.</p>
-        <div class="tile-tags"><span class="chip">How it works &rarr;</span></div>
-      </a>
-      <a class="tile accent-top" href="{{ '/forge/order/' | relative_url }}" style="text-decoration:none;color:inherit;">
-        <p class="tile-num">04</p>
-        <h3>Order</h3>
-        <p>Send a file and a few details. I quote it, you approve, and it goes into the queue. Upload is right here — no account needed.</p>
-        <div class="tile-tags"><span class="chip chip-accent">Start an order &rarr;</span></div>
+        <p>Ready-to-order pieces — including the flagship custom-fit orthopedic and comfort insoles, printed from your foot scan. <strong>Fixed price — buy and I ship.</strong></p>
+        <div class="tile-tags"><span class="chip chip-accent">See products &rarr;</span><span class="chip">Buy now</span></div>
       </a>
     </div>
+    <p class="lead" style="margin-top:1.75rem;font-size:0.95rem;">
+      Quick links:
+      <a href="{{ '/forge/services/#order' | relative_url }}" style="color:var(--accent);text-decoration:none;">Start a quote &rarr;</a> &nbsp;·&nbsp;
+      <a href="{{ '/forge/services/#process' | relative_url }}" style="color:var(--accent);text-decoration:none;">How the workshop works &rarr;</a> &nbsp;·&nbsp;
+      <a href="{{ '/forge/products/' | relative_url }}" style="color:var(--accent);text-decoration:none;">Custom insoles &rarr;</a>
+    </p>
   </div>
 </section>
 

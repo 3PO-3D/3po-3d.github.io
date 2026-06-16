@@ -19,12 +19,46 @@
         row.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
+    // Banner stills crossfade carousel (~5s) — runs behind each project banner.
+    document.querySelectorAll('[data-carousel]').forEach(function (bg) {
+      var imgs = bg.querySelectorAll('.pf-banner__img');
+      if (imgs.length < 2) return;
+      var i = 0;
+      var iv = parseInt(bg.getAttribute('data-interval') || '5000', 10);
+      setInterval(function () {
+        imgs[i].classList.remove('is-active');
+        i = (i + 1) % imgs.length;
+        imgs[i].classList.add('is-active');
+      }, iv);
+    });
+
+    // Lazy-load the project film only when its panel opens; unload it on close so
+    // it stops playing (gives a clean play/stop, no autoplay until you ask for it).
+    function syncProjVideo(proj) {
+      var frame = proj.querySelector('iframe[data-vsrc]');
+      if (!frame) return;
+      if (proj.classList.contains('is-open')) {
+        if (!frame.getAttribute('src')) frame.setAttribute('src', frame.getAttribute('data-vsrc'));
+      } else {
+        frame.removeAttribute('src');
+      }
+    }
+    document.querySelectorAll('.pf-banner .pf-proj__row').forEach(function (row) {
+      row.addEventListener('click', function (e) {
+        if (e.target.closest('a')) return;
+        var proj = row.closest('.pf-proj');
+        // run after the toggle handler above has flipped .is-open
+        setTimeout(function () { syncProjVideo(proj); }, 0);
+      });
+    });
+
     // Open a project from the URL hash (e.g. /portfolio/#casio_vl_tone — for Behance back-links)
     if (location.hash.length > 1) {
       var hp = document.getElementById(location.hash.slice(1));
       if (hp && hp.classList.contains('pf-proj')) {
         hp.classList.add('is-open');
         var hr = hp.querySelector('.pf-proj__row'); if (hr) hr.setAttribute('aria-expanded', 'true');
+        syncProjVideo(hp);
         setTimeout(function () { hp.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 250);
       }
     }
@@ -206,6 +240,10 @@
           var wrap = btn.closest('.of-wrap');
           var hp = ofWrap.querySelector('[name="company"]');
           if (hp && hp.value) return; // honeypot → bot
+          // Compile the stacked (multi-select) services into one comma-separated field for Make.
+          var svcs = Array.prototype.slice.call(ofWrap.querySelectorAll('[name="service"]:checked')).map(function (c) { return c.value; });
+          var svcSummary = ofWrap.querySelector('[name="services"]');
+          if (svcSummary) svcSummary.value = svcs.join(', ');
           var emailEl = ofWrap.querySelector('[name="email"]');
           if (emailEl && !emailEl.value) {
             var st = emailEl.closest('.of-step');
@@ -223,8 +261,7 @@
               if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
               if (el.value) lines.push(el.name + ': ' + el.value);
             });
-            var svc = (ofWrap.querySelector('[name="service"]:checked') || {}).value || '';
-            window.location.href = 'mailto:3po@3po3d.com?subject=' + encodeURIComponent('FORGE order — ' + svc) + '&body=' + encodeURIComponent(lines.join('\n'));
+            window.location.href = 'mailto:3po@3po3d.com?subject=' + encodeURIComponent('FORGE order — ' + (svcs.join(', ') || 'enquiry')) + '&body=' + encodeURIComponent(lines.join('\n'));
           }
           var done = wrap.querySelector('.of-done');
           var formbody = wrap.querySelector('.of-formbody');

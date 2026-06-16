@@ -29,7 +29,11 @@
       "Bash(mkdir -p design)",
       "Bash(tar -xzf webfetch-1781022848177-371exs.bin -C design)",
       "Bash(rm -f print/shop.md print/services.md print/index.md reel.md _includes/print-nav.html)",
-      "Bash(ls print *)"
+      "Bash(ls print *)",
+      "Bash(ruby -rjson -e 'JSON.parse\\(File.read\\(\"stepmap.json\"\\)\\); puts \"stepmap.json valid\"')",
+      "Bash(cp C:/Users/rbenc/.claude/projects/d--0--3D-Dev-1--PROJECTS-4--PLUGINS-CHRONOS-Site/ab81fada-7bbf-460c-8e44-e8727f796ea6/tool-results/design2/3po/project/assets/work-order.css d:/0._3D_Dev/1._PROJECTS/4._PLUGINS/CHRONOS_Site/assets/work-order.css)",
+      "Bash(cp C:/Users/rbenc/.claude/projects/d--0--3D-Dev-1--PROJECTS-4--PLUGINS-CHRONOS-Site/ab81fada-7bbf-460c-8e44-e8727f796ea6/tool-results/design2/3po/project/assets/work-order.js d:/0._3D_Dev/1._PROJECTS/4._PLUGINS/CHRONOS_Site/assets/work-order.js)",
+      "Bash(ruby -v)"
     ],
     "additionalDirectories": [
       "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Site\\.claude",
