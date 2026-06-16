@@ -10,6 +10,8 @@ description: "Motion graphics and product animation by a 3D generalist. Reel, se
 permalink: /portfolio/
 ---
 
+<link rel="stylesheet" href="{{ '/assets/work-order.css' | relative_url }}">
+
 <style>
   .reel-hero { position: relative; border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface-2); }
   .reel-hero .media-grid-tex { opacity: 0.6; }
@@ -55,40 +57,34 @@ permalink: /portfolio/
     <div class="section-head">
       <p class="mono-label">Selected Work</p>
       <h2>Recent pieces.</h2>
-      <p class="lead">Product animation, motion graphics and look-dev. Embedded from Behance for now — a cut-together showreel is coming.</p>
+      <p class="lead">Click a project to expand its write-up and stills; click a thumbnail to open the images full-screen. The <strong>View on Behance</strong> button is the only link that leaves the site — a cut-together showreel is coming.</p>
     </div>
 
-    <div class="work-list">
-      {% for p in site.data.portfolio %}
-      <article class="work-item">
-        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/{{ p.behance_id }}?ilo0=1" loading="lazy" scrolling="no" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe></div>
-        <button type="button" class="work-toggle" aria-expanded="false">
-          <span class="work-meta"><span class="work-cat">{{ p.category }}</span><span class="work-title">{{ p.title }}</span></span>
-          <span class="work-toggle-ico" aria-hidden="true"></span>
-        </button>
-        <div class="work-details" hidden>
-          <p class="work-blurb">{{ p.blurb }}</p>
-          {% if p.variants %}<ul class="work-variants">{% for v in p.variants %}<li><strong>{{ v.name }}</strong> — {{ v.desc }}</li>{% endfor %}</ul>{% endif %}
-          <a class="btn btn-outline" href="{{ p.behance_url }}" target="_blank" rel="noopener">View full project on Behance &rarr;</a>
-          {% if p.stills %}<div class="work-stills">{% for s in p.stills %}{% assign src = '/assets/img/portfolio/' | append: p.key | append: '/' | append: s %}<a class="work-still" href="{{ src | relative_url }}" target="_blank" rel="noopener"><img src="{{ src | relative_url }}" loading="lazy" alt="{{ p.title }} still"></a>{% endfor %}</div>{% endif %}
+    <div class="pf-projects pl-wide" id="work-projects">
+      {% for p in site.data.portfolio %}{% assign base = '/assets/img/portfolio/' | append: p.key | append: '/' %}{% assign first = p.stills | first %}
+      <div class="pf-proj" id="{{ p.key }}" data-images='[{% for s in p.stills %}{"src":"{{ base | append: s | relative_url }}","cap":"{{ p.title }} — {{ forloop.index }}"}{% unless forloop.last %},{% endunless %}{% endfor %}]'>
+        <div class="pf-proj__row" role="button" tabindex="0" aria-expanded="false">
+          <a class="pf-proj__thumb" href="#" data-lbx-group data-lbx-index="0" aria-label="Open {{ p.title }} images"><img src="{{ base | append: first | relative_url }}" alt="{{ p.title }}"></a>
+          <div class="pf-proj__meta">
+            <span class="pf-proj__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <div class="pf-proj__title">{{ p.title }}</div>
+            <div class="pf-proj__cat"><span>{{ p.category }}</span></div>
+          </div>
+          <span class="pf-proj__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
         </div>
-      </article>
+        <div class="pf-proj__panel"><div class="pf-proj__panel-inner"><div class="pf-proj__panel-pad">
+          <div class="pf-proj__desc">
+            <p>{{ p.blurb }}</p>
+            {% if p.variants %}{% for v in p.variants %}<p><strong>{{ v.name }}</strong> — {{ v.desc }}</p>{% endfor %}{% endif %}
+          </div>
+          <div class="pf-attach">
+            {% for s in p.stills %}<a href="#" data-lbx-group data-lbx-index="{{ forloop.index0 }}" aria-label="Open image"><img src="{{ base | append: s | relative_url }}" loading="lazy" alt=""></a>{% endfor %}
+          </div>
+          <a class="pf-behance" href="{{ p.behance_url }}" target="_blank" rel="noopener"><img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="">View on Behance <span class="ext">&#8599;</span></a>
+        </div></div></div>
+      </div>
       {% endfor %}
     </div>
-
-<script>
-  (function () {
-    document.querySelectorAll('.work-item .work-toggle').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var item = btn.closest('.work-item');
-        var open = item.classList.toggle('is-open');
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        var d = item.querySelector('.work-details');
-        if (d) d.hidden = !open;
-      });
-    });
-  })();
-</script>
 
     <div style="margin-top:2.5rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
       <span class="chip chip-accent">Motion Graphics</span>
@@ -152,6 +148,16 @@ permalink: /portfolio/
     </div>
   </div>
 </section>
+
+<div class="lbx" id="lbx" aria-hidden="true">
+  <button class="lbx__close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <button class="lbx__btn lbx__prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <div class="lbx__stage"><div class="lbx__media"></div><div class="lbx__cap"></div></div>
+  <button class="lbx__btn lbx__next" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="lbx__count"></div>
+</div>
+
+<script src="{{ '/assets/work-order.js' | relative_url }}"></script>
 
 <style>
   @media (max-width: 760px) { .about-cols { grid-template-columns: 1fr !important; gap: 2rem !important; } }
