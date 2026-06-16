@@ -1,0 +1,55 @@
+# Portfolio work pieces. Add an entry to add a piece. `key` must match the folder
+# under assets/img/portfolio/<key>/. Paste the exact Behance URL into `behance_url`.
+- key: casio_vl_tone
+  title: "Casio VL-Tone VL-1"
+  category: "Product Animation"
+  behance_id: "251151509"
+  behance_url: "https://www.behance.net/gallery/251151509"
+  blurb: >
+    A product-viz tribute to the 1980 Casio VL-Tone VL-1 — the pocket synth that sat between
+    toy and real instrument and ended up on real records. Forty-five years of yellowed plastic
+    and worn buttons, rebuilt in 3D as a retro-tech showcase.
+  stills:
+    - "MAIN_shot_end_1.242.1.png"
+    - "3PO_Closepu_1.3.5.png"
+    - "main_btn_colors_1.1.1.png"
+    - "Blue_BTN_Closeup_1.4.1.png"
+    - "Green_btn_Cpu_1.90.1.png"
+
+- key: cosmetic_loop
+  title: "Cosmetic Loop"
+  category: "Motion Graphics"
+  behance_id: "251018153"
+  behance_url: "https://www.behance.net/gallery/251018153"
+  blurb: >
+    A 7-second, 3-shot seamless loop built to double as a real product ad — fill, swing,
+    dispense, repeat. Honey-orange liquid on a green-leaf, bio-cosmetic palette, with the camera
+    holding on the logo just long enough to read. Template-ready for any product.
+  stills:
+    - "Bottle_1.1.1.png"
+    - "Pump_1.3.2.png"
+    - "Logo+liquid_1.2.1.png"
+    - "Logo_upclose_1.1.2.png"
+    - "Pump_1.3.2_1.3.3.png"
+
+- key: custom_insole
+  title: "Custom Orthopedic Insole"
+  category: "Product Animation · made at 3PO FORGE"
+  behance_id: "251017395"
+  behance_url: "https://www.behance.net/gallery/251017395"
+  blurb: >
+    Product visualization of an ongoing R&D project — parametric, scan-based custom insoles,
+    each designed and printed for a real person, revealed through a foam-simulation transition.
+  variants:
+    - { name: "Blue — orthopedic", desc: "structural correction (flat feet, alignment, rehab); higher arch support, precise scan-mapped load redistribution." }
+    - { name: "Red — comfort", desc: "everyday relief with fast rubbery rebound that assists push-off; great for sport and high step counts." }
+    - { name: "Black — foaming TPU", desc: "print tuned to foam the filament itself — spongy, progressive compression instead of rubber rebound." }
+  stills:
+    - "Blue_2.1.1.png"
+    - "Red_2.2.1.png"
+    - "Black_2.2.2.png"
+    - "Blue_transition_2.2.1.png"
+    - "Red_transition_2.2.2.png"
+    - "Black_transition_2.2.1.png"
+    - "Blue_2_2.1.2.png"
+    - "Red_2.2.1_2.2.3.png"

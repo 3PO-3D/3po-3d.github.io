@@ -58,29 +58,37 @@ permalink: /portfolio/
       <p class="lead">Product animation, motion graphics and look-dev. Embedded from Behance for now — a cut-together showreel is coming.</p>
     </div>
 
-    <div class="work-grid">
-      <figure class="work-card">
-        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/251151509?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <figcaption class="work-cap"><span class="work-cat">Product Animation</span><h3>Casio VL-Tone VL-1</h3></figcaption>
-      </figure>
-      <figure class="work-card">
-        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/251018153?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <figcaption class="work-cap"><span class="work-cat">Motion Graphics</span><h3>Cosmetic Loop</h3></figcaption>
-      </figure>
-      <figure class="work-card">
-        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/251017395?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
-        <figcaption class="work-cap"><span class="work-cat">Product Animation · made at 3PO FORGE</span><h3>Custom Orthopedic Insole</h3></figcaption>
-      </figure>
+    <div class="work-list">
+      {% for p in site.data.portfolio %}
+      <article class="work-item">
+        <div class="work-embed"><iframe src="https://www.behance.net/embed/project/{{ p.behance_id }}?ilo0=1" loading="lazy" allowfullscreen frameborder="0" allow="clipboard-write" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe></div>
+        <button type="button" class="work-toggle" aria-expanded="false">
+          <span class="work-meta"><span class="work-cat">{{ p.category }}</span><span class="work-title">{{ p.title }}</span></span>
+          <span class="work-toggle-ico" aria-hidden="true"></span>
+        </button>
+        <div class="work-details" hidden>
+          <p class="work-blurb">{{ p.blurb }}</p>
+          {% if p.variants %}<ul class="work-variants">{% for v in p.variants %}<li><strong>{{ v.name }}</strong> — {{ v.desc }}</li>{% endfor %}</ul>{% endif %}
+          <a class="btn btn-outline" href="{{ p.behance_url }}" target="_blank" rel="noopener">View full project on Behance &rarr;</a>
+          {% if p.stills %}<div class="work-stills">{% for s in p.stills %}{% assign src = '/assets/img/portfolio/' | append: p.key | append: '/' | append: s %}<a class="work-still" href="{{ src | relative_url }}" target="_blank" rel="noopener"><img src="{{ src | relative_url }}" loading="lazy" alt="{{ p.title }} still"></a>{% endfor %}</div>{% endif %}
+        </div>
+      </article>
+      {% endfor %}
     </div>
 
-<style>
-  .work-card { margin: 0; border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface); }
-  .work-embed { position: relative; width: 100%; aspect-ratio: 404 / 316; background: var(--surface-2); }
-  .work-embed iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; display: block; }
-  .work-cap { display: flex; flex-direction: column; gap: 0.2rem; padding: 1rem 1.2rem 1.2rem; border-top: var(--bw) solid var(--hairline); }
-  .work-cap .work-cat { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
-  .work-cap h3 { font-size: 1.15rem; font-weight: 600; margin: 0; }
-</style>
+<script>
+  (function () {
+    document.querySelectorAll('.work-item .work-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var item = btn.closest('.work-item');
+        var open = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        var d = item.querySelector('.work-details');
+        if (d) d.hidden = !open;
+      });
+    });
+  })();
+</script>
 
     <div style="margin-top:2.5rem; display:flex; flex-wrap:wrap; gap:0.5rem;">
       <span class="chip chip-accent">Motion Graphics</span>
