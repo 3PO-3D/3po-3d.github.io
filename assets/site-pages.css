@@ -436,3 +436,33 @@
 .pf-proj__video { position: relative; overflow: hidden; border-radius: 10px; background: var(--surface-2); }
 .pf-proj__video::after { display: none !important; }
 .pf-proj__video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+/* ════════════════════════════════════════════════════════════
+   NAV-CARDS — the cross-brand "Elsewhere at 3PO" link standard.
+   Each card carries the destination's head logo over its own masked
+   backdrop motif + accent, a title, a one-liner and an accent arrow.
+   Used on every page via _includes/elsewhere.html.
+   ════════════════════════════════════════════════════════════ */
+.nav-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.25rem; }
+@media (max-width: 520px) { .nav-cards { grid-template-columns: 1fr; } }
+.nav-card { position: relative; display: flex; flex-direction: column; border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface); text-decoration: none; color: inherit; transition: transform .15s, border-color .15s; }
+.nav-card:hover { transform: translateY(-3px); border-color: var(--accent); }
+.nav-card__media { position: relative; aspect-ratio: 16/10; border-bottom: var(--bw) solid var(--text); overflow: hidden; background: var(--surface-2); }
+.nav-card__bg { position: absolute; inset: 0; }
+.nav-card__logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 56px; width: auto; z-index: 2; }
+.nav-card__body { padding: 1.2rem 1.3rem 1.4rem; }
+.nav-card__body h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.35rem; }
+.nav-card__body p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin: 0 0 0.85rem; }
+.nav-card__arrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
+
+/* per-brand accent + masked backdrop pattern (reuses the hero motifs) */
+.nav-card.is-forge { --accent: #EE5A1C; --accent-rgb: 238, 90, 28; --accent-dark: #C8470F; }
+.nav-card.is-forge .nav-card__bg { background-image: linear-gradient(var(--hairline) 1px, transparent 1px), linear-gradient(90deg, var(--hairline) 1px, transparent 1px); background-size: 40px 40px; -webkit-mask-image: radial-gradient(circle at 50% 45%, #000, transparent 80%); mask-image: radial-gradient(circle at 50% 45%, #000, transparent 80%); }
+.nav-card.is-chronos { --accent: #DDAA33; --accent-rgb: 221, 170, 51; --accent-dark: #C49A2A; }
+.nav-card.is-chronos .nav-card__bg { background-image: radial-gradient(rgba(var(--accent-rgb),.6) 2.4px, transparent 3px), radial-gradient(var(--hairline) 1.6px, transparent 2.1px); background-size: 60px 60px, 22px 22px; -webkit-mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 82%); mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 82%); }
+.nav-card.is-portfolio { --accent: #2E9C88; --accent-rgb: 46, 156, 136; --accent-dark: #237A6B; }
+.nav-card.is-portfolio .nav-card__bg { background-image: repeating-radial-gradient(circle at 50% 42%, transparent 0 24px, var(--hairline) 24px 25px), repeating-radial-gradient(circle at 50% 42%, transparent 0 96px, rgba(var(--accent-rgb),.3) 96px 98px); -webkit-mask-image: radial-gradient(circle at 50% 42%, #000, transparent 94%); mask-image: radial-gradient(circle at 50% 42%, #000, transparent 94%); }
+.nav-card.is-creator { --accent: #DDAA33; --accent-rgb: 221, 170, 51; --accent-dark: #C49A2A; }
+.nav-card.is-creator .nav-card__bg { background-image: radial-gradient(rgba(var(--accent-rgb),.5) 2.2px, transparent 2.8px), radial-gradient(var(--hairline) 1.5px, transparent 2px); background-size: 54px 54px, 20px 20px; -webkit-mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 84%); mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 84%); }
+.nav-card.is-home { --accent: #DDAA33; --accent-rgb: 221, 170, 51; --accent-dark: #C49A2A; }
+.nav-card.is-home .nav-card__bg { background-image: linear-gradient(var(--hairline) 1px, transparent 1px), linear-gradient(90deg, var(--hairline) 1px, transparent 1px); background-size: 30px 30px; -webkit-mask-image: radial-gradient(circle at 50% 45%, #000, transparent 78%); mask-image: radial-gradient(circle at 50% 45%, #000, transparent 78%); }

@@ -221,8 +221,6 @@ permalink: /forge/services/
   </div>
 </section>
 
-{% include forge-crosssell.html context="services" %}
-
 <iframe name="order_sink" hidden></iframe>
 <script src="{{ '/assets/work-order.js' | relative_url }}"></script>
 <script>

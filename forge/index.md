@@ -75,5 +75,3 @@ permalink: /forge/
     </div>
   </div>
 </section>
-
-{% include forge-crosssell.html context="overview" %}

@@ -45,13 +45,41 @@ permalink: /forge/products/
       <div class="ins-desc">
         <span class="product-cat">Custom Fit — Flagship · made from your foot scan</span>
         <h3>Custom Insoles</h3>
-        <p>3D-printed to fit your foot from a scan you upload after checkout. Pick the support level and colour; I print the pair and ship it.</p>
+        <p>3D-printed to fit your foot from a scan you upload after checkout. Pick the support level and colour at checkout, add a note if you like — I print the matched pair and ship it.</p>
         <details class="ins-more">
           <summary>Read the full breakdown</summary>
           <div class="ins-more-body">
-            <p>Each pair is built on <strong>scan-based geometry</strong> — the model is shaped to your foot, not a generic template. Infill density is <strong>mapped to load</strong> so the insole is firm where it carries weight and softer where it doesn&rsquo;t, and <strong>integrated air channels</strong> keep it breathable through a full day.</p>
-            <p><strong>Blue &amp; Red</strong> are firm, elastic TPU — best for active walking and sport rebound. <strong>Black</strong> is a soft-touch foaming TPU — best for all-day standing comfort, with less spring-back.</p>
-            <p>Printed as a matched pair and finished to wearable standard before it ships.</p>
+            <h4>What they are</h4>
+            <p>Fully custom, scan-based insoles — the geometry is shaped to <em>your</em> foot, not a generic template. Infill density is <strong>mapped to load</strong> so each insole is firm where it carries weight and softer where it doesn&rsquo;t, with <strong>integrated air channels</strong> for breathability. Made only for you.</p>
+
+            <h4>Type &amp; colour</h4>
+            <p><strong>🔵 Blue — orthopedic.</strong> Firm, elastic TPU for structural correction: flat feet, misalignment, post-surgery and ligament rehab. Higher arch support and precise, scan-mapped load redistribution; the rebound helps rebuild foot and toe strength.</p>
+            <p><strong>🔴 Red — comfort.</strong> The same firm, elastic TPU tuned for everyday relief — heel pain, toe pressure, general discomfort. Soft and rubbery underfoot with a fast rebound that assists push-off; great for sport and high step counts.</p>
+            <p><strong>⚫ Black — foaming TPU.</strong> Available as <strong>either</strong> orthopedic <strong>or</strong> comfort. The print is tuned to foam the filament itself, so it compresses in a progressive, spongy way instead of springing back like rubber — the same load performance with a softer, more cushioned feel.</p>
+            <p class="ins-pick">So: order <strong>Orthopedic &rarr; Blue or Black</strong>, or <strong>Comfort &rarr; Red or Black</strong>. You choose type and colour at checkout.</p>
+
+            <h4>Material &amp; lifespan</h4>
+            <p>Two feels: a <strong>firm, elastic TPU</strong> (Blue / Red) and a <strong>soft, foaming TPU</strong> (Black). Both are <strong>washable and cleanable</strong>, and last roughly <strong>1.5&ndash;2 years</strong> of daily use.</p>
+
+            <h4>How ordering works</h4>
+            <p>At checkout you pick the type and colour and can <strong>add a note</strong>. After you pay, I email you a <strong>private Dropbox link</strong> to upload your foot scan. <strong>Just reply to that email with anything you want tuned</strong> — more support under the arch, heel or toes; softer or firmer zones for how your weight sits. Almost anything is possible: that&rsquo;s the whole point of making them one pair at a time, for one person.</p>
+
+            <h4>Sizing &mdash; what I need</h4>
+            <p>Your <strong>EU shoe size</strong>, plus two quick measurements (stand on a sheet of paper and mark them):</p>
+            <ul class="ins-measure-list">
+              <li><strong>Length</strong> — heel to the tip of the big toe.</li>
+              <li><strong>Width</strong> — across the widest point: the first joint of the big toe to the first joint of the little toe (the outer edge).</li>
+            </ul>
+            <svg class="foot-guide" viewBox="0 0 220 350" role="img" aria-label="Measuring guide: length from heel to big toe, width across the toe joints">
+              <path class="foot" d="M110,330 C140,330 150,306 150,280 C152,246 150,218 154,190 C158,158 160,140 160,128 C160,100 138,86 110,86 C82,86 60,100 60,128 C60,158 66,184 68,213 C70,240 68,266 70,286 C72,308 80,330 110,330 Z"/>
+              <path class="dim" d="M34,86 L34,330 M28,94 L34,86 L40,94 M28,322 L34,330 L40,322"/>
+              <text class="dlbl" transform="rotate(-90 16 208)" x="16" y="208" text-anchor="middle">Length</text>
+              <path class="dim" d="M58,120 L162,120 M66,114 L58,120 L66,126 M154,114 L162,120 L154,126"/>
+              <text class="dlbl" x="110" y="72" text-anchor="middle">Width</text>
+            </svg>
+
+            <h4>If they don&rsquo;t fit</h4>
+            <p>Not a refund, but a fix: if the insoles don&rsquo;t fit or something&rsquo;s off, I&rsquo;ll <strong>reprint them once at 50% of the original price</strong> (orthopedic or comfort) — a one-time offer for the same order. Just reply to your order email and we&rsquo;ll sort it out.</p>
           </div>
         </details>
 
@@ -59,41 +87,16 @@ permalink: /forge/products/
           <div class="insole-variant">
             <div class="iv-info"><span class="iv-name">Orthopedic</span><span class="iv-desc">Structural support — arch, weight &amp; gait. Colour: Blue or Black.</span></div>
             <div class="iv-foot"><span class="price">35 000 Ft <span class="iv-ship">+ shipping</span></span>
-              <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/8x2cN5dGraxX0xC1pg2go01" href="mailto:3po@3po3d.com?subject=Orthopedic%20insole%20order&body=Colour%20(Blue%2FBlack)%3A%0AShoe%20size%3A">Buy</a></div>
+              <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/8x2cN5dGraxX0xC1pg2go01" href="mailto:3po@3po3d.com?subject=Orthopedic%20insole%20order&body=Colour%20(Blue%2FBlack)%3A%0AEU%20shoe%20size%3A%0AFoot%20length%20(mm)%3A%0AFoot%20width%20(mm)%3A">Buy</a></div>
           </div>
           <div class="insole-variant">
             <div class="iv-info"><span class="iv-name">Comfort</span><span class="iv-desc">Soft all-day cushioning, shoe-friendly. Colour: Red or Black.</span></div>
             <div class="iv-foot"><span class="price">30 000 Ft <span class="iv-ship">+ shipping</span></span>
-              <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/9B628rcCn21r804aZQ2go00" href="mailto:3po@3po3d.com?subject=Comfort%20insole%20order&body=Colour%20(Red%2FBlack)%3A%0AShoe%20size%3A">Buy</a></div>
+              <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/9B628rcCn21r804aZQ2go00" href="mailto:3po@3po3d.com?subject=Comfort%20insole%20order&body=Colour%20(Red%2FBlack)%3A%0AEU%20shoe%20size%3A%0AFoot%20length%20(mm)%3A%0AFoot%20width%20(mm)%3A">Buy</a></div>
           </div>
         </div>
         <div class="upload-note"><strong>After checkout:</strong> you get a private, secure folder by email to upload your foot scan and confirm your colour. No one else can see your files. <a href="{{ '/forge/services/#process' | relative_url }}">How the workshop works &rarr;</a></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- Elsewhere at 3PO — three navigation cards (each its own brand) -->
-<section class="section" style="border-top: var(--bw) solid var(--hairline);">
-  <div class="container">
-    <div class="section-head">
-      <p class="mono-label">Elsewhere at 3PO</p>
-      <h2 style="font-size:1.5rem;">More from the workshop &amp; studio.</h2>
-      <p class="lead">Not after a product? Here&rsquo;s where the rest of 3PO lives.</p>
-    </div>
-    <div class="nav-cards">
-      <a class="nav-card is-forge" data-site="forge" href="{{ '/forge/services/' | relative_url }}">
-        <div class="nav-card__media"><div class="nav-card__bg"></div><img class="nav-card__logo" src="{{ '/assets/img/logos/Print_logo/forge_head.svg' | relative_url }}" alt="FORGE"></div>
-        <div class="nav-card__body"><h3>Services</h3><p>Print a file, scan a real object, or model it from scratch — quoted first, then made.</p><span class="nav-card__arrow">Browse services &rarr;</span></div>
-      </a>
-      <a class="nav-card is-chronos" data-site="chronos" href="{{ '/chronos/' | relative_url }}">
-        <div class="nav-card__media"><div class="nav-card__bg"></div><img class="nav-card__logo" src="{{ '/assets/img/logos/Chronos/chronos_head_whitefill.svg' | relative_url }}" alt="CHRONOS"></div>
-        <div class="nav-card__body"><h3>CHRONOS</h3><p>My Cinema 4D plugin for non-destructive scene-variation management. One file, every version.</p><span class="nav-card__arrow">Explore CHRONOS &rarr;</span></div>
-      </a>
-      <a class="nav-card is-portfolio" data-site="portfolio" href="{{ '/portfolio/' | relative_url }}">
-        <div class="nav-card__media"><div class="nav-card__bg"></div><img class="nav-card__logo" src="{{ '/assets/img/logos/Portfolio/portfolio_head.svg' | relative_url }}" alt="Portfolio"></div>
-        <div class="nav-card__body"><h3>Portfolio</h3><p>Product films and motion graphics — the moving, rendered side of the same hands.</p><span class="nav-card__arrow">View the work &rarr;</span></div>
-      </a>
     </div>
   </div>
 </section>
@@ -125,6 +128,15 @@ permalink: /forge/products/
   .ins-more[open] summary::after { content: '\2212'; }
   .ins-more-body p { color: var(--muted); margin: 0 0 0.9rem; line-height: 1.7; }
   .ins-more-body strong { color: var(--text); }
+  .ins-more-body h4 { font-family: var(--font-head); font-weight: 600; font-size: 1rem; color: var(--text); margin: 1.4rem 0 0.5rem; }
+  .ins-more-body h4:first-child { margin-top: 0; }
+  .ins-pick { background: var(--accent-soft); border-left: 3px solid var(--accent); border-radius: 0 var(--radius) var(--radius) 0; padding: 0.7rem 0.9rem; }
+  .ins-measure-list { color: var(--muted); line-height: 1.7; margin: 0 0 0.9rem 1.1rem; }
+  .ins-measure-list strong { color: var(--text); }
+  .foot-guide { display: block; width: 100%; max-width: 240px; margin: 1rem auto 0.4rem; color: var(--text); }
+  .foot-guide .foot { fill: var(--surface-2); stroke: currentColor; stroke-width: 2; }
+  .foot-guide .dim { stroke: var(--accent); stroke-width: 1.6; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+  .foot-guide .dlbl { fill: var(--muted); font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
 
   .insole-buy-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 1.5rem; text-align: left; }
   .insole-variant { border: var(--bw) solid var(--hairline); border-radius: var(--radius); padding: 0.9rem 1rem; display: flex; flex-direction: column; gap: 0.6rem; }
@@ -139,24 +151,6 @@ permalink: /forge/products/
   .upload-note strong { color: var(--text); }
   .upload-note a { color: var(--accent); text-decoration: none; font-family: var(--font-mono); font-size: 0.78rem; }
   @media (max-width: 600px) { .insole-buy-row { grid-template-columns: 1fr; } }
-
-  /* ── Elsewhere-at-3PO navigation cards ── */
-  .nav-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-  @media (max-width: 760px) { .nav-cards { grid-template-columns: 1fr; } }
-  .nav-card { position: relative; display: flex; flex-direction: column; border: var(--bw) solid var(--text); border-radius: var(--radius); overflow: hidden; background: var(--surface); text-decoration: none; color: inherit; transition: transform .15s, border-color .15s; }
-  .nav-card:hover { transform: translateY(-3px); border-color: var(--accent); }
-  .nav-card__media { position: relative; aspect-ratio: 16/10; border-bottom: var(--bw) solid var(--text); overflow: hidden; background: var(--surface-2); }
-  .nav-card__bg { position: absolute; inset: 0; }
-  .nav-card__logo { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); height: 56px; width: auto; z-index: 2; }
-  .nav-card__body { padding: 1.2rem 1.3rem 1.4rem; }
-  .nav-card__body h3 { font-size: 1.15rem; font-weight: 600; margin: 0 0 0.35rem; }
-  .nav-card__body p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; margin: 0 0 0.85rem; }
-  .nav-card__arrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); }
-  /* hero backdrop patterns reused, masked to the card centre (accent via data-site) */
-  .nav-card.is-forge .nav-card__bg { background-image: linear-gradient(var(--hairline) 1px, transparent 1px), linear-gradient(90deg, var(--hairline) 1px, transparent 1px); background-size: 40px 40px; -webkit-mask-image: radial-gradient(circle at 50% 45%, #000, transparent 80%); mask-image: radial-gradient(circle at 50% 45%, #000, transparent 80%); }
-  .nav-card.is-chronos { --accent: #DDAA33; --accent-rgb: 221, 170, 51; --accent-dark: #C49A2A; } /* CHRONOS = default gold (no data-site rule exists) */
-  .nav-card.is-chronos .nav-card__bg { background-image: radial-gradient(rgba(var(--accent-rgb),.6) 2.4px, transparent 3px), radial-gradient(var(--hairline) 1.6px, transparent 2.1px); background-size: 60px 60px, 22px 22px; -webkit-mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 82%); mask-image: radial-gradient(ellipse at 50% 45%, #000, transparent 82%); }
-  .nav-card.is-portfolio .nav-card__bg { background-image: repeating-radial-gradient(circle at 50% 42%, transparent 0 24px, var(--hairline) 24px 25px), repeating-radial-gradient(circle at 50% 42%, transparent 0 96px, rgba(var(--accent-rgb),.3) 96px 98px); -webkit-mask-image: radial-gradient(circle at 50% 42%, #000, transparent 94%); mask-image: radial-gradient(circle at 50% 42%, #000, transparent 94%); }
 </style>
 
 <script>

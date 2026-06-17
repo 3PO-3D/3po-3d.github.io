@@ -1,0 +1,29 @@
+{% comment %}
+  Cross-brand "Elsewhere at 3PO" nav-card band — the standard page-to-page link pattern.
+  Rendered on every page (via _layouts/default.html); shows every surface EXCEPT the current
+  one (page.nav_key), so each page links to the other three surfaces + Home. Parallel arrays
+  keep it data-driven; descriptions are pipe-split with `~` because they contain commas.
+{% endcomment %}
+{% assign nc_keys   = "home,chronos,forge,portfolio,creator" | split: "," %}
+{% assign nc_paths  = "/,/chronos/,/forge/,/portfolio/,/creator/" | split: "," %}
+{% assign nc_logos  = "/assets/img/logos/Main_page/V0_3PO_LOGO-HEAD_WHITEFILL_SVG.svg,/assets/img/logos/Chronos/chronos_head_whitefill.svg,/assets/img/logos/Print_logo/forge_head.svg,/assets/img/logos/Portfolio/portfolio_head.svg,/assets/img/logos/Creator/Creator_head_svg.svg" | split: "," %}
+{% assign nc_titles = "Home,CHRONOS,FORGE,Portfolio,The Maker" | split: "," %}
+{% assign nc_ctas   = "Back to 3PO,Explore CHRONOS,The workshop,View the work,Meet the maker" | split: "," %}
+{% assign nc_descs  = "3PO — tools, prints and 3D art, by one maker.~A Cinema 4D plugin for non-destructive scene-variation management. One file, every version.~Large-format FDM printing, scanning and finishing — quoted first, then made.~Product films and motion graphics — the moving, rendered side of the same hands.~Rácz Bence László — technical artist, developer, maker. The person behind 3PO." | split: "~" %}
+{% assign cur = page.nav_key | default: "home" %}
+<section class="section elsewhere">
+  <div class="container">
+    <div class="section-head">
+      <p class="mono-label">Elsewhere at 3PO</p>
+      <h2>Find your way around.</h2>
+    </div>
+    <div class="nav-cards">
+      {% for k in nc_keys %}{% assign i = forloop.index0 %}{% unless k == cur %}
+      <a class="nav-card is-{{ k }}" href="{{ nc_paths[i] | relative_url }}">
+        <div class="nav-card__media"><div class="nav-card__bg"></div><img class="nav-card__logo" src="{{ nc_logos[i] | relative_url }}" alt="{{ nc_titles[i] }}"></div>
+        <div class="nav-card__body"><h3>{{ nc_titles[i] }}</h3><p>{{ nc_descs[i] }}</p><span class="nav-card__arrow">{{ nc_ctas[i] }} &rarr;</span></div>
+      </a>
+      {% endunless %}{% endfor %}
+    </div>
+  </div>
+</section>

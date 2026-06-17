@@ -17,7 +17,6 @@ permalink: /portfolio/
     <a href="#top" class="active">Overview</a>
     <a href="#work">Work</a>
     <a href="#about">About</a>
-    <a href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -125,4 +124,6 @@ permalink: /portfolio/
   .pf-about-portrait { align-self: center; justify-self: center; }
   .pf-about-portrait .creator-portrait { height: clamp(220px, 26vw, 300px); }
   @media (max-width: 760px) { .about-cols { grid-template-columns: 1fr !important; gap: 2rem !important; } .pf-about-portrait { justify-self: start; } .pf-about-portrait .creator-portrait { height: 200px; } }
+  /* land in-page anchors (Work / About) just under the docked header + sub-nav, not mid-section */
+  section[id] { scroll-margin-top: 130px; }
 </style>

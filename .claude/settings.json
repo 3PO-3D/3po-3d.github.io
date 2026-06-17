@@ -34,7 +34,8 @@
       "Bash(cp C:/Users/rbenc/.claude/projects/d--0--3D-Dev-1--PROJECTS-4--PLUGINS-CHRONOS-Site/ab81fada-7bbf-460c-8e44-e8727f796ea6/tool-results/design2/3po/project/assets/work-order.css d:/0._3D_Dev/1._PROJECTS/4._PLUGINS/CHRONOS_Site/assets/work-order.css)",
       "Bash(cp C:/Users/rbenc/.claude/projects/d--0--3D-Dev-1--PROJECTS-4--PLUGINS-CHRONOS-Site/ab81fada-7bbf-460c-8e44-e8727f796ea6/tool-results/design2/3po/project/assets/work-order.js d:/0._3D_Dev/1._PROJECTS/4._PLUGINS/CHRONOS_Site/assets/work-order.js)",
       "Bash(ruby -v)",
-      "Bash(RUBYOPT=\"-r/tmp/tainted_shim.rb\" bundle exec jekyll build)"
+      "Bash(RUBYOPT=\"-r/tmp/tainted_shim.rb\" bundle exec jekyll build)",
+      "Bash(grep -o '.\\\\{0,30\\\\}>Projects<.\\\\{0,15\\\\}' index.html)"
     ],
     "additionalDirectories": [
       "d:\\0._3D_Dev\\1._PROJECTS\\4._PLUGINS\\CHRONOS_Site\\.claude",
