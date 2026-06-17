@@ -26,7 +26,7 @@ permalink: /forge/products/
       <div class="ins-gallery" id="ins-gallery">
         <div class="ins-stage">
           <div class="ins-slide is-active" data-slide="0">
-            <iframe src="https://player.vimeo.com/video/1201719548?background=1&muted=1&autopause=0&app_id=58479" loading="lazy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Custom Orthopedic Insole animation"></iframe>
+            <iframe src="https://framerate.tv/embed/633e8764-2a5f-4581-a7d5-e24a4369dd6d?background=1" loading="lazy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Custom Orthopedic Insole animation"></iframe>
           </div>
           {% assign ibase = '/assets/img/products/insoles/' %}
           {% assign istills = 'Blue_2_2.1.2.png,Red_2.2.1_2.2.3.png,Black_2.2.2_2.2.6.png' | split: ',' %}

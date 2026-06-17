@@ -61,8 +61,8 @@ permalink: /portfolio/
             <p>{{ p.blurb }}</p>
             {% if p.variants %}{% for v in p.variants %}<p><strong>{{ v.name }}</strong> — {{ v.desc }}</p>{% endfor %}{% endif %}
           </div>
-          {% if p.vimeo %}<div class="pf-proj__video pf-banner__video"{% if p.vaspect %} style="aspect-ratio:{{ p.vaspect }}"{% endif %}>
-            <iframe data-vsrc="https://player.vimeo.com/video/{{ p.vimeo }}?dnt=1&app_id=58479" loading="lazy" frameborder="0" allow="fullscreen; picture-in-picture; clipboard-write" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe>
+          {% if p.framerate %}<div class="pf-proj__video pf-banner__video"{% if p.vaspect %} style="aspect-ratio:{{ p.vaspect }}"{% endif %}>
+            <iframe data-vsrc="https://framerate.tv/embed/{{ p.framerate }}?autoplay=1&loop=1&theme=minimal" loading="lazy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe>
           </div>{% endif %}
           <a class="pf-behance" href="{{ p.behance_url }}" target="_blank" rel="noopener"><img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="">View on Behance <span class="ext">&#8599;</span></a>
         </div></div></div>
