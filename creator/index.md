@@ -116,7 +116,6 @@ description: "Technical artist, developer, maker. Cinema 4D specialist, CHRONOS 
       <div class="hero-cta" style="margin:0;">
         <a href="mailto:3po@3po3d.com" class="btn btn-accent">Send an email</a>
         <a href="{{ '/assets/cv/V1._CV_(EN)_Bence_L._Racz_3DArtist.pdf' | relative_url }}" download class="btn btn-accent">3D Artist CV ↓</a>
-        <a href="{{ '/portfolio/' | relative_url }}" class="btn btn-accent">See my portfolio →</a>
       </div>
     </div>
   </div>
