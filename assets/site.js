@@ -134,7 +134,7 @@
     if (navLinks.length) {
       var ids = navLinks.map(function (a) { return a.getAttribute('href'); });
       window.addEventListener('scroll', function () {
-        var y = window.scrollY + 130, cur = ids[0];
+        var y = window.scrollY + 150, cur = ids[0];
         ids.forEach(function (id) {
           var el = id && id.length > 1 ? document.querySelector(id) : null;
           if (el && el.offsetTop <= y) cur = id;

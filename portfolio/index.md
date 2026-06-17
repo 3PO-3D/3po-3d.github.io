@@ -111,7 +111,6 @@ permalink: /portfolio/
       </div>
       <div class="hero-cta" style="margin:0;">
         <a href="mailto:3po@3po3d.com?subject=Project%20enquiry" class="btn btn-accent">Start a Project</a>
-        <a href="{{ '/creator/' | relative_url }}" class="btn btn-outline">CV &amp; Cover Letter →</a>
       </div>
     </div>
   </div>
