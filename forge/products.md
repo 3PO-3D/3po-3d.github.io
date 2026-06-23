@@ -235,22 +235,20 @@ permalink: /forge/products/
         <div class="kgm-n">5</div>
         <div class="kgm-body">
           <h3>Get the download link &amp; send it</h3>
-          <p>After upload you&rsquo;ll see a <strong>Processing</strong> notification — this takes a few minutes. Once the 3D model is ready, open it and tap <strong>Export</strong>.</p>
-          <p>On the Export screen, tap <strong>&ldquo;Can&rsquo;t receive emails?&rdquo;</strong> at the bottom. Under <strong>Option A</strong>, copy the download link (<code>kiriengine.app/share/d&hellip;</code>).</p>
+          <p>After upload you&rsquo;ll see a <strong>Processing</strong> notification — this takes a few minutes. Once the 3D model is ready, open it and tap <strong>Export</strong>. On the Export sheet, tap <strong>&ldquo;Can&rsquo;t receive emails?&rdquo;</strong> at the bottom.</p>
           <div class="kgm-img2">
             <img src="{{ '/assets/img/guides/kiri_instructions/6.jpg' | relative_url }}" loading="lazy" alt="Processing notification with foot scan thumbnails">
             <img src="{{ '/assets/img/guides/kiri_instructions/7.jpg' | relative_url }}" loading="lazy" alt="Completed 3D foot model with Export button">
           </div>
-          <div class="kgm-img2" style="margin-top:0.5rem;">
-            <img src="{{ '/assets/img/guides/kiri_instructions/8.jpg' | relative_url }}" loading="lazy" alt="Export screen — tap Can't receive emails">
-            <img src="{{ '/assets/img/guides/kiri_instructions/9.jpg' | relative_url }}" loading="lazy" alt="Option A: copy the kiriengine.app download link">
+          <div class="kgm-img1" style="max-width:100%;margin-top:0.5rem;">
+            <img src="{{ '/assets/img/guides/kiri_instructions/9.jpg' | relative_url }}" loading="lazy" alt="Option A: copy the kiriengine.app share download link — Option B: download via web app">
           </div>
-          <p style="margin-top:1rem;">Send the link to me in <strong>one of two ways only</strong> — any other method won&rsquo;t be connected to your order:</p>
+          <p style="margin-top:1rem;">You&rsquo;ll see two options. Pick whichever is easier:</p>
           <ul>
-            <li><strong>Reply to your order email</strong> — paste the <code>kiriengine.app/share/&hellip;</code> link in the reply</li>
-            <li><strong>Upload directly to Dropbox</strong> — use the private upload link in your order email</li>
+            <li><strong>Option A — send the link:</strong> copy the <code>kiriengine.app/share/d&hellip;</code> download link and <strong>paste it in a reply to your order email</strong>. I&rsquo;ll download the model from there.</li>
+            <li><strong>Option B — send the file:</strong> log in to <a href="https://www.kiriengine.app/webapp" target="_blank" rel="noopener" style="color:var(--accent);">kiriengine.app/webapp</a> on a computer, download the STL file, then <strong>upload it to the private Dropbox folder</strong> in your order email.</li>
           </ul>
-          <div class="kgm-note"><strong>Also include your EU shoe size</strong> if you haven&rsquo;t already — it speeds things up.</div>
+          <div class="kgm-note"><strong>Reply or Dropbox only</strong> — any other method won&rsquo;t be connected to your order. Also include your <strong>EU shoe size</strong> if you haven&rsquo;t already.</div>
         </div>
       </div>
 
