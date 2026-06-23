@@ -63,6 +63,7 @@ permalink: /forge/products/
 
             <h4>How ordering works</h4>
             <p>At checkout you pick the type and colour and can <strong>add a note</strong>. After you pay, I email you a <strong>private Dropbox link</strong> to upload your foot scan. <strong>Just reply to that email with anything you want tuned</strong> — more support under the arch, heel or toes; softer or firmer zones for how your weight sits. Almost anything is possible: that&rsquo;s the whole point of making them one pair at a time, for one person.</p>
+            <p><a href="#" class="kiri-guide-open" style="color:var(--accent);font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;">How to scan your foot &rarr;</a></p>
 
             <h4>Sizing &mdash; what I need</h4>
             <p>Your <strong>EU shoe size</strong>, plus two quick measurements (stand on a sheet of paper and mark them):</p>
@@ -153,13 +154,156 @@ permalink: /forge/products/
   @media (max-width: 600px) { .insole-buy-row { grid-template-columns: 1fr; } }
 </style>
 
+<!-- ─── Kiri Engine scan guide modal ─── -->
+<div id="kiri-guide-overlay" class="kgm-overlay" hidden>
+  <div class="kgm-box" role="dialog" aria-modal="true" aria-label="How to scan your foot">
+    <button class="kgm-close" aria-label="Close">&times;</button>
+    <div class="kgm-content">
+      <p class="mono-label" style="margin-bottom:0.5rem;">Insole scan guide</p>
+      <h2 style="font-size:1.6rem;margin:0 0 0.5rem;">How to scan your foot</h2>
+      <p style="color:var(--muted);line-height:1.65;margin-bottom:2rem;">Your insoles are shaped from a 3D scan of your foot. Scan it with <strong>Kiri Engine</strong> — free on your phone. Takes about 10 minutes.</p>
+
+      <div class="kgm-apps">
+        <a href="https://apps.apple.com/us/app/kiri-engine-3d-scanner-lidar/id1577127142" target="_blank" rel="noopener">App Store &rarr;</a>
+        <a href="https://play.google.com/store/search?q=kiri+engine&c=apps" target="_blank" rel="noopener">Google Play &rarr;</a>
+        <a href="https://www.kiriengine.app/webapp" target="_blank" rel="noopener">Web App &rarr;</a>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="kgm-step">
+        <div class="kgm-n">1</div>
+        <div class="kgm-body">
+          <h3>Set up</h3>
+          <p>Place a sheet of <strong>A4 paper flat on the floor</strong> and stand your bare foot on it. Keep your foot still and relaxed.</p>
+          <ul><li>Bare foot, flat and natural</li><li>Plain floor, decent light — no direct sunlight</li></ul>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="kgm-step">
+        <div class="kgm-n">2</div>
+        <div class="kgm-body">
+          <h3>Open Kiri Engine and start a scan</h3>
+          <ol><li>Tap <strong>+</strong> at the bottom of the home screen</li><li>Choose <strong>Photo Scan</strong></li><li>Tap <strong>Take Photos / Video</strong></li></ol>
+          <div class="kgm-img1">
+            <img src="{{ '/assets/img/guides/kiri_instructions/1..jpg' | relative_url }}" loading="lazy" alt="Kiri Engine home screen: Photo Scan, Take Photos / Video, Upload from Local">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="kgm-step">
+        <div class="kgm-n">3</div>
+        <div class="kgm-body">
+          <h3>Scan your foot</h3>
+          <p>The most important data is the <strong>arch and heel shape</strong> — get the camera as low as possible. Best technique: <strong>place your phone on the floor</strong> and slowly circle around your foot. This gives the clearest view of the arch.</p>
+          <ul>
+            <li>Aim for <strong>60–80 photos</strong>, or use <strong>video mode</strong> (often more accurate — both free)</li>
+            <li>Move slowly and steadily — blurry frames break the mesh</li>
+            <li>Keep your foot <strong>completely still</strong> during the scan</li>
+            <li>Avoid deep shadows; a lamp on the opposite side helps</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="kgm-step">
+        <div class="kgm-n">4</div>
+        <div class="kgm-body">
+          <h3>Set up &amp; upload</h3>
+          <p>When you finish shooting, the app opens the <strong>Edit</strong> screen. Set these options before uploading:</p>
+          <ul>
+            <li><strong>Name</strong> — enter any name so you can find the scan later</li>
+            <li><strong>Polygon Count</strong> — select <strong>High</strong></li>
+            <li><strong>Texture Resolution</strong> — select <strong>4K</strong></li>
+            <li><strong>File Format</strong> — select <strong>STL</strong></li>
+          </ul>
+          <p>Then tap <strong>Upload</strong>. Wait for the progress bar to complete and the <em>Upload Successful</em> confirmation to appear.</p>
+          <div class="kgm-img2">
+            <img src="{{ '/assets/img/guides/kiri_instructions/3.jpg' | relative_url }}" loading="lazy" alt="Edit screen: Name field and Upload button">
+            <img src="{{ '/assets/img/guides/kiri_instructions/2.jpg' | relative_url }}" loading="lazy" alt="Edit screen: High polygon, 4K texture, STL format selected">
+          </div>
+          <div class="kgm-img2" style="margin-top:0.5rem;">
+            <img src="{{ '/assets/img/guides/kiri_instructions/4.jpg' | relative_url }}" loading="lazy" alt="Uploading 100% progress screen">
+            <img src="{{ '/assets/img/guides/kiri_instructions/5.jpg' | relative_url }}" loading="lazy" alt="Upload Successful confirmation">
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="kgm-step">
+        <div class="kgm-n">5</div>
+        <div class="kgm-body">
+          <h3>Get the download link &amp; send it</h3>
+          <p>After upload you&rsquo;ll see a <strong>Processing</strong> notification — this takes a few minutes. Once the 3D model is ready, open it and tap <strong>Export</strong>.</p>
+          <p>On the Export screen, tap <strong>&ldquo;Can&rsquo;t receive emails?&rdquo;</strong> at the bottom. Under <strong>Option A</strong>, copy the download link (<code>kiriengine.app/share/d&hellip;</code>).</p>
+          <div class="kgm-img2">
+            <img src="{{ '/assets/img/guides/kiri_instructions/6.jpg' | relative_url }}" loading="lazy" alt="Processing notification with foot scan thumbnails">
+            <img src="{{ '/assets/img/guides/kiri_instructions/7.jpg' | relative_url }}" loading="lazy" alt="Completed 3D foot model with Export button">
+          </div>
+          <div class="kgm-img2" style="margin-top:0.5rem;">
+            <img src="{{ '/assets/img/guides/kiri_instructions/8.jpg' | relative_url }}" loading="lazy" alt="Export screen — tap Can't receive emails">
+            <img src="{{ '/assets/img/guides/kiri_instructions/9.jpg' | relative_url }}" loading="lazy" alt="Option A: copy the kiriengine.app download link">
+          </div>
+          <p style="margin-top:1rem;">Send the link to me in <strong>one of two ways only</strong> — any other method won&rsquo;t be connected to your order:</p>
+          <ul>
+            <li><strong>Reply to your order email</strong> — paste the <code>kiriengine.app/share/&hellip;</code> link in the reply</li>
+            <li><strong>Upload directly to Dropbox</strong> — use the private upload link in your order email</li>
+          </ul>
+          <div class="kgm-note"><strong>Also include your EU shoe size</strong> if you haven&rsquo;t already — it speeds things up.</div>
+        </div>
+      </div>
+
+      <hr style="border:none;border-top:var(--bw) solid var(--hairline);margin:2rem 0;">
+      <p style="color:var(--muted);font-size:0.88rem;line-height:1.7;"><strong style="color:var(--text);">That&rsquo;s it.</strong> I&rsquo;ll confirm receipt within 1 business day and let you know when your insoles are in the print queue.</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .kgm-overlay { position:fixed;inset:0;z-index:9000;background:rgba(0,0,0,.65);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:2rem 1rem 4rem; }
+  .kgm-box { position:relative;background:var(--bg);border:var(--bw) solid var(--text);border-radius:var(--radius);max-width:640px;width:100%;padding:2.5rem 2rem 2rem; }
+  .kgm-close { position:absolute;top:1rem;right:1rem;width:2rem;height:2rem;border:var(--bw) solid var(--text);border-radius:50%;background:transparent;color:var(--text);font-size:1.1rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center; }
+  .kgm-close:hover { background:var(--accent);color:#fff;border-color:var(--accent); }
+  .kgm-apps { display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.75rem; }
+  .kgm-apps a { font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);border:var(--bw) solid var(--accent);border-radius:var(--radius);padding:.35rem .7rem;text-decoration:none;transition:background .15s,color .15s; }
+  .kgm-apps a:hover { background:var(--accent);color:#fff; }
+  .kgm-step { display:grid;grid-template-columns:2.25rem 1fr;gap:0 1rem;margin-bottom:2rem;align-items:start; }
+  .kgm-n { width:2.25rem;height:2.25rem;border-radius:50%;background:var(--accent);color:#fff;font-family:var(--font-head);font-weight:700;font-size:.9rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem; }
+  .kgm-body h3 { font-size:1rem;margin:0 0 .45rem;line-height:1.3; }
+  .kgm-body p,.kgm-body li { color:var(--muted);line-height:1.65;font-size:.92rem; }
+  .kgm-body ul,.kgm-body ol { margin:.3rem 0 .6rem 1.1rem; }
+  .kgm-body strong { color:var(--text); }
+  .kgm-img1 { grid-column:1;margin-top:.75rem;border-radius:var(--radius);overflow:hidden;border:var(--bw) solid var(--hairline);max-width:240px; }
+  .kgm-img1 img { display:block;width:100%;height:auto; }
+  .kgm-img2 { display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin-top:.75rem; }
+  .kgm-img2 img { display:block;width:100%;height:auto;border-radius:var(--radius);border:var(--bw) solid var(--hairline); }
+  .kgm-note { background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:.7rem .9rem;color:var(--muted);font-size:.86rem;line-height:1.6;margin-top:.75rem; }
+  .kgm-note strong { color:var(--text); }
+  @media (max-width:500px) { .kgm-img2 { grid-template-columns:1fr; } .kgm-box { padding:2rem 1rem 1.5rem; } }
+</style>
+
 <script>
-  // Commerce hooks (placeholders until Stripe links are wired — see PREREQUISITES.md).
+  // Commerce hooks — Stripe links
   (function () {
     document.querySelectorAll('[data-stripe-link]').forEach(function (a) {
       var l = a.getAttribute('data-stripe-link');
       if (l) { a.setAttribute('href', l); a.setAttribute('target', '_blank'); a.setAttribute('rel', 'noopener'); }
     });
+  })();
+
+  // Kiri Engine scan guide modal
+  (function () {
+    var overlay = document.getElementById('kiri-guide-overlay');
+    if (!overlay) return;
+    function openModal() { overlay.removeAttribute('hidden'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { overlay.setAttribute('hidden', ''); document.body.style.overflow = ''; }
+    document.querySelectorAll('.kiri-guide-open').forEach(function (el) {
+      el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
+    });
+    overlay.querySelector('.kgm-close').addEventListener('click', closeModal);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
   })();
 
   // Insole gallery — step between the looping video and the 3 clean stills.
