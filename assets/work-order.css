@@ -215,12 +215,24 @@
 .of { --of-line: var(--bw) solid var(--text); }
 .of label, .of .of-legend { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.5rem; }
-.of input[type=text], .of input[type=email], .of input[type=number], .of select, .of textarea {
+.of input[type=text], .of input[type=email], .of input[type=number], .of input[type=date], .of select, .of textarea {
   font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
   background: var(--bg); border: var(--bw) solid var(--hairline); border-radius: var(--radius);
   padding: 0.7rem 0.9rem; width: 100%; transition: border-color .15s; }
 .of textarea { min-height: 96px; resize: vertical; }
 .of input:focus, .of select:focus, .of textarea:focus { outline: none; border-color: var(--accent); }
+
+/* date picker — match the rest of the form */
+.of input[type=date] { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: 0.03em;
+  color: var(--text); appearance: none; -webkit-appearance: none; cursor: pointer; }
+.of input[type=date]::-webkit-calendar-picker-indicator { cursor: pointer; opacity: 0.55;
+  transition: opacity .15s; }
+.of input[type=date]:hover::-webkit-calendar-picker-indicator,
+.of input[type=date]:focus::-webkit-calendar-picker-indicator { opacity: 1; }
+.of input[type=date]::-webkit-datetime-edit-day-field:focus,
+.of input[type=date]::-webkit-datetime-edit-month-field:focus,
+.of input[type=date]::-webkit-datetime-edit-year-field:focus {
+  background: var(--accent); color: #fff; border-radius: 3px; outline: none; }
 .of-field { margin-bottom: 1.1rem; }
 .of-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 @media (max-width: 560px) { .of-grid2 { grid-template-columns: 1fr; } }

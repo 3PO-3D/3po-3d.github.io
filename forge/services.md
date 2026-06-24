@@ -157,7 +157,7 @@ permalink: /forge/services/
     <form id="order-form" data-webhook="https://hook.eu1.make.com/u91iw4wqrdqdnjydmg2ttsi56y15c1a9" novalidate>
       <input type="hidden" name="_secret" value="forge3po">
       <input type="hidden" name="services" value="">
-      <div class="hp" aria-hidden="true"><label>Company<input type="text" name="company" tabindex="-1" autocomplete="off"></label></div>
+      <div class="hp" aria-hidden="true"><label for="of_hp_field">Leave this field empty</label><input type="text" id="of_hp_field" name="of_hp_field" tabindex="-1" autocomplete="off"></div>
       <div class="of-wrap of">
         <div class="of-formbody">
 
@@ -207,10 +207,10 @@ permalink: /forge/services/
             <div class="of-field"><label>Anything else? <span style="text-transform:none;letter-spacing:0;opacity:.7;">(the brief)</span></label><textarea name="brief" placeholder="What is it, what it's for, deadlines, references…"></textarea></div>
             <p class="of-note" style="margin:-0.4rem 0 1.1rem;">After you send this, I email you a private, secure folder to drop your STL / STEP / 3MF / scan into — no upload needed here.</p>
             <div class="of-grid2">
-              <div class="of-field"><label>Name</label><input type="text" name="name" placeholder="Your name"></div>
-              <div class="of-field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
+              <div class="of-field"><label for="of-name">Name</label><input type="text" id="of-name" name="name" placeholder="Your name" autocomplete="name"></div>
+              <div class="of-field"><label for="of-email">Email</label><input type="email" id="of-email" name="email" placeholder="you@email.com" autocomplete="email" required></div>
             </div>
-            <div class="of-field"><label>Deadline <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — earliest available is 7 days out)</span></label><input type="date" name="deadline" id="deadline-picker"></div>
+            <div class="of-field"><label for="deadline-picker">Deadline <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — earliest available is 7 days out)</span></label><input type="date" name="deadline" id="deadline-picker" autocomplete="off"></div>
             <div class="of-submit"><button class="btn btn-accent" type="button" data-of-submit>Send request</button><span class="of-note">No payment now — services are quoted first.</span></div>
           </div>
         </div>

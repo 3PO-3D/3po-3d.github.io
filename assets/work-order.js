@@ -238,7 +238,7 @@
         btn.addEventListener('click', function (e) {
           e.preventDefault();
           var wrap = btn.closest('.of-wrap');
-          var hp = ofWrap.querySelector('[name="company"]');
+          var hp = ofWrap.querySelector('[name="of_hp_field"]');
           if (hp && hp.value) return; // honeypot → bot
           // Compile the stacked (multi-select) services into one comma-separated field for Make.
           var svcs = Array.prototype.slice.call(ofWrap.querySelectorAll('[name="service"]:checked')).map(function (c) { return c.value; });
@@ -257,7 +257,7 @@
           } else {
             var lines = [];
             ofWrap.querySelectorAll('input, select, textarea').forEach(function (el) {
-              if (!el.name || el.name === 'company' || el.name.charAt(0) === '_') return;
+              if (!el.name || el.name === 'of_hp_field' || el.name.charAt(0) === '_') return;
               if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
               if (el.value) lines.push(el.name + ': ' + el.value);
             });
