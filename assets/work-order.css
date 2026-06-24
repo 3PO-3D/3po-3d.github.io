@@ -215,7 +215,7 @@
 .of { --of-line: var(--bw) solid var(--text); }
 .of label, .of .of-legend { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.14em;
   text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.5rem; }
-.of input[type=text], .of input[type=email], .of input[type=number], .of input[type=date], .of select, .of textarea {
+.of input[type=text], .of input[type=email], .of input[type=number], .of input[type=tel], .of input[type=date], .of select, .of textarea {
   font-family: var(--font-body); font-size: 0.95rem; color: var(--text);
   background: var(--bg); border: var(--bw) solid var(--hairline); border-radius: var(--radius);
   padding: 0.7rem 0.9rem; width: 100%; transition: border-color .15s; }

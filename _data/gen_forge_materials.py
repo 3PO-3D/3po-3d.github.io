@@ -34,6 +34,15 @@ def detect_colour(name):
         return " ".join(toks[last_type_idx + 1:])
     return " ".join(toks[-2:]) if len(toks) >= 2 else name
 
+# In-stock material names live in _data/instock.txt (one full SKU name per line).
+# Until the live Inventory sync exists, edit that file to mark what's on the shelf;
+# anything listed there renders highlighted and skips the "+1.5 weeks" note.
+instock = set()
+instock_path = os.path.join(ROOT, "_data", "instock.txt")
+if os.path.isfile(instock_path):
+    with open(instock_path, encoding="utf-8") as f:
+        instock = {ln.strip() for ln in f if ln.strip() and not ln.startswith("#")}
+
 items = []
 for folder in GROUPS:
     d = os.path.join(IMG_ROOT, folder)
@@ -50,6 +59,7 @@ for folder in GROUPS:
             "name": name,                            # full SKU name (used for the inventory relation)
             "colour": detect_colour(name),           # short colour label
             "img": "/assets/img/materials/%s/%s" % (folder, fn),
+            "in_stock": name in instock,             # highlight + skip lead-time note when true
         })
 
 out = os.path.join(ROOT, "_data", "forge_materials.json")

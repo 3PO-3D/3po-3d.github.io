@@ -18,9 +18,12 @@ permalink: /forge/services/
   .mat-search { width:100%; margin-bottom:0.7rem; font-family:var(--font-body); font-size:0.9rem; padding:0.5rem 0.7rem; border:var(--bw) solid var(--hairline); border-radius:var(--radius); background:var(--bg); color:var(--text); }
   .mat-search:focus { outline:none; border-color:var(--accent); }
   .mat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(84px,1fr)); gap:0.5rem; max-height:320px; overflow-y:auto; }
-  .mat-swatch { display:flex; flex-direction:column; align-items:center; gap:0.25rem; padding:0.35rem; border:var(--bw) solid var(--hairline); border-radius:var(--radius); background:var(--bg); cursor:pointer; transition:border-color .15s,transform .1s; }
+  .mat-swatch { position:relative; display:flex; flex-direction:column; align-items:center; gap:0.25rem; padding:0.35rem; border:var(--bw) solid var(--hairline); border-radius:var(--radius); background:transparent; cursor:pointer; transition:border-color .15s,transform .1s; }
   .mat-swatch:hover { border-color:var(--accent); transform:translateY(-1px); }
   .mat-swatch.is-active { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent); }
+  /* in-stock = highlighted (white card + green dot); out-of-stock stays plain */
+  .mat-swatch.in-stock { background:#fff; border-color:var(--text); }
+  .mat-swatch.in-stock::after { content:''; position:absolute; top:5px; right:5px; width:7px; height:7px; border-radius:50%; background:#3aaa5e; box-shadow:0 0 0 2px #fff; }
   .mat-swatch img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:calc(var(--radius) - 2px); background:var(--surface-2); }
   .mat-swatch__c { font-size:0.62rem; line-height:1.2; color:var(--muted); text-align:center; }
   .mat-selected { display:flex; align-items:center; gap:0.6rem; font-size:0.88rem; color:var(--text); }
@@ -213,7 +216,7 @@ permalink: /forge/services/
               <div class="mat-picker" id="mat-picker" hidden>
                 <input type="text" class="mat-search" id="mat-search" placeholder="Filter colours…" autocomplete="off">
                 <div class="mat-grid" id="mat-grid">
-                  {% for m in site.data.forge_materials %}<button type="button" class="mat-swatch" data-group="{{ m.group }}" data-type="{{ m.type }}" data-name="{{ m.name | escape }}" data-colour="{{ m.colour | escape }}" title="{{ m.name | escape }}"><img src="{{ m.img | relative_url }}" loading="lazy" alt="{{ m.name | escape }}"><span class="mat-swatch__c">{{ m.colour | escape }}</span></button>{% endfor %}
+                  {% for m in site.data.forge_materials %}<button type="button" class="mat-swatch{% if m.in_stock %} in-stock{% endif %}" data-group="{{ m.group }}" data-type="{{ m.type }}" data-name="{{ m.name | escape }}" data-colour="{{ m.colour | escape }}" data-instock="{% if m.in_stock %}1{% else %}0{% endif %}" title="{{ m.name | escape }}"><img src="{{ m.img | relative_url }}" loading="lazy" alt="{{ m.name | escape }}"><span class="mat-swatch__c">{{ m.colour | escape }}</span></button>{% endfor %}
                 </div>
               </div>
               <div class="mat-selected" id="mat-selected" hidden><span>Selected: <strong id="mat-selected-name"></strong></span><button type="button" class="mat-clear" id="mat-clear">change</button></div>
@@ -251,10 +254,22 @@ permalink: /forge/services/
               <div class="of-field"><label for="of-email">Email</label><input type="email" id="of-email" name="email" placeholder="you@email.com" autocomplete="email" required></div>
             </div>
             <div class="of-grid2">
-              <div class="of-field"><label for="of-phone">Phone <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="tel" id="of-phone" name="phone" placeholder="+36 …" autocomplete="tel"></div>
+              <div class="of-field"><label for="of-phone">Phone <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="tel" id="of-phone" name="phone" placeholder="Phone number" autocomplete="tel"></div>
               <div class="of-field"><label for="deadline-picker">Deadline <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — 7 days out min)</span></label><input type="date" name="deadline" id="deadline-picker" autocomplete="off"></div>
             </div>
-            <div class="of-field"><label for="of-ship">Shipping address <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — for posted orders)</span></label><textarea id="of-ship" name="shipping_address" placeholder="Name, street, city, postcode, country" autocomplete="street-address"></textarea></div>
+            <div class="of-field" style="margin-bottom:0.5rem;"><span class="of-legend">Shipping address <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — for posted orders)</span></span></div>
+            <div class="of-grid2">
+              <div class="of-field"><label for="ship-country">Country</label><input type="text" id="ship-country" name="ship_country" autocomplete="country-name"></div>
+              <div class="of-field"><label for="ship-postcode">Postcode</label><input type="text" id="ship-postcode" name="ship_postcode" autocomplete="postal-code"></div>
+            </div>
+            <div class="of-grid2">
+              <div class="of-field"><label for="ship-city">City</label><input type="text" id="ship-city" name="ship_city" autocomplete="address-level2"></div>
+              <div class="of-field"><label for="ship-street">Street</label><input type="text" id="ship-street" name="ship_street" autocomplete="address-line1"></div>
+            </div>
+            <div class="of-grid2">
+              <div class="of-field"><label for="ship-number">House / door no.</label><input type="text" id="ship-number" name="ship_number"></div>
+              <div class="of-field"><label for="ship-unit">Apartment, floor, building <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="text" id="ship-unit" name="ship_unit" autocomplete="address-line2"></div>
+            </div>
             <div class="of-submit"><button class="btn btn-accent" type="button" data-of-submit>Send request</button><span class="of-note">No payment now — services are quoted first.</span></div>
           </div>
         </div>
@@ -393,12 +408,19 @@ permalink: /forge/services/
       s.addEventListener('click', function () {
         swatches.forEach(function (x) { x.classList.remove('is-active'); });
         s.classList.add('is-active');
+        var nm = s.getAttribute('data-name');
         fType.value = s.getAttribute('data-type');
-        fName.value = s.getAttribute('data-name');
+        fName.value = nm;
         fColour.value = s.getAttribute('data-colour');
-        selName.textContent = s.getAttribute('data-name');
+        selName.textContent = nm;
         selBox.hidden = false;
-        leadnote.hidden = false;
+        // lead-time note only when the chosen colour is NOT in stock
+        if (s.getAttribute('data-instock') === '1') {
+          leadnote.hidden = true;
+        } else {
+          leadnote.innerHTML = '<strong>' + nm + '</strong> is made to order — if it&rsquo;s not already on the shelf I order it in, which adds about <strong>1.5 weeks</strong> on top of the usual turnaround. Choose <em>Recommend for me</em> for the fastest result.';
+          leadnote.hidden = false;
+        }
         picker.hidden = true;
       });
     });

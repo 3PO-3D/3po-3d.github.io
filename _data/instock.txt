@@ -1,0 +1,6 @@
+# In-stock filament SKUs — one full name per line (exactly as in the Inventory DB / swatch name).
+# Anything listed here renders highlighted (white + green dot) and skips the "+1.5 weeks" note.
+# Currently empty: no filament is in stock, so every colour is treated as made-to-order.
+# Example:
+# Polymaker PolyTerra PLA Lava Red
+# Nobufil PETG Lime Green

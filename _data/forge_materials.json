@@ -4,1924 +4,2199 @@
 "type": "PLA",
 "name": "3DJAKE ecoPLA Black",
 "colour": "Black",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Black.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Brown",
 "colour": "Brown",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Brown.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Brown.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA CF Black",
 "colour": "CF Black",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_CF_Black.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_CF_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Dark Blue",
 "colour": "Dark Blue",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Dark_Blue.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Dark Green",
 "colour": "Dark Green",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Dark_Green.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Dark_Green.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Light Green",
 "colour": "Light Green",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Light_Green.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Light_Green.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Light Grey",
 "colour": "Light Grey",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Light_Grey.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Light_Grey.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Marble",
 "colour": "Marble",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Marble.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Marble.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Neon Green",
 "colour": "Neon Green",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Neon_Green.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Neon_Green.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Neon Orange",
 "colour": "Neon Orange",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Neon_Orange.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Neon_Orange.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Neon Yellow",
 "colour": "Neon Yellow",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Neon_Yellow.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Neon_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Orange",
 "colour": "Orange",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Orange.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Orange.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Pastel Blue",
 "colour": "Pastel Blue",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Pastel_Blue.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Pastel_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Pastel Pink",
 "colour": "Pastel Pink",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Pastel_Pink.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Pastel_Pink.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Pink",
 "colour": "Pink",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Pink.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Pink.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Purple",
 "colour": "Purple",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Purple.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Purple.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Red",
 "colour": "Red",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Red.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Red.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Silk Copper",
 "colour": "Silk Copper",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Silk_Copper.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Silk_Copper.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Silk Rainbow Candyshop",
 "colour": "Silk Rainbow Candyshop",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Silk_Rainbow_Candyshop.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Silk_Rainbow_Candyshop.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Sky Blue",
 "colour": "Sky Blue",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Sky_Blue.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Sky_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Sparkling Blue",
 "colour": "Sparkling Blue",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Sparkling_Blue.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Sparkling_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Transparent",
 "colour": "Transparent",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Transparent.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Transparent.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA White",
 "colour": "White",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_White.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_White.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA White & Black Economy Set",
 "colour": "White & Black Economy Set",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_White_&_Black_Economy_Set.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_White_&_Black_Economy_Set.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE ecoPLA Yellow",
 "colour": "Yellow",
-"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Yellow.png"
+"img": "/assets/img/materials/PLA/3DJAKE_ecoPLA_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE magicPLA Golden Alloy",
 "colour": "Golden Alloy",
-"img": "/assets/img/materials/PLA/3DJAKE_magicPLA_Golden_Alloy.png"
+"img": "/assets/img/materials/PLA/3DJAKE_magicPLA_Golden_Alloy.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE mattePLA Black",
 "colour": "Black",
-"img": "/assets/img/materials/PLA/3DJAKE_mattePLA_Black.png"
+"img": "/assets/img/materials/PLA/3DJAKE_mattePLA_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE mattePLA Dark Blue",
 "colour": "Dark Blue",
-"img": "/assets/img/materials/PLA/3DJAKE_mattePLA_Dark_Blue.png"
+"img": "/assets/img/materials/PLA/3DJAKE_mattePLA_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE mattePLA Light Grey",
 "colour": "Light Grey",
-"img": "/assets/img/materials/PLA/3DJAKE_mattePLA_Light_Grey.png"
+"img": "/assets/img/materials/PLA/3DJAKE_mattePLA_Light_Grey.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE mysteryPLA Berry Popsicle",
 "colour": "Berry Popsicle",
-"img": "/assets/img/materials/PLA/3DJAKE_mysteryPLA_Berry_Popsicle.png"
+"img": "/assets/img/materials/PLA/3DJAKE_mysteryPLA_Berry_Popsicle.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "3DJAKE mysteryPLA Epic Thunderstorm",
 "colour": "Epic Thunderstorm",
-"img": "/assets/img/materials/PLA/3DJAKE_mysteryPLA_Epic_Thunderstorm.png"
+"img": "/assets/img/materials/PLA/3DJAKE_mysteryPLA_Epic_Thunderstorm.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Nobufil PLAx Matt Artist Grey",
 "colour": "Matt Artist Grey",
-"img": "/assets/img/materials/PLA/Nobufil_PLAx_Matt_Artist_Grey.png"
+"img": "/assets/img/materials/PLA/Nobufil_PLAx_Matt_Artist_Grey.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Nobufil PLAx Matt Black",
 "colour": "Matt Black",
-"img": "/assets/img/materials/PLA/Nobufil_PLAx_Matt_Black.png"
+"img": "/assets/img/materials/PLA/Nobufil_PLAx_Matt_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Nobufil PLAx Matt White",
 "colour": "Matt White",
-"img": "/assets/img/materials/PLA/Nobufil_PLAx_Matt_White.png"
+"img": "/assets/img/materials/PLA/Nobufil_PLAx_Matt_White.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker HT-PLA-GF Black",
 "colour": "Black",
-"img": "/assets/img/materials/PLA/Polymaker_HT-PLA-GF_Black.png"
+"img": "/assets/img/materials/PLA/Polymaker_HT-PLA-GF_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker HT-PLA-GF Power Tool Green",
 "colour": "Power Tool Green",
-"img": "/assets/img/materials/PLA/Polymaker_HT-PLA-GF_Power_Tool_Green.png"
+"img": "/assets/img/materials/PLA/Polymaker_HT-PLA-GF_Power_Tool_Green.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Black",
 "colour": "Black",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Black.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Cream",
 "colour": "Cream",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Cream.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Cream.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Gradient Satin Rainbow",
 "colour": "Gradient Satin Rainbow",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Gradient_Satin_Rainbow.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Gradient_Satin_Rainbow.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Green",
 "colour": "Green",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Green.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Green.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Luminous Orange",
 "colour": "Luminous Orange",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Luminous_Orange.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Luminous_Orange.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Marble White",
 "colour": "Marble White",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Marble_White.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Marble_White.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Army Beige",
 "colour": "Matte Army Beige",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Army_Beige.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Army_Beige.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Army Blue",
 "colour": "Matte Army Blue",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Army_Blue.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Army_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Charcoal Black",
 "colour": "Matte Charcoal Black",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Charcoal_Black.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Charcoal_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Cotton White",
 "colour": "Matte Cotton White",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Cotton_White.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Cotton_White.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Lavender Purple",
 "colour": "Matte Lavender Purple",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Lavender_Purple.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Lavender_Purple.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Muted White",
 "colour": "Matte Muted White",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Muted_White.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Muted_White.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Pastel Banana",
 "colour": "Matte Pastel Banana",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Banana.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Banana.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Pastel Ice",
 "colour": "Matte Pastel Ice",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Ice.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Ice.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Pastel Mint",
 "colour": "Matte Pastel Mint",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Mint.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Mint.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Pastel Peach",
 "colour": "Matte Pastel Peach",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Peach.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Peach.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Pastel Peanut",
 "colour": "Matte Pastel Peanut",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Peanut.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Pastel_Peanut.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Sakura Pink",
 "colour": "Matte Sakura Pink",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Sakura_Pink.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Sakura_Pink.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Sky Blue",
 "colour": "Matte Sky Blue",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Sky_Blue.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Sky_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Matte Wood Brown",
 "colour": "Matte Wood Brown",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Wood_Brown.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Matte_Wood_Brown.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Red",
 "colour": "Red",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Red.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Red.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Satin White",
 "colour": "Satin White",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Satin_White.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Satin_White.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA Steel Grey",
 "colour": "Steel Grey",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Steel_Grey.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_Steel_Grey.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker Panchroma™ PLA White",
 "colour": "White",
-"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_White.png"
+"img": "/assets/img/materials/PLA/Polymaker_Panchroma™_PLA_White.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite Luminous PLA Rainbow",
 "colour": "Rainbow",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_Luminous_PLA_Rainbow.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_Luminous_PLA_Rainbow.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA-CF Black",
 "colour": "Black",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA-CF_Black.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA-CF_Black.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA - Grey",
 "colour": "- Grey",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_-_Grey.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_-_Grey.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA - White",
 "colour": "- White",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_-_White.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_-_White.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA Galaxy Dark Blue",
 "colour": "Galaxy Dark Blue",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Galaxy_Dark_Blue.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Galaxy_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA Galaxy Dark Red",
 "colour": "Galaxy Dark Red",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Galaxy_Dark_Red.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Galaxy_Dark_Red.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA PRO Army Beige",
 "colour": "PRO Army Beige",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_PRO_Army_Beige.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_PRO_Army_Beige.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA PRO Orange",
 "colour": "PRO Orange",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_PRO_Orange.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_PRO_Orange.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA Starlight Comet",
 "colour": "Starlight Comet",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Starlight_Comet.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Starlight_Comet.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyLite PLA Starlight Neptune",
 "colour": "Starlight Neptune",
-"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Starlight_Neptune.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyLite_PLA_Starlight_Neptune.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra Gradient PLA Pastel Rainbow",
 "colour": "Pastel Rainbow",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_Gradient_PLA_Pastel_Rainbow.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_Gradient_PLA_Pastel_Rainbow.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Arctic Teal",
 "colour": "Arctic Teal",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Arctic_Teal.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Arctic_Teal.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Candy",
 "colour": "Candy",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Candy.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Candy.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Charcoal Black",
 "colour": "Charcoal Black",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Charcoal_Black.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Charcoal_Black.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Cotton White",
 "colour": "Cotton White",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Cotton_White.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Cotton_White.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Dual Mixed Berries Red-Dark Blue",
 "colour": "Dual Mixed Berries Red-Dark Blue",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Dual_Mixed_Berries_Red-Dark_Blue.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Dual_Mixed_Berries_Red-Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Dual Shadow Orange Orange-Black",
 "colour": "Dual Shadow Orange Orange-Black",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Dual_Shadow_Orange_Orange-Black.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Dual_Shadow_Orange_Orange-Black.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Earth Brown",
 "colour": "Earth Brown",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Earth_Brown.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Earth_Brown.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Forest Green",
 "colour": "Forest Green",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Forest_Green.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Forest_Green.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Fossil Grey",
 "colour": "Fossil Grey",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Fossil_Grey.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Fossil_Grey.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Lava Red",
 "colour": "Lava Red",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Lava_Red.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Lava_Red.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Lavender Purple",
 "colour": "Lavender Purple",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Lavender_Purple.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Lavender_Purple.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Peanut",
 "colour": "Peanut",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Peanut.jpg"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Peanut.jpg",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Sapphire Blue",
 "colour": "Sapphire Blue",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Sapphire_Blue.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Sapphire_Blue.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Savannah Yellow",
 "colour": "Savannah Yellow",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Savannah_Yellow.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Savannah_Yellow.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Sunrise Orange",
 "colour": "Sunrise Orange",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Sunrise_Orange.webp"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Sunrise_Orange.webp",
+"in_stock": false
 },
 {
 "group": "PLA",
 "type": "PLA",
 "name": "Polymaker PolyTerra PLA Wood Brown",
 "colour": "Wood Brown",
-"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Wood_Brown.png"
+"img": "/assets/img/materials/PLA/Polymaker_PolyTerra_PLA_Wood_Brown.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Black",
 "colour": "Black",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Black.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Bronze",
 "colour": "Bronze",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Bronze.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Bronze.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Brown",
 "colour": "Brown",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Brown.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Brown.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG CF Black",
 "colour": "CF Black",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_CF_Black.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_CF_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG CF Dark Blue",
 "colour": "CF Dark Blue",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_CF_Dark_Blue.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_CF_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG CF Red",
 "colour": "CF Red",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_CF_Red.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_CF_Red.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Dark Blue",
 "colour": "Dark Blue",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Dark_Blue.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Dark Grey",
 "colour": "Dark Grey",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Dark_Grey.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Dark_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Glow",
 "colour": "Glow",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Glow.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Glow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Light Grey",
 "colour": "Light Grey",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Light_Grey.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Light_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Bronze",
 "colour": "Matte Bronze",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Bronze.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Bronze.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Brown",
 "colour": "Matte Brown",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Brown.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Brown.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Dark Blue",
 "colour": "Matte Dark Blue",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Dark_Blue.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Dark Green",
 "colour": "Matte Dark Green",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Dark_Green.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Dark_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Dark Grey",
 "colour": "Matte Dark Grey",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Dark_Grey.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Dark_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Light Green",
 "colour": "Matte Light Green",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Light_Green.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Light_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Light Grey",
 "colour": "Matte Light Grey",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Light_Grey.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Light_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Neon Green",
 "colour": "Matte Neon Green",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Neon_Green.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Neon_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Neon Orange",
 "colour": "Matte Neon Orange",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Neon_Orange.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Neon_Orange.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Neon Yellow",
 "colour": "Matte Neon Yellow",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Neon_Yellow.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Neon_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Pastel Blue",
 "colour": "Matte Pastel Blue",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Pastel_Blue.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Pastel_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Pastel Green",
 "colour": "Matte Pastel Green",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Pastel_Green.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Pastel_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Purple",
 "colour": "Matte Purple",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Purple.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Purple.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Sky Blue",
 "colour": "Matte Sky Blue",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Sky_Blue.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Sky_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Matte Yellow",
 "colour": "Matte Yellow",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Yellow.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Matte_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Neon Green",
 "colour": "Neon Green",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Neon_Green.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Neon_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Neon Orange",
 "colour": "Neon Orange",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Neon_Orange.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Neon_Orange.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Neon Yellow",
 "colour": "Neon Yellow",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Neon_Yellow.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Neon_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Orange",
 "colour": "Orange",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Orange.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Orange.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Pastel Blue",
 "colour": "Pastel Blue",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Pastel_Blue.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Pastel_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Transparent",
 "colour": "Transparent",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Transparent.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Transparent.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Transparent Green",
 "colour": "Transparent Green",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Transparent_Green.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Transparent_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG White",
 "colour": "White",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_White.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_White.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG White and Black Economy Set",
 "colour": "White and Black Economy Set",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_White_and_Black_Economy_Set.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_White_and_Black_Economy_Set.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "3DJAKE easyPETG Yellow",
 "colour": "Yellow",
-"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Yellow.png"
+"img": "/assets/img/materials/PETG/3DJAKE_easyPETG_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Aluminium Grey",
 "colour": "Aluminium Grey",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Aluminium_Grey.png"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Aluminium_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Astro Black",
 "colour": "Astro Black",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Astro_Black.png"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Astro_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Astro Grey",
 "colour": "Astro Grey",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Astro_Grey.png"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Astro_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Black",
 "colour": "Black",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Black.png"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Candy Green",
 "colour": "Candy Green",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Candy_Green.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Candy_Green.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Candy Red",
 "colour": "Candy Red",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Candy_Red.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Candy_Red.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Industrial Blue",
 "colour": "Industrial Blue",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Blue.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Blue.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Industrial Dark Grey",
 "colour": "Industrial Dark Grey",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Dark_Grey.png"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Dark_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Industrial Light Green",
 "colour": "Industrial Light Green",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Light_Green.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Light_Green.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Industrial Orange",
 "colour": "Industrial Orange",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Orange.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Orange.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Industrial Red",
 "colour": "Industrial Red",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Red.png"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Red.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Industrial Teal",
 "colour": "Industrial Teal",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Teal.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Teal.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Industrial Turquoise",
 "colour": "Industrial Turquoise",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Turquoise.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Industrial_Turquoise.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Lime Green",
 "colour": "Lime Green",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Lime_Green.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Lime_Green.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Neon Orange",
 "colour": "Neon Orange",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Neon_Orange.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Neon_Orange.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Neon Yellow",
 "colour": "Neon Yellow",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Neon_Yellow.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Neon_Yellow.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG Stainless Steel",
 "colour": "Stainless Steel",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_Stainless_Steel.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_Stainless_Steel.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PCTG White",
 "colour": "White",
-"img": "/assets/img/materials/PETG/Nobufil_PCTG_White.png"
+"img": "/assets/img/materials/PETG/Nobufil_PCTG_White.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Aluminium Grey",
 "colour": "Aluminium Grey",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Aluminium_Grey.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Aluminium_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Astro Black",
 "colour": "Astro Black",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Astro_Black.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Astro_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Black",
 "colour": "Black",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Black.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Bright Magenta",
 "colour": "Bright Magenta",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Bright_Magenta.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Bright_Magenta.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG CF Dark Blue",
 "colour": "CF Dark Blue",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_CF_Dark_Blue.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_CF_Dark_Blue.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG CF Dark Grey",
 "colour": "CF Dark Grey",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_CF_Dark_Grey.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_CF_Dark_Grey.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Amber",
 "colour": "Candy Amber",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Amber.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Amber.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Amethyst",
 "colour": "Candy Amethyst",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Amethyst.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Amethyst.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Blue",
 "colour": "Candy Blue",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Blue.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Blue.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Green",
 "colour": "Candy Green",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Green.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Green.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Ice Blue",
 "colour": "Candy Ice Blue",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Ice_Blue.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Ice_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Red",
 "colour": "Candy Red",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Red.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Red.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Rosé",
 "colour": "Candy Rosé",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Rosé.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Rosé.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Candy Smoke Grey",
 "colour": "Candy Smoke Grey",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Smoke_Grey.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Candy_Smoke_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Dark Purple",
 "colour": "Dark Purple",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Dark_Purple.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Dark_Purple.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG GF Industrial Teal",
 "colour": "GF Industrial Teal",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_GF_Industrial_Teal.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_GF_Industrial_Teal.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG GF Industrial Turquoise",
 "colour": "GF Industrial Turquoise",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_GF_Industrial_Turquoise.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_GF_Industrial_Turquoise.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG GF Lime Green",
 "colour": "GF Lime Green",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_GF_Lime_Green.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_GF_Lime_Green.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Glow in the Dark Blue",
 "colour": "Glow in the Dark Blue",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Glow_in_the_Dark_Blue.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Glow_in_the_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Glow in the Dark Green",
 "colour": "Glow in the Dark Green",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Glow_in_the_Dark_Green.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Glow_in_the_Dark_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Industrial Beige",
 "colour": "Industrial Beige",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Beige.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Beige.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Industrial Blue",
 "colour": "Industrial Blue",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Blue.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Industrial Brown",
 "colour": "Industrial Brown",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Brown.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Brown.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Industrial Orange",
 "colour": "Industrial Orange",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Orange.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Orange.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Industrial Teal",
 "colour": "Industrial Teal",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Teal.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Teal.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Industrial Turquoise",
 "colour": "Industrial Turquoise",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Turquoise.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Industrial_Turquoise.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Lime Green",
 "colour": "Lime Green",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Lime_Green.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Lime_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Marble White",
 "colour": "Marble White",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Marble_White.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Marble_White.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Matt Classic Grey",
 "colour": "Matt Classic Grey",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Classic_Grey.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Classic_Grey.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Matt Industrial Blue",
 "colour": "Matt Industrial Blue",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Blue.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Blue.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Matt Industrial Light Green",
 "colour": "Matt Industrial Light Green",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Light_Green.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Light_Green.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Matt Industrial Petrol",
 "colour": "Matt Industrial Petrol",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Petrol.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Petrol.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Matt Industrial Red",
 "colour": "Matt Industrial Red",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Red.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Industrial_Red.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Matt Safety Yellow",
 "colour": "Matt Safety Yellow",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Safety_Yellow.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Matt_Safety_Yellow.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Neon Pink",
 "colour": "Neon Pink",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Neon_Pink.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Neon_Pink.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Neon Yellow",
 "colour": "Neon Yellow",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Neon_Yellow.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Neon_Yellow.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Pearl White",
 "colour": "Pearl White",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Pearl_White.jpg"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Pearl_White.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Stainless Steel",
 "colour": "Stainless Steel",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Stainless_Steel.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Stainless_Steel.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG White",
 "colour": "White",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_White.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_White.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG Yellow",
 "colour": "Yellow",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_Yellow.webp"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_Yellow.webp",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Nobufil PETG clear",
 "colour": "clear",
-"img": "/assets/img/materials/PETG/Nobufil_PETG_clear.png"
+"img": "/assets/img/materials/PETG/Nobufil_PETG_clear.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker Fiberon PET-CF17 Black",
 "colour": "PET-CF17 Black",
-"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-CF17_Black.png"
+"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-CF17_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker Fiberon PET-GF15 Black",
 "colour": "PET-GF15 Black",
-"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Black.png"
+"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker Fiberon PET-GF15 Blue",
 "colour": "PET-GF15 Blue",
-"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Blue.png"
+"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker Fiberon PET-GF15 Dark Grey",
 "colour": "Dark Grey",
-"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Dark_Grey.png"
+"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Dark_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker Fiberon PET-GF15 Light Grey",
 "colour": "Light Grey",
-"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Light_Grey.png"
+"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Light_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker Fiberon PET-GF15 Red",
 "colour": "PET-GF15 Red",
-"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Red.png"
+"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_Red.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker Fiberon PET-GF15 White",
 "colour": "PET-GF15 White",
-"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_White.png"
+"img": "/assets/img/materials/PETG/Polymaker_Fiberon_PET-GF15_White.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Black",
 "colour": "Black",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Black.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Blue",
 "colour": "Blue",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Blue.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Dark Blue",
 "colour": "Dark Blue",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Dark_Blue.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Dark_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Dark Green",
 "colour": "Dark Green",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Dark_Green.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Dark_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Dark Purple",
 "colour": "Dark Purple",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Dark_Purple.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Dark_Purple.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Green",
 "colour": "Green",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Green.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Grey",
 "colour": "Grey",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Grey.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Lime",
 "colour": "Lime",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Lime.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Lime.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Magenta",
 "colour": "Magenta",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Magenta.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Magenta.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Orange",
 "colour": "Orange",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Orange.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Orange.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Pink",
 "colour": "Pink",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Pink.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Pink.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Purple",
 "colour": "Purple",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Purple.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Purple.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Red",
 "colour": "Red",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Red.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Red.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Silver",
 "colour": "Silver",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Silver.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Silver.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG Teal",
 "colour": "Teal",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_Teal.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_Teal.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PETG White",
 "colour": "White",
-"img": "/assets/img/materials/PETG/Polymaker_PETG_White.png"
+"img": "/assets/img/materials/PETG/Polymaker_PETG_White.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PolyLite PETG Dark Green",
 "colour": "Dark Green",
-"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Dark_Green.png"
+"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Dark_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PolyLite PETG Electric Blue",
 "colour": "Electric Blue",
-"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Electric_Blue.png"
+"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Electric_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PolyLite PETG Grey",
 "colour": "Grey",
-"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Grey.jpg"
+"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Grey.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PolyLite PETG Translucent Blue",
 "colour": "Translucent Blue",
-"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Translucent_Blue.png"
+"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Translucent_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PolyLite PETG Translucent Green",
 "colour": "Translucent Green",
-"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Translucent_Green.png"
+"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Translucent_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "Polymaker PolyLite PETG Turquoise",
 "colour": "Turquoise",
-"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Turquoise.jpg"
+"img": "/assets/img/materials/PETG/Polymaker_PolyLite_PETG_Turquoise.jpg",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU High-Speed Matte PETG Black",
 "colour": "Black",
-"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Black.png"
+"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU High-Speed Matte PETG Blue",
 "colour": "Blue",
-"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Blue.png"
+"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU High-Speed Matte PETG Grey",
 "colour": "Grey",
-"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Grey.png"
+"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU High-Speed Matte PETG Yellow",
 "colour": "Yellow",
-"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Yellow.png"
+"img": "/assets/img/materials/PETG/SUNLU_High-Speed_Matte_PETG_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Beige",
 "colour": "Beige",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Beige.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Beige.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Black",
 "colour": "Black",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Black.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Carbon Fiber Black",
 "colour": "Carbon Fiber Black",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Carbon_Fiber_Black.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Carbon_Fiber_Black.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Ceramic",
 "colour": "Ceramic",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Ceramic.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Ceramic.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Cherry Red",
 "colour": "Cherry Red",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Cherry_Red.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Cherry_Red.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Coffee Brown",
 "colour": "Coffee Brown",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Coffee_Brown.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Coffee_Brown.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Glow In The Dark - Red",
 "colour": "Glow In The Dark - Red",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Glow_In_The_Dark_-_Red.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Glow_In_The_Dark_-_Red.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Grey",
 "colour": "Grey",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Grey.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Grey.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Klein Blue",
 "colour": "Klein Blue",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Klein_Blue.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Klein_Blue.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Lemon Yellow",
 "colour": "Lemon Yellow",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Lemon_Yellow.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Lemon_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Olive Green",
 "colour": "Olive Green",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Olive_Green.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Olive_Green.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Red",
 "colour": "Red",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Red.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Red.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Roasted Chestnut",
 "colour": "Roasted Chestnut",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Roasted_Chestnut.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Roasted_Chestnut.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Sakura Pink",
 "colour": "Sakura Pink",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Sakura_Pink.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Sakura_Pink.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Sunny Orange",
 "colour": "Sunny Orange",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Sunny_Orange.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Sunny_Orange.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Transparent",
 "colour": "Transparent",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Transparent.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Transparent.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Transparent Orange",
 "colour": "Transparent Orange",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Transparent_Orange.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Transparent_Orange.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Transparent Yellow",
 "colour": "Transparent Yellow",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Transparent_Yellow.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Transparent_Yellow.png",
+"in_stock": false
 },
 {
 "group": "PETG",
 "type": "PETG",
 "name": "SUNLU PETG Vivid Yellow",
 "colour": "Vivid Yellow",
-"img": "/assets/img/materials/PETG/SUNLU_PETG_Vivid_Yellow.png"
+"img": "/assets/img/materials/PETG/SUNLU_PETG_Vivid_Yellow.png",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "3DJAKE ABS Black",
 "colour": "Black",
-"img": "/assets/img/materials/ABS/3DJAKE_ABS_Black.png"
+"img": "/assets/img/materials/ABS/3DJAKE_ABS_Black.png",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "3DJAKE ABS CF Dark Grey",
 "colour": "CF Dark Grey",
-"img": "/assets/img/materials/ABS/3DJAKE_ABS_CF_Dark_Grey.png"
+"img": "/assets/img/materials/ABS/3DJAKE_ABS_CF_Dark_Grey.png",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "3DJAKE ABS Neon Yellow",
 "colour": "Neon Yellow",
-"img": "/assets/img/materials/ABS/3DJAKE_ABS_Neon_Yellow.png"
+"img": "/assets/img/materials/ABS/3DJAKE_ABS_Neon_Yellow.png",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "3DJAKE ABS Silver",
 "colour": "Silver",
-"img": "/assets/img/materials/ABS/3DJAKE_ABS_Silver.png"
+"img": "/assets/img/materials/ABS/3DJAKE_ABS_Silver.png",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "3DJAKE ABS White",
 "colour": "White",
-"img": "/assets/img/materials/ABS/3DJAKE_ABS_White.png"
+"img": "/assets/img/materials/ABS/3DJAKE_ABS_White.png",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Fiberlogy ABS Black",
 "colour": "Black",
-"img": "/assets/img/materials/ABS/Fiberlogy_ABS_Black.jpg"
+"img": "/assets/img/materials/ABS/Fiberlogy_ABS_Black.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Fiberlogy ABS Grey",
 "colour": "Grey",
-"img": "/assets/img/materials/ABS/Fiberlogy_ABS_Grey.jpg"
+"img": "/assets/img/materials/ABS/Fiberlogy_ABS_Grey.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Fiberlogy ABS Yellow",
 "colour": "Yellow",
-"img": "/assets/img/materials/ABS/Fiberlogy_ABS_Yellow.jpg"
+"img": "/assets/img/materials/ABS/Fiberlogy_ABS_Yellow.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Fiberlogy Easy ABS - Transparent Burgundy",
 "colour": "- Transparent Burgundy",
-"img": "/assets/img/materials/ABS/Fiberlogy_Easy_ABS_-_Transparent_Burgundy.jpg"
+"img": "/assets/img/materials/ABS/Fiberlogy_Easy_ABS_-_Transparent_Burgundy.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Astro Red",
 "colour": "Astro Red",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Astro_Red.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Astro_Red.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Black",
 "colour": "Black",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Black.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Black.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Candy Ice Blue",
 "colour": "Candy Ice Blue",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Candy_Ice_Blue.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Candy_Ice_Blue.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Candy Red",
 "colour": "Candy Red",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Candy_Red.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Candy_Red.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Industrial Orange",
 "colour": "Industrial Orange",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Industrial_Orange.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Industrial_Orange.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Industrial Yellow",
 "colour": "Industrial Yellow",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Industrial_Yellow.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Industrial_Yellow.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Marble White",
 "colour": "Marble White",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Marble_White.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Marble_White.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx Stainless Steel",
 "colour": "Stainless Steel",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_Stainless_Steel.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_Stainless_Steel.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Nobufil ABSx White",
 "colour": "White",
-"img": "/assets/img/materials/ABS/Nobufil_ABSx_White.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ABSx_White.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ASA",
 "name": "Nobufil ASA Black",
 "colour": "Black",
-"img": "/assets/img/materials/ABS/Nobufil_ASA_Black.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ASA_Black.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ASA",
 "name": "Nobufil ASAx CF Anthracite",
 "colour": "CF Anthracite",
-"img": "/assets/img/materials/ABS/Nobufil_ASAx_CF_Anthracite.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ASAx_CF_Anthracite.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ASA",
 "name": "Nobufil ASAx CF Black",
 "colour": "CF Black",
-"img": "/assets/img/materials/ABS/Nobufil_ASAx_CF_Black.jpg"
+"img": "/assets/img/materials/ABS/Nobufil_ASAx_CF_Black.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Polymaker ABS Black",
 "colour": "Black",
-"img": "/assets/img/materials/ABS/Polymaker_ABS_Black.jpg"
+"img": "/assets/img/materials/ABS/Polymaker_ABS_Black.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Polymaker ABS Green",
 "colour": "Green",
-"img": "/assets/img/materials/ABS/Polymaker_ABS_Green.jpg"
+"img": "/assets/img/materials/ABS/Polymaker_ABS_Green.jpg",
+"in_stock": false
 },
 {
 "group": "ABS",
 "type": "ABS",
 "name": "Polymaker ABS White",
 "colour": "White",
-"img": "/assets/img/materials/ABS/Polymaker_ABS_White.jpg"
+"img": "/assets/img/materials/ABS/Polymaker_ABS_White.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Fiberlogy FiberFlex+CF Black",
 "colour": "FiberFlex+CF Black",
-"img": "/assets/img/materials/TPU/Fiberlogy_FiberFlex+CF_Black.jpg"
+"img": "/assets/img/materials/TPU/Fiberlogy_FiberFlex+CF_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Fiberlogy FiberFlex 30D Black",
 "colour": "30D Black",
-"img": "/assets/img/materials/TPU/Fiberlogy_FiberFlex_30D_Black.jpg"
+"img": "/assets/img/materials/TPU/Fiberlogy_FiberFlex_30D_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Fiberlogy MattFlex 40D Black",
 "colour": "40D Black",
-"img": "/assets/img/materials/TPU/Fiberlogy_MattFlex_40D_Black.jpg"
+"img": "/assets/img/materials/TPU/Fiberlogy_MattFlex_40D_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus 70A Filaflex Black Ultra-Soft",
 "colour": "Black Ultra-Soft",
-"img": "/assets/img/materials/TPU/Recreus_70A_Filaflex_Black_Ultra-Soft.jpg"
+"img": "/assets/img/materials/TPU/Recreus_70A_Filaflex_Black_Ultra-Soft.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex 60A Pro Black",
 "colour": "Pro Black",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_60A_Pro_Black.png"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_60A_Pro_Black.png",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex 60A Pro Nude",
 "colour": "Pro Nude",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_60A_Pro_Nude.png"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_60A_Pro_Nude.png",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex 60A Pro White",
 "colour": "Pro White",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_60A_Pro_White.png"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_60A_Pro_White.png",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex Black",
 "colour": "Filaflex Black",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_Black.jpg"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex Fluor",
 "colour": "Filaflex Fluor",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_Fluor.jpg"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_Fluor.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex Foamy Black",
 "colour": "Foamy Black",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_Foamy_Black.jpg"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_Foamy_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex Foamy Natural",
 "colour": "Foamy Natural",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_Foamy_Natural.png"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_Foamy_Natural.png",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex Orange",
 "colour": "Filaflex Orange",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_Orange.jpg"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_Orange.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex Red",
 "colour": "Filaflex Red",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_Red.jpg"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_Red.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Recreus Filaflex SEBS Black",
 "colour": "SEBS Black",
-"img": "/assets/img/materials/TPU/Recreus_Filaflex_SEBS_Black.jpg"
+"img": "/assets/img/materials/TPU/Recreus_Filaflex_SEBS_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "SUNLU TPU Black",
 "colour": "Black",
-"img": "/assets/img/materials/TPU/SUNLU_TPU_Black.jpg"
+"img": "/assets/img/materials/TPU/SUNLU_TPU_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Spectrum S-Flex 98A Deep Black",
 "colour": "Deep Black",
-"img": "/assets/img/materials/TPU/Spectrum_S-Flex_98A_Deep_Black.jpg"
+"img": "/assets/img/materials/TPU/Spectrum_S-Flex_98A_Deep_Black.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "Spectrum S-Flex 98A Pacific Blue",
 "colour": "Pacific Blue",
-"img": "/assets/img/materials/TPU/Spectrum_S-Flex_98A_Pacific_Blue.jpg"
+"img": "/assets/img/materials/TPU/Spectrum_S-Flex_98A_Pacific_Blue.jpg",
+"in_stock": false
 },
 {
 "group": "TPU",
 "type": "TPU",
 "name": "The Filament TPU-82A Black",
 "colour": "Black",
-"img": "/assets/img/materials/TPU/The Filament_TPU-82A_Black.jpg"
+"img": "/assets/img/materials/TPU/The Filament_TPU-82A_Black.jpg",
+"in_stock": false
 }
 ]
