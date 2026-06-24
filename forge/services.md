@@ -8,6 +8,26 @@ permalink: /forge/services/
 
 <link rel="stylesheet" href="{{ '/assets/work-order.css' | relative_url }}">
 
+<style>
+  /* ── Material & colour picker ── */
+  .mat-types { display:flex; flex-wrap:wrap; gap:0.4rem; margin-bottom:0.6rem; }
+  .mat-type { font-family:var(--font-mono); font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; padding:0.45rem 0.8rem; border:var(--bw) solid var(--hairline); border-radius:var(--radius); background:var(--bg); color:var(--muted); cursor:pointer; transition:background .15s,border-color .15s,color .15s; }
+  .mat-type:hover { border-color:var(--accent); color:var(--text); }
+  .mat-type.is-active { background:var(--accent); border-color:var(--accent); color:#fff; }
+  .mat-picker { border:var(--bw) solid var(--hairline); border-radius:var(--radius); padding:0.7rem; margin-bottom:0.5rem; }
+  .mat-search { width:100%; margin-bottom:0.7rem; font-family:var(--font-body); font-size:0.9rem; padding:0.5rem 0.7rem; border:var(--bw) solid var(--hairline); border-radius:var(--radius); background:var(--bg); color:var(--text); }
+  .mat-search:focus { outline:none; border-color:var(--accent); }
+  .mat-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(84px,1fr)); gap:0.5rem; max-height:320px; overflow-y:auto; }
+  .mat-swatch { display:flex; flex-direction:column; align-items:center; gap:0.25rem; padding:0.35rem; border:var(--bw) solid var(--hairline); border-radius:var(--radius); background:var(--bg); cursor:pointer; transition:border-color .15s,transform .1s; }
+  .mat-swatch:hover { border-color:var(--accent); transform:translateY(-1px); }
+  .mat-swatch.is-active { border-color:var(--accent); box-shadow:0 0 0 2px var(--accent); }
+  .mat-swatch img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:calc(var(--radius) - 2px); background:var(--surface-2); }
+  .mat-swatch__c { font-size:0.62rem; line-height:1.2; color:var(--muted); text-align:center; }
+  .mat-selected { display:flex; align-items:center; gap:0.6rem; font-size:0.88rem; color:var(--text); }
+  .mat-selected strong { color:var(--accent); }
+  .mat-clear { font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); background:none; border:none; cursor:pointer; text-decoration:underline; padding:0; }
+</style>
+
 <section class="section">
   <div class="container">
     <div class="section-head">
@@ -178,11 +198,31 @@ permalink: /forge/services/
           <!-- 2 · Per-service details (revealed as you tick) -->
           <div class="of-svc" data-svc-block="fdm" hidden>
             <p class="of-block__t"><span class="of-step__n">P</span>Printing details</p>
-            <div class="of-grid2">
-              <div class="of-field"><label>Material</label><select name="fdm_material"><option>Recommend for me</option><option>PLA</option><option>PETG</option><option>ABS</option><option>ASA</option><option>TPU (flexible)</option></select></div>
-              <div class="of-field"><label>Quantity</label><input type="number" name="fdm_quantity" min="1" value="1"></div>
+            <div class="of-field">
+              <label>Material &amp; colour <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — I&rsquo;ll recommend the best one if you skip)</span></label>
+              <input type="hidden" name="fdm_material" id="fdm_material" value="Recommend for me">
+              <input type="hidden" name="material_name" id="material_name" value="">
+              <input type="hidden" name="material_color" id="material_color" value="">
+              <div class="mat-types">
+                <button type="button" class="mat-type is-active" data-mtype="Recommend for me">Recommend for me</button>
+                <button type="button" class="mat-type" data-mtype="PLA" data-group="PLA">PLA</button>
+                <button type="button" class="mat-type" data-mtype="PETG" data-group="PETG">PETG</button>
+                <button type="button" class="mat-type" data-mtype="ABS" data-group="ABS">ABS / ASA</button>
+                <button type="button" class="mat-type" data-mtype="TPU" data-group="TPU">TPU</button>
+              </div>
+              <div class="mat-picker" id="mat-picker" hidden>
+                <input type="text" class="mat-search" id="mat-search" placeholder="Filter colours…" autocomplete="off">
+                <div class="mat-grid" id="mat-grid">
+                  {% for m in site.data.forge_materials %}<button type="button" class="mat-swatch" data-group="{{ m.group }}" data-type="{{ m.type }}" data-name="{{ m.name | escape }}" data-colour="{{ m.colour | escape }}" title="{{ m.name | escape }}"><img src="{{ m.img | relative_url }}" loading="lazy" alt="{{ m.name | escape }}"><span class="mat-swatch__c">{{ m.colour | escape }}</span></button>{% endfor %}
+                </div>
+              </div>
+              <div class="mat-selected" id="mat-selected" hidden><span>Selected: <strong id="mat-selected-name"></strong></span><button type="button" class="mat-clear" id="mat-clear">change</button></div>
+              <p class="of-note" id="mat-leadnote" hidden style="margin-top:0.6rem;">Heads-up: a specific colour is <strong>made to order</strong> — if it&rsquo;s not already on the shelf I order it in, which adds about <strong>1.5 weeks</strong> on top of the usual turnaround. Choose <em>Recommend for me</em> for the fastest result.</p>
             </div>
-            <div class="of-field"><label>Approx. size (mm)</label><input type="text" name="fdm_size" placeholder="e.g. 220 × 140 × 90 — max 500³"></div>
+            <div class="of-grid2">
+              <div class="of-field"><label>Quantity</label><input type="number" name="fdm_quantity" min="1" value="1"></div>
+              <div class="of-field"><label>Approx. size (mm)</label><input type="text" name="fdm_size" placeholder="e.g. 220 × 140 × 90 — max 500³"></div>
+            </div>
             <label class="of-choice" style="margin-top:0.25rem;"><input type="checkbox" name="fdm_finishing" value="yes" id="fdm-finish"><span>Add finishing — heavy sanding, priming, paint, assembly (custom-priced)</span></label>
             <div class="of-field" id="fdm-finish-notes" hidden style="margin-top:0.9rem;"><label>What finishing do you need?</label><textarea name="fdm_finishing_notes" placeholder="e.g. smooth + prime + matte-black paint; assemble the two halves…"></textarea></div>
           </div>
@@ -304,5 +344,66 @@ permalink: /forge/services/
     if (qs || location.hash === '#order') {
       setTimeout(function () { var o = document.getElementById('order'); if (o) o.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 200);
     }
+  })();
+
+  // ── Material & colour picker ──
+  (function () {
+    var picker = document.getElementById('mat-picker');
+    if (!picker) return;
+    var grid = document.getElementById('mat-grid');
+    var search = document.getElementById('mat-search');
+    var selBox = document.getElementById('mat-selected');
+    var selName = document.getElementById('mat-selected-name');
+    var leadnote = document.getElementById('mat-leadnote');
+    var clearBtn = document.getElementById('mat-clear');
+    var fType = document.getElementById('fdm_material');
+    var fName = document.getElementById('material_name');
+    var fColour = document.getElementById('material_color');
+    var typeBtns = Array.prototype.slice.call(document.querySelectorAll('.mat-type'));
+    var swatches = Array.prototype.slice.call(grid.querySelectorAll('.mat-swatch'));
+    var activeGroup = null;
+
+    function applySearch() {
+      var q = (search.value || '').toLowerCase();
+      swatches.forEach(function (s) {
+        if (s.getAttribute('data-group') !== activeGroup) { s.style.display = 'none'; return; }
+        s.style.display = s.getAttribute('data-name').toLowerCase().indexOf(q) > -1 ? '' : 'none';
+      });
+    }
+    function showGroup(group) { activeGroup = group; applySearch(); }
+    function clearSelection() {
+      swatches.forEach(function (s) { s.classList.remove('is-active'); });
+      fName.value = ''; fColour.value = '';
+      selBox.hidden = true; leadnote.hidden = true;
+    }
+
+    typeBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        typeBtns.forEach(function (b) { b.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        fType.value = btn.getAttribute('data-mtype');
+        clearSelection();
+        var group = btn.getAttribute('data-group');
+        if (group) { picker.hidden = false; search.value = ''; showGroup(group); }
+        else { picker.hidden = true; }   // "Recommend for me"
+      });
+    });
+
+    swatches.forEach(function (s) {
+      s.addEventListener('click', function () {
+        swatches.forEach(function (x) { x.classList.remove('is-active'); });
+        s.classList.add('is-active');
+        fType.value = s.getAttribute('data-type');
+        fName.value = s.getAttribute('data-name');
+        fColour.value = s.getAttribute('data-colour');
+        selName.textContent = s.getAttribute('data-name');
+        selBox.hidden = false;
+        leadnote.hidden = false;
+        picker.hidden = true;
+      });
+    });
+
+    if (search) search.addEventListener('input', applySearch);
+    if (clearBtn) clearBtn.addEventListener('click', function () { picker.hidden = false; selBox.hidden = true; });
   })();
 </script>
