@@ -210,7 +210,11 @@ permalink: /forge/services/
               <div class="of-field"><label for="of-name">Name</label><input type="text" id="of-name" name="name" placeholder="Your name" autocomplete="name"></div>
               <div class="of-field"><label for="of-email">Email</label><input type="email" id="of-email" name="email" placeholder="you@email.com" autocomplete="email" required></div>
             </div>
-            <div class="of-field"><label for="deadline-picker">Deadline <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — earliest available is 7 days out)</span></label><input type="date" name="deadline" id="deadline-picker" autocomplete="off"></div>
+            <div class="of-grid2">
+              <div class="of-field"><label for="of-phone">Phone <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="tel" id="of-phone" name="phone" placeholder="+36 …" autocomplete="tel"></div>
+              <div class="of-field"><label for="deadline-picker">Deadline <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — 7 days out min)</span></label><input type="date" name="deadline" id="deadline-picker" autocomplete="off"></div>
+            </div>
+            <div class="of-field"><label for="of-ship">Shipping address <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — for posted orders)</span></label><textarea id="of-ship" name="shipping_address" placeholder="Name, street, city, postcode, country" autocomplete="street-address"></textarea></div>
             <div class="of-submit"><button class="btn btn-accent" type="button" data-of-submit>Send request</button><span class="of-note">No payment now — services are quoted first.</span></div>
           </div>
         </div>
