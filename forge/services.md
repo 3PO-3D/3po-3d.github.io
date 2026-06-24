@@ -210,7 +210,7 @@ permalink: /forge/services/
               <div class="of-field"><label>Name</label><input type="text" name="name" placeholder="Your name"></div>
               <div class="of-field"><label>Email</label><input type="email" name="email" placeholder="you@email.com" required></div>
             </div>
-            <div class="of-field"><label>Deadline <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="text" name="deadline" placeholder="e.g. 2 weeks, flexible"></div>
+            <div class="of-field"><label>Deadline <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional — earliest available is 7 days out)</span></label><input type="date" name="deadline" id="deadline-picker"></div>
             <div class="of-submit"><button class="btn btn-accent" type="button" data-of-submit>Send request</button><span class="of-note">No payment now — services are quoted first.</span></div>
           </div>
         </div>
@@ -284,6 +284,14 @@ permalink: /forge/services/
         startOrder(btn.getAttribute('data-svc'));
       });
     });
+
+    // Deadline date picker — grey out today + next 6 days (earliest = today + 7).
+    var dp = document.getElementById('deadline-picker');
+    if (dp) {
+      var minD = new Date();
+      minD.setDate(minD.getDate() + 7);
+      dp.min = minD.toISOString().split('T')[0];
+    }
 
     // Deep-link: /forge/services/?service=fdm (or #order) preselects + scrolls.
     var qs = new URLSearchParams(location.search).get('service');
