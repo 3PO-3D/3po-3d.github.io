@@ -233,7 +233,8 @@
         }
       }
 
-      // submit → POST to the Make webhook (hidden iframe, no CORS) when set; else mailto fallback.
+      // submit → fetch POST to the Make webhook, AWAIT the 200, then show success.
+      // On failure: show an error and keep the form usable. mailto fallback when no webhook.
       ofWrap.querySelectorAll('[data-of-submit]').forEach(function (btn) {
         btn.addEventListener('click', function (e) {
           e.preventDefault();
@@ -245,16 +246,48 @@
           var svcSummary = ofWrap.querySelector('[name="services"]');
           if (svcSummary) svcSummary.value = svcs.join(', ');
           var emailEl = ofWrap.querySelector('[name="email"]');
-          if (emailEl && !emailEl.value) {
-            var st = emailEl.closest('.of-step');
-            if (st) { wrap.querySelectorAll('.of-step').forEach(function (s) { s.classList.remove('is-open'); }); st.classList.add('is-open'); syncProgress(wrap); }
-            emailEl.focus();
-            return;
-          }
+          if (emailEl && !emailEl.value) { emailEl.focus(); return; }
+
           var whUrl = ofWrap.getAttribute('data-webhook');
-          if (whUrl && ofWrap.tagName === 'FORM') {
-            ofWrap.action = whUrl; ofWrap.method = 'POST'; ofWrap.target = 'order_sink'; ofWrap.submit();
+          var done = wrap.querySelector('.of-done');
+          var errBox = wrap.querySelector('.of-error');
+          var formbody = wrap.querySelector('.of-formbody');
+
+          function showError(msg) {
+            if (!errBox) return;
+            var m = errBox.querySelector('.of-error-msg');
+            if (m) m.textContent = msg;
+            errBox.hidden = false;
+          }
+          function showDone() {
+            if (errBox) errBox.hidden = true;
+            if (formbody) formbody.style.display = 'none';
+            if (done) done.hidden = false;
+          }
+
+          if (whUrl) {
+            // CORS-safe (no preflight) urlencoded body — includes _secret + services, skips the honeypot.
+            var data = new URLSearchParams();
+            ofWrap.querySelectorAll('input, select, textarea').forEach(function (el) {
+              if (!el.name || el.name === 'of_hp_field') return;
+              if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
+              data.append(el.name, el.value);
+            });
+            if (errBox) errBox.hidden = true;
+            var orig = btn.textContent;
+            btn.disabled = true; btn.textContent = 'Sending…';
+            fetch(whUrl, { method: 'POST', body: data })
+              .then(function (r) {
+                if (!r.ok) throw new Error('the server returned ' + r.status);
+                btn.disabled = false; btn.textContent = orig;
+                showDone();
+              })
+              .catch(function (err) {
+                btn.disabled = false; btn.textContent = orig;
+                showError('We couldn’t send your request — ' + err.message + '. Please try again, or email 3po@3po3d.com.');
+              });
           } else {
+            // mailto fallback when no webhook is configured
             var lines = [];
             ofWrap.querySelectorAll('input, select, textarea').forEach(function (el) {
               if (!el.name || el.name === 'of_hp_field' || el.name.charAt(0) === '_') return;
@@ -262,11 +295,27 @@
               if (el.value) lines.push(el.name + ': ' + el.value);
             });
             window.location.href = 'mailto:3po@3po3d.com?subject=' + encodeURIComponent('FORGE order — ' + (svcs.join(', ') || 'enquiry')) + '&body=' + encodeURIComponent(lines.join('\n'));
+            showDone();
           }
+        });
+      });
+
+      // "Submit another request" — reset + re-show the form, no page reload.
+      ofWrap.querySelectorAll('[data-of-again]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var wrap = btn.closest('.of-wrap');
           var done = wrap.querySelector('.of-done');
+          var errBox = wrap.querySelector('.of-error');
           var formbody = wrap.querySelector('.of-formbody');
-          if (done) { done.hidden = false; }
-          if (formbody) { formbody.style.display = 'none'; }
+          ofWrap.reset();
+          // reset dynamic UI: hide per-service blocks + reset the material picker
+          ofWrap.querySelectorAll('input[name="service"]').forEach(function (c) { c.dispatchEvent(new Event('change')); });
+          var rec = ofWrap.querySelector('.mat-type[data-mtype="Recommend for me"]'); if (rec) rec.click();
+          if (done) done.hidden = true;
+          if (errBox) errBox.hidden = true;
+          if (formbody) formbody.style.display = '';
+          var sb = ofWrap.querySelector('[data-of-submit]'); if (sb) sb.disabled = false;
+          var order = document.getElementById('order'); if (order) order.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
     }

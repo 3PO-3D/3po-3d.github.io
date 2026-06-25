@@ -271,10 +271,11 @@ permalink: /forge/services/
               <div class="of-field"><label for="ship-unit">Apartment, floor, building <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="text" id="ship-unit" name="ship_unit" autocomplete="address-line2"></div>
             </div>
             <div class="of-submit"><button class="btn btn-accent" type="button" data-of-submit>Send request</button><span class="of-note">No payment now — services are quoted first.</span></div>
+            <div class="of-error" hidden style="margin-top:0.9rem;padding:0.85rem 1rem;background:#fdecea;border-left:3px solid #d64545;border-radius:0 var(--radius) var(--radius) 0;color:#8a2a2a;font-size:0.9rem;line-height:1.5;"><strong>Couldn&rsquo;t send.</strong> <span class="of-error-msg">Something went wrong. Please try again.</span></div>
           </div>
         </div>
 
-        <div class="of-done" hidden><div class="of-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div><h3>Request received — check your email.</h3><p>You&rsquo;ll get your private, secure upload folder by email in a few minutes. Drop your files in, and once I&rsquo;ve seen them I send a fixed quote. Nothing prints until you approve.</p></div>
+        <div class="of-done" hidden><div class="of-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div><h3>Request received — check your email.</h3><p>You&rsquo;ll get your private, secure upload folder by email in a few minutes. Drop your files in, and once I&rsquo;ve seen them I send a fixed quote. Nothing prints until you approve.</p><button type="button" class="btn btn-outline" data-of-again style="margin-top:1.1rem;">Submit another request</button></div>
       </div>
     </form>
   </div>
