@@ -382,7 +382,7 @@ permalink: /forge/products/
       ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) {
         var el = form.querySelector('[name=' + n + ']'); if (el && el.value) data.append(n, el.value);
       });
-      data.append('products', JSON.stringify([{ product: 'Insole', variant: type + ' · ' + colour, qty: 1 }]));
+      data.append('products', JSON.stringify([{ sku: 'Insole · ' + type + ' · ' + colour, product: 'Insole', variant: type + ' · ' + colour, qty: 1 }]));
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
         .then(function (r) { if (!r.ok) throw new Error('the server returned ' + r.status); return r; })
