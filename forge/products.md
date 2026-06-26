@@ -6,6 +6,8 @@ permalink: /forge/products/
 
 {% include forge-subnav.html %}
 
+<link rel="stylesheet" href="{{ '/assets/work-order.css' | relative_url }}">
+
 <section class="section">
   <div class="container">
     <div class="section-head">
@@ -84,19 +86,43 @@ permalink: /forge/products/
           </div>
         </details>
 
-        <div class="insole-buy-row">
-          <div class="insole-variant">
-            <div class="iv-info"><span class="iv-name">Orthopedic</span><span class="iv-desc">Structural support — arch, weight &amp; gait. Colour: Blue or Black.</span></div>
-            <div class="iv-foot"><span class="price">35 000 Ft <span class="iv-ship">+ shipping</span></span>
-              <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/8x2cN5dGraxX0xC1pg2go01" href="mailto:3po@3po3d.com?subject=Orthopedic%20insole%20order&body=Colour%20(Blue%2FBlack)%3A%0AEU%20shoe%20size%3A%0AFoot%20length%20(mm)%3A%0AFoot%20width%20(mm)%3A">Buy</a></div>
+        <form id="insole-order" class="of" novalidate style="margin-top:1.5rem;text-align:left;">
+          <div class="of-grid2">
+            <div class="of-field">
+              <span class="of-legend">Type</span>
+              <div class="of-choices">
+                <label class="of-choice"><input type="radio" name="ins_type" value="Orthopedic" checked><span>Orthopedic</span></label>
+                <label class="of-choice"><input type="radio" name="ins_type" value="Comfort"><span>Comfort</span></label>
+              </div>
+            </div>
+            <div class="of-field">
+              <span class="of-legend">Colour</span>
+              <div class="of-choices" id="ins-colours"></div>
+            </div>
           </div>
-          <div class="insole-variant">
-            <div class="iv-info"><span class="iv-name">Comfort</span><span class="iv-desc">Soft all-day cushioning, shoe-friendly. Colour: Red or Black.</span></div>
-            <div class="iv-foot"><span class="price">30 000 Ft <span class="iv-ship">+ shipping</span></span>
-              <a class="btn btn-accent product-buy" data-stripe-link="https://buy.stripe.com/9B628rcCn21r804aZQ2go00" href="mailto:3po@3po3d.com?subject=Comfort%20insole%20order&body=Colour%20(Red%2FBlack)%3A%0AEU%20shoe%20size%3A%0AFoot%20length%20(mm)%3A%0AFoot%20width%20(mm)%3A">Buy</a></div>
+          <div class="of-grid2">
+            <div class="of-field"><label for="ins-name">Name</label><input type="text" id="ins-name" name="name" autocomplete="name"></div>
+            <div class="of-field"><label for="ins-email">Email</label><input type="email" id="ins-email" name="email" autocomplete="email" required></div>
           </div>
-        </div>
-        <div class="upload-note"><strong>After checkout:</strong> you get a private, secure folder by email to upload your foot scan and confirm your colour. No one else can see your files. <a href="{{ '/forge/services/#process' | relative_url }}">How the workshop works &rarr;</a></div>
+          <div class="of-field"><label for="ins-phone">Phone <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="tel" id="ins-phone" name="phone" autocomplete="tel"></div>
+          <div class="of-field" style="margin-bottom:0.4rem;"><span class="of-legend">Shipping address</span></div>
+          <div class="of-grid2">
+            <div class="of-field"><label for="ins-country">Country</label><input type="text" id="ins-country" name="ship_country" autocomplete="country-name"></div>
+            <div class="of-field"><label for="ins-postcode">Postcode</label><input type="text" id="ins-postcode" name="ship_postcode" autocomplete="postal-code"></div>
+          </div>
+          <div class="of-grid2">
+            <div class="of-field"><label for="ins-city">City</label><input type="text" id="ins-city" name="ship_city" autocomplete="address-level2"></div>
+            <div class="of-field"><label for="ins-street">Street</label><input type="text" id="ins-street" name="ship_street" autocomplete="address-line1"></div>
+          </div>
+          <div class="of-grid2">
+            <div class="of-field"><label for="ins-number">House / door no.</label><input type="text" id="ins-number" name="ship_number"></div>
+            <div class="of-field"><label for="ins-unit">Apartment, floor <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="text" id="ins-unit" name="ship_unit" autocomplete="address-line2"></div>
+          </div>
+          <div class="insole-total"><span>Total</span> <strong id="ins-price">35 000 Ft</strong> <span class="iv-ship">+ shipping</span></div>
+          <div class="of-submit"><button class="btn btn-accent" type="button" id="ins-submit">Order &amp; get invoice</button><span class="of-note">You&rsquo;ll get a Stripe invoice by email. After paying, you upload your foot scan.</span></div>
+          <div class="of-done" id="ins-done" hidden><div class="of-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div><h3>Order received — check your email.</h3><p>I&rsquo;ve sent your invoice. Once it&rsquo;s paid, you get a private folder to upload your foot scan and the <a href="{{ '/forge/insole-guide/' | relative_url }}">scan guide</a>.</p></div>
+          <p class="of-note" id="ins-err" hidden style="color:#b3261e;margin-top:0.8rem;"></p>
+        </form>
       </div>
     </div>
   </div>
@@ -279,6 +305,11 @@ permalink: /forge/products/
   .kgm-note { background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 var(--radius) var(--radius) 0;padding:.7rem .9rem;color:var(--muted);font-size:.86rem;line-height:1.6;margin-top:.75rem; }
   .kgm-note strong { color:var(--text); }
   @media (max-width:500px) { .kgm-img2 { grid-template-columns:1fr; } .kgm-box { padding:2rem 1rem 1.5rem; } }
+  /* insole order form total */
+  #insole-order { max-width:560px; margin-left:auto; margin-right:auto; }
+  .insole-total { display:flex; align-items:baseline; gap:0.5rem; margin:1.25rem 0 0.25rem; font-family:var(--font-mono); }
+  .insole-total span:first-child { font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); }
+  .insole-total strong { font-family:var(--font-head); font-weight:700; font-size:1.4rem; color:var(--text); }
 </style>
 
 <script>
@@ -318,5 +349,51 @@ permalink: /forge/products/
     g.querySelector('.ins-prev').addEventListener('click', function () { go(i - 1); });
     g.querySelector('.ins-next').addEventListener('click', function () { go(i + 1); });
     dots.forEach(function (d) { d.addEventListener('click', function () { go(parseInt(d.getAttribute('data-go'), 10)); }); });
+  })();
+
+  // Insole order form → posts a products[] array to the FORGE products webhook.
+  (function () {
+    var WEBHOOK = 'https://hook.eu1.make.com/ywxmd371fxw5b9mcs6h6sbc2c2g0jwre';
+    var form = document.getElementById('insole-order'); if (!form) return;
+    var PRICES = { Orthopedic: 35000, Comfort: 30000 };
+    var COLOURS = { Orthopedic: ['Blue', 'Black'], Comfort: ['Red', 'Black'] };
+    var colWrap = document.getElementById('ins-colours');
+    var priceEl = document.getElementById('ins-price');
+    var errEl = document.getElementById('ins-err');
+    function fmt(n) { return n.toLocaleString('hu-HU') + ' Ft'; }
+    function curType() { var c = form.querySelector('input[name=ins_type]:checked'); return c ? c.value : 'Orthopedic'; }
+    function renderColours() {
+      var t = curType(); colWrap.innerHTML = '';
+      COLOURS[t].forEach(function (col, i) {
+        colWrap.insertAdjacentHTML('beforeend', '<label class="of-choice"><input type="radio" name="ins_colour" value="' + col + '"' + (i === 0 ? ' checked' : '') + '><span>' + col + '</span></label>');
+      });
+      priceEl.textContent = fmt(PRICES[t]);
+    }
+    form.querySelectorAll('input[name=ins_type]').forEach(function (r) { r.addEventListener('change', renderColours); });
+    renderColours();
+
+    document.getElementById('ins-submit').addEventListener('click', function () {
+      var btn = this; errEl.hidden = true;
+      var email = form.querySelector('[name=email]');
+      if (!email.value) { errEl.textContent = 'Please add your email so I can send the invoice.'; errEl.hidden = false; email.focus(); return; }
+      var type = curType();
+      var colour = (form.querySelector('input[name=ins_colour]:checked') || {}).value || '';
+      var data = new URLSearchParams();
+      ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) {
+        var el = form.querySelector('[name=' + n + ']'); if (el && el.value) data.append(n, el.value);
+      });
+      data.append('products', JSON.stringify([{ product: 'Insole', variant: type + ' · ' + colour, qty: 1 }]));
+      btn.disabled = true; btn.textContent = 'Sending…';
+      fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
+        .then(function (r) { if (!r.ok) throw new Error('the server returned ' + r.status); return r; })
+        .then(function () {
+          document.getElementById('ins-done').hidden = false;
+          Array.prototype.forEach.call(form.querySelectorAll('.of-grid2, .of-field, .of-submit, .insole-total'), function (e) { e.style.display = 'none'; });
+        })
+        .catch(function (e) {
+          errEl.textContent = "Couldn't send — " + e.message + ". Please try again, or email 3po@3po3d.com.";
+          errEl.hidden = false; btn.disabled = false; btn.textContent = 'Order & get invoice';
+        });
+    });
   })();
 </script>
