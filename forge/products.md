@@ -322,18 +322,19 @@ permalink: /forge/products/
     });
   })();
 
-  // Kiri Engine scan guide modal
+  // Kiri Engine scan guide modal — deep-linkable via /forge/products/#scan-guide
   (function () {
     var overlay = document.getElementById('kiri-guide-overlay');
     if (!overlay) return;
-    function openModal() { overlay.removeAttribute('hidden'); document.body.style.overflow = 'hidden'; }
-    function closeModal() { overlay.setAttribute('hidden', ''); document.body.style.overflow = ''; }
+    function openModal() { overlay.removeAttribute('hidden'); document.body.style.overflow = 'hidden'; if (location.hash !== '#scan-guide') history.replaceState(null, '', '#scan-guide'); }
+    function closeModal() { overlay.setAttribute('hidden', ''); document.body.style.overflow = ''; if (location.hash === '#scan-guide') history.replaceState(null, '', location.pathname + location.search); }
     document.querySelectorAll('.kiri-guide-open').forEach(function (el) {
       el.addEventListener('click', function (e) { e.preventDefault(); openModal(); });
     });
     overlay.querySelector('.kgm-close').addEventListener('click', closeModal);
     overlay.addEventListener('click', function (e) { if (e.target === overlay) closeModal(); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeModal(); });
+    if (location.hash === '#scan-guide') openModal();   // open straight from an email link
   })();
 
   // Insole gallery — step between the looping video and the 3 clean stills.
