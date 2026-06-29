@@ -403,6 +403,7 @@ permalink: /forge/products/
         var el = form.querySelector('[name=' + n + ']'); if (el) data.append(n, el.value);   // always send (empty allowed) so the mapped variables always exist
       });
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
+      data.append('material_name', MATERIAL[type + '|' + colour] || '');   // top-level, shared with the services form (Make resolves the inventory relation off this)
       data.append('products', JSON.stringify([{ sku: 'Insole · ' + type + ' · ' + colour, product: 'Insole', variant: type + ' · ' + colour, material_name: MATERIAL[type + '|' + colour] || '', qty: qty }]));
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
