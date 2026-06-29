@@ -101,6 +101,15 @@ permalink: /forge/products/
             </div>
           </div>
           <div class="of-grid2">
+            <div class="of-field"><label for="ins-qty">Quantity (pairs)</label><input type="number" id="ins-qty" name="ins_qty" min="1" value="1"></div>
+            <div class="of-field"><label for="ins-shoe">EU shoe size</label><input type="text" id="ins-shoe" name="shoe_size" placeholder="e.g. 42"></div>
+          </div>
+          <div class="of-grid2">
+            <div class="of-field"><label for="ins-len">Foot length (cm)</label><input type="number" id="ins-len" name="foot_length" step="0.1" placeholder="heel → longest toe"></div>
+            <div class="of-field"><label for="ins-wid">Foot width (cm)</label><input type="number" id="ins-wid" name="foot_width" step="0.1" placeholder="widest point"></div>
+          </div>
+          <p class="of-note" style="margin:-0.4rem 0 1rem;">Stand on a sheet of paper to measure. Not sure how? <a href="#scan-guide" class="kiri-guide-open" style="color:var(--accent);text-decoration:none;">See the scan &amp; sizing guide →</a></p>
+          <div class="of-grid2">
             <div class="of-field"><label for="ins-name">Name</label><input type="text" id="ins-name" name="name" autocomplete="name"></div>
             <div class="of-field"><label for="ins-email">Email</label><input type="email" id="ins-email" name="email" autocomplete="email" required></div>
           </div>
@@ -121,7 +130,7 @@ permalink: /forge/products/
           <div class="of-field"><label for="ins-notes">Notes <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><textarea id="ins-notes" name="notes" placeholder="Anything I should know — fit preferences, foot issues, urgency, questions…"></textarea></div>
           <div class="insole-total"><span>Total</span> <strong id="ins-price">35 000 Ft · ≈ 99 €</strong> <span class="iv-ship">+ shipping (quoted)</span></div>
           <div class="of-submit"><button class="btn btn-accent" type="button" id="ins-submit">Place order</button><span class="of-note">No payment yet — I confirm exact shipping, then send your invoice in the email thread. You can upload your scan meanwhile.</span></div>
-          <div class="of-done" id="ins-done" hidden><div class="of-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div><h3>Order received — check your email.</h3><p>I&rsquo;ll confirm exact shipping and send your invoice in the same email thread. Meanwhile you can upload your foot scan (link + <a href="{{ '/forge/insole-guide/' | relative_url }}">scan guide</a> are in the email). Work starts once the invoice is paid.</p></div>
+          <div class="of-done" id="ins-done" hidden><div class="of-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div><h3>Order received — check your email.</h3><p>I&rsquo;ll confirm exact shipping and send your invoice in the same email thread. Meanwhile you can upload your foot scan (link + <a href="#scan-guide" class="kiri-guide-open" style="color:var(--accent);">scan guide</a> are in the email). Work starts once the invoice is paid.</p><div style="margin-top:1.25rem;"><button class="btn btn-outline" type="button" id="ins-again">Place another order</button></div></div>
           <p class="of-note" id="ins-err" hidden style="color:#b3261e;margin-top:0.8rem;"></p>
         </form>
       </div>
@@ -389,10 +398,11 @@ permalink: /forge/products/
       var type = curType();
       var colour = (form.querySelector('input[name=ins_colour]:checked') || {}).value || '';
       var data = new URLSearchParams();
-      ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'notes'].forEach(function (n) {
-        var el = form.querySelector('[name=' + n + ']'); if (el && el.value) data.append(n, el.value);
+      ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'shoe_size', 'foot_length', 'foot_width', 'notes'].forEach(function (n) {
+        var el = form.querySelector('[name=' + n + ']'); if (el) data.append(n, el.value);   // always send (empty allowed) so the mapped variables always exist
       });
-      data.append('products', JSON.stringify([{ sku: 'Insole · ' + type + ' · ' + colour, product: 'Insole', variant: type + ' · ' + colour, material_name: MATERIAL[type + '|' + colour] || '', qty: 1 }]));
+      var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
+      data.append('products', JSON.stringify([{ sku: 'Insole · ' + type + ' · ' + colour, product: 'Insole', variant: type + ' · ' + colour, material_name: MATERIAL[type + '|' + colour] || '', qty: qty }]));
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
         .then(function (r) { if (!r.ok) throw new Error('the server returned ' + r.status); return r; })
@@ -402,8 +412,10 @@ permalink: /forge/products/
         })
         .catch(function (e) {
           errEl.textContent = "Couldn't send — " + e.message + ". Please try again, or email 3po@3po3d.com.";
-          errEl.hidden = false; btn.disabled = false; btn.textContent = 'Order & get invoice';
+          errEl.hidden = false; btn.disabled = false; btn.textContent = 'Place order';
         });
     });
+    var again = document.getElementById('ins-again');
+    if (again) again.addEventListener('click', function () { location.reload(); });
   })();
 </script>

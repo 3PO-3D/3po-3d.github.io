@@ -271,7 +271,7 @@
             ofWrap.querySelectorAll('input, select, textarea').forEach(function (el) {
               if (!el.name || el.name === 'of_hp_field') return;
               if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
-              if (el.value === '' || el.value == null) return; // skip empty optionals (e.g. deadline) so Make omits them rather than sending a blank
+              if ((el.value === '' || el.value == null) && el.name === 'deadline') return; // omit ONLY an empty deadline (date field errors on blank); send all other empties so the mapped variables always exist
               data.append(el.name, el.value);
             });
             if (errBox) errBox.hidden = true;
