@@ -181,6 +181,9 @@ permalink: /forge/services/
       <input type="hidden" name="_secret" value="forge3po">
       <input type="hidden" name="form_type" value="service">
       <input type="hidden" name="services" value="">
+      <input type="hidden" name="shoe_size" value="">
+      <input type="hidden" name="foot_length" value="">
+      <input type="hidden" name="foot_width" value="">
       <div class="hp" aria-hidden="true"><label for="of_hp_field">Leave this field empty</label><input type="text" id="of_hp_field" name="of_hp_field" tabindex="-1" autocomplete="off"></div>
       <div class="of-wrap of">
         <div class="of-formbody">
@@ -248,7 +251,7 @@ permalink: /forge/services/
 
           <!-- 3 · Brief + contact -->
           <div class="of-block" style="border-top: var(--bw) solid var(--hairline); padding-top:1.4rem; margin-top:0.5rem;">
-            <div class="of-field"><label>Anything else? <span style="text-transform:none;letter-spacing:0;opacity:.7;">(the brief)</span></label><textarea name="brief" placeholder="What is it, what it's for, deadlines, references…"></textarea></div>
+            <div class="of-field"><label>Anything else? <span style="text-transform:none;letter-spacing:0;opacity:.7;">(the brief)</span></label><textarea name="notes" placeholder="What is it, what it's for, deadlines, references…"></textarea></div>
             <p class="of-note" style="margin:-0.4rem 0 1.1rem;">After you send this, I email you a private, secure folder to drop your STL / STEP / 3MF / scan into — no upload needed here.</p>
             <div class="of-grid2">
               <div class="of-field"><label for="of-name">Name</label><input type="text" id="of-name" name="name" placeholder="Your name" autocomplete="name"></div>

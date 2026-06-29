@@ -402,6 +402,8 @@ permalink: /forge/products/
       ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'shoe_size', 'foot_length', 'foot_width', 'notes'].forEach(function (n) {
         var el = form.querySelector('[name=' + n + ']'); if (el) data.append(n, el.value);   // always send (empty allowed) so the mapped variables always exist
       });
+      // Always send service-form variables as empty so Make's schema is complete from a single product submit
+      ['_secret', 'deadline', 'services', 'fdm_material', 'material_color', 'fdm_quantity', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_what', 'model_what', 'animation_what'].forEach(function (n) { data.append(n, ''); });
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
       data.append('material_name', MATERIAL[type + '|' + colour] || '');   // top-level mirror of item 1, shared with the services form (Make resolves the inventory relation off this)
       data.append('line_items', JSON.stringify([{ sku: 'Insole · ' + type + ' · ' + colour, kind: 'product', name: 'Insole', variant: type + ' · ' + colour, material_name: MATERIAL[type + '|' + colour] || '', workflow: 'Scan-upload', qty: qty, detail: '' }]));

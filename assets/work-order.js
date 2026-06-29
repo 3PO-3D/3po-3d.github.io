@@ -271,7 +271,6 @@
             ofWrap.querySelectorAll('input, select, textarea').forEach(function (el) {
               if (!el.name || el.name === 'of_hp_field') return;
               if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
-              if ((el.value === '' || el.value == null) && el.name === 'deadline') return; // omit ONLY an empty deadline (date field errors on blank); send all other empties so the mapped variables always exist
               data.append(el.name, el.value);
             });
             // Build line_items[] — one entry per selected service — the same shape the products form sends, so the merged scenario iterates both identically.
@@ -292,6 +291,8 @@
               items.push(item);
             });
             data.append('line_items', JSON.stringify(items));
+            // fdm_finishing is a checkbox — not sent when unchecked; add empty so Make's schema always sees it
+            if (!data.has('fdm_finishing')) data.append('fdm_finishing', '');
             if (errBox) errBox.hidden = true;
             var orig = btn.textContent;
             btn.disabled = true; btn.textContent = 'Sending…';
