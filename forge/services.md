@@ -179,6 +179,7 @@ permalink: /forge/services/
 
     <form id="order-form" data-webhook="https://hook.eu1.make.com/u91iw4wqrdqdnjydmg2ttsi56y15c1a9" novalidate>
       <input type="hidden" name="_secret" value="forge3po">
+      <input type="hidden" name="form_type" value="service">
       <input type="hidden" name="services" value="">
       <div class="hp" aria-hidden="true"><label for="of_hp_field">Leave this field empty</label><input type="text" id="of_hp_field" name="of_hp_field" tabindex="-1" autocomplete="off"></div>
       <div class="of-wrap of">

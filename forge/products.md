@@ -364,7 +364,7 @@ permalink: /forge/products/
 
   // Insole order form → posts a products[] array to the FORGE products webhook.
   (function () {
-    var WEBHOOK = 'https://hook.eu1.make.com/ywxmd371fxw5b9mcs6h6sbc2c2g0jwre';
+    var WEBHOOK = 'https://hook.eu1.make.com/u91iw4wqrdqdnjydmg2ttsi56y15c1a9'; // unified Intake webhook (routes by form_type)
     var form = document.getElementById('insole-order'); if (!form) return;
     var PRICES = { Orthopedic: 35000, Comfort: 30000 };
     var COLOURS = { Orthopedic: ['Blue', 'Black'], Comfort: ['Red', 'Black'] };
@@ -398,6 +398,7 @@ permalink: /forge/products/
       var type = curType();
       var colour = (form.querySelector('input[name=ins_colour]:checked') || {}).value || '';
       var data = new URLSearchParams();
+      data.append('form_type', 'product');   // lets the unified Make scenario route product vs service
       ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'shoe_size', 'foot_length', 'foot_width', 'notes'].forEach(function (n) {
         var el = form.querySelector('[name=' + n + ']'); if (el) data.append(n, el.value);   // always send (empty allowed) so the mapped variables always exist
       });
