@@ -118,9 +118,10 @@ permalink: /forge/products/
             <div class="of-field"><label for="ins-number">House / door no.</label><input type="text" id="ins-number" name="ship_number"></div>
             <div class="of-field"><label for="ins-unit">Apartment, floor <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><input type="text" id="ins-unit" name="ship_unit" autocomplete="address-line2"></div>
           </div>
-          <div class="insole-total"><span>Total</span> <strong id="ins-price">35 000 Ft</strong> <span class="iv-ship">+ shipping</span></div>
-          <div class="of-submit"><button class="btn btn-accent" type="button" id="ins-submit">Order &amp; get invoice</button><span class="of-note">You&rsquo;ll get a Stripe invoice by email. After paying, you upload your foot scan.</span></div>
-          <div class="of-done" id="ins-done" hidden><div class="of-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div><h3>Order received — check your email.</h3><p>I&rsquo;ve sent your invoice. Once it&rsquo;s paid, you get a private folder to upload your foot scan and the <a href="{{ '/forge/insole-guide/' | relative_url }}">scan guide</a>.</p></div>
+          <div class="of-field"><label for="ins-notes">Notes <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><textarea id="ins-notes" name="notes" placeholder="Anything I should know — fit preferences, foot issues, urgency, questions…"></textarea></div>
+          <div class="insole-total"><span>Total</span> <strong id="ins-price">35 000 Ft</strong> <span class="iv-ship">+ shipping (quoted)</span></div>
+          <div class="of-submit"><button class="btn btn-accent" type="button" id="ins-submit">Place order</button><span class="of-note">No payment yet — I confirm exact shipping, then send your invoice in the email thread. You can upload your scan meanwhile.</span></div>
+          <div class="of-done" id="ins-done" hidden><div class="of-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div><h3>Order received — check your email.</h3><p>I&rsquo;ll confirm exact shipping and send your invoice in the same email thread. Meanwhile you can upload your foot scan (link + <a href="{{ '/forge/insole-guide/' | relative_url }}">scan guide</a> are in the email). Work starts once the invoice is paid.</p></div>
           <p class="of-note" id="ins-err" hidden style="color:#b3261e;margin-top:0.8rem;"></p>
         </form>
       </div>
@@ -379,7 +380,7 @@ permalink: /forge/products/
       var type = curType();
       var colour = (form.querySelector('input[name=ins_colour]:checked') || {}).value || '';
       var data = new URLSearchParams();
-      ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) {
+      ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'notes'].forEach(function (n) {
         var el = form.querySelector('[name=' + n + ']'); if (el && el.value) data.append(n, el.value);
       });
       data.append('products', JSON.stringify([{ sku: 'Insole · ' + type + ' · ' + colour, product: 'Insole', variant: type + ' · ' + colour, qty: 1 }]));
