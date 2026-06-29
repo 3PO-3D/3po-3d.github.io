@@ -274,6 +274,24 @@
               if ((el.value === '' || el.value == null) && el.name === 'deadline') return; // omit ONLY an empty deadline (date field errors on blank); send all other empties so the mapped variables always exist
               data.append(el.name, el.value);
             });
+            // Build line_items[] — one entry per selected service — the same shape the products form sends, so the merged scenario iterates both identically.
+            var SVC_NAMES = { fdm: 'FDM Printing', scan: '3D Scanning', model: 'Modeling & Touch-ups', animation: 'Animation & 3D Art' };
+            function fval(n) { var el = ofWrap.querySelector('[name="' + n + '"]'); return el ? el.value : ''; }
+            var items = [];
+            ofWrap.querySelectorAll('input[name="service"]:checked').forEach(function (c) {
+              var k = c.value;
+              var item = { sku: 'svc-' + k, kind: 'service', name: SVC_NAMES[k] || k, variant: '', material_name: '', workflow: '', qty: 1, detail: '' };
+              if (k === 'fdm') {
+                item.material_name = fval('material_name');
+                item.variant = fval('fdm_material');
+                item.qty = parseInt(fval('fdm_quantity'), 10) || 1;
+                item.detail = 'Size: ' + (fval('fdm_size') || '—') + (ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? '; Finishing: ' + (fval('fdm_finishing_notes') || 'yes') : '');
+              } else if (k === 'scan') { item.detail = fval('scan_what'); }
+              else if (k === 'model') { item.detail = fval('model_what'); }
+              else if (k === 'animation') { item.detail = fval('animation_what'); }
+              items.push(item);
+            });
+            data.append('line_items', JSON.stringify(items));
             if (errBox) errBox.hidden = true;
             var orig = btn.textContent;
             btn.disabled = true; btn.textContent = 'Sending…';
