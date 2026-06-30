@@ -8,3 +8,4 @@ Gemfile.lock
 *.log
 .DS_Store
 Thumbs.db
+_data/_inv*.json

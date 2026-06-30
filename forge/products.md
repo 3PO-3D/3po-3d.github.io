@@ -371,10 +371,10 @@ permalink: /forge/products/
     // Customer-facing colour → real inventory SKU. id = Notion Inventory page id
     // (lets Make set the relation directly, no name lookup). name kept as fallback.
     var MATERIAL = {
-      'Orthopedic|Blue':  { name: 'Fiberlogy FiberFlex 30D Blue', id: '' },
-      'Orthopedic|Black': { name: 'Recreus Filaflex Foamy Black', id: '' },
-      'Comfort|Red':      { name: 'Recreus Filaflex Red',         id: '' },
-      'Comfort|Black':    { name: 'Recreus Filaflex Foamy Black', id: '' }
+      'Orthopedic|Blue':  { name: 'Fiberlogy FiberFlex 30D Blue', id: '38b0f4e2-8881-8139-9777-f6c4357e21a7' },
+      'Orthopedic|Black': { name: 'Recreus Filaflex Foamy Black', id: '3880f4e2-8881-81e3-b184-efe14da230f3' },
+      'Comfort|Red':      { name: 'Recreus Filaflex Red',         id: '3880f4e2-8881-81c6-974f-eba99a1b6efd' },
+      'Comfort|Black':    { name: 'Recreus Filaflex Foamy Black', id: '3880f4e2-8881-81e3-b184-efe14da230f3' }
     };
     var colWrap = document.getElementById('ins-colours');
     var priceEl = document.getElementById('ins-price');

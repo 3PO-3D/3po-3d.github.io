@@ -43,6 +43,16 @@ if os.path.isfile(instock_path):
     with open(instock_path, encoding="utf-8") as f:
         instock = {ln.strip() for ln in f if ln.strip() and not ln.startswith("#")}
 
+# Notion Inventory page ids, keyed by exact SKU name → forge_material_ids.json
+# ({ "3DJAKE ecoPLA Black": "3880f4e2-...", ... }). Lets the form send material_id
+# so Make sets the inventory relation directly instead of searching by name.
+# Regenerate the map with gen_forge_material_ids.py. Missing names just get id "".
+ids = {}
+ids_path = os.path.join(ROOT, "_data", "forge_material_ids.json")
+if os.path.isfile(ids_path):
+    with open(ids_path, encoding="utf-8") as f:
+        ids = json.load(f)
+
 items = []
 for folder in GROUPS:
     d = os.path.join(IMG_ROOT, folder)
@@ -60,6 +70,7 @@ for folder in GROUPS:
             "colour": detect_colour(name),           # short colour label
             "img": "/assets/img/materials/%s/%s" % (folder, fn),
             "in_stock": name in instock,             # highlight + skip lead-time note when true
+            "id": ids.get(name, ""),                 # Notion Inventory page id (relation), "" if none
         })
 
 out = os.path.join(ROOT, "_data", "forge_materials.json")
