@@ -282,24 +282,24 @@
                 data.append('material_name', matName);
                 data.append('material_type', fval('fdm_material'));
                 data.append('material_colour', fval('material_color'));
-                data.append('fdm_qty', qty);
+                data.append('quantity', qty);
                 data.append('fdm_size', fval('fdm_size'));
                 data.append('fdm_finishing', ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? 'yes' : '');
                 data.append('fdm_finishing_notes', fval('fdm_finishing_notes'));
-                cartParts.push('FDM Printing × ' + qty + (matName ? ' (' + matName + ')' : '') + (fval('fdm_size') ? ', size: ' + fval('fdm_size') : ''));
+                cartParts.push('FDM Printing × ' + qty);
               } else if (k === 'scan') {
                 data.append('scan_note', fval('scan_what'));
-                cartParts.push('3D Scanning' + (fval('scan_what') ? ' — ' + fval('scan_what') : ''));
+                cartParts.push('3D Scanning');
               } else if (k === 'model') {
                 data.append('model_note', fval('model_what'));
-                cartParts.push('Modeling & Touch-ups' + (fval('model_what') ? ' — ' + fval('model_what') : ''));
+                cartParts.push('Modeling & Touch-ups');
               } else if (k === 'animation') {
                 data.append('animation_note', fval('animation_what'));
-                cartParts.push('Animation & 3D Art' + (fval('animation_what') ? ' — ' + fval('animation_what') : ''));
+                cartParts.push('Animation & 3D Art');
               }
             });
             // Always send these so Make's schema is stable regardless of which services were selected
-            ['material_name', 'material_type', 'material_colour', 'fdm_qty', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_note', 'model_note', 'animation_note'].forEach(function (n) { if (!data.has(n)) data.append(n, ''); });
+            ['material_name', 'material_type', 'material_colour', 'quantity', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_note', 'model_note', 'animation_note'].forEach(function (n) { if (!data.has(n)) data.append(n, ''); });
             data.append('cart', cartParts.join(' | '));
             if (errBox) errBox.hidden = true;
             var orig = btn.textContent;
