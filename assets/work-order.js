@@ -241,10 +241,6 @@
           var wrap = btn.closest('.of-wrap');
           var hp = ofWrap.querySelector('[name="of_hp_field"]');
           if (hp && hp.value) return; // honeypot → bot
-          // Compile the stacked (multi-select) services into one comma-separated field for Make.
-          var svcs = Array.prototype.slice.call(ofWrap.querySelectorAll('[name="service"]:checked')).map(function (c) { return c.value; });
-          var svcSummary = ofWrap.querySelector('[name="services"]');
-          if (svcSummary) svcSummary.value = svcs.join(', ');
           var emailEl = ofWrap.querySelector('[name="email"]');
           if (emailEl && !emailEl.value) { emailEl.focus(); return; }
 
@@ -266,20 +262,20 @@
           }
 
           if (whUrl) {
-            // CORS-safe (no preflight) urlencoded body — includes _secret + services, skips the honeypot.
-            var data = new URLSearchParams();
-            ofWrap.querySelectorAll('input, select, textarea').forEach(function (el) {
-              if (!el.name || el.name === 'of_hp_field') return;
-              if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
-              data.append(el.name, el.value);
-            });
-            // Build line_items[] — one entry per selected service — the same shape the products form sends, so the merged scenario iterates both identically.
             var SVC_NAMES = { fdm: 'FDM Printing', scan: '3D Scanning', model: 'Modeling & Touch-ups', animation: 'Animation & 3D Art' };
             function fval(n) { var el = ofWrap.querySelector('[name="' + n + '"]'); return el ? el.value : ''; }
+            var data = new URLSearchParams();
+            data.append('form_type', 'service');
+            data.append('_secret', fval('_secret') || 'forge3po');
+            data.append('deadline', fval('deadline'));
+            data.append('customer', JSON.stringify({
+              name: fval('name'), email: fval('email'), phone: fval('phone'),
+              shipping: { country: fval('ship_country'), postcode: fval('ship_postcode'), city: fval('ship_city'), street: fval('ship_street'), number: fval('ship_number'), unit: fval('ship_unit') }
+            }));
             var items = [];
             ofWrap.querySelectorAll('input[name="service"]:checked').forEach(function (c) {
               var k = c.value;
-              var item = { sku: 'svc-' + k, kind: 'service', name: SVC_NAMES[k] || k, workflow: '', qty: 1, variant: '', material: null, detail: '' };
+              var item = { sku: 'svc-' + k, kind: 'service', name: SVC_NAMES[k] || k, workflow: '', qty: 1, variant: '', material: null, note: '' };
               if (k === 'fdm') {
                 item.workflow = 'Direct print';
                 item.variant = fval('fdm_material');
@@ -288,14 +284,12 @@
                 item.size = fval('fdm_size');
                 item.finishing = ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? 'yes' : '';
                 item.finishing_notes = fval('fdm_finishing_notes');
-              } else if (k === 'scan') { item.workflow = 'Scan'; item.detail = fval('scan_what'); }
-              else if (k === 'model') { item.workflow = 'Digital'; item.detail = fval('model_what'); }
-              else if (k === 'animation') { item.workflow = 'Digital'; item.detail = fval('animation_what'); }
+              } else if (k === 'scan') { item.workflow = 'Scan'; item.note = fval('scan_what'); }
+              else if (k === 'model') { item.workflow = 'Digital'; item.note = fval('model_what'); }
+              else if (k === 'animation') { item.workflow = 'Digital'; item.note = fval('animation_what'); }
               items.push(item);
             });
             data.append('line_items', JSON.stringify(items));
-            // fdm_finishing is a checkbox — not sent when unchecked; add empty so Make's schema always sees it
-            if (!data.has('fdm_finishing')) data.append('fdm_finishing', '');
             if (errBox) errBox.hidden = true;
             var orig = btn.textContent;
             btn.disabled = true; btn.textContent = 'Sending…';
@@ -311,6 +305,7 @@
               });
           } else {
             // mailto fallback when no webhook is configured
+            var svcs = Array.prototype.slice.call(ofWrap.querySelectorAll('[name="service"]:checked')).map(function (c) { return c.value; });
             var lines = [];
             ofWrap.querySelectorAll('input, select, textarea').forEach(function (el) {
               if (!el.name || el.name === 'of_hp_field' || el.name.charAt(0) === '_') return;

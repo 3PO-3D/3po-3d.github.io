@@ -398,15 +398,16 @@ permalink: /forge/products/
       var type = curType();
       var colour = (form.querySelector('input[name=ins_colour]:checked') || {}).value || '';
       var data = new URLSearchParams();
-      data.append('form_type', 'product');   // lets the unified Make scenario route product vs service
-      ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'shoe_size', 'foot_length', 'foot_width', 'notes'].forEach(function (n) {
-        var el = form.querySelector('[name=' + n + ']'); if (el) data.append(n, el.value);   // always send (empty allowed) so the mapped variables always exist
-      });
-      // Always send service-form variables as empty so Make's schema is complete from a single product submit
-      ['_secret', 'deadline', 'services', 'fdm_material', 'material_color', 'fdm_quantity', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_what', 'model_what', 'animation_what'].forEach(function (n) { data.append(n, ''); });
+      var pfval = function(n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value : ''; };
+      data.append('form_type', 'product');
+      data.append('_secret', 'forge3po');
+      data.append('deadline', '');
+      data.append('customer', JSON.stringify({
+        name: pfval('name'), email: pfval('email'), phone: pfval('phone'),
+        shipping: { country: pfval('ship_country'), postcode: pfval('ship_postcode'), city: pfval('ship_city'), street: pfval('ship_street'), number: pfval('ship_number'), unit: pfval('ship_unit') }
+      }));
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
       var matName = MATERIAL[type + '|' + colour] || '';
-      data.append('material_name', matName);   // top-level mirror — Make's Notion Search Objects still reads this
       data.append('line_items', JSON.stringify([{
         sku: 'Insole · ' + type + ' · ' + colour,
         kind: 'product',
@@ -415,12 +416,8 @@ permalink: /forge/products/
         qty: qty,
         variant: type + ' · ' + colour,
         material: { name: matName, type: 'TPU', colour: colour },
-        sizing: {
-          shoe_size: (form.querySelector('[name=shoe_size]') || {}).value || '',
-          foot_length: (form.querySelector('[name=foot_length]') || {}).value || '',
-          foot_width: (form.querySelector('[name=foot_width]') || {}).value || ''
-        },
-        detail: (form.querySelector('[name=notes]') || {}).value || ''
+        sizing: { shoe_size: pfval('shoe_size'), foot_length: pfval('foot_length'), foot_width: pfval('foot_width') },
+        note: pfval('notes')
       }]));
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
