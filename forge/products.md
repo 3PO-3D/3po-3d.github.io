@@ -405,7 +405,7 @@ permalink: /forge/products/
       ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) { data.append(n, pfval(n)); });
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
       var matName = MATERIAL[type + '|' + colour] || '';
-      data.append('line_items', JSON.stringify([{
+      data.append('line_items', JSON.stringify({ items: [{
         sku: 'Insole · ' + type + ' · ' + colour,
         kind: 'product',
         name: 'Insole',
@@ -415,7 +415,7 @@ permalink: /forge/products/
         material: { name: matName, type: 'TPU', colour: colour },
         sizing: { shoe_size: pfval('shoe_size'), foot_length: pfval('foot_length'), foot_width: pfval('foot_width') },
         note: pfval('notes')
-      }]));
+      }] }));
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
         .then(function (r) { if (!r.ok) throw new Error('the server returned ' + r.status); return r; })

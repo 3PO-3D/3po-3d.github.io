@@ -286,7 +286,7 @@
               else if (k === 'animation') { item.workflow = 'Digital'; item.note = fval('animation_what'); }
               items.push(item);
             });
-            data.append('line_items', JSON.stringify(items));
+            data.append('line_items', JSON.stringify({ items: items }));
             if (errBox) errBox.hidden = true;
             var orig = btn.textContent;
             btn.disabled = true; btn.textContent = 'Sending…';
