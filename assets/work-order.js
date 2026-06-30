@@ -281,13 +281,14 @@
               var k = c.value;
               var item = { sku: 'svc-' + k, kind: 'service', name: SVC_NAMES[k] || k, variant: '', material_name: '', workflow: '', qty: 1, detail: '' };
               if (k === 'fdm') {
+                item.workflow = 'Direct print';
                 item.material_name = fval('material_name');
                 item.variant = fval('fdm_material');
                 item.qty = parseInt(fval('fdm_quantity'), 10) || 1;
                 item.detail = 'Size: ' + (fval('fdm_size') || '—') + (ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? '; Finishing: ' + (fval('fdm_finishing_notes') || 'yes') : '');
-              } else if (k === 'scan') { item.detail = fval('scan_what'); }
-              else if (k === 'model') { item.detail = fval('model_what'); }
-              else if (k === 'animation') { item.detail = fval('animation_what'); }
+              } else if (k === 'scan') { item.workflow = 'Scan'; item.detail = fval('scan_what'); }
+              else if (k === 'model') { item.workflow = 'Digital'; item.detail = fval('model_what'); }
+              else if (k === 'animation') { item.workflow = 'Digital'; item.detail = fval('animation_what'); }
               items.push(item);
             });
             data.append('line_items', JSON.stringify(items));
