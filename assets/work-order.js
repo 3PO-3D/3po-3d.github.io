@@ -272,7 +272,7 @@
             var SVC_WORKFLOWS = { fdm: 'Direct print', scan: 'Scan', model: 'Digital', animation: 'Digital' };
             var selectedSvcs = Array.prototype.slice.call(ofWrap.querySelectorAll('input[name="service"]:checked')).map(function (c) { return c.value; });
             var wfSeen = {}; selectedSvcs.forEach(function (k) { if (SVC_WORKFLOWS[k]) wfSeen[SVC_WORKFLOWS[k]] = true; });
-            Object.keys(wfSeen).forEach(function (wf) { data.append('workflows[]', wf); });
+            Object.keys(wfSeen).forEach(function (wf) { data.append('workflows', wf); });
             var cartParts = [];
             selectedSvcs.forEach(function (k) {
               if (k === 'fdm') {
