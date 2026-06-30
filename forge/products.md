@@ -402,10 +402,7 @@ permalink: /forge/products/
       data.append('form_type', 'product');
       data.append('_secret', 'forge3po');
       data.append('deadline', '');
-      data.append('customer', JSON.stringify({
-        name: pfval('name'), email: pfval('email'), phone: pfval('phone'),
-        shipping: { country: pfval('ship_country'), postcode: pfval('ship_postcode'), city: pfval('ship_city'), street: pfval('ship_street'), number: pfval('ship_number'), unit: pfval('ship_unit') }
-      }));
+      ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) { data.append(n, pfval(n)); });
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
       var matName = MATERIAL[type + '|' + colour] || '';
       data.append('line_items', JSON.stringify([{

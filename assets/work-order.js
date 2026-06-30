@@ -268,10 +268,7 @@
             data.append('form_type', 'service');
             data.append('_secret', fval('_secret') || 'forge3po');
             data.append('deadline', fval('deadline'));
-            data.append('customer', JSON.stringify({
-              name: fval('name'), email: fval('email'), phone: fval('phone'),
-              shipping: { country: fval('ship_country'), postcode: fval('ship_postcode'), city: fval('ship_city'), street: fval('ship_street'), number: fval('ship_number'), unit: fval('ship_unit') }
-            }));
+            ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) { data.append(n, fval(n)); });
             var items = [];
             ofWrap.querySelectorAll('input[name="service"]:checked').forEach(function (c) {
               var k = c.value;
