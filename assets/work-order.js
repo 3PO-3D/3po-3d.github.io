@@ -269,24 +269,35 @@
             data.append('_secret', fval('_secret') || 'forge3po');
             data.append('deadline', fval('deadline'));
             ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) { data.append(n, fval(n)); });
-            var items = [];
-            ofWrap.querySelectorAll('input[name="service"]:checked').forEach(function (c) {
-              var k = c.value;
-              var item = { sku: 'svc-' + k, kind: 'service', name: SVC_NAMES[k] || k, workflow: '', qty: 1, variant: '', material: null, note: '' };
+            var selectedSvcs = Array.prototype.slice.call(ofWrap.querySelectorAll('input[name="service"]:checked')).map(function (c) { return c.value; });
+            data.append('services', selectedSvcs.join(', '));
+            var cartParts = [];
+            selectedSvcs.forEach(function (k) {
               if (k === 'fdm') {
-                item.workflow = 'Direct print';
-                item.variant = fval('fdm_material');
-                item.qty = parseInt(fval('fdm_quantity'), 10) || 1;
-                item.material = { name: fval('material_name'), type: fval('fdm_material'), colour: fval('material_color') };
-                item.size = fval('fdm_size');
-                item.finishing = ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? 'yes' : '';
-                item.finishing_notes = fval('fdm_finishing_notes');
-              } else if (k === 'scan') { item.workflow = 'Scan'; item.note = fval('scan_what'); }
-              else if (k === 'model') { item.workflow = 'Digital'; item.note = fval('model_what'); }
-              else if (k === 'animation') { item.workflow = 'Digital'; item.note = fval('animation_what'); }
-              items.push(item);
+                var qty = fval('fdm_quantity') || '1';
+                var matName = fval('material_name');
+                data.append('material_name', matName);
+                data.append('material_type', fval('fdm_material'));
+                data.append('material_colour', fval('material_color'));
+                data.append('fdm_qty', qty);
+                data.append('fdm_size', fval('fdm_size'));
+                data.append('fdm_finishing', ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? 'yes' : '');
+                data.append('fdm_finishing_notes', fval('fdm_finishing_notes'));
+                cartParts.push('FDM Printing × ' + qty + (matName ? ' (' + matName + ')' : '') + (fval('fdm_size') ? ', size: ' + fval('fdm_size') : ''));
+              } else if (k === 'scan') {
+                data.append('scan_note', fval('scan_what'));
+                cartParts.push('3D Scanning' + (fval('scan_what') ? ' — ' + fval('scan_what') : ''));
+              } else if (k === 'model') {
+                data.append('model_note', fval('model_what'));
+                cartParts.push('Modeling & Touch-ups' + (fval('model_what') ? ' — ' + fval('model_what') : ''));
+              } else if (k === 'animation') {
+                data.append('animation_note', fval('animation_what'));
+                cartParts.push('Animation & 3D Art' + (fval('animation_what') ? ' — ' + fval('animation_what') : ''));
+              }
             });
-            data.append('line_items', JSON.stringify({ items: items }));
+            // Always send these so Make's schema is stable regardless of which services were selected
+            ['material_name', 'material_type', 'material_colour', 'fdm_qty', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_note', 'model_note', 'animation_note'].forEach(function (n) { if (!data.has(n)) data.append(n, ''); });
+            data.append('cart', cartParts.join(' | '));
             if (errBox) errBox.hidden = true;
             var orig = btn.textContent;
             btn.disabled = true; btn.textContent = 'Sending…';
