@@ -299,7 +299,7 @@
               }
             });
             // Always send these so Make's schema is stable regardless of which services were selected
-            ['material_name', 'material_type', 'material_colour', 'material_id', 'quantity', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_note', 'model_note', 'animation_note'].forEach(function (n) { if (!data.has(n)) data.append(n, ''); });
+            ['material_name', 'material_type', 'material_colour', 'material_id', 'quantity', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_note', 'model_note', 'animation_note', 'shoe_size', 'foot_length', 'foot_width'].forEach(function (n) { if (!data.has(n)) data.append(n, ''); });
             data.append('cart', cartParts.join(' | '));
             if (errBox) errBox.hidden = true;
             var orig = btn.textContent;
