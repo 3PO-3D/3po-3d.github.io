@@ -415,7 +415,7 @@ permalink: /forge/products/
       data.append('ins_type', type);
       data.append('ins_colour', colour);
       data.append('quantity', String(qty));
-      data.append('cart', 'Insole · ' + type + ' · ' + colour + ' × ' + qty);
+      data.append('cart', 'Insole · ' + type + ' · ' + colour);
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
         .then(function (r) { if (!r.ok) throw new Error('the server returned ' + r.status); return r; })
