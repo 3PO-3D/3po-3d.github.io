@@ -210,6 +210,7 @@ permalink: /forge/services/
               <input type="hidden" name="fdm_material" id="fdm_material" value="Recommend for me">
               <input type="hidden" name="material_name" id="material_name" value="">
               <input type="hidden" name="material_color" id="material_color" value="">
+              <input type="hidden" name="material_id" id="material_id" value="">
               <div class="mat-types">
                 <button type="button" class="mat-type is-active" data-mtype="Recommend for me">Recommend for me</button>
                 <button type="button" class="mat-type" data-mtype="PLA" data-group="PLA">PLA</button>
@@ -220,7 +221,7 @@ permalink: /forge/services/
               <div class="mat-picker" id="mat-picker" hidden>
                 <input type="text" class="mat-search" id="mat-search" placeholder="Filter colours…" autocomplete="off">
                 <div class="mat-grid" id="mat-grid">
-                  {% for m in site.data.forge_materials %}<button type="button" class="mat-swatch{% if m.in_stock %} in-stock{% endif %}" data-group="{{ m.group }}" data-type="{{ m.type }}" data-name="{{ m.name | escape }}" data-colour="{{ m.colour | escape }}" data-instock="{% if m.in_stock %}1{% else %}0{% endif %}" title="{{ m.name | escape }}"><img src="{{ m.img | relative_url }}" loading="lazy" alt="{{ m.name | escape }}"><span class="mat-swatch__c">{{ m.colour | escape }}</span></button>{% endfor %}
+                  {% for m in site.data.forge_materials %}<button type="button" class="mat-swatch{% if m.in_stock %} in-stock{% endif %}" data-group="{{ m.group }}" data-type="{{ m.type }}" data-name="{{ m.name | escape }}" data-colour="{{ m.colour | escape }}" data-id="{{ m.id }}" data-instock="{% if m.in_stock %}1{% else %}0{% endif %}" title="{{ m.name | escape }}"><img src="{{ m.img | relative_url }}" loading="lazy" alt="{{ m.name | escape }}"><span class="mat-swatch__c">{{ m.colour | escape }}</span></button>{% endfor %}
                 </div>
               </div>
               <div class="mat-selected" id="mat-selected" hidden><span>Selected: <strong id="mat-selected-name"></strong></span><button type="button" class="mat-clear" id="mat-clear">change</button></div>
@@ -379,6 +380,7 @@ permalink: /forge/services/
     var fType = document.getElementById('fdm_material');
     var fName = document.getElementById('material_name');
     var fColour = document.getElementById('material_color');
+    var fId = document.getElementById('material_id');
     var typeBtns = Array.prototype.slice.call(document.querySelectorAll('.mat-type'));
     var swatches = Array.prototype.slice.call(grid.querySelectorAll('.mat-swatch'));
     var activeGroup = null;
@@ -393,7 +395,7 @@ permalink: /forge/services/
     function showGroup(group) { activeGroup = group; applySearch(); }
     function clearSelection() {
       swatches.forEach(function (s) { s.classList.remove('is-active'); });
-      fName.value = ''; fColour.value = '';
+      fName.value = ''; fColour.value = ''; fId.value = '';
       selBox.hidden = true; leadnote.hidden = true;
     }
 
@@ -417,6 +419,7 @@ permalink: /forge/services/
         fType.value = s.getAttribute('data-type');
         fName.value = nm;
         fColour.value = s.getAttribute('data-colour');
+        fId.value = s.getAttribute('data-id') || '';
         selName.textContent = nm;
         selBox.hidden = false;
         // lead-time note only when the chosen colour is NOT in stock

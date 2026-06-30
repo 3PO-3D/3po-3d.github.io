@@ -368,12 +368,13 @@ permalink: /forge/products/
     var form = document.getElementById('insole-order'); if (!form) return;
     var PRICES = { Orthopedic: 35000, Comfort: 30000 };
     var COLOURS = { Orthopedic: ['Blue', 'Black'], Comfort: ['Red', 'Black'] };
-    // Customer-facing colour → real inventory SKU (what Make looks up by name).
+    // Customer-facing colour → real inventory SKU. id = Notion Inventory page id
+    // (lets Make set the relation directly, no name lookup). name kept as fallback.
     var MATERIAL = {
-      'Orthopedic|Blue': 'Fiberlogy FiberFlex 30D Blue',
-      'Orthopedic|Black': 'Recreus Filaflex Foamy Black',
-      'Comfort|Red': 'Recreus Filaflex Red',
-      'Comfort|Black': 'Recreus Filaflex Foamy Black'
+      'Orthopedic|Blue':  { name: 'Fiberlogy FiberFlex 30D Blue', id: '' },
+      'Orthopedic|Black': { name: 'Recreus Filaflex Foamy Black', id: '' },
+      'Comfort|Red':      { name: 'Recreus Filaflex Red',         id: '' },
+      'Comfort|Black':    { name: 'Recreus Filaflex Foamy Black', id: '' }
     };
     var colWrap = document.getElementById('ins-colours');
     var priceEl = document.getElementById('ins-price');
@@ -403,10 +404,13 @@ permalink: /forge/products/
       data.append('_secret', 'forge3po');
       data.append('deadline', '');
       ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) { data.append(n, pfval(n)); });
+      // Insole-only fields (no equivalent on the service form) — needed for the fit.
+      ['shoe_size', 'foot_length', 'foot_width'].forEach(function (n) { data.append(n, pfval(n)); });
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
-      var matName = MATERIAL[type + '|' + colour] || '';
+      var mat = MATERIAL[type + '|' + colour] || { name: '', id: '' };
       data.append('workflows', 'Scan-upload');
-      data.append('material_name', matName);
+      data.append('material_name', mat.name);
+      data.append('material_id', mat.id);
       data.append('notes', pfval('notes'));
       data.append('ins_type', type);
       data.append('ins_colour', colour);
