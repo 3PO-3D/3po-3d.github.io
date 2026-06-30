@@ -271,7 +271,6 @@
             ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'notes'].forEach(function (n) { data.append(n, fval(n)); });
             var SVC_WORKFLOWS = { fdm: 'Direct print', scan: 'Scan', model: 'Digital', animation: 'Digital' };
             var selectedSvcs = Array.prototype.slice.call(ofWrap.querySelectorAll('input[name="service"]:checked')).map(function (c) { return c.value; });
-            data.append('services', selectedSvcs.join(', '));
             var wfSeen = {}; selectedSvcs.forEach(function (k) { if (SVC_WORKFLOWS[k]) wfSeen[SVC_WORKFLOWS[k]] = true; });
             data.append('workflows', Object.keys(wfSeen).join(', '));
             var cartParts = [];
@@ -286,7 +285,7 @@
                 data.append('fdm_size', fval('fdm_size'));
                 data.append('fdm_finishing', ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? 'yes' : '');
                 data.append('fdm_finishing_notes', fval('fdm_finishing_notes'));
-                cartParts.push('FDM Printing × ' + qty);
+                cartParts.push('FDM Printing');
               } else if (k === 'scan') {
                 data.append('scan_note', fval('scan_what'));
                 cartParts.push('3D Scanning');
