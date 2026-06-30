@@ -279,13 +279,15 @@
             var items = [];
             ofWrap.querySelectorAll('input[name="service"]:checked').forEach(function (c) {
               var k = c.value;
-              var item = { sku: 'svc-' + k, kind: 'service', name: SVC_NAMES[k] || k, variant: '', material_name: '', workflow: '', qty: 1, detail: '' };
+              var item = { sku: 'svc-' + k, kind: 'service', name: SVC_NAMES[k] || k, workflow: '', qty: 1, variant: '', material: null, detail: '' };
               if (k === 'fdm') {
                 item.workflow = 'Direct print';
-                item.material_name = fval('material_name');
                 item.variant = fval('fdm_material');
                 item.qty = parseInt(fval('fdm_quantity'), 10) || 1;
-                item.detail = 'Size: ' + (fval('fdm_size') || '—') + (ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? '; Finishing: ' + (fval('fdm_finishing_notes') || 'yes') : '');
+                item.material = { name: fval('material_name'), type: fval('fdm_material'), colour: fval('material_color') };
+                item.size = fval('fdm_size');
+                item.finishing = ofWrap.querySelector('input[name="fdm_finishing"]:checked') ? 'yes' : '';
+                item.finishing_notes = fval('fdm_finishing_notes');
               } else if (k === 'scan') { item.workflow = 'Scan'; item.detail = fval('scan_what'); }
               else if (k === 'model') { item.workflow = 'Digital'; item.detail = fval('model_what'); }
               else if (k === 'animation') { item.workflow = 'Digital'; item.detail = fval('animation_what'); }

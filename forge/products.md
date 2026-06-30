@@ -405,8 +405,23 @@ permalink: /forge/products/
       // Always send service-form variables as empty so Make's schema is complete from a single product submit
       ['_secret', 'deadline', 'services', 'fdm_material', 'material_color', 'fdm_quantity', 'fdm_size', 'fdm_finishing', 'fdm_finishing_notes', 'scan_what', 'model_what', 'animation_what'].forEach(function (n) { data.append(n, ''); });
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
-      data.append('material_name', MATERIAL[type + '|' + colour] || '');   // top-level mirror of item 1, shared with the services form (Make resolves the inventory relation off this)
-      data.append('line_items', JSON.stringify([{ sku: 'Insole · ' + type + ' · ' + colour, kind: 'product', name: 'Insole', variant: type + ' · ' + colour, material_name: MATERIAL[type + '|' + colour] || '', workflow: 'Scan-upload', qty: qty, detail: '' }]));
+      var matName = MATERIAL[type + '|' + colour] || '';
+      data.append('material_name', matName);   // top-level mirror — Make's Notion Search Objects still reads this
+      data.append('line_items', JSON.stringify([{
+        sku: 'Insole · ' + type + ' · ' + colour,
+        kind: 'product',
+        name: 'Insole',
+        workflow: 'Scan-upload',
+        qty: qty,
+        variant: type + ' · ' + colour,
+        material: { name: matName, type: 'TPU', colour: colour },
+        sizing: {
+          shoe_size: (form.querySelector('[name=shoe_size]') || {}).value || '',
+          foot_length: (form.querySelector('[name=foot_length]') || {}).value || '',
+          foot_width: (form.querySelector('[name=foot_width]') || {}).value || ''
+        },
+        detail: (form.querySelector('[name=notes]') || {}).value || ''
+      }]));
       btn.disabled = true; btn.textContent = 'Sending…';
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
         .then(function (r) { if (!r.ok) throw new Error('the server returned ' + r.status); return r; })
