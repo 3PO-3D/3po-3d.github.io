@@ -407,6 +407,7 @@ permalink: /forge/products/
       var matName = MATERIAL[type + '|' + colour] || '';
       data.append('workflows', 'Scan-upload');
       data.append('material_name', matName);
+      data.append('notes', pfval('notes'));
       data.append('ins_type', type);
       data.append('ins_colour', colour);
       data.append('quantity', String(qty));

@@ -268,7 +268,7 @@
             data.append('form_type', 'service');
             data.append('_secret', fval('_secret') || 'forge3po');
             data.append('deadline', fval('deadline'));
-            ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) { data.append(n, fval(n)); });
+            ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'notes'].forEach(function (n) { data.append(n, fval(n)); });
             var SVC_WORKFLOWS = { fdm: 'Direct print', scan: 'Scan', model: 'Digital', animation: 'Digital' };
             var selectedSvcs = Array.prototype.slice.call(ofWrap.querySelectorAll('input[name="service"]:checked')).map(function (c) { return c.value; });
             data.append('services', selectedSvcs.join(', '));
