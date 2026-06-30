@@ -408,7 +408,7 @@ permalink: /forge/products/
       ['shoe_size', 'foot_length', 'foot_width'].forEach(function (n) { data.append(n, pfval(n)); });
       var qty = parseInt((form.querySelector('[name=ins_qty]') || {}).value, 10) || 1;
       var mat = MATERIAL[type + '|' + colour] || { name: '', id: '' };
-      data.append('workflows', 'Scan-upload');
+      data.append('workflows[]', 'Scan-upload');
       data.append('material_name', mat.name);
       data.append('material_id', mat.id);
       data.append('notes', pfval('notes'));
