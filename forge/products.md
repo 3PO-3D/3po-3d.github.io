@@ -17,9 +17,9 @@ permalink: /forge/products/
     </div>
 
     <div class="cart-note">
-      <strong>Products are fixed-price — buy and I ship.</strong> Each product checks out on its own through
-      Stripe, and anything scan-based emails you a private upload link afterwards. Buying a few? Stripe lets
-      you add same-type items at checkout; each scan-based item still gets its own upload folder.
+      <strong>Fixed price — but you don&rsquo;t pay now.</strong> Order below and I email you a private Dropbox link to
+      upload your foot scan. Once I&rsquo;ve worked out shipping to your address, I send a single invoice — pay that and
+      your pair goes into print. Nothing is charged until you approve the invoice.
     </div>
 
     <!-- Flagship: custom insoles — store-style layout -->
@@ -47,7 +47,7 @@ permalink: /forge/products/
       <div class="ins-desc">
         <span class="product-cat">Custom Fit — Flagship · made from your foot scan</span>
         <h3>Custom Insoles</h3>
-        <p>3D-printed to fit your foot from a scan you upload after checkout. Pick the support level and colour at checkout, add a note if you like — I print the matched pair and ship it.</p>
+        <p>3D-printed to fit your foot from a scan you upload after you order. Pick the support level and colour below, add a note if you like — I print the matched pair and ship it once your invoice is paid.</p>
         <details class="ins-more">
           <summary>Read the full breakdown</summary>
           <div class="ins-more-body">
@@ -58,13 +58,13 @@ permalink: /forge/products/
             <p><strong>🔵 Blue — orthopedic.</strong> Firm, elastic TPU for structural correction: flat feet, misalignment, post-surgery and ligament rehab. Higher arch support and precise, scan-mapped load redistribution; the rebound helps rebuild foot and toe strength.</p>
             <p><strong>🔴 Red — comfort.</strong> The same firm, elastic TPU tuned for everyday relief — heel pain, toe pressure, general discomfort. Soft and rubbery underfoot with a fast rebound that assists push-off; great for sport and high step counts.</p>
             <p><strong>⚫ Black — foaming TPU.</strong> Available as <strong>either</strong> orthopedic <strong>or</strong> comfort. The print is tuned to foam the filament itself, so it compresses in a progressive, spongy way instead of springing back like rubber — the same load performance with a softer, more cushioned feel.</p>
-            <p class="ins-pick">So: order <strong>Orthopedic &rarr; Blue or Black</strong>, or <strong>Comfort &rarr; Red or Black</strong>. You choose type and colour at checkout.</p>
+            <p class="ins-pick">So: order <strong>Orthopedic &rarr; Blue or Black</strong>, or <strong>Comfort &rarr; Red or Black</strong>. You choose type and colour in the order form below.</p>
 
             <h4>Material &amp; lifespan</h4>
             <p>Two feels: a <strong>firm, elastic TPU</strong> (Blue / Red) and a <strong>soft, foaming TPU</strong> (Black). Both are <strong>washable and cleanable</strong>, and last roughly <strong>1.5&ndash;2 years</strong> of daily use.</p>
 
             <h4>How ordering works</h4>
-            <p>At checkout you pick the type and colour and can <strong>add a note</strong>. After you pay, I email you a <strong>private Dropbox link</strong> to upload your foot scan. <strong>Just reply to that email with anything you want tuned</strong> — more support under the arch, heel or toes; softer or firmer zones for how your weight sits. Almost anything is possible: that&rsquo;s the whole point of making them one pair at a time, for one person.</p>
+            <p>You pick the type and colour in the form below and can <strong>add a note</strong> — no payment yet. I email you a <strong>private Dropbox link</strong> to upload your foot scan, work out your shipping, and send a single invoice; once it&rsquo;s paid, I print your pair. <strong>Just reply to any of those emails with anything you want tuned</strong> — more support under the arch, heel or toes; softer or firmer zones for how your weight sits. Almost anything is possible: that&rsquo;s the whole point of making them one pair at a time, for one person.</p>
             <p><a href="#" class="kiri-guide-open" style="color:var(--accent);font-family:var(--font-mono);font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;">How to scan your foot &rarr;</a></p>
 
             <h4>Sizing &mdash; what I need</h4>
