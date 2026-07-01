@@ -28,7 +28,7 @@ permalink: /portfolio/
     <p class="lead">I&rsquo;m a 3D generalist working in advertising — modelling, look-dev, lighting and animation for product films and motion graphics. This is where the work lives.</p>
     <div class="hero-cta">
       <a href="#work" class="btn btn-accent">Browse Work</a>
-      <a href="#contact" class="btn btn-outline">Get in touch</a>
+      <a href="#" class="btn btn-outline" data-open-project>Get in touch</a>
     </div>
   </div>
 </section>
@@ -110,11 +110,13 @@ permalink: /portfolio/
         <p>Available for product animation, motion graphics and look-dev — freelance or contract.</p>
       </div>
       <div class="hero-cta" style="margin:0;">
-        <a href="mailto:3po@3po3d.com?subject=Project%20enquiry" class="btn btn-accent">Start a Project</a>
+        <a href="#" class="btn btn-accent" data-open-project>Start a Project</a>
       </div>
     </div>
   </div>
 </section>
+
+{% include project-modal.html %}
 
 <script src="{{ '/assets/work-order.js' | relative_url }}"></script>
 

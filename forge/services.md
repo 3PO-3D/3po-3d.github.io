@@ -122,7 +122,7 @@ permalink: /forge/services/
             <li>Often paired with a printed piece: animate it, then print the hero prop. Tick it below to bundle it into a workshop quote, or browse the reel first.</li>
           </ul>
           <a class="btn btn-outline" href="{{ '/portfolio/' | relative_url }}">See the Portfolio &rarr;</a>
-          <button class="btn btn-accent" type="button" data-start-order data-svc="animation">Add animation &rarr;</button>
+          <button class="btn btn-accent" type="button" data-open-project>Start an animation project &rarr;</button>
         </div>
       </div>
 
@@ -196,7 +196,6 @@ permalink: /forge/services/
                 <label class="of-choice"><input type="checkbox" name="service" value="fdm"><span>FDM Printing</span></label>
                 <label class="of-choice"><input type="checkbox" name="service" value="scan"><span>3D Scanning</span></label>
                 <label class="of-choice"><input type="checkbox" name="service" value="model"><span>Modeling &amp; Touch-ups</span></label>
-                <label class="of-choice"><input type="checkbox" name="service" value="animation"><span>Animation &amp; 3D Art</span></label>
               </div>
               <p class="of-note" id="gate-hint" hidden style="margin-top:0.6rem;">Added <strong>Modeling &amp; Touch-ups</strong> — a raw scan always needs cleanup before it prints. Untick it if you only want the raw scan data.</p>
             </div>
@@ -243,11 +242,6 @@ permalink: /forge/services/
           <div class="of-svc" data-svc-block="model" hidden>
             <p class="of-block__t"><span class="of-step__n">M</span>Modeling details</p>
             <div class="of-field"><label>Describe the model or fix</label><textarea name="model_what" placeholder="Model from a sketch/photo, repair a bad mesh, tweak fit/tolerances…"></textarea></div>
-          </div>
-
-          <div class="of-svc" data-svc-block="animation" hidden>
-            <p class="of-block__t"><span class="of-step__n">A</span>Animation details</p>
-            <div class="of-field"><label>What should move?</label><textarea name="animation_what" placeholder="Product, style, length, where it'll be used. Animation runs through the Portfolio studio."></textarea></div>
           </div>
 
           <!-- 3 · Brief + contact -->
@@ -311,7 +305,7 @@ permalink: /forge/services/
 
     // Reveal a service's detail block when its checkbox is on.
     function syncBlocks() {
-      ['fdm', 'scan', 'model', 'animation'].forEach(function (s) {
+      ['fdm', 'scan', 'model'].forEach(function (s) {
         var b = block(s), c = box(s);
         if (b && c) b.hidden = !c.checked;
       });
@@ -437,3 +431,5 @@ permalink: /forge/services/
     if (clearBtn) clearBtn.addEventListener('click', function () { picker.hidden = false; selBox.hidden = true; });
   })();
 </script>
+
+{% include project-modal.html %}

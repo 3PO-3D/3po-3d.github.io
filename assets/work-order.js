@@ -262,14 +262,14 @@
           }
 
           if (whUrl) {
-            var SVC_NAMES = { fdm: 'FDM Printing', scan: '3D Scanning', model: 'Modeling & Touch-ups', animation: 'Animation & 3D Art' };
+            var SVC_NAMES = { fdm: 'FDM Printing', scan: '3D Scanning', model: 'Modeling & Touch-ups' };
             function fval(n) { var el = ofWrap.querySelector('[name="' + n + '"]'); return el ? el.value : ''; }
             var data = new URLSearchParams();
             data.append('form_type', 'service');
             data.append('_secret', fval('_secret') || 'forge3po');
             data.append('deadline', fval('deadline'));
             ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit', 'notes'].forEach(function (n) { data.append(n, fval(n)); });
-            var SVC_WORKFLOWS = { fdm: 'Direct print', scan: 'Scan', model: 'Digital', animation: 'Digital' };
+            var SVC_WORKFLOWS = { fdm: 'Direct print', scan: 'Scan', model: 'Digital' };
             var selectedSvcs = Array.prototype.slice.call(ofWrap.querySelectorAll('input[name="service"]:checked')).map(function (c) { return c.value; });
             var wfSeen = {}; selectedSvcs.forEach(function (k) { if (SVC_WORKFLOWS[k]) wfSeen[SVC_WORKFLOWS[k]] = true; });
             Object.keys(wfSeen).forEach(function (wf) { data.append('workflows', wf); });
