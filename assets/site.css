@@ -213,7 +213,19 @@ p { text-wrap: pretty; }
 .sub-nav a.active { color: var(--text); border-bottom-color: var(--accent); }
 @media (max-width: 760px) {
   .sub-nav { display: none; }
-  .sub-nav.open { display: block; position: static; }
+  /* Open menu docks under the sticky header (its `top` is pinned to the exact
+     header height by site.js), not at the top of the document. Fixed = it
+     drops down wherever you are on the page, with the header's frosted look. */
+  .sub-nav.open {
+    display: block;
+    position: fixed; left: 0; right: 0; z-index: 95;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+    background: rgba(var(--bg-rgb), 0.92);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 12px 28px rgba(var(--text-rgb), 0.14);
+    border-bottom: var(--bw) solid var(--hairline);
+  }
   .sub-nav.open .container { flex-direction: column; }
   .sub-nav.open a { border-bottom: var(--bw) solid var(--hairline); border-left: 2px solid transparent; }
   .sub-nav.open a.active { border-left-color: var(--accent); border-bottom-color: var(--hairline); }
