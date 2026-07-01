@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light"{% if page.site_accent %} data-site="{{ page.site_accent }}"{% endif %}>
+<html lang="{{ page.lang | default: 'en' }}" data-theme="light"{% if page.site_accent %} data-site="{{ page.site_accent }}"{% endif %}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/site-pages.css' | relative_url }}">
   <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('theme')==='dark'?'dark':'light');</script>
+{% if page.has_translation %}{% if page.lang == 'hu' %}{% assign alt_url = page.url | remove_first: '/hu' %}{% assign alt_lang = 'en' %}{% else %}{% assign alt_url = '/hu' | append: page.url %}{% assign alt_lang = 'hu' %}{% endif %}{% assign alt_href = alt_url | relative_url %}
+  <script>
+  (function(){try{var p="{{ page.lang | default: 'en' }}",a="{{ alt_href }}",s=localStorage.getItem('lang');
+  if(s){if(s!==p&&a)location.replace(a);return;}
+  if((navigator.languages||[navigator.language||'']).some(function(l){return /^hu/i.test(l);})&&p==='en'&&a)location.replace(a);}catch(e){}})();
+  </script>{% endif %}
 </head>
 <body data-page="{{ page.nav_key }}">
 

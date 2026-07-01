@@ -4,6 +4,7 @@ nav_key: forge
 site_accent: forge
 wordmark: "FORGE"
 subnav: true
+has_translation: true
 footer_tagline: "FORGE · FDM Printing Workshop"
 title: "FORGE — 3PO 3D Printing"
 description: "Large-format FDM 3D printing, finishing and 3D scanning. Functional parts, prototypes, commissions and custom orthopedic insoles."

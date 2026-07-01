@@ -1,7 +1,8 @@
+{% assign n = site.data.i18n[page.lang].nav %}{% assign pfx = '' %}{% if page.lang == 'hu' %}{% assign pfx = '/hu' %}{% endif %}
 <nav class="sub-nav" id="sub-nav">
   <div class="container">
-    <a href="{{ '/forge/' | relative_url }}"{% if page.url == '/forge/' or page.url == '/forge/index.html' %} class="active"{% endif %}>Overview</a>
-    <a href="{{ '/forge/services/' | relative_url }}"{% if page.url contains '/forge/services' %} class="active"{% endif %}>Services</a>
-    <a href="{{ '/forge/products/' | relative_url }}"{% if page.url contains '/forge/products' %} class="active"{% endif %}>Products</a>
+    <a href="{{ pfx | append: '/forge/' | relative_url }}"{% if page.url == '/forge/' or page.url == '/forge/index.html' or page.url == '/hu/forge/' or page.url == '/hu/forge/index.html' %} class="active"{% endif %}>{{ n.overview }}</a>
+    <a href="{{ pfx | append: '/forge/services/' | relative_url }}"{% if page.url contains '/forge/services' %} class="active"{% endif %}>{{ n.services }}</a>
+    <a href="{{ pfx | append: '/forge/products/' | relative_url }}"{% if page.url contains '/forge/products' %} class="active"{% endif %}>{{ n.products }}</a>
   </div>
 </nav>

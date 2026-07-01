@@ -18,6 +18,7 @@
     </div>
 
     <div class="header-controls">
+      {% if page.has_translation %}<a class="lang-toggle" id="lang-toggle" href="{{ alt_href }}" data-target-lang="{{ alt_lang }}" aria-label="{{ site.data.i18n[page.lang].lang_toggle }}" title="{{ site.data.i18n[page.lang].lang_toggle }}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9z"/></svg></a>{% endif %}
       <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
         <img id="theme-toggle-icon" src="{{ '/assets/icons/Cupcake.svg' | relative_url }}" data-light="{{ '/assets/icons/Cupcake.svg' | relative_url }}" data-dark="{{ '/assets/icons/Planet.svg' | relative_url }}" alt="Toggle theme" width="20" height="20">
       </button>

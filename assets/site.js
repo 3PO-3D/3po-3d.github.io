@@ -118,6 +118,12 @@
       menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
 
+    // ── Language toggle: remember the choice so it sticks across pages ──
+    var langToggle = document.getElementById('lang-toggle');
+    if (langToggle) langToggle.addEventListener('click', function () {
+      try { localStorage.setItem('lang', langToggle.getAttribute('data-target-lang')); } catch (e) {}
+    });
+
     // ── Dock the sub-nav exactly under the sticky header ──
     // Header height varies; pin the sub-nav's sticky `top` to it so it
     // never slides under the header (loses its top padding) on scroll.

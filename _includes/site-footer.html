@@ -1,12 +1,12 @@
-<footer class="site-footer">
+{% assign f = site.data.i18n[page.lang].footer %}<footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
         <p><strong>3PO</strong> — Crafting Your Tomorrow</p>
-        <p class="muted">Tools and projects by one maker.<br>Built by hand, for real work.</p>
+        <p class="muted">{{ f.tagline_line1 }}<br>{{ f.tagline_line2 }}</p>
       </div>
       <div class="footer-links">
-        <h4>Contact &amp; Support</h4>
+        <h4>{{ f.contact }}</h4>
         <div class="footer-icon-row">
           <a href="mailto:3po@3po3d.com" class="footer-icon-btn" aria-label="Email"><img src="{{ '/assets/icons/Emails.svg' | relative_url }}" alt="Email" width="30" height="30" class="icon-no-tint"></a>
           <a href="https://3po3d.gumroad.com" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="Gumroad Community"><img src="{{ '/assets/icons/qa_pink.svg' | relative_url }}" alt="Community" width="32" height="32" class="icon-no-tint"></a>
@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="footer-links">
-        <h4>Connect</h4>
+        <h4>{{ f.connect }}</h4>
         <div class="footer-icon-row">
           <a href="https://www.instagram.com/3po_3d" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="Instagram"><img src="{{ '/assets/icons/Instagram.svg' | relative_url }}" alt="Instagram" width="32" height="32" class="icon-no-tint"></a>
           <a href="https://linkedin.com/in/bence-r%C3%A1cz-b444ab1b3" target="_blank" rel="noopener" class="footer-icon-btn" aria-label="LinkedIn"><img src="{{ '/assets/icons/LinkedIn.svg' | relative_url }}" alt="LinkedIn" width="32" height="32" class="icon-no-tint"></a>
@@ -24,6 +24,6 @@
         </div>
       </div>
     </div>
-    <p class="footer-bottom"><span>© {{ site.time | date: '%Y' }} 3PO. All rights reserved.</span><span>{{ page.footer_tagline | default: 'Crafting Your Tomorrow' }}</span></p>
+    <p class="footer-bottom"><span>© {{ site.time | date: '%Y' }} 3PO. {{ f.rights }}</span><span>{{ page.footer_tagline | default: 'Crafting Your Tomorrow' }}</span></p>
   </div>
 </footer>

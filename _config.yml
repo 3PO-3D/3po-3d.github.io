@@ -17,10 +17,24 @@ defaults:
       path: ""
     values:
       layout: default
+      lang: en
   - scope:
       path: "index.md"
     values:
       layout: home
+  - scope:
+      path: "hu"
+    values:
+      lang: hu
+  - scope:
+      path: "hu/forge"
+      type: pages
+    values:
+      nav_key: forge
+      site_accent: forge
+      wordmark: "FORGE"
+      subnav: true
+      lang: hu
   - scope:
       path: "chronos"
       type: pages

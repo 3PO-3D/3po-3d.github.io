@@ -1,0 +1,45 @@
+# Site chrome strings by language. Includes read: site.data.i18n[page.lang].*
+# Brand names (3PO, FORGE, CHRONOS, material names) and the slogan
+# "Crafting Your Tomorrow" are intentionally NOT translated.
+en:
+  nav:
+    overview: "Overview"
+    services: "Services"
+    products: "Products"
+  footer:
+    contact: "Contact &amp; Support"
+    connect: "Connect"
+    tagline_line1: "Tools and projects by one maker."
+    tagline_line2: "Built by hand, for real work."
+    rights: "All rights reserved."
+  lang_toggle: "Magyar"
+  elsewhere:
+    label: "Elsewhere at 3PO"
+    heading: "Find your way around."
+    cards:
+      home:      { title: "Home",      cta: "Back to 3PO",     desc: "3PO — tools, prints and 3D art, by one maker." }
+      chronos:   { title: "CHRONOS",   cta: "Explore CHRONOS", desc: "A Cinema 4D plugin for non-destructive scene-variation management. One file, every version." }
+      forge:     { title: "FORGE",     cta: "The workshop",    desc: "Large-format FDM printing, scanning and finishing — quoted first, then made." }
+      portfolio: { title: "Portfolio", cta: "View the work",   desc: "Product films and motion graphics — the moving, rendered side of the same hands." }
+      creator:   { title: "The Maker", cta: "Meet the maker",  desc: "Rácz Bence László — technical artist, developer, maker. The person behind 3PO." }
+hu:
+  nav:
+    overview: "Áttekintés"
+    services: "Szolgáltatások"
+    products: "Termékek"
+  footer:
+    contact: "Kapcsolat &amp; támogatás"
+    connect: "Kövess"
+    tagline_line1: "Eszközök és projektek, egyetlen alkotótól."
+    tagline_line2: "Kézzel építve, valódi munkához."
+    rights: "Minden jog fenntartva."
+  lang_toggle: "English"
+  elsewhere:
+    label: "Máshol a 3PO-nál"
+    heading: "Találd meg az utad."
+    cards:
+      home:      { title: "Főoldal",   cta: "Vissza a 3PO-hoz",       desc: "3PO — eszközök, nyomatok és 3D art, egyetlen alkotótól." }
+      chronos:   { title: "CHRONOS",   cta: "Fedezd fel a CHRONOS-t", desc: "Cinema 4D bővítmény roncsolásmentes jelenetváltozat-kezeléshez. Egy fájl, minden verzió." }
+      forge:     { title: "FORGE",     cta: "A műhely",               desc: "Nagyméretű FDM nyomtatás, szkennelés és utómunka — előbb árajánlat, aztán gyártás." }
+      portfolio: { title: "Portfólió", cta: "Nézd meg a munkákat",    desc: "Termékfilmek és mozgókép — ugyanazon kezek mozgó, renderelt oldala." }
+      creator:   { title: "Az alkotó", cta: "Ismerd meg az alkotót",  desc: "Rácz Bence László — technical artist, fejlesztő, alkotó. A 3PO mögött álló ember." }
