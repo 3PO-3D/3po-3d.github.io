@@ -1,8 +1,9 @@
 <!-- Shared "Start a project" popup — animation / studio intake.
-     Any element with [data-open-project] opens it. Posts to the unified intake
-     webhook with workflows=Animation so Make routes it to the studio branch
-     (no Stripe, no Notion — gated by the if(workflows="Animation") at the end).
-     Fully self-contained (own styles via global CSS vars) so it drops onto any page. -->
+     Any element with [data-open-project] opens it. Text comes from
+     _data/i18n.yml[page.lang].project_modal; posts to the unified intake
+     webhook with workflows=Animation + lang so Make routes + localizes.
+     Self-contained (own styles via global CSS vars) so it drops onto any page. -->
+{% assign pm = site.data.i18n[page.lang].project_modal %}
 <style>
   #project-modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: center; justify-content: center; padding: 1.25rem; background: rgba(var(--text-rgb), 0.45); backdrop-filter: blur(4px); }
   #project-modal[hidden] { display: none; }
@@ -20,30 +21,30 @@
   #project-modal .pm-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 </style>
 
-<div id="project-modal" hidden>
-  <div class="pm-box" role="dialog" aria-modal="true" aria-label="Start a project">
+<div id="project-modal" data-lang="{{ page.lang | default: 'en' }}" hidden>
+  <div class="pm-box" role="dialog" aria-modal="true" aria-label="{{ pm.heading }}">
     <button class="pm-close" type="button" aria-label="Close">&times;</button>
 
     <div class="pm-form">
-      <p class="mono-label" style="margin-bottom:0.5rem;">Animation &amp; 3D Art</p>
-      <h2 style="font-size:1.5rem;margin:0 0 0.6rem;">Start a project</h2>
-      <p style="color:var(--muted);line-height:1.6;margin:0 0 1.5rem;">A line is enough to start. I set up a private folder and a direct line to me, and we shape the brief together — no payment, no commitment.</p>
+      <p class="mono-label" style="margin-bottom:0.5rem;">{{ pm.eyebrow }}</p>
+      <h2 style="font-size:1.5rem;margin:0 0 0.6rem;">{{ pm.heading }}</h2>
+      <p style="color:var(--muted);line-height:1.6;margin:0 0 1.5rem;">{{ pm.intro }}</p>
 
       <form id="project-form" novalidate>
         <input type="text" name="of_hp_field" class="pm-hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="pm-field"><label for="pm-name">Name</label><input type="text" id="pm-name" name="name" placeholder="Your name" autocomplete="name"></div>
-        <div class="pm-field"><label for="pm-email">Email</label><input type="email" id="pm-email" name="email" placeholder="you@email.com" autocomplete="email" required></div>
-        <div class="pm-field"><label for="pm-notes">What do you have in mind? <span style="text-transform:none;letter-spacing:0;opacity:.7;">(optional)</span></label><textarea id="pm-notes" name="notes" placeholder="Product, style, length, where it'll run — a rough idea is plenty."></textarea></div>
-        <button class="btn btn-accent" type="submit" id="pm-submit">Send &rarr;</button>
-        <span class="pm-note">I reply with a private Dropbox folder and a direct line to reach me.</span>
+        <div class="pm-field"><label for="pm-name">{{ pm.name_label }}</label><input type="text" id="pm-name" name="name" placeholder="{{ pm.name_ph }}" autocomplete="name"></div>
+        <div class="pm-field"><label for="pm-email">{{ pm.email_label }}</label><input type="email" id="pm-email" name="email" placeholder="you@email.com" autocomplete="email" required></div>
+        <div class="pm-field"><label for="pm-notes">{{ pm.note_label }} <span style="text-transform:none;letter-spacing:0;opacity:.7;">{{ pm.note_optional }}</span></label><textarea id="pm-notes" name="notes" placeholder="{{ pm.note_ph }}"></textarea></div>
+        <button class="btn btn-accent" type="submit" id="pm-submit">{{ pm.submit }}</button>
+        <span class="pm-note">{{ pm.submit_note }}</span>
         <p class="pm-note" id="pm-err" hidden style="color:#b3261e;"></p>
       </form>
     </div>
 
     <div class="pm-done" id="pm-done" hidden style="text-align:center;">
       <div class="pm-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4 10-10"/></svg></div>
-      <h3 style="margin:0 0 0.5rem;">Got it — check your email.</h3>
-      <p style="color:var(--muted);line-height:1.6;">I'll set up your private folder and send a direct line to me so we can start shaping it. Talk soon.</p>
+      <h3 style="margin:0 0 0.5rem;">{{ pm.done_heading }}</h3>
+      <p style="color:var(--muted);line-height:1.6;">{{ pm.done_body }}</p>
     </div>
   </div>
 </div>
@@ -53,6 +54,8 @@
   function init() {
     var overlay = document.getElementById('project-modal');
     if (!overlay) return;
+    var STR = {{ pm | jsonify }};
+    var LANG = overlay.getAttribute('data-lang') || 'en';
     var form = document.getElementById('project-form');
     var formWrap = overlay.querySelector('.pm-form');
     var done = document.getElementById('pm-done');
@@ -75,11 +78,12 @@
       e.preventDefault();
       if (form.of_hp_field && form.of_hp_field.value) { close(); return; }
       var email = (form.email.value || '').trim();
-      if (!email) { errBox.hidden = false; errBox.textContent = 'Please add your email so I can reach you.'; return; }
+      if (!email) { errBox.hidden = false; errBox.textContent = STR.err_email; return; }
       errBox.hidden = true;
       var data = new URLSearchParams();
       data.append('form_type', 'service');
       data.append('_secret', 'forge3po');
+      data.append('lang', LANG);
       data.append('workflows', 'Animation');
       data.append('cart', 'Animation & 3D Art');
       data.append('name', (form.name.value || '').trim());
@@ -87,7 +91,7 @@
       data.append('notes', (form.notes.value || '').trim());
       EMPTIES.forEach(function (n) { if (!data.has(n)) data.append(n, ''); });
       var btn = document.getElementById('pm-submit');
-      var orig = btn.textContent; btn.disabled = true; btn.textContent = 'Sending…';
+      var orig = btn.textContent; btn.disabled = true; btn.textContent = STR.sending;
       fetch(WEBHOOK, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: data.toString() })
         .then(function (r) {
           btn.disabled = false; btn.textContent = orig;
@@ -95,9 +99,9 @@
           if (formWrap) formWrap.style.display = 'none';
           if (done) done.hidden = false;
         })
-        .catch(function (err) {
+        .catch(function () {
           btn.disabled = false; btn.textContent = orig;
-          errBox.hidden = false; errBox.textContent = 'Couldn’t send — ' + err.message + '. Try again, or email 3po@3po3d.com.';
+          errBox.hidden = false; errBox.textContent = STR.err_send;
         });
     });
   }

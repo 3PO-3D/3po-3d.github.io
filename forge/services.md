@@ -2,6 +2,7 @@
 title: "FORGE — Services"
 description: "FDM printing, 3D scanning and modeling — stack what your job needs, see how the workshop works, and request a quote on one page."
 permalink: /forge/services/
+has_translation: true
 ---
 
 {% include forge-subnav.html %}
@@ -180,6 +181,7 @@ permalink: /forge/services/
     <form id="order-form" data-webhook="https://hook.eu1.make.com/u91iw4wqrdqdnjydmg2ttsi56y15c1a9" novalidate>
       <input type="hidden" name="_secret" value="forge3po">
       <input type="hidden" name="form_type" value="service">
+      <input type="hidden" name="lang" value="en">
       <input type="hidden" name="services" value="">
       <input type="hidden" name="shoe_size" value="">
       <input type="hidden" name="foot_length" value="">
