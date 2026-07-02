@@ -2,6 +2,7 @@
 title: "FORGE — Products"
 description: "Ready-to-order printed pieces, including custom-fit orthopedic and comfort insoles printed from your foot scan."
 permalink: /forge/products/
+has_translation: true
 ---
 
 {% include forge-subnav.html %}
@@ -402,6 +403,7 @@ permalink: /forge/products/
       var pfval = function(n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value : ''; };
       data.append('form_type', 'product');
       data.append('_secret', 'forge3po');
+      data.append('lang', 'en');
       data.append('deadline', '');
       ['name', 'email', 'phone', 'ship_country', 'ship_postcode', 'ship_city', 'ship_street', 'ship_number', 'ship_unit'].forEach(function (n) { data.append(n, pfval(n)); });
       // Insole-only fields (no equivalent on the service form) — needed for the fit.
