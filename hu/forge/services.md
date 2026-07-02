@@ -37,13 +37,13 @@ has_translation: true
   <div class="container">
     <div class="section-head">
       <p class="mono-label">01 — Szolgáltatások</p>
-      <h2>Mindent, a modelltől a kész felületig.</h2>
-      <p class="lead">Teljes FDM folyamat. Bekapcsolódhatsz bármelyik ponton — egy vázlat, egy STL, egy törött alkatrész, vagy egy beszkennelendő láb — és kész tárgyat viszel el. Olvasd el, mit csinál az egyes szolgáltatások, majd állítsd össze azokat, amelyekre a munkádnak szüksége van, egyetlen árajánlatkérésbe alább.</p>
+      <h2>Minden a modelltől a kész felületig.</h2>
+      <p class="lead">Teljes FDM folyamat. Bekapcsolódhatsz bármelyik ponton — egy vázlat, egy STL, egy törött alkatrész vagy valami, amit beszkennelnél — és kész tárgyat viszel el. Olvasd el, mit csinálnak az egyes szolgáltatások, majd állítsd össze azokat, amelyekre a munkádnak szüksége van, egyetlen árajánlatkérésben.</p>
     </div>
 
     <div class="cart-note">
       <strong>Egy árajánlat, egymásra épülő szolgáltatások.</strong> Egyetlen munka több szolgáltatást is
-      kombinálhat — beszkenneljük, megmodellezzük, kinyomtatjuk —, és <strong>egyetlen árajánlatot</strong>
+      kombinálhat — beszkenneljük, modellezzük, kinyomtatjuk —, és <strong>egyetlen árajánlatot</strong>
       kapsz az egészre. A külön munkák továbbra is külön kérésként mennek. A szolgáltatásoknak nincs előre
       megadott áruk: előbb árajánlatot adok, te jóváhagyod, aztán megy nyomtatásba.
     </div>

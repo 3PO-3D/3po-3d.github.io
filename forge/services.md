@@ -37,7 +37,7 @@ has_translation: true
     <div class="section-head">
       <p class="mono-label">01 — Services</p>
       <h2>Everything from the model to the finished surface.</h2>
-      <p class="lead">A complete FDM pipeline. Come in at any stage — a sketch, an STL, a broken part, or a foot to scan — and pick up a finished object. Read what each service does, then stack the ones your job needs into a single quote request below.</p>
+      <p class="lead">A complete FDM pipeline. Come in at any stage — a sketch, an STL, a broken part, or something to 3D scan — and pick up a finished object. Read what each service does, then stack the ones your job needs into a single quote request below.</p>
     </div>
 
     <div class="cart-note">
