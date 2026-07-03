@@ -141,7 +141,7 @@ has_translation: true
       <p class="lead">Öt szakasz, teljesen házon belül. Bármelyiknél bekapcsolódhatsz — és mindig fix árat látsz, mielőtt bármi nyomtatásba menne.</p>
     </div>
 
-    <div style="display:grid; grid-template-columns: 1.15fr 0.85fr; gap:3.5rem; align-items:start;" class="process-cols">
+    <div class="process-cols">
       <div class="steps">
         <div class="step on"><div class="step-n">1</div><div><h3>Szkennelés vagy modellezés</h3><p>Indulj a saját fájlodból, vagy beszkennelek egy valódi tárgyat / megmodellezem a nulláról. Minden javításra és vízhatlanná tételre kerül a szeletelés előtt.</p></div></div>
         <div class="step"><div class="step-n">2</div><div><h3>Szeletelés és árajánlat</h3><p>Az anyag, a kitöltés, az orientáció és a támaszok beállításra kerülnek. Fix árat és határidőt kapsz, mielőtt bármi nyomtatásba menne.</p></div></div>

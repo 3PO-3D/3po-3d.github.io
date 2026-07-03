@@ -140,7 +140,7 @@ has_translation: true
       <p class="lead">Five stages, fully in-house. You can jump in at any of them — and you always see a fixed price before anything prints.</p>
     </div>
 
-    <div style="display:grid; grid-template-columns: 1.15fr 0.85fr; gap:3.5rem; align-items:start;" class="process-cols">
+    <div class="process-cols">
       <div class="steps">
         <div class="step on"><div class="step-n">1</div><div><h3>Scan or Model</h3><p>Start from your file, or I scan a real object / model it from scratch. Everything is repaired and made watertight before slicing.</p></div></div>
         <div class="step"><div class="step-n">2</div><div><h3>Slice &amp; Quote</h3><p>Material, infill, orientation and supports are dialled in. You get a fixed price and timeline before anything prints.</p></div></div>
