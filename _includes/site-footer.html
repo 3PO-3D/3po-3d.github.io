@@ -25,5 +25,14 @@
       </div>
     </div>
     <p class="footer-bottom"><span>© {{ site.time | date: '%Y' }} 3PO. {{ f.rights }}</span><span>{{ page.footer_tagline | default: 'Crafting Your Tomorrow' }}</span></p>
+    {% if page.lang == 'hu' %}<nav class="footer-legal" aria-label="Jogi">
+      <a href="{{ '/hu/impresszum/' | relative_url }}">Impresszum</a><span class="sep">·</span>
+      <a href="{{ '/hu/aszf/' | relative_url }}">ÁSZF</a><span class="sep">·</span>
+      <a href="{{ '/hu/adatkezeles/' | relative_url }}">Adatkezelési tájékoztató</a>
+    </nav>{% else %}<nav class="footer-legal" aria-label="Legal">
+      <a href="{{ '/legal-notice/' | relative_url }}">Legal Notice</a><span class="sep">·</span>
+      <a href="{{ '/terms/' | relative_url }}">Terms &amp; Conditions</a><span class="sep">·</span>
+      <a href="{{ '/privacy/' | relative_url }}">Privacy Policy</a>
+    </nav>{% endif %}
   </div>
 </footer>
