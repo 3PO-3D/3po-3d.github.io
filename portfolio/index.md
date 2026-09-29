@@ -21,6 +21,17 @@ permalink: /portfolio/
 </nav>
 
 <section class="hero hero-arcs">
+  <!-- Background Video Embed (Framerate) — right side, edges fade into --bg -->
+  <div class="hero-video" aria-hidden="true">
+    <iframe
+      src="https://framerate.tv/embed/224fa1e3-e25c-462c-98ae-d5d6142e6a89?background=1"
+      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      loading="lazy"
+      tabindex="-1"
+      title="Cloud animation"
+    ></iframe>
+  </div>
   <div class="container">
     <img class="hero-mark" src="{{ '/assets/img/logos/Portfolio/portfolio_head.svg' | relative_url }}" alt="Portfolio" style="height:64px;margin-bottom:1.6rem;">
     <p class="eyebrow-accent">3D Generalist — Motion &amp; Product Animation</p>
