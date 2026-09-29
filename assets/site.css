@@ -328,28 +328,31 @@ p { text-wrap: pretty; }
           mask-image: radial-gradient(circle at 80% 14%, #000, transparent 92%);
 }
 
-/* Hero background video (Framerate embed) — right side, all edges feather into --bg */
+/* Hero background video (Framerate embed) — right side, scaled to COVER, edges feather into --bg.
+   The video has a solid panel-wall ground (no alpha), so blending = a long, smooth feather. */
 .hero-video {
-  position: absolute; top: 0; right: 0; bottom: 0; width: 62%;
+  position: absolute; top: 0; right: 0; bottom: 0; width: 66%;
   z-index: 0; overflow: hidden; pointer-events: none;
-  -webkit-mask-image:
-    linear-gradient(to right,  transparent 0, #000 32%, #000 100%),
-    linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%);
+  container-type: size;
+  --fade-x: linear-gradient(to right,
+    transparent 0%, rgba(0,0,0,.04) 10%, rgba(0,0,0,.14) 22%, rgba(0,0,0,.34) 36%,
+    rgba(0,0,0,.6) 50%, rgba(0,0,0,.85) 66%, #000 82%);
+  --fade-y: linear-gradient(to bottom,
+    transparent 0%, rgba(0,0,0,.5) 14%, #000 32%, #000 68%, rgba(0,0,0,.5) 86%, transparent 100%);
+  -webkit-mask-image: var(--fade-x), var(--fade-y);
   -webkit-mask-composite: source-in;
-          mask-image:
-    linear-gradient(to right,  transparent 0, #000 32%, #000 100%),
-    linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%);
+          mask-image: var(--fade-x), var(--fade-y);
           mask-composite: intersect;
 }
-/* Video has a white ground: multiply lets --bg show through so only the cloud remains */
-[data-theme="light"] .hero-video, :root:not([data-theme]) .hero-video { mix-blend-mode: multiply; }
 .hero-video iframe {
-  position: absolute; top: 50%; left: 50%; width: 100%; height: 100%;
-  min-width: 100%; min-height: 100%; transform: translate(-50%, -50%);
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  /* cover a 16:9 frame inside the box (no letterbox bars) */
+  width: max(100cqw, calc(100cqh * 16 / 9));
+  height: max(100cqh, calc(100cqw * 9 / 16));
   border: none; pointer-events: none;
 }
 @media (max-width: 760px) {
-  .hero-video { width: 100%; opacity: .35; }
+  .hero-video { width: 100%; opacity: .3; }
 }
 
 /* ── Media placeholder ───────────────────────────────────── */
