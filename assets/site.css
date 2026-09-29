@@ -329,30 +329,36 @@ p { text-wrap: pretty; }
 }
 
 /* Hero background video (Framerate embed) — right side, scaled to COVER, edges feather into --bg.
-   The video has a solid panel-wall ground (no alpha), so blending = a long, smooth feather. */
+   The video has a solid panel-wall ground (no alpha), so blending = a feather.
+   Framing: the video is enlarged as needed and shifted up so the cloud (~46% down the frame)
+   sits level with the hero logo. Tweak --cloud-y / --cloud-at to nudge. */
 .hero-video {
   position: absolute; top: 0; right: 0; bottom: 0; width: 66%;
   z-index: 0; overflow: hidden; pointer-events: none;
   container-type: size;
+  --cloud-at: 0.46;                     /* where the cloud sits in the video frame (0-1 from top) */
+  --cloud-y: calc(5.5rem + 32px);       /* logo centre: hero padding-top + half the 64px logo */
+  /* smallest size that still covers the box AND keeps the cloud at --cloud-y with no gap at the bottom */
+  --vh: max(100cqh, calc(100cqw * 9 / 16), calc((100cqh - var(--cloud-y)) / (1 - var(--cloud-at))));
   --fade-x: linear-gradient(to right,
-    transparent 0%, rgba(0,0,0,.04) 10%, rgba(0,0,0,.14) 22%, rgba(0,0,0,.34) 36%,
-    rgba(0,0,0,.6) 50%, rgba(0,0,0,.85) 66%, #000 82%);
+    transparent 0%, rgba(0,0,0,.35) 12%, rgba(0,0,0,.75) 26%, #000 42%);
   --fade-y: linear-gradient(to bottom,
-    transparent 0%, rgba(0,0,0,.5) 14%, #000 32%, #000 68%, rgba(0,0,0,.5) 86%, transparent 100%);
+    transparent 0%, #000 8%, #000 92%, transparent 100%);
   -webkit-mask-image: var(--fade-x), var(--fade-y);
   -webkit-mask-composite: source-in;
           mask-image: var(--fade-x), var(--fade-y);
           mask-composite: intersect;
 }
 .hero-video iframe {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-  /* cover a 16:9 frame inside the box (no letterbox bars) */
-  width: max(100cqw, calc(100cqh * 16 / 9));
-  height: max(100cqh, calc(100cqw * 9 / 16));
+  position: absolute; left: 50%;
+  height: var(--vh);
+  width: calc(var(--vh) * 16 / 9);
+  top: calc(var(--cloud-y) - var(--vh) * var(--cloud-at));
+  transform: translateX(-50%);
   border: none; pointer-events: none;
 }
 @media (max-width: 760px) {
-  .hero-video { width: 100%; opacity: .3; }
+  .hero-video { width: 100%; opacity: .55; }
 }
 
 /* ── Media placeholder ───────────────────────────────────── */

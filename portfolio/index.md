@@ -20,7 +20,7 @@ permalink: /portfolio/
   </div>
 </nav>
 
-<section class="hero hero-arcs">
+<section class="hero">
   <!-- Background Video Embed (Framerate) — right side, edges fade into --bg -->
   <div class="hero-video" aria-hidden="true">
     <iframe
