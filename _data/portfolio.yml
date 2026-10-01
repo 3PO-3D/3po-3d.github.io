@@ -1,7 +1,7 @@
 # Portfolio work pieces. Add an entry to add a piece. `key` must match the folder
 # under assets/img/portfolio/<key>/ (stills are no longer shown on the page; kept for reference).
 # `framerate` = Framerate embed UUID (the video is embedded on the page, always visible).
-# `crop_to: matte`  = picture is only the centred 56% of a square frame (black matte): zoom in to fill the box.
+# (optional, currently unused — crops break the player controls) `crop_to: matte`  = picture is only the centred 56% of a square frame (black matte): zoom in to fill the box.
 # `crop_to: pillar` = square picture in a 16:9 frame (black side bars): crop to the square (also set vaspect "1 / 1").
 # `autoplay: false` = start paused (default is muted autoplay loop). `behance_url` / `instagram_url` / `framerate_watch` are optional outbound links.
 # `details` = list of { name, desc } shown in the dropdown; `credits` = thank-you line (names, not handles).
@@ -13,8 +13,7 @@
   instagram_url: "https://www.instagram.com/reel/DbnkSS8OmTh/"
   framerate: "1ed0d354-1b4a-4ff8-a096-f366df1ddf28"
   framerate_watch: "https://framerate.tv/watch/jDrgpa9b"
-  crop_to: pillar
-  vaspect: "1 / 1"
+  vaspect: "16 / 9"
   blurb: >
     A 120-frame loop that started life as a quick exercise and grew from there. Rather than a
     product shot, I aimed for a graphic-design feel: flat angles, hard shadows and one soft,
@@ -38,8 +37,7 @@
   instagram_url: "https://www.instagram.com/p/DbLmEbGF0Bg/"
   framerate: "98e39384-bf84-4c50-bff8-173e5c7b3a79"
   framerate_watch: "https://framerate.tv/watch/pkf2yKo8"
-  crop_to: pillar
-  vaspect: "1 / 1"
+  vaspect: "16 / 9"
   blurb: >
     A tentacle character piece, made for the fun of playing with a great rig. I hope you like it —
     and if you don't, you know who to blame.
@@ -100,7 +98,6 @@
   behance_id: "251018153"
   behance_url: "https://www.behance.net/gallery/251018153/3PO-Cosmetic-Loop"
   framerate: "7d274d42-14e1-4c07-9b9c-ecd61ca3c754"
-  crop_to: matte   # file is 1080x1080 with the picture in the centre 56% (black matte)
   vaspect: "1 / 1"
   blurb: >
     A 7-second, 3-shot seamless loop built to double as a real product ad — fill, swing,
