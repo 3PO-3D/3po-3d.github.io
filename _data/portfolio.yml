@@ -3,7 +3,54 @@
 # `framerate` = Framerate embed UUID (the video is embedded on the page, always visible).
 # `crop_to: matte`  = picture is only the centred 56% of a square frame (black matte): zoom in to fill the box.
 # `crop_to: pillar` = square picture in a 16:9 frame (black side bars): crop to the square (also set vaspect "1 / 1").
-# `autoplay: false` = start paused (default is muted autoplay loop). `behance_url` / `framerate_watch` are optional outbound links.
+# `autoplay: false` = start paused (default is muted autoplay loop). `behance_url` / `instagram_url` / `framerate_watch` are optional outbound links.
+# `details` = list of { name, desc } shown in the dropdown; `credits` = thank-you line (names, not handles).
+# ORDER = display order: newest first.
+
+- key: continuum_study
+  title: "Continuum: Study 01"
+  category: "3D Animation"
+  instagram_url: "https://www.instagram.com/reel/DbnkSS8OmTh/"
+  framerate: "1ed0d354-1b4a-4ff8-a096-f366df1ddf28"
+  framerate_watch: "https://framerate.tv/watch/jDrgpa9b"
+  crop_to: pillar
+  vaspect: "1 / 1"
+  blurb: >
+    A 120-frame loop that started life as a quick exercise and grew from there. Rather than a
+    product shot, I aimed for a graphic-design feel: flat angles, hard shadows and one soft,
+    glowing element in the middle. No piece is ever truly finished — this is where I stopped.
+  details:
+    - { name: "Animation", desc: "120-frame loop, fully keyframed, no simulations." }
+    - { name: "The marble", desc: "The bounce and roll are the whole point — if it doesn't feel like it has weight, nothing else works. Most of the time went into roughly eight frames." }
+    - { name: "Materials", desc: "As simple as they can be. The tubes aren't glass: no transmission, just opacity — no refraction, no caustics, and faster renders. The aim was to stop the eye wandering over material detail on background surfaces, so there are no scratch or smudge textures, only gradients to break up a colour or guide the eye." }
+    - { name: "Composition", desc: "There isn't a single 0° line in the scene. Everything sits on one angle and the shadows run on another. The track is meant to feel endless, so nothing is allowed to act as a horizon for the eye to lock onto." }
+    - { name: "Colour", desc: "Everything is grey, or close to it. The only colour comes from two lights, which are also the only soft thing in an otherwise hard scene. That's deliberate: the hero gets the soft treatment, everything else gets edges." }
+    - { name: "Sound", desc: "A touch of sci-fi, with a small amount of sound design, just enough to tie the scene together." }
+  credits: >
+    Thanks again to Oscar Peterson — the marble jump idea came straight from watching his work.
+    Thanks to Daniel Meszaros (Subvertex) for constantly showing me things that make me want to
+    open Cinema 4D late at night. The background and scene setup were heavily inspired by
+    Peter Tarka — not claiming I got close, but that's where I was aiming.
+
+- key: eldritch_horror
+  title: "Eldritch Horror"
+  category: "3D Animation"
+  instagram_url: "https://www.instagram.com/p/DbLmEbGF0Bg/"
+  framerate: "98e39384-bf84-4c50-bff8-173e5c7b3a79"
+  framerate_watch: "https://framerate.tv/watch/pkf2yKo8"
+  crop_to: pillar
+  vaspect: "1 / 1"
+  blurb: >
+    A tentacle character piece, made for the fun of playing with a great rig. I hope you like it —
+    and if you don't, you know who to blame.
+  details:
+    - { name: "Rig", desc: "The tentacle rig is by Oscar Peterson." }
+    - { name: "Materials", desc: "Mostly custom — mostly, because lately I start from Greyscalegorilla materials for speed." }
+    - { name: "Eye", desc: "Model and texture by Pixelica CG." }
+  credits: >
+    Thanks to Oscar Peterson for the tutorials and the tentacle rig, and to Daniel Meszaros
+    (Subvertex) for always showing me something new to learn.
+
 - key: casio_vl_tone
   title: "Casio VL-Tone VL-1"
   category: "Product Animation"
@@ -22,25 +69,6 @@
     - "main_btn_colors_1.1.1.png"
     - "Blue_BTN_Closeup_1.4.1.png"
     - "Green_btn_Cpu_1.90.1.png"
-
-- key: cosmetic_loop
-  title: "Cosmetic Loop"
-  category: "Motion Graphics"
-  behance_id: "251018153"
-  behance_url: "https://www.behance.net/gallery/251018153/3PO-Cosmetic-Loop"
-  framerate: "7d274d42-14e1-4c07-9b9c-ecd61ca3c754"
-  crop_to: matte   # file is 1080x1080 with the picture in the centre 56% (black matte)
-  vaspect: "1 / 1"
-  blurb: >
-    A 7-second, 3-shot seamless loop built to double as a real product ad — fill, swing,
-    dispense, repeat. Honey-orange liquid on a green-leaf, bio-cosmetic palette, with the camera
-    holding on the logo just long enough to read. Template-ready for any product.
-  stills:
-    - "Bottle_1.1.1.png"
-    - "Pump_1.3.2.png"
-    - "Logo_liquid_1.2.1.png"
-    - "Logo_upclose_1.1.2.png"
-    - "Pump_1.3.2_1.3.3.png"
 
 - key: custom_insole
   title: "Custom Orthopedic Insole"
@@ -66,20 +94,21 @@
     - "Blue_2_2.1.2.png"
     - "Red_2.2.1_2.2.3.png"
 
-- key: continuum_study
-  title: "Continuum Study"
-  category: "3D Animation"
-  framerate: "1ed0d354-1b4a-4ff8-a096-f366df1ddf28"
-  crop_to: pillar
-  framerate_watch: "https://framerate.tv/watch/jDrgpa9b"
+- key: cosmetic_loop
+  title: "Cosmetic Loop"
+  category: "Motion Graphics"
+  behance_id: "251018153"
+  behance_url: "https://www.behance.net/gallery/251018153/3PO-Cosmetic-Loop"
+  framerate: "7d274d42-14e1-4c07-9b9c-ecd61ca3c754"
+  crop_to: matte   # file is 1080x1080 with the picture in the centre 56% (black matte)
   vaspect: "1 / 1"
-  blurb: ""
-
-- key: eldritch_horror
-  title: "Eldritch Horror"
-  category: "3D Animation"
-  framerate: "98e39384-bf84-4c50-bff8-173e5c7b3a79"
-  crop_to: pillar
-  framerate_watch: "https://framerate.tv/watch/pkf2yKo8"
-  vaspect: "1 / 1"
-  blurb: ""
+  blurb: >
+    A 7-second, 3-shot seamless loop built to double as a real product ad — fill, swing,
+    dispense, repeat. Honey-orange liquid on a green-leaf, bio-cosmetic palette, with the camera
+    holding on the logo just long enough to read. Template-ready for any product.
+  stills:
+    - "Bottle_1.1.1.png"
+    - "Pump_1.3.2.png"
+    - "Logo_liquid_1.2.1.png"
+    - "Logo_upclose_1.1.2.png"
+    - "Pump_1.3.2_1.3.3.png"

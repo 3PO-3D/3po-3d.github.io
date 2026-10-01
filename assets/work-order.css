@@ -345,7 +345,7 @@
 .pf-clips { display: flex; flex-direction: column; gap: clamp(2rem, 5vw, 3.5rem); }
 .pf-clip { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: clamp(.6rem, 2vw, 1.25rem); align-items: start; }
 .pf-clip__chev {
-  width: 40px; height: 40px; margin-top: 2px; flex-shrink: 0; border-radius: 50%; cursor: pointer;
+  width: 40px; height: 40px; margin-top: -3px; flex-shrink: 0; border-radius: 50%; cursor: pointer;
   border: var(--bw) solid var(--hairline); background: transparent; color: var(--muted);
   display: flex; align-items: center; justify-content: center;
   transition: transform .25s, border-color .15s, color .15s, background .15s;
@@ -363,7 +363,7 @@
 .pf-clip--crop-pillar .pf-clip__video iframe { inset: auto; top: 0; left: 50%; width: 177.7778%; height: 100%; transform: translateX(-50%); }
 .pf-clip__head {
   display: flex; align-items: baseline; flex-wrap: wrap; gap: .35rem 1rem; width: 100%; max-width: 960px;
-  margin-top: .9rem; padding: 0; text-align: left; cursor: pointer; background: transparent; border: 0; color: var(--text);
+  margin-bottom: .9rem; padding: 0; text-align: left; cursor: pointer; background: transparent; border: 0; color: var(--text);
 }
 .pf-clip__num { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .2em; color: var(--accent); }
 .pf-clip__title { font-family: var(--font-head); font-weight: 700; font-size: clamp(1.25rem, 2.6vw, 1.7rem); line-height: 1.1; }
@@ -371,7 +371,9 @@
 .pf-clip__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s cubic-bezier(.4,0,.2,1); max-width: 960px; }
 .pf-clip.is-open .pf-clip__panel { grid-template-rows: 1fr; }
 .pf-clip__panel-inner { overflow: hidden; min-height: 0; }
-.pf-clip__panel-pad { padding: 1rem 0 .25rem; display: grid; gap: 1rem; }
+.pf-clip__panel-pad { padding: 1.1rem 0 .25rem; display: grid; gap: 1rem; }
+.pf-clip__panel-pad .pf-proj__desc p + p { margin-top: .6rem; }
+.pf-clip__credits p { font-size: .92rem; font-style: italic; }
 .pf-clip__links { display: flex; flex-wrap: wrap; gap: .6rem; }
 @media (max-width: 560px) {
   .pf-clip { grid-template-columns: 34px minmax(0, 1fr); }

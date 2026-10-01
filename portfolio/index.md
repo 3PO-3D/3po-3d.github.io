@@ -63,19 +63,22 @@ permalink: /portfolio/
       <article class="pf-clip{% if fr_asp == '1 / 1' %} pf-clip--sq{% endif %}{% if p.crop_to %} pf-clip--crop-{{ p.crop_to }}{% endif %}" id="{{ p.key }}">
         <button class="pf-clip__chev" type="button" aria-expanded="false" aria-controls="{{ p.key }}-panel" aria-label="Show details: {{ p.title }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
         <div class="pf-clip__main">
-          <div class="pf-clip__video" style="aspect-ratio:{{ fr_asp }}">
-            <iframe src="https://framerate.tv/embed/{{ p.framerate }}?{{ fr_ap }}{{ fr_common }}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="{{ p.title }}"></iframe>
-          </div>
           <button class="pf-clip__head" type="button" aria-expanded="false" aria-controls="{{ p.key }}-panel">
             <span class="pf-clip__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
             <span class="pf-clip__title">{{ p.title }}</span>
             <span class="pf-clip__cat">{{ p.category }}</span>
           </button>
+          <div class="pf-clip__video" style="aspect-ratio:{{ fr_asp }}">
+            <iframe src="https://framerate.tv/embed/{{ p.framerate }}?{{ fr_ap }}{{ fr_common }}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="{{ p.title }}"></iframe>
+          </div>
           <div class="pf-clip__panel" id="{{ p.key }}-panel"><div class="pf-clip__panel-inner"><div class="pf-clip__panel-pad">
             {% if p.blurb != blank %}<div class="pf-proj__desc"><p>{{ p.blurb }}</p></div>{% endif %}
+            {% if p.details %}<div class="pf-proj__desc">{% for d in p.details %}<p><strong>{{ d.name }}</strong> — {{ d.desc }}</p>{% endfor %}</div>{% endif %}
             {% if p.variants %}<div class="pf-proj__desc">{% for v in p.variants %}<p><strong>{{ v.name }}</strong> — {{ v.desc }}</p>{% endfor %}</div>{% endif %}
+            {% if p.credits %}<div class="pf-proj__desc pf-clip__credits"><p>{{ p.credits }}</p></div>{% endif %}
             <div class="pf-clip__links">
               {% if p.behance_url %}<a class="pf-behance" href="{{ p.behance_url }}" target="_blank" rel="noopener"><img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="">View on Behance <span class="ext">&#8599;</span></a>{% endif %}
+              {% if p.instagram_url %}<a class="pf-behance" href="{{ p.instagram_url }}" target="_blank" rel="noopener"><img src="{{ '/assets/icons/Instagram.svg' | relative_url }}" alt="">View on Instagram <span class="ext">&#8599;</span></a>{% endif %}
               {% if p.framerate_watch %}<a class="pf-behance" href="{{ p.framerate_watch }}" target="_blank" rel="noopener">Watch on Framerate <span class="ext">&#8599;</span></a>{% endif %}
             </div>
           </div></div></div>
