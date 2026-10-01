@@ -21,16 +21,21 @@ permalink: /portfolio/
 </nav>
 
 <section class="hero">
-  <!-- Background Video Embed (Framerate) — right side, edges fade into --bg -->
-  <div class="hero-video" aria-hidden="true">
-    <iframe
-      src="https://framerate.tv/embed/224fa1e3-e25c-462c-98ae-d5d6142e6a89?background=1"
-      allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      loading="lazy"
-      tabindex="-1"
-      title="Cloud animation"
-    ></iframe>
+  <!-- Hero stage: CSS panel wall + Framerate cloud video (cropped to its square), edges feathered into the wall -->
+  <div class="hero-stage" aria-hidden="true">
+    <div class="hero-stage__in">
+      <div class="hero-wall"></div>
+      <div class="hero-video">
+        <iframe
+          src="https://framerate.tv/embed/224fa1e3-e25c-462c-98ae-d5d6142e6a89?background=1"
+          allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          loading="lazy"
+          tabindex="-1"
+          title="Cloud animation"
+        ></iframe>
+      </div>
+    </div>
   </div>
   <div class="container">
     <img class="hero-mark" src="{{ '/assets/img/logos/Portfolio/portfolio_head.svg' | relative_url }}" alt="Portfolio" style="height:64px;margin-bottom:1.6rem;">
@@ -49,34 +54,32 @@ permalink: /portfolio/
     <div class="section-head">
       <p class="mono-label">Selected Work</p>
       <h2>Recent pieces.</h2>
-      <p class="lead">Each piece runs as a live banner. Click one to open the full, playable film, the write-up, and the <strong>View on Behance</strong> link — the only link that leaves the site.</p>
+      <p class="lead">Every piece plays right here. Open the arrow beside a film for the write-up and links.</p>
     </div>
 
-    <div class="pf-projects pl-banner" id="work-projects">
-      {% for p in site.data.portfolio %}{% assign base = '/assets/img/portfolio/' | append: p.key | append: '/' %}
-      <article class="pf-proj pf-banner" id="{{ p.key }}">
-        <div class="pf-proj__row pf-banner__row" role="button" tabindex="0" aria-expanded="false" aria-label="Expand {{ p.title }}">
-          <div class="pf-banner__bg" data-carousel data-interval="5000">
-            {% for s in p.stills %}<img class="pf-banner__img{% if forloop.first %} is-active{% endif %}" src="{{ base | append: s | relative_url }}" loading="lazy" alt="" aria-hidden="true">{% endfor %}
+    {% assign fr_common = 'play_btn=0&amp;time_range=0&amp;time_disp=0&amp;airplay_btn=0&amp;pip_btn=0&amp;no_thumbs=1&amp;initial_play_btn=0&amp;accent_color=%23f0eae0&amp;primary_color=%2344b39d&amp;track_color=%23f0eae0&amp;control_bar_border_radius=25&amp;control_bar_padding=20&amp;theme=minimal' %}
+    <div class="pf-clips" id="work-projects">
+      {% for p in site.data.portfolio %}{% if p.autoplay == false %}{% assign fr_ap = '' %}{% else %}{% assign fr_ap = 'autoplay=1&amp;muted=1&amp;loop=1&amp;' %}{% endif %}{% assign fr_asp = p.vaspect | default: '16 / 9' %}
+      <article class="pf-clip{% if fr_asp == '1 / 1' %} pf-clip--sq{% endif %}{% if p.crop_to %} pf-clip--crop-{{ p.crop_to }}{% endif %}" id="{{ p.key }}">
+        <button class="pf-clip__chev" type="button" aria-expanded="false" aria-controls="{{ p.key }}-panel" aria-label="Show details: {{ p.title }}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        <div class="pf-clip__main">
+          <div class="pf-clip__video" style="aspect-ratio:{{ fr_asp }}">
+            <iframe src="https://framerate.tv/embed/{{ p.framerate }}?{{ fr_ap }}{{ fr_common }}" loading="lazy" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen title="{{ p.title }}"></iframe>
           </div>
-          <div class="pf-banner__veil"></div>
-          <div class="pf-banner__meta">
-            <span class="pf-banner__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
-            <h3 class="pf-banner__title">{{ p.title }}</h3>
-            <span class="pf-banner__cat">{{ p.category }}</span>
-          </div>
-          <span class="pf-proj__chev pf-banner__chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span>
+          <button class="pf-clip__head" type="button" aria-expanded="false" aria-controls="{{ p.key }}-panel">
+            <span class="pf-clip__num">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>
+            <span class="pf-clip__title">{{ p.title }}</span>
+            <span class="pf-clip__cat">{{ p.category }}</span>
+          </button>
+          <div class="pf-clip__panel" id="{{ p.key }}-panel"><div class="pf-clip__panel-inner"><div class="pf-clip__panel-pad">
+            {% if p.blurb != blank %}<div class="pf-proj__desc"><p>{{ p.blurb }}</p></div>{% endif %}
+            {% if p.variants %}<div class="pf-proj__desc">{% for v in p.variants %}<p><strong>{{ v.name }}</strong> — {{ v.desc }}</p>{% endfor %}</div>{% endif %}
+            <div class="pf-clip__links">
+              {% if p.behance_url %}<a class="pf-behance" href="{{ p.behance_url }}" target="_blank" rel="noopener"><img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="">View on Behance <span class="ext">&#8599;</span></a>{% endif %}
+              {% if p.framerate_watch %}<a class="pf-behance" href="{{ p.framerate_watch }}" target="_blank" rel="noopener">Watch on Framerate <span class="ext">&#8599;</span></a>{% endif %}
+            </div>
+          </div></div></div>
         </div>
-        <div class="pf-proj__panel"><div class="pf-proj__panel-inner"><div class="pf-proj__panel-pad pf-banner__pad">
-          <div class="pf-proj__desc">
-            <p>{{ p.blurb }}</p>
-            {% if p.variants %}{% for v in p.variants %}<p><strong>{{ v.name }}</strong> — {{ v.desc }}</p>{% endfor %}{% endif %}
-          </div>
-          {% if p.framerate %}<div class="pf-proj__video pf-banner__video"{% if p.vaspect %} style="aspect-ratio:{{ p.vaspect }}"{% endif %}>
-            <iframe data-vsrc="https://framerate.tv/embed/{{ p.framerate }}?autoplay=1&loop=1&theme=minimal" loading="lazy" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="{{ p.title }}"></iframe>
-          </div>{% endif %}
-          <a class="pf-behance" href="{{ p.behance_url }}" target="_blank" rel="noopener"><img src="{{ '/assets/icons/behance.svg' | relative_url }}" alt="">View on Behance <span class="ext">&#8599;</span></a>
-        </div></div></div>
       </article>
       {% endfor %}
     </div>

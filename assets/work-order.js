@@ -19,6 +19,23 @@
         row.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
+    /* ── PORTFOLIO: clips (video always visible; chevron/caption toggle the details) ── */
+    function setClip(clip, open) {
+      clip.classList.toggle('is-open', open);
+      clip.querySelectorAll('.pf-clip__chev, .pf-clip__head').forEach(function (b) { b.setAttribute('aria-expanded', open ? 'true' : 'false'); });
+    }
+    document.querySelectorAll('.pf-clip').forEach(function (clip) {
+      clip.querySelectorAll('.pf-clip__chev, .pf-clip__head').forEach(function (btn) {
+        btn.addEventListener('click', function () { setClip(clip, !clip.classList.contains('is-open')); });
+      });
+    });
+    if (location.hash.length > 1) {
+      var hc = document.getElementById(location.hash.slice(1));
+      if (hc && hc.classList.contains('pf-clip')) {
+        setClip(hc, true);
+        setTimeout(function () { hc.scrollIntoView({ behavior: 'smooth', block: 'center' }); }, 250);
+      }
+    }
     // Banner stills crossfade carousel (~5s) — runs behind each project banner.
     document.querySelectorAll('[data-carousel]').forEach(function (bg) {
       var imgs = bg.querySelectorAll('.pf-banner__img');

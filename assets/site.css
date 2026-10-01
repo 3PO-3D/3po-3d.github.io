@@ -328,37 +328,63 @@ p { text-wrap: pretty; }
           mask-image: radial-gradient(circle at 80% 14%, #000, transparent 92%);
 }
 
-/* Hero background video (Framerate embed) — right side, scaled to COVER, edges feather into --bg.
-   The video has a solid panel-wall ground (no alpha), so blending = a feather.
-   Framing: the video is enlarged as needed and shifted up so the cloud (~46% down the frame)
-   sits level with the hero logo. Tweak --cloud-y / --cloud-at to nudge. */
+/* ── Hero stage (portfolio) ─────────────────────────────────────────────
+   A CSS-built perforated-panel wall (same grid + dots as the cloud video) fills the hero;
+   the Framerate cloud video sits on it, cropped to its square (it is 1080x1080 inside a
+   1920x1080 frame with black pillarbox bars) and feathered into the wall, so there is no
+   visible video edge. Wall tiles are aligned to the video's tile grid via shared vars.
+   Framing: the video is sized/shifted so the cloud (44% down its square) sits level with
+   the logo (--cy). Tweak --cy / --cloud-at to nudge; --vid-grade to colour-match. */
+.hero-stage { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; container-type: size; }
+.hero-stage__in {
+  position: absolute; inset: 0;
+  --cloud-at: .44;
+  --cy: calc(5.5rem + 32px);
+  --S:  max(100cqh, calc((100cqh - var(--cy)) / (1 - var(--cloud-at))));   /* video square side */
+  --sx: calc(100cqw - var(--S));                                           /* square left (right-anchored) */
+  --sy: calc(var(--cy) - var(--S) * var(--cloud-at));                      /* square top */
+  --T:  calc(var(--S) / 5.95);                                             /* video tile size */
+  --wall: #e1d6c6; --wall-seam: rgba(var(--text-rgb), .24); --wall-dot: rgba(var(--text-rgb), .22);
+  --wall-glow: rgba(255,255,255,.30); --wall-deep: #9c8e88;   /* --wall-deep = graded video panel colour */
+  --vid-grade: sepia(.32) brightness(1.04);
+}
+[data-theme="dark"] .hero-stage__in {
+  --wall: #261b16; --wall-seam: rgba(240,225,205,.13); --wall-dot: rgba(240,225,205,.11);
+  --wall-glow: rgba(255,235,215,.06); --wall-deep: #59514e;
+  --vid-grade: sepia(.3) brightness(.62);
+}
+.hero-wall {
+  position: absolute; inset: 0; background-color: var(--wall);
+  /* top → bottom: dots, seams, light pool, then the wall darkening toward the video (matches its lit/shaded panels) */
+  background-image:
+    radial-gradient(circle, var(--wall-dot) 0 .9px, transparent 1.35px),
+    linear-gradient(to right,  var(--wall-seam) 0 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--wall-seam) 0 1.5px, transparent 1.5px),
+    radial-gradient(circle at calc(var(--sx) + var(--S) * .5) calc(var(--sy) + var(--S) * .44), var(--wall-glow), transparent calc(var(--S) * .9)),
+    linear-gradient(to right, transparent calc(var(--sx) - var(--S) * .22), var(--wall-deep) calc(var(--sx) + var(--S) * .3));
+  background-size: calc(var(--T) / 11) calc(var(--T) / 11), var(--T) var(--T), var(--T) var(--T), auto, auto;
+  background-position:
+    calc(var(--sx) + var(--T) / 22) calc(var(--sy) + var(--S) * .0194 + var(--T) / 22),
+    var(--sx) calc(var(--sy) + var(--S) * .0194), var(--sx) calc(var(--sy) + var(--S) * .0194), 0 0, 0 0;
+}
 .hero-video {
-  position: absolute; top: 0; right: 0; bottom: 0; width: 66%;
-  z-index: 0; overflow: hidden; pointer-events: none;
-  container-type: size;
-  --cloud-at: 0.46;                     /* where the cloud sits in the video frame (0-1 from top) */
-  --cloud-y: calc(5.5rem + 32px);       /* logo centre: hero padding-top + half the 64px logo */
-  /* smallest size that still covers the box AND keeps the cloud at --cloud-y with no gap at the bottom */
-  --vh: max(100cqh, calc(100cqw * 9 / 16), calc((100cqh - var(--cloud-y)) / (1 - var(--cloud-at))));
-  --fade-x: linear-gradient(to right,
-    transparent 0%, rgba(0,0,0,.35) 12%, rgba(0,0,0,.75) 26%, #000 42%);
-  --fade-y: linear-gradient(to bottom,
-    transparent 0%, #000 8%, #000 92%, transparent 100%);
-  -webkit-mask-image: var(--fade-x), var(--fade-y);
-  -webkit-mask-composite: source-in;
-          mask-image: var(--fade-x), var(--fade-y);
-          mask-composite: intersect;
+  position: absolute; left: var(--sx); top: var(--sy); width: var(--S); height: var(--S);
+  overflow: hidden; filter: var(--vid-grade);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, rgba(0,0,0,.45) 12%, rgba(0,0,0,.85) 26%, #000 40%);
+          mask-image: linear-gradient(to right, transparent 0, rgba(0,0,0,.45) 12%, rgba(0,0,0,.85) 26%, #000 40%);
 }
 .hero-video iframe {
-  position: absolute; left: 50%;
-  height: var(--vh);
-  width: calc(var(--vh) * 16 / 9);
-  top: calc(var(--cloud-y) - var(--vh) * var(--cloud-at));
-  transform: translateX(-50%);
-  border: none; pointer-events: none;
+  position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  height: 100%; width: calc(var(--S) * 16 / 9); border: 0; pointer-events: none;
 }
 @media (max-width: 760px) {
-  .hero-video { width: 100%; opacity: .55; }
+  /* phone: video centred behind the text; it brings its own seams, so the wall stays plain beige underneath */
+  html[data-theme] .hero-stage__in { --sx: calc((100cqw - var(--S)) / 2); --wall-seam: transparent; --wall-dot: transparent; --wall-deep: transparent; --wall-glow: transparent; }
+  .hero-video {
+    opacity: .38;
+    -webkit-mask-image: linear-gradient(to right, transparent 0, #000 28%, #000 72%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0, #000 28%, #000 72%, transparent 100%);
+  }
 }
 
 /* ── Media placeholder ───────────────────────────────────── */
