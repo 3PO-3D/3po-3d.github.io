@@ -7,6 +7,22 @@
 # `details` = list of { name, desc } shown in the dropdown; `credits` = thank-you line (names, not handles).
 # ORDER = display order: newest first.
 
+- key: smirnoff_ice_smash
+  title: "Smirnoff Ice Smash"
+  category: "Commercial · 3D"
+  instagram_url: "https://www.instagram.com/reel/De2Lu0EB74h/"
+  framerate: "dcb18a5f-b46e-4ce6-9ed0-5d67460a72f6"
+  vaspect: "16 / 9"
+  blurb: >
+    Big thanks to Daniel Meszaros for bringing me in, and to PostScript Creative and Smirnoff
+    for having me. I'm super grateful to have worked on such an awesome project.
+  details:
+    - { name: "The ice", desc: "I had a big hand in the custom ice material. It's built to read as a real, solid block of ice: the snow is texture displacement, and the transmission is layered from several noises with different transmission weights and depths stacked together. That stack is where the deep blues come from, with lighter tones in the upper layers." }
+    - { name: "Lighting", desc: "The gobo lighting system got adjusted endlessly, by Daniel and me, until it sat right." }
+    - { name: "Droplets", desc: "The droplets on the can, and the way they interact with each other, were done in Houdini by Daniel." }
+  credits: >
+    All in all, a fun little project, and one I'm happy to have been part of.
+
 - key: continuum_study
   title: "Continuum: Study 01"
   category: "3D Animation"
